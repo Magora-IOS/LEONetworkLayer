@@ -1,5 +1,13 @@
 PODS:
-  - LEONetworkLayer (0.1.0)
+  - Alamofire (4.6.0)
+  - AlamofireObjectMapper (5.0.0):
+    - Alamofire (~> 4.1)
+    - ObjectMapper (~> 3.0)
+  - LEONetworkLayer (0.1.0):
+    - Alamofire (~> 4.6.0)
+    - AlamofireObjectMapper (~> 5.0.0)
+    - ObjectMapper (~> 3.1.0)
+  - ObjectMapper (3.1.0)
 
 DEPENDENCIES:
   - LEONetworkLayer (from `../`)
@@ -9,7 +17,10 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  LEONetworkLayer: 8ba22fb7e788a755fc89d0aeaff60426f09886ba
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
+  LEONetworkLayer: 8c57609b54fecbbceff08801cf1542dce0d91333
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
 
 PODFILE CHECKSUM: b6f4fe37d0800e81ca495b53859ad668f6cc71ea
 
