@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'LEONetworkLayer_Example' do
+  pod 'LEONetworkLayer', :path => '../'
+
+  target 'LEONetworkLayer_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
