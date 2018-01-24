@@ -15,6 +15,25 @@
 		C7C9243D20173A2E00C49B56 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C9243520173A2E00C49B56 /* LaunchScreen.xib */; };
 		C7C9243E20173A2E00C49B56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C9243720173A2E00C49B56 /* ViewController.swift */; };
 		C7C9243F20173A2E00C49B56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7C9243820173A2E00C49B56 /* Main.storyboard */; };
+		C7CB122D201886090010F2CD /* AuthorizationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB121E201886090010F2CD /* AuthorizationHandler.swift */; };
+		C7CB122E201886090010F2CD /* UserProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1221201886090010F2CD /* UserProfileDTO.swift */; };
+		C7CB122F201886090010F2CD /* LEOResetPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1222201886090010F2CD /* LEOResetPasswordResponse.swift */; };
+		C7CB1230201886090010F2CD /* LEOLogInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1223201886090010F2CD /* LEOLogInRequest.swift */; };
+		C7CB1231201886090010F2CD /* LEORegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1224201886090010F2CD /* LEORegistrationRequest.swift */; };
+		C7CB1232201886090010F2CD /* LEOCreatePasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1225201886090010F2CD /* LEOCreatePasswordResponse.swift */; };
+		C7CB1233201886090010F2CD /* NetworkLayerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1226201886090010F2CD /* NetworkLayerError.swift */; };
+		C7CB1234201886090010F2CD /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1228201886090010F2CD /* ProfileRouter.swift */; };
+		C7CB1235201886090010F2CD /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1229201886090010F2CD /* AuthRouter.swift */; };
+		C7CB1236201886090010F2CD /* RequestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB122A201886090010F2CD /* RequestRouter.swift */; };
+		C7CB1237201886090010F2CD /* RestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB122B201886090010F2CD /* RestRouter.swift */; };
+		C7CB1238201886090010F2CD /* RestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB122C201886090010F2CD /* RestProvider.swift */; };
+		C7CB123A201888D30010F2CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1239201888D30010F2CD /* Constants.swift */; };
+		C7CB123E20188B030010F2CD /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB123B20188B020010F2CD /* AuthService.swift */; };
+		C7CB123F20188B030010F2CD /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB123C20188B030010F2CD /* ProfileService.swift */; };
+		C7CB124020188B030010F2CD /* RxRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB123D20188B030010F2CD /* RxRequestService.swift */; };
+		C7CB124620188FF00010F2CD /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB124220188FEF0010F2CD /* Storage.swift */; };
+		C7CB124720188FF00010F2CD /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB124420188FEF0010F2CD /* UserProfile.swift */; };
+		C7CB124820188FF00010F2CD /* AuthStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB124520188FEF0010F2CD /* AuthStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +66,25 @@
 		C7C9243520173A2E00C49B56 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		C7C9243720173A2E00C49B56 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C7C9243820173A2E00C49B56 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C7CB121E201886090010F2CD /* AuthorizationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationHandler.swift; sourceTree = "<group>"; };
+		C7CB1221201886090010F2CD /* UserProfileDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileDTO.swift; sourceTree = "<group>"; };
+		C7CB1222201886090010F2CD /* LEOResetPasswordResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOResetPasswordResponse.swift; sourceTree = "<group>"; };
+		C7CB1223201886090010F2CD /* LEOLogInRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOLogInRequest.swift; sourceTree = "<group>"; };
+		C7CB1224201886090010F2CD /* LEORegistrationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEORegistrationRequest.swift; sourceTree = "<group>"; };
+		C7CB1225201886090010F2CD /* LEOCreatePasswordResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCreatePasswordResponse.swift; sourceTree = "<group>"; };
+		C7CB1226201886090010F2CD /* NetworkLayerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLayerError.swift; sourceTree = "<group>"; };
+		C7CB1228201886090010F2CD /* ProfileRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		C7CB1229201886090010F2CD /* AuthRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
+		C7CB122A201886090010F2CD /* RequestRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRouter.swift; sourceTree = "<group>"; };
+		C7CB122B201886090010F2CD /* RestRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRouter.swift; sourceTree = "<group>"; };
+		C7CB122C201886090010F2CD /* RestProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestProvider.swift; sourceTree = "<group>"; };
+		C7CB1239201888D30010F2CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C7CB123B20188B020010F2CD /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		C7CB123C20188B030010F2CD /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		C7CB123D20188B030010F2CD /* RxRequestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxRequestService.swift; sourceTree = "<group>"; };
+		C7CB124220188FEF0010F2CD /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		C7CB124420188FEF0010F2CD /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		C7CB124520188FEF0010F2CD /* AuthStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +137,7 @@
 				C7C9243020173A2E00C49B56 /* NetworkLayer */,
 				C7C9242E20173A2E00C49B56 /* Resources */,
 				C7C9242B20173A2E00C49B56 /* Services */,
+				C7CB124120188FEF0010F2CD /* Storages */,
 				C7C9243320173A2E00C49B56 /* Workflows */,
 			);
 			name = "Example for LEONetworkLayer";
@@ -144,6 +183,9 @@
 		C7C9242B20173A2E00C49B56 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C7CB123B20188B020010F2CD /* AuthService.swift */,
+				C7CB123C20188B030010F2CD /* ProfileService.swift */,
+				C7CB123D20188B030010F2CD /* RxRequestService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -167,6 +209,10 @@
 		C7C9243020173A2E00C49B56 /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				C7CB122C201886090010F2CD /* RestProvider.swift */,
+				C7CB121E201886090010F2CD /* AuthorizationHandler.swift */,
+				C7CB121F201886090010F2CD /* Models */,
+				C7CB1227201886090010F2CD /* Routers */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -175,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				C7C9243220173A2E00C49B56 /* Info.plist */,
+				C7CB1239201888D30010F2CD /* Constants.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -210,6 +257,56 @@
 			children = (
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		C7CB121F201886090010F2CD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C7CB1220201886090010F2CD /* DTO */,
+				C7CB1222201886090010F2CD /* LEOResetPasswordResponse.swift */,
+				C7CB1223201886090010F2CD /* LEOLogInRequest.swift */,
+				C7CB1224201886090010F2CD /* LEORegistrationRequest.swift */,
+				C7CB1225201886090010F2CD /* LEOCreatePasswordResponse.swift */,
+				C7CB1226201886090010F2CD /* NetworkLayerError.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C7CB1220201886090010F2CD /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				C7CB1221201886090010F2CD /* UserProfileDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		C7CB1227201886090010F2CD /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				C7CB1228201886090010F2CD /* ProfileRouter.swift */,
+				C7CB1229201886090010F2CD /* AuthRouter.swift */,
+				C7CB122A201886090010F2CD /* RequestRouter.swift */,
+				C7CB122B201886090010F2CD /* RestRouter.swift */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		C7CB124120188FEF0010F2CD /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				C7CB124220188FEF0010F2CD /* Storage.swift */,
+				C7CB124320188FEF0010F2CD /* Models */,
+				C7CB124520188FEF0010F2CD /* AuthStorage.swift */,
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
+		C7CB124320188FEF0010F2CD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C7CB124420188FEF0010F2CD /* UserProfile.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		D59D75258EAF77CA7F54A987 /* Pods */ = {
@@ -386,14 +483,24 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/LEONetworkLayer/LEONetworkLayer.framework",
+				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LEONetworkLayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -440,8 +547,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7CB1232201886090010F2CD /* LEOCreatePasswordResponse.swift in Sources */,
 				C7C9243E20173A2E00C49B56 /* ViewController.swift in Sources */,
+				C7CB1233201886090010F2CD /* NetworkLayerError.swift in Sources */,
+				C7CB124620188FF00010F2CD /* Storage.swift in Sources */,
+				C7CB122F201886090010F2CD /* LEOResetPasswordResponse.swift in Sources */,
+				C7CB1234201886090010F2CD /* ProfileRouter.swift in Sources */,
+				C7CB123A201888D30010F2CD /* Constants.swift in Sources */,
+				C7CB1231201886090010F2CD /* LEORegistrationRequest.swift in Sources */,
+				C7CB123F20188B030010F2CD /* ProfileService.swift in Sources */,
 				C7C9243A20173A2E00C49B56 /* AppDelegate.swift in Sources */,
+				C7CB124020188B030010F2CD /* RxRequestService.swift in Sources */,
+				C7CB122E201886090010F2CD /* UserProfileDTO.swift in Sources */,
+				C7CB124720188FF00010F2CD /* UserProfile.swift in Sources */,
+				C7CB1237201886090010F2CD /* RestRouter.swift in Sources */,
+				C7CB1236201886090010F2CD /* RequestRouter.swift in Sources */,
+				C7CB1238201886090010F2CD /* RestProvider.swift in Sources */,
+				C7CB1235201886090010F2CD /* AuthRouter.swift in Sources */,
+				C7CB1230201886090010F2CD /* LEOLogInRequest.swift in Sources */,
+				C7CB122D201886090010F2CD /* AuthorizationHandler.swift in Sources */,
+				C7CB124820188FF00010F2CD /* AuthStorage.swift in Sources */,
+				C7CB123E20188B030010F2CD /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +699,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -588,6 +715,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};

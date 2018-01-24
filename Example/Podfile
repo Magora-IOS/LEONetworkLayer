@@ -1,13 +1,20 @@
 use_frameworks!
-
 platform :ios, '9.3'
 
-target 'LEONetworkLayer_Example' do
-  pod 'LEONetworkLayer', :path => '../'
 
+
+target 'LEONetworkLayer_Example' do
+  
+  pod 'LEONetworkLayer', :path => '../'
+  pod 'RxSwift', '~> 4.0.0'
+  pod 'RxCocoa', '~> 4.0.0'
+  pod 'OHHTTPStubs', '~> 6.0', :configuration => 'Debug'
+  pod 'OHHTTPStubs/Swift', '~> 6.0', :configuration => 'Debug'
+  pod 'RealmSwift', '~> 3.0'
+  
   target 'LEONetworkLayer_Tests' do
     inherit! :search_paths
-
-    
   end
+  
+  
 end
