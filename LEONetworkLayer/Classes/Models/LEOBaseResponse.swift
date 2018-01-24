@@ -1,7 +1,7 @@
 import ObjectMapper
 
 
-enum LEOApiGlobalErrorCode: String {
+public enum LEOApiGlobalErrorCode: String {
     case success = "success"
     case businessConflict = "business_conflict"
     case unprocessableEntity = "unprocessable_entity"
@@ -15,14 +15,14 @@ enum LEOApiGlobalErrorCode: String {
 
 
 
-class LEOBaseResponse: ImmutableMappable {
+open class LEOBaseResponse: ImmutableMappable {
     
     let code: LEOApiGlobalErrorCode
     let message: String?
     let errors: [LEOError]?
     
     
-    required init(map: Map) throws {
+    required public init(map: Map) throws {
         code = try map.value("code", using: EnumTransform<LEOApiGlobalErrorCode>())
         message = try? map.value("message")
         errors = try? map.value("errors")

@@ -25,7 +25,7 @@ enum LEOApiErrorCode: String {
 }
 
 
-class LEOError: ImmutableMappable {
+public class LEOError: ImmutableMappable {
     
     let code: LEOApiErrorCode
     let message: String
@@ -33,7 +33,7 @@ class LEOError: ImmutableMappable {
     
 
     
-    required init(map: Map) throws {
+    public required init(map: Map) throws {
         code = try map.value("code", using: EnumTransform<LEOApiErrorCode>())
         message = try map.value("message")
         field = try? map.value("field")

@@ -2,15 +2,17 @@ import Alamofire
 import AlamofireObjectMapper
 import ObjectMapper
 
-enum Response<T> {
+public enum Response<T> {
     case Success(T)
     case Error(Error)
 }
 
+
+
 extension DataRequest {
     
     @discardableResult
-    internal func responseLEO<T: LEOBaseResponse>( completionHandler: @escaping (Response<T>) -> Void) -> Self {
+    public func responseLEO<T: LEOBaseResponse>( completionHandler: @escaping (Response<T>) -> Void) -> Self {
         return self.responseObject { (dataResponse: DataResponse<T>) in
             
             switch dataResponse.result {

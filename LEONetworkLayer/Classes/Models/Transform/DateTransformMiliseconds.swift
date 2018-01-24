@@ -2,6 +2,10 @@ import ObjectMapper
 
 open class DateTransformMiliseconds: TransformType {
     
+    public init() {        
+    }
+    
+    
     open func transformFromJSON(_ value: Any?) -> Date? {
         if let timeInt = value as? Double {
             return Date(timeIntervalSince1970: TimeInterval(timeInt / 1000.0))

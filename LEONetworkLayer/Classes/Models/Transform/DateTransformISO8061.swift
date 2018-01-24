@@ -1,18 +1,18 @@
 import ObjectMapper
 
-class DateTransformISO8061: TransformType {
+public class DateTransformISO8061: TransformType {
 	
 	var zeroTimezone: Bool = false
     var dateFormat: String = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
     
-	init(zeroTimezone: Bool = true) {
+	public init(zeroTimezone: Bool = true) {
 		if zeroTimezone {
 			self.zeroTimezone = true
 			dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 		}
 	}
     
-    init(withFormat format: String) {
+    public init(withFormat format: String) {
         dateFormat = format
     }
     
