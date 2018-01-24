@@ -49,7 +49,7 @@ extension DataRequest {
         guard let jsonData = data, let jsonString = String(data: jsonData, encoding: .utf8) else {
             return NetworkLayerError.badResponse
         }
-        if let baseResponse = LEOBaseResponse(JSONString: jsonString) {
+        if let baseResponse = try? LEOBaseResponse(JSONString: jsonString) {
             return baseResponse.getNetworkError()
         }
         return NetworkLayerError.unknown

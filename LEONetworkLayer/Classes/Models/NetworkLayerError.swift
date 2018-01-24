@@ -6,6 +6,7 @@ enum NetworkLayerError: Error {
     }
     
     case unknown
+    case badResponse
     case connectionFail(reason: ConnectionFailReasons)
-    case businessProblem(code: LEOApiErrorCode, errors:[LEOError]?)
+    case businessProblem(code: LEOApiGlobalErrorCode, errors:[LEOError]?)
 }
