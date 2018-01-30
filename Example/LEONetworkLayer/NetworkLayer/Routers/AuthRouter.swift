@@ -4,7 +4,7 @@ import LEONetworkLayer
 
 
 
-enum AuthRouter: RestRouter {
+enum AuthRouter: LEORouter {
     
     case registration(data: LEORegistrationRequest)
     case login(login: LEOLogInRequest)

@@ -1,8 +1,6 @@
-import LEONetworkLayer
-
-enum NetworkLayerError: Error {
+public enum LEONetworkLayerError: Error {
     
-    enum ConnectionFailReasons {
+    public enum ConnectionFailReasons {
         case noConnection
         case unknown
     }

@@ -1,7 +1,7 @@
 import Alamofire
 import ObjectMapper
 
-enum ProfileRouter: RestRouter {
+enum ProfileRouter: LEORouter {
     
     case getProfile(userId: Int)
   

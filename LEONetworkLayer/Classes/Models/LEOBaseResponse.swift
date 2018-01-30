@@ -32,7 +32,7 @@ open class LEOBaseResponse: ImmutableMappable {
 }
 
 extension LEOBaseResponse {
-    func getNetworkError() -> NetworkLayerError {
+    func getNetworkError() -> LEONetworkLayerError {
         return .businessProblem(code: self.code, errors: errors)
     }
     

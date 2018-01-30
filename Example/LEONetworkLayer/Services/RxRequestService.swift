@@ -3,12 +3,12 @@ import LEONetworkLayer
 
 
 protocol RxRequestService {
-    var apiProvider: RestProvider {get}
+    var apiProvider: LEOProvider {get}
 }
 
 extension RxRequestService {
     
-    func createObserver<T: LEOBaseResponse>(type: T.Type, router: RestRouter) -> Observable<T>{
+    func createObserver<T: LEOBaseResponse>(type: T.Type, router: LEORouter) -> Observable<T>{
         return Observable<T>.create ({ observer -> Disposable in
             let request = self.apiProvider.request(router: router) { (response: Response<T>) in
                 switch response {

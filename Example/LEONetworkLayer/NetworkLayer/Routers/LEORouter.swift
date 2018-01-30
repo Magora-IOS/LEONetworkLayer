@@ -1,8 +1,8 @@
 import Foundation
 
-protocol RestRouter: RequestRouter {}
+protocol LEORouter: RequestRouter {}
 
-extension RestRouter {
+extension LEORouter {
     func baseUrl() -> URL {
 		return URL(string: "\(Constants.get.apiBaseURL)/\(Constants.get.apiVersion)")!
     }

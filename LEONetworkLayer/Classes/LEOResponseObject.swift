@@ -25,7 +25,7 @@ extension DataRequest {
                 }
                 break
             case let .failure(error):
-                if error is NetworkLayerError {
+                if error is LEONetworkLayerError {
                     completionHandler(.Error(error))
                 } else {
                     let leoError = self.getNetworkError(error: error)
@@ -36,25 +36,25 @@ extension DataRequest {
         }
     }
     
-    private func getNetworkError(error: Error) -> NetworkLayerError {
+    private func getNetworkError(error: Error) -> LEONetworkLayerError {
         
         switch (error as NSError).code {
         case -1010 ... -1000:
-            return NetworkLayerError.connectionFail(reason: .noConnection)
+            return LEONetworkLayerError.connectionFail(reason: .noConnection)
         default:
-            return NetworkLayerError.connectionFail(reason: .unknown)
+            return LEONetworkLayerError.connectionFail(reason: .unknown)
         }
     }
     
-    private func getNetworkError(formData data: Data?) -> NetworkLayerError {
+    private func getNetworkError(formData data: Data?) -> LEONetworkLayerError {
         
         guard let jsonData = data, let jsonString = String(data: jsonData, encoding: .utf8) else {
-            return NetworkLayerError.badResponse
+            return LEONetworkLayerError.badResponse
         }
         if let baseResponse = try? LEOBaseResponse(JSONString: jsonString) {
             return baseResponse.getNetworkError()
         }
-        return NetworkLayerError.unknown
+        return LEONetworkLayerError.unknown
     }
     
 }

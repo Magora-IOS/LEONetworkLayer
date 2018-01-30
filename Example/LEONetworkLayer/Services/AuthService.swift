@@ -22,7 +22,7 @@ protocol AuthService {
 
 class AuthServiceImp: AuthService, RxRequestService {
     
-    let apiProvider: RestProvider
+    let apiProvider: LEOProvider
     var authStorage: AuthStorage
     var profileStorage: UserProfileStorage
     var logoutHandler: (() -> Void)?
@@ -33,7 +33,7 @@ class AuthServiceImp: AuthService, RxRequestService {
     private weak var createPassword: OHHTTPStubsDescriptor?
     #endif
     
-    init(apiProvider: RestProvider, authStorage: AuthStorage, profileStorage: UserProfileStorage) {
+    init(apiProvider: LEOProvider, authStorage: AuthStorage, profileStorage: UserProfileStorage) {
         self.apiProvider = apiProvider
         self.authStorage = authStorage
         self.profileStorage = profileStorage
@@ -104,7 +104,7 @@ class AuthServiceImp: AuthService, RxRequestService {
         return createObserver(type: LEOObjectResponse<AuthSession>.self, router: router)
             .map({ (response) in
                 guard let authSession = response.data else {
-                    throw NetworkLayerError.badResponse
+                    throw LEONetworkLayerError.badResponse
                 }
                 return authSession
             })
@@ -120,7 +120,7 @@ class AuthServiceImp: AuthService, RxRequestService {
         return createObserver(type: LEOObjectResponse<AuthSession>.self, router: router)
             .map({ (response) in
                 guard let authSession = response.data else {
-                    throw NetworkLayerError.badResponse
+                    throw LEONetworkLayerError.badResponse
                 }
                 return authSession
             })
@@ -140,7 +140,7 @@ class AuthServiceImp: AuthService, RxRequestService {
 		return createObserver(type: LEOObjectResponse<LEOResetPasswordResponse>.self, router: router)
             .map({ (response) in
                 guard let resetPasswordResponse = response.data else {
-                    throw NetworkLayerError.badResponse
+                    throw LEONetworkLayerError.badResponse
                 }
                 return resetPasswordResponse
             })
@@ -151,7 +151,7 @@ class AuthServiceImp: AuthService, RxRequestService {
         return createObserver(type: LEOObjectResponse<LEOCreatePasswordResponse>.self, router: router)
             .map({ (response) in
                 guard let createPasswordResponse = response.data else {
-                    throw NetworkLayerError.badResponse
+                    throw LEONetworkLayerError.badResponse
                 }
                 return createPasswordResponse
             })

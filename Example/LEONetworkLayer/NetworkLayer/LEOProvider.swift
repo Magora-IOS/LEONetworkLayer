@@ -1,7 +1,7 @@
 import Alamofire
 import LEONetworkLayer
 
-class RestProvider {
+class LEOProvider {
 
     private let sessionManager: SessionManager
     
@@ -32,7 +32,7 @@ class RestProvider {
     
     @discardableResult
     public func request<T:LEOBaseResponse>(
-        router: RestRouter,
+        router: LEORouter,
         completionHandler: @escaping (LEONetworkLayer.Response<T>) -> Void) -> DataRequest {
         
         return sessionManager

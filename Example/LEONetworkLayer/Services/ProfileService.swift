@@ -7,9 +7,9 @@ protocol ProfileService {
 }
 
 class ProfileServiceImp: ProfileService, RxRequestService {
-    let apiProvider: RestProvider
+    let apiProvider: LEOProvider
     
-    init(apiProvider: RestProvider) {
+    init(apiProvider: LEOProvider) {
         self.apiProvider = apiProvider
 
     }
