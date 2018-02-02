@@ -64,7 +64,7 @@ class AuthorizationHandler: RequestAdapter, RequestRetrier {
             requestsToRetry.append(completion)
             
             if !isRefreshing {
-                let authSession = authService.authSession
+                var authSession = authService.authSession
                 authSession.accessToken = nil
                 authService.authSession = authSession
 
@@ -100,7 +100,7 @@ class AuthorizationHandler: RequestAdapter, RequestRetrier {
             
             let refreshTokenRouter = AuthRouter.refreshToken(refreshToken: refreshToken)
             
-            let request = sessionManager.request(refreshTokenRouter).responseObject { [weak self] (response: DataResponse<LEOObjectResponse<AuthSession>>) in
+            let request = sessionManager.request(refreshTokenRouter).responseObject { [weak self] (response: DataResponse<LEOObjectResponse<AuthSessionDTO>>) in
                 guard let strongSelf = self else { return }
                 
                 switch response.result {

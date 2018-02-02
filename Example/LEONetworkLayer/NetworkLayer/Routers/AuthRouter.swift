@@ -62,21 +62,3 @@ enum AuthRouter: LEORouter {
     }
 }
 
-class AuthSession: Mappable {
-    
-    var refreshToken: String?
-    var accessToken: String?
-    var accessTokenExpire: Date?
-    var authInfo = UserProfileDTO()
-	
-	init() {}
-    required init?(map: Map) {}
-    
-    func mapping(map: Map) {
-        accessToken <- map["accessToken"]
-        accessTokenExpire <- (map["accessTokenExpire"], DateTransformMiliseconds())
-        refreshToken <- map["refreshToken"]
-        authInfo <- map["authInfo"]
-    }
-    
-}

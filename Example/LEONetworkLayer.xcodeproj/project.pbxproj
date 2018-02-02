@@ -33,6 +33,9 @@
 		C7CB124620188FF00010F2CD /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB124220188FEF0010F2CD /* Storage.swift */; };
 		C7CB124720188FF00010F2CD /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB124420188FEF0010F2CD /* UserProfile.swift */; };
 		C7CB124820188FF00010F2CD /* AuthStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB124520188FEF0010F2CD /* AuthStorage.swift */; };
+		C7D1C07E2024253100D7442A /* AuthSessionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1C07D2024253100D7442A /* AuthSessionDTO.swift */; };
+		C7D1C0842024288E00D7442A /* AuthSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1C0832024288E00D7442A /* AuthSession.swift */; };
+		C7D1C08620242CFB00D7442A /* AuthSession+DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1C08520242CFB00D7442A /* AuthSession+DTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,9 @@
 		C7CB124220188FEF0010F2CD /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		C7CB124420188FEF0010F2CD /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		C7CB124520188FEF0010F2CD /* AuthStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthStorage.swift; sourceTree = "<group>"; };
+		C7D1C07D2024253100D7442A /* AuthSessionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSessionDTO.swift; sourceTree = "<group>"; };
+		C7D1C0832024288E00D7442A /* AuthSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSession.swift; sourceTree = "<group>"; };
+		C7D1C08520242CFB00D7442A /* AuthSession+DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthSession+DTO.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +138,7 @@
 				C7C9242C20173A2E00C49B56 /* ApplicationLayer */,
 				C7C9243920173A2E00C49B56 /* Common */,
 				C7C9243120173A2E00C49B56 /* Configuration */,
+				C7D1C0812024286D00D7442A /* BusinessLogicLayer */,
 				C7C9243020173A2E00C49B56 /* NetworkLayer */,
 				C7C9242E20173A2E00C49B56 /* Resources */,
 				C7C9242B20173A2E00C49B56 /* Services */,
@@ -272,6 +279,7 @@
 		C7CB1220201886090010F2CD /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				C7D1C07D2024253100D7442A /* AuthSessionDTO.swift */,
 				C7CB1221201886090010F2CD /* UserProfileDTO.swift */,
 			);
 			path = DTO;
@@ -302,6 +310,23 @@
 			isa = PBXGroup;
 			children = (
 				C7CB124420188FEF0010F2CD /* UserProfile.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C7D1C0812024286D00D7442A /* BusinessLogicLayer */ = {
+			isa = PBXGroup;
+			children = (
+				C7D1C0822024288300D7442A /* Models */,
+			);
+			path = BusinessLogicLayer;
+			sourceTree = "<group>";
+		};
+		C7D1C0822024288300D7442A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C7D1C0832024288E00D7442A /* AuthSession.swift */,
+				C7D1C08520242CFB00D7442A /* AuthSession+DTO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -556,10 +581,13 @@
 				C7CB124020188B030010F2CD /* RxRequestService.swift in Sources */,
 				C760D611202018D700486C9E /* LEOProvider.swift in Sources */,
 				C760D60F202018D100486C9E /* LEORouter.swift in Sources */,
+				C7D1C08620242CFB00D7442A /* AuthSession+DTO.swift in Sources */,
 				C7CB122E201886090010F2CD /* UserProfileDTO.swift in Sources */,
 				C7CB124720188FF00010F2CD /* UserProfile.swift in Sources */,
 				C7CB1236201886090010F2CD /* RequestRouter.swift in Sources */,
 				C7CB1235201886090010F2CD /* AuthRouter.swift in Sources */,
+				C7D1C0842024288E00D7442A /* AuthSession.swift in Sources */,
+				C7D1C07E2024253100D7442A /* AuthSessionDTO.swift in Sources */,
 				C7CB1230201886090010F2CD /* LEOLogInRequest.swift in Sources */,
 				C7CB122D201886090010F2CD /* AuthorizationHandler.swift in Sources */,
 				C7CB124820188FF00010F2CD /* AuthStorage.swift in Sources */,

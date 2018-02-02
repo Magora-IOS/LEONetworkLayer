@@ -23,33 +23,38 @@ class UserDefaultsStorage : KVStorage {
     }
 }
 
+
+
 extension UserDefaultsStorage: AuthStorage {
     
     var authSession: AuthSession {
         get {
-            var session: AuthSession?
-            let sessionString = getValue(forKey: "session") as? String
-            if sessionString != nil {
-                session = AuthSession(JSONString: sessionString!)
-            }
-            guard session != nil else {
-                return AuthSession()
-            }
-            return session!
+            var session = AuthSession()
+            session.accessToken = getValue(forKey: "accessToken") as? String
+            session.refreshToken = getValue(forKey: "refreshToken") as? String
+            session.accessTokenExpire = getValue(forKey: "accessTokenExpire") as? Date
+            session.authInfo = self.authInfo
+            return session
         }
         set {
-            let sessionString = newValue.toJSONString()
-            setValue(value: sessionString, forKey: "session")
+            setValue(value: newValue.accessToken, forKey: "accessToken")
+            setValue(value: newValue.refreshToken, forKey: "refreshToken")
+            setValue(value: newValue.accessTokenExpire, forKey: "accessTokenExpire")
+            self.authInfo = newValue.authInfo
         }
     }
     
     
-    var userId: String? {
+    private var authInfo: AuthInfo? {
         get {
-            return getValue(forKey: "userId") as? String
+            var info = AuthInfo()
+            info.displayName = getValue(forKey: "displayName") as? String
+            info.userId = getValue(forKey: "userId") as? String
+            return info
         }
         set {
-            setValue(value: newValue, forKey: "userId")
+            setValue(value: newValue?.displayName, forKey: "displayName")
+            setValue(value: newValue?.userId, forKey: "userId")
         }
     }
 }

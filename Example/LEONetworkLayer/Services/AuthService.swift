@@ -2,9 +2,11 @@ import RxSwift
 import ObjectMapper
 import LEONetworkLayer
 
+
 #if DEBUG
     import OHHTTPStubs
 #endif
+
 
 protocol AuthService {
     var isAuth: Bool { get }
@@ -19,6 +21,8 @@ protocol AuthService {
     func createNewPassword(code: String, password: String) -> Observable<LEOCreatePasswordResponse>
     func signout()
 }
+
+
 
 class AuthServiceImp: AuthService, RxRequestService {
     
@@ -82,7 +86,10 @@ class AuthServiceImp: AuthService, RxRequestService {
     }
     
     var currentUserID: Int? {
-        return authSession.authInfo.id
+        guard let string = self.authSession.authInfo?.userId else {
+            return nil
+        }
+        return Int(string)
     }
     
     var authSession: AuthSession {
@@ -101,12 +108,12 @@ class AuthServiceImp: AuthService, RxRequestService {
         
         let login = LEOLogInRequest(login: login, password: password)
         let router = AuthRouter.login(login: login)
-        return createObserver(type: LEOObjectResponse<AuthSession>.self, router: router)
+        return createObserver(type: LEOObjectResponse<AuthSessionDTO>.self, router: router)
             .map({ (response) in
                 guard let authSession = response.data else {
                     throw LEONetworkLayerError.badResponse
                 }
-                return authSession
+                return AuthSession(dto: authSession)
             })
             .do(onNext: { [weak self] (authSession) in
                 self?.saveSession(authSession: authSession)
@@ -117,12 +124,12 @@ class AuthServiceImp: AuthService, RxRequestService {
     func registration(reg: LEORegistrationRequest) -> Observable<AuthSession> {
         
         let router = AuthRouter.registration(data: reg)
-        return createObserver(type: LEOObjectResponse<AuthSession>.self, router: router)
+        return createObserver(type: LEOObjectResponse<AuthSessionDTO>.self, router: router)
             .map({ (response) in
                 guard let authSession = response.data else {
                     throw LEONetworkLayerError.badResponse
                 }
-                return authSession
+                return AuthSession(dto: authSession)
             })
             .do(onNext: { [weak self] (authSession) in
                 self?.saveSession(authSession: authSession)
@@ -161,14 +168,15 @@ class AuthServiceImp: AuthService, RxRequestService {
     
     private func saveSession(authSession: AuthSession) {
         self.authStorage.authSession = authSession
-        profileStorage.save(profile: authSession.authInfo.object())
+        //profileStorage.save(profile: authSession.authInfo.object())
     }
     
     private func clearSession() {
-        let session = AuthSession()
+        var session = AuthSession()
         session.accessToken = nil
         session.refreshToken = nil
         session.accessTokenExpire = nil
+        session.authInfo = nil
         self.authStorage.authSession = session
     }
 }
