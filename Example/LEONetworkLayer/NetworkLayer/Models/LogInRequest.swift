@@ -1,6 +1,6 @@
 import ObjectMapper
 
-class LEOLogInRequest: Mappable {
+class LogInRequest: Mappable {
     
     var login: String?
     var password: String?

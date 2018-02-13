@@ -6,7 +6,8 @@ public enum LEONetworkLayerError: Error {
     }
     
     case unknown
-    case badResponse
+    case badResponse(message: String?)
     case connectionFail(reason: ConnectionFailReasons)
     case businessProblem(code: LEOApiGlobalErrorCode, errors:[LEOError]?)
 }
+

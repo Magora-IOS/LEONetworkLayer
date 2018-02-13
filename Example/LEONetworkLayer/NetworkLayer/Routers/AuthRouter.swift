@@ -6,8 +6,8 @@ import LEONetworkLayer
 
 enum AuthRouter: LEORouter {
     
-    case registration(data: LEORegistrationRequest)
-    case login(login: LEOLogInRequest)
+    case registration(data: RegistrationRequest)
+    case login(login: LogInRequest)
     case refreshToken(refreshToken: String)
 	case resetPassword(email: String)
     case createNewPassword(code: String, password: String)

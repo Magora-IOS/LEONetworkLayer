@@ -1,6 +1,6 @@
 import ObjectMapper
 
-class LEOCreatePasswordResponse: Mappable {
+class CreatePasswordResponse: Mappable {
     
     var codeValid: Bool!
     

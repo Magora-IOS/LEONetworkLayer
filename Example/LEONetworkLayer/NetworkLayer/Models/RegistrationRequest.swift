@@ -1,6 +1,6 @@
 import ObjectMapper
 
-class LEORegistrationRequest: Mappable {
+class RegistrationRequest: Mappable {
     
     var fullname: String = ""
     var email: String = ""

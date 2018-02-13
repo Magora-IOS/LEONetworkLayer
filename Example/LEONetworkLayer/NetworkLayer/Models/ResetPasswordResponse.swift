@@ -1,6 +1,6 @@
 import ObjectMapper
 
-class LEOResetPasswordResponse: Mappable {
+class ResetPasswordResponse: Mappable {
 	
 	var emailFound: Bool!
 	

@@ -12,6 +12,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		C760D60F202018D100486C9E /* LEORouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760D60E202018D100486C9E /* LEORouter.swift */; };
 		C760D611202018D700486C9E /* LEOProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760D610202018D700486C9E /* LEOProvider.swift */; };
+		C7A621BC2032D38B006ED490 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A621BB2032D38B006ED490 /* Log.swift */; };
 		C7C9243A20173A2E00C49B56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C9242D20173A2E00C49B56 /* AppDelegate.swift */; };
 		C7C9243B20173A2E00C49B56 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7C9242F20173A2E00C49B56 /* Images.xcassets */; };
 		C7C9243D20173A2E00C49B56 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C9243520173A2E00C49B56 /* LaunchScreen.xib */; };
@@ -19,10 +20,10 @@
 		C7C9243F20173A2E00C49B56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7C9243820173A2E00C49B56 /* Main.storyboard */; };
 		C7CB122D201886090010F2CD /* AuthorizationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB121E201886090010F2CD /* AuthorizationHandler.swift */; };
 		C7CB122E201886090010F2CD /* UserProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1221201886090010F2CD /* UserProfileDTO.swift */; };
-		C7CB122F201886090010F2CD /* LEOResetPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1222201886090010F2CD /* LEOResetPasswordResponse.swift */; };
-		C7CB1230201886090010F2CD /* LEOLogInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1223201886090010F2CD /* LEOLogInRequest.swift */; };
-		C7CB1231201886090010F2CD /* LEORegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1224201886090010F2CD /* LEORegistrationRequest.swift */; };
-		C7CB1232201886090010F2CD /* LEOCreatePasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1225201886090010F2CD /* LEOCreatePasswordResponse.swift */; };
+		C7CB122F201886090010F2CD /* ResetPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1222201886090010F2CD /* ResetPasswordResponse.swift */; };
+		C7CB1230201886090010F2CD /* LogInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1223201886090010F2CD /* LogInRequest.swift */; };
+		C7CB1231201886090010F2CD /* RegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1224201886090010F2CD /* RegistrationRequest.swift */; };
+		C7CB1232201886090010F2CD /* CreatePasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1225201886090010F2CD /* CreatePasswordResponse.swift */; };
 		C7CB1234201886090010F2CD /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1228201886090010F2CD /* ProfileRouter.swift */; };
 		C7CB1235201886090010F2CD /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1229201886090010F2CD /* AuthRouter.swift */; };
 		C7CB1236201886090010F2CD /* RequestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB122A201886090010F2CD /* RequestRouter.swift */; };
@@ -64,6 +65,7 @@
 		BB06845F1DD2A91BB84DC357 /* Pods-LEONetworkLayer_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LEONetworkLayer_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LEONetworkLayer_Tests/Pods-LEONetworkLayer_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C760D60E202018D100486C9E /* LEORouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEORouter.swift; sourceTree = "<group>"; };
 		C760D610202018D700486C9E /* LEOProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOProvider.swift; sourceTree = "<group>"; };
+		C7A621BB2032D38B006ED490 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		C7C9242D20173A2E00C49B56 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7C9242F20173A2E00C49B56 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C7C9243220173A2E00C49B56 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,10 +74,10 @@
 		C7C9243820173A2E00C49B56 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C7CB121E201886090010F2CD /* AuthorizationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationHandler.swift; sourceTree = "<group>"; };
 		C7CB1221201886090010F2CD /* UserProfileDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileDTO.swift; sourceTree = "<group>"; };
-		C7CB1222201886090010F2CD /* LEOResetPasswordResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOResetPasswordResponse.swift; sourceTree = "<group>"; };
-		C7CB1223201886090010F2CD /* LEOLogInRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOLogInRequest.swift; sourceTree = "<group>"; };
-		C7CB1224201886090010F2CD /* LEORegistrationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEORegistrationRequest.swift; sourceTree = "<group>"; };
-		C7CB1225201886090010F2CD /* LEOCreatePasswordResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCreatePasswordResponse.swift; sourceTree = "<group>"; };
+		C7CB1222201886090010F2CD /* ResetPasswordResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordResponse.swift; sourceTree = "<group>"; };
+		C7CB1223201886090010F2CD /* LogInRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInRequest.swift; sourceTree = "<group>"; };
+		C7CB1224201886090010F2CD /* RegistrationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationRequest.swift; sourceTree = "<group>"; };
+		C7CB1225201886090010F2CD /* CreatePasswordResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePasswordResponse.swift; sourceTree = "<group>"; };
 		C7CB1228201886090010F2CD /* ProfileRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		C7CB1229201886090010F2CD /* AuthRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		C7CB122A201886090010F2CD /* RequestRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRouter.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				C7A621B92032D38B006ED490 /* External */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for LEONetworkLayer */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -183,6 +186,22 @@
 				16646520E7F708EB64BFFF25 /* Pods_LEONetworkLayer_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7A621B92032D38B006ED490 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				C7A621BA2032D38B006ED490 /* Log */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		C7A621BA2032D38B006ED490 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				C7A621BB2032D38B006ED490 /* Log.swift */,
+			);
+			path = Log;
 			sourceTree = "<group>";
 		};
 		C7C9242B20173A2E00C49B56 /* Services */ = {
@@ -268,10 +287,10 @@
 			isa = PBXGroup;
 			children = (
 				C7CB1220201886090010F2CD /* DTO */,
-				C7CB1222201886090010F2CD /* LEOResetPasswordResponse.swift */,
-				C7CB1223201886090010F2CD /* LEOLogInRequest.swift */,
-				C7CB1224201886090010F2CD /* LEORegistrationRequest.swift */,
-				C7CB1225201886090010F2CD /* LEOCreatePasswordResponse.swift */,
+				C7CB1222201886090010F2CD /* ResetPasswordResponse.swift */,
+				C7CB1223201886090010F2CD /* LogInRequest.swift */,
+				C7CB1224201886090010F2CD /* RegistrationRequest.swift */,
+				C7CB1225201886090010F2CD /* CreatePasswordResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -569,13 +588,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7CB1232201886090010F2CD /* LEOCreatePasswordResponse.swift in Sources */,
+				C7CB1232201886090010F2CD /* CreatePasswordResponse.swift in Sources */,
 				C7C9243E20173A2E00C49B56 /* ViewController.swift in Sources */,
 				C7CB124620188FF00010F2CD /* Storage.swift in Sources */,
-				C7CB122F201886090010F2CD /* LEOResetPasswordResponse.swift in Sources */,
+				C7CB122F201886090010F2CD /* ResetPasswordResponse.swift in Sources */,
 				C7CB1234201886090010F2CD /* ProfileRouter.swift in Sources */,
 				C7CB123A201888D30010F2CD /* Constants.swift in Sources */,
-				C7CB1231201886090010F2CD /* LEORegistrationRequest.swift in Sources */,
+				C7CB1231201886090010F2CD /* RegistrationRequest.swift in Sources */,
 				C7CB123F20188B030010F2CD /* ProfileService.swift in Sources */,
 				C7C9243A20173A2E00C49B56 /* AppDelegate.swift in Sources */,
 				C7CB124020188B030010F2CD /* RxRequestService.swift in Sources */,
@@ -583,12 +602,13 @@
 				C760D60F202018D100486C9E /* LEORouter.swift in Sources */,
 				C7D1C08620242CFB00D7442A /* AuthSession+DTO.swift in Sources */,
 				C7CB122E201886090010F2CD /* UserProfileDTO.swift in Sources */,
+				C7A621BC2032D38B006ED490 /* Log.swift in Sources */,
 				C7CB124720188FF00010F2CD /* UserProfile.swift in Sources */,
 				C7CB1236201886090010F2CD /* RequestRouter.swift in Sources */,
 				C7CB1235201886090010F2CD /* AuthRouter.swift in Sources */,
 				C7D1C0842024288E00D7442A /* AuthSession.swift in Sources */,
 				C7D1C07E2024253100D7442A /* AuthSessionDTO.swift in Sources */,
-				C7CB1230201886090010F2CD /* LEOLogInRequest.swift in Sources */,
+				C7CB1230201886090010F2CD /* LogInRequest.swift in Sources */,
 				C7CB122D201886090010F2CD /* AuthorizationHandler.swift in Sources */,
 				C7CB124820188FF00010F2CD /* AuthStorage.swift in Sources */,
 				C7CB123E20188B030010F2CD /* AuthService.swift in Sources */,

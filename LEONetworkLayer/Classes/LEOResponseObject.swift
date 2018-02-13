@@ -2,6 +2,8 @@ import Alamofire
 import AlamofireObjectMapper
 import ObjectMapper
 
+
+
 public enum Response<T> {
     case Success(T)
     case Error(Error)
@@ -12,49 +14,70 @@ public enum Response<T> {
 extension DataRequest {
     
     @discardableResult
-    public func responseLEO<T: LEOBaseResponse>( completionHandler: @escaping (Response<T>) -> Void) -> Self {
-        return self.responseObject { (dataResponse: DataResponse<T>) in
-            
-            switch dataResponse.result {
-            case let .success(data):
-                if data.isSuccess {
-                    completionHandler(.Success(data))
-                } else {
-                    let leoError = self.getNetworkError(formData: dataResponse.data)
-                    completionHandler(.Error(leoError))
+    public func responseLEO<T: LEOBaseResponse>(completionHandler leoCompletionHandler: @escaping (Response<T>) -> Void) -> Self {
+        
+        return self.responseJSON { (data: DataResponse<Any>) in
+            switch data.result {
+                
+            case .success(let rawJson):
+                do {
+                    let parsed: T = try self.map(data: rawJson)
+                    leoCompletionHandler(.Success(parsed))
+                    
+                } catch {
+                    leoCompletionHandler(.Error(error))
                 }
-                break
-            case let .failure(error):
-                if error is LEONetworkLayerError {
-                    completionHandler(.Error(error))
-                } else {
-                    let leoError = self.getNetworkError(error: error)
-                    completionHandler(.Error(leoError))
-                }
-                break
+                
+                
+            case .failure(let error):
+                let leoError = self.getLeoError(error)
+                leoCompletionHandler(.Error(leoError))
             }
         }
     }
     
-    private func getNetworkError(error: Error) -> LEONetworkLayerError {
-        
-        switch (error as NSError).code {
-        case -1010 ... -1000:
-            return LEONetworkLayerError.connectionFail(reason: .noConnection)
-        default:
-            return LEONetworkLayerError.connectionFail(reason: .unknown)
+    
+    private func map<T: LEOBaseResponse>(data: Any) throws -> T {
+        guard let json = data as? [String: Any] else {
+            throw LEONetworkLayerError.badResponse(message: "Data is not an dictionary, but: \(type(of: data))")
         }
+        
+        let map = Map(mappingType: .fromJSON, JSON: json)
+        let result = try T(map: map)
+        return result
     }
     
-    private func getNetworkError(formData data: Data?) -> LEONetworkLayerError {
+    
+    private func getLeoError(_ error: Error) -> LEONetworkLayerError {
+        if error is LEONetworkLayerError {
+            return error as! LEONetworkLayerError
+        } else {
+            let error = error as NSError
+            guard error.domain == NSURLErrorDomain else {
+                return LEONetworkLayerError.unknown
+            }
+            
+            switch error.code {
+            case NSURLErrorBadURL,
+                 NSURLErrorTimedOut,
+                 NSURLErrorUnsupportedURL,
+                 NSURLErrorCannotFindHost,
+                 NSURLErrorCannotConnectToHost,
+                 NSURLErrorNetworkConnectionLost,
+                 NSURLErrorDNSLookupFailed,
+                 NSURLErrorHTTPTooManyRedirects,
+                 NSURLErrorResourceUnavailable,
+                 NSURLErrorNotConnectedToInternet,
+                 NSURLErrorRedirectToNonExistentLocation:
+                return LEONetworkLayerError.connectionFail(reason: .noConnection)
+                
+            default:
+                return LEONetworkLayerError.unknown
+            }
+        }
         
-        guard let jsonData = data, let jsonString = String(data: jsonData, encoding: .utf8) else {
-            return LEONetworkLayerError.badResponse
-        }
-        if let baseResponse = try? LEOBaseResponse(JSONString: jsonString) {
-            return baseResponse.getNetworkError()
-        }
-        return LEONetworkLayerError.unknown
     }
+    
     
 }
+
