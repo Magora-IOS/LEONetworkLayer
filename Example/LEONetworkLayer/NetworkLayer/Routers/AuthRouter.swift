@@ -6,17 +6,18 @@ import LEONetworkLayer
 
 enum AuthRouter: LEORouter {
     
-    case registration(data: RegistrationRequest)
-    case login(login: LogInRequest)
-    case refreshToken(refreshToken: String)
+    case signUp(SignUpRequest)
+    case signIn(SignInRequest)
+    case refreshToken(String)
 	case resetPassword(email: String)
     case createNewPassword(code: String, password: String)
     
+    
     var method: HTTPMethod {
         switch self {
-        case .registration:
+        case .signUp:
             return .post
-        case .login:
+        case .signIn:
             return .post
         case .refreshToken:
             return .put
@@ -29,9 +30,9 @@ enum AuthRouter: LEORouter {
     
     var path: String {
         switch self {
-        case .registration:
+        case .signUp:
             return "/Users"
-        case .login:
+        case .signIn:
             return "/Users/login"
         case .refreshToken:
             return "/auth/token"
@@ -42,19 +43,23 @@ enum AuthRouter: LEORouter {
         }
     }
     
-    // MARK: URLRequestConvertible
     
+    // MARK: - URLRequestConvertible
     func asURLRequest() throws -> URLRequest {
-        return try createUrlWithParametrs {
+        return try self.createUrlWithParameters {
             switch self {
-            case let .registration(data):
+            case let .signUp(data):
                 return data.toJSON()
-            case let .login(login):
-                return login.toJSON().merging(["include[1]" : "user"], uniquingKeysWith: { (current, _) -> Any in current })
+                
+            case let .signIn(login):
+                return login.toJSON()
+                
             case .refreshToken(let refreshToken):
                 return ["refreshToken": refreshToken]
+                
 			case .resetPassword(let email):
 				return ["email": email]
+                
             case .createNewPassword(_, let password):
                 return ["newPassword": password]
             }

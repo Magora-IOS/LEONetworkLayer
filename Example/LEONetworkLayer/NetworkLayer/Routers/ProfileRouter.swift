@@ -1,6 +1,8 @@
 import Alamofire
 import ObjectMapper
 
+
+
 enum ProfileRouter: LEORouter {
     
     case getProfile(userId: Int)
@@ -23,7 +25,7 @@ enum ProfileRouter: LEORouter {
     
     
     func asURLRequest() throws -> URLRequest {
-        return try createUrlWithParametrs {
+        return try self.createUrlWithParameters {
             switch self {
            
             default:

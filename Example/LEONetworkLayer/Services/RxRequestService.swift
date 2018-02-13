@@ -2,28 +2,34 @@ import RxSwift
 import LEONetworkLayer
 
 
+
+
+
 protocol RxRequestService {
-    var apiProvider: LEOProvider {get}
+    var apiProvider: LEOProvider { get }
 }
+
 
 extension RxRequestService {
     
     func createObserver<T: LEOBaseResponse>(type: T.Type, router: LEORouter) -> Observable<T>{
-        return Observable<T>.create ({ observer -> Disposable in
+        return Observable<T>.create { observer -> Disposable in
             let request = self.apiProvider.request(router: router) { (response: Response<T>) in
                 switch response {
-                case let .Success(result):
+                    
+                case let .success(result):
                     observer.onNext(result)
                     observer.onCompleted()
-                    break
-                case let .Error(error):
+                    
+                case let .error(error):
                     observer.onError(error)
-                    break
                 }
             }
+            
             return Disposables.create {
                 request.cancel()
             }
-        })
+        }
     }
 }
+

@@ -3,95 +3,73 @@ import ObjectMapper
 import LEONetworkLayer
 
 
-#if DEBUG
-    import OHHTTPStubs
-#endif
 
 
 protocol AuthService {
     var isAuth: Bool { get }
     var authorised: Variable<Bool> { get }
-    var currentUserID: Int? { get }
+ 
     var authSession: AuthSession { get set }
-    var logoutHandler: (() -> Void)? {get set}
+    var logoutHandler: (() -> Void)? { get set }
 
-    func signin(login: String, password: String) -> Observable<AuthSession>
-    func registration(reg: RegistrationRequest) -> Observable<AuthSession>
+    func signIn(login: String, password: String) -> Observable<AuthSession>
+    func signUp(data: SignUpRequest) -> Observable<AuthSession>
 	func resetPassword(email: String) -> Observable<ResetPasswordResponse>
     func createNewPassword(code: String, password: String) -> Observable<CreatePasswordResponse>
-    func refresh() -> Observable<AuthSession>
-    func signout()
+    func refreshSession() -> Observable<AuthSession>
+    func signOut()
 }
 
 
 
-class AuthServiceImp: AuthService, RxRequestService {
+class AuthServiceImpl: AuthService, RxRequestService {
     
+    
+    
+    enum Error: ErrorObjectProvider {
+        case method(String, Swift.Error)
+        case noRefreshToken
+        
+        var object: Swift.Error {
+            let result = ErrorObject(domain: "AuthService")
+            
+            switch self {
+            case let .method(name, error):
+                result.desc = "\"\(name)\" action failed"
+                result.underlyingError = error
+                
+            case .noRefreshToken:
+                result.desc = "No refresh token saved"
+            }
+            return result
+        }
+    }
+    
+    
+    //MARK: - Properties
     let apiProvider: LEOProvider
     var authStorage: AuthStorage
     var profileStorage: UserProfileStorage
     var logoutHandler: (() -> Void)?
     var authorised: Variable<Bool>
     
-    #if DEBUG
-    private weak var resetPassword: OHHTTPStubsDescriptor?
-    private weak var createPassword: OHHTTPStubsDescriptor?
-    #endif
+   
     
+    //MARK: - Lifecycle
     init(apiProvider: LEOProvider, authStorage: AuthStorage, profileStorage: UserProfileStorage) {
         self.apiProvider = apiProvider
         self.authStorage = authStorage
         self.profileStorage = profileStorage
         self.authorised = Variable(authStorage.authSession.accessToken != nil)
-        
-        #if DEBUG
-            setupStubs()
-        #endif
+
     }
     
     
-    #if DEBUG
-    func setupStubs() {
-        resetPassword = stub(condition: {request in
-            if request.url?.lastPathComponent == "reset" {
-                return true
-            }
-            return false
-        }) { (request) -> OHHTTPStubsResponse in
-            return OHHTTPStubsResponse(
-                fileAtPath: OHPathForFile("ResetPasswordStub.json", type(of: self))!,
-                statusCode: 200,
-                headers: ["Content-Type":"application/json"]
-            )
-        }
-        resetPassword?.name = "ResetPassword stub"
-        
-        createPassword = stub(condition: {request in
-            if request.url?.lastPathComponent == "090" {
-                return true
-            }
-            return false
-        }) { (request) -> OHHTTPStubsResponse in
-            return OHHTTPStubsResponse(
-                fileAtPath: OHPathForFile("ResetPasswordStub.json", type(of: self))!,
-                statusCode: 200,
-                headers: ["Content-Type":"application/json"]
-            )
-        }
-        createPassword?.name = "createPassword stub"
-    }
-    #endif
-    
+    //MARK: - Properties (computable)
     var isAuth: Bool {
         return self.authorised.value
     }
     
-    var currentUserID: Int? {
-        guard let string = self.authSession.authInfo?.userId else {
-            return nil
-        }
-        return Int(string)
-    }
     
     var authSession: AuthSession {
         set(newValue) {
@@ -105,96 +83,103 @@ class AuthServiceImp: AuthService, RxRequestService {
         }
     }
     
-    func signin(login: String, password: String) -> Observable<AuthSession> {
-        
-        let login = LogInRequest(login: login, password: password)
-        let router = AuthRouter.login(login: login)
-        return createObserver(type: LEOObjectResponse<AuthSessionDTO>.self, router: router)
-            .map({ (response) in
-                guard let authSession = response.data else {
-                    throw LEONetworkLayerError.badResponse(message: nil)
+    
+    //MARK: - Requests
+    func signIn(login: String, password: String) -> Observable<AuthSession> {
+        let data = SignInRequest(login: login, password: password)
+        let router = AuthRouter.signIn(data)
+        return self.createObserver(type: LEOObjectResponse<AuthSessionDTO>.self, router: router)
+            .map {
+                AuthSession(dto: $0.data)
+            }
+            .catchError {
+                Observable.error(Error.method("Sign In", $0).object)
+            }
+            .do(
+                onNext: { [weak self] authSession in
+                    self?.saveSession(authSession)
+                    self?.authorised.value = true
                 }
-                return AuthSession(dto: authSession)
-            })
-            .do(onNext: { [weak self] (authSession) in
-                self?.saveSession(authSession: authSession)
-                self?.authorised.value = true
-            })
+            )
     }
     
-    func registration(reg: RegistrationRequest) -> Observable<AuthSession> {
-        
-        let router = AuthRouter.registration(data: reg)
-        return createObserver(type: LEOObjectResponse<AuthSessionDTO>.self, router: router)
-            .map({ (response) in
-                guard let authSession = response.data else {
-                    throw LEONetworkLayerError.badResponse(message: nil)
+    
+    func signUp(data: SignUpRequest) -> Observable<AuthSession> {
+        let router = AuthRouter.signUp(data)
+        return self.createObserver(type: LEOObjectResponse<AuthSessionDTO>.self, router: router)
+            .map {
+                AuthSession(dto: $0.data)
+            }
+            .catchError {
+                Observable.error(Error.method("Sign Up", $0).object)
+            }
+            .do(
+                onNext: { [weak self] authSession in
+                    self?.saveSession(authSession)
+                    self?.authorised.value = true
                 }
-                return AuthSession(dto: authSession)
-            })
-            .do(onNext: { [weak self] (authSession) in
-                self?.saveSession(authSession: authSession)
-                self?.authorised.value = true
-            })
+            )
     }
     
-    func signout() {
-        clearSession()
+    
+    func signOut() {
+        self.clearSession()
         self.authorised.value = false
     }
 
+    
 	func resetPassword(email: String) -> Observable<ResetPasswordResponse> {
 		let router = AuthRouter.resetPassword(email: email)
-		return createObserver(type: LEOObjectResponse<ResetPasswordResponse>.self, router: router)
-            .map({ (response) in
-                guard let resetPasswordResponse = response.data else {
-                    throw LEONetworkLayerError.badResponse(message: nil)
-                }
-                return resetPasswordResponse
-            })
+		return self.createObserver(type: LEOObjectResponse<ResetPasswordResponse>.self, router: router)
+            .map {
+                $0.data
+            }
+            .catchError {
+                Observable.error(Error.method("Reset password", $0).object)
+            }
 	}
+    
     
     func createNewPassword(code: String, password: String) -> Observable<CreatePasswordResponse> {
         let router = AuthRouter.createNewPassword(code: code, password: password)
-        return createObserver(type: LEOObjectResponse<CreatePasswordResponse>.self, router: router)
-            .map({ (response) in
-                guard let createPasswordResponse = response.data else {
-                    throw LEONetworkLayerError.badResponse(message: nil)
-                }
-                return createPasswordResponse
-            })
+        return self.createObserver(type: LEOObjectResponse<CreatePasswordResponse>.self, router: router)
+            .map {
+                $0.data
+            }
+            .catchError {
+                Observable.error(Error.method("Create new password", $0).object)
+            }
     }
     
     
     
-    func refresh() -> Observable<AuthSession> {
+    func refreshSession() -> Observable<AuthSession> {
         guard let token = self.authSession.refreshToken else {
-            return Observable.error(LEONetworkLayerError.badResponse(message: nil))
-            //return Observable.error(Error.noRefreshToken.object)
+            return Observable.error(Error.noRefreshToken.object)
         }
         
-        let router = AuthRouter.refreshToken(refreshToken: token)
+        let router = AuthRouter.refreshToken(token)
         return self.createObserver(type: LEOObjectResponse<AuthSessionDTO>.self, router: router)
-            .map({ (response) in
-                return AuthSession(dto: response.data!)
-            })
-            .catchError { _ in
-                Observable.error(LEONetworkLayerError.badResponse(message: nil))
-                //Observable.error(Error.method("Refresh token", $0).object)
+            .map {
+                AuthSession(dto: $0.data)
+            }
+            .catchError {
+                Observable.error(Error.method("Refresh token", $0).object)
             }
             .do(
-                onNext: { [weak self] (authSession) in
-                    self?.saveSession(authSession: authSession)
+                onNext: { [weak self] authSession in
+                    self?.saveSession(authSession)
                 }
         )
     }
-	
-    // MARK: Private
     
-    private func saveSession(authSession: AuthSession) {
+	
+    
+    //MARK: - Private
+    private func saveSession(_ authSession: AuthSession) {
         self.authStorage.authSession = authSession
-        //profileStorage.save(profile: authSession.authInfo.object())
     }
+    
     
     private func clearSession() {
         var session = AuthSession()

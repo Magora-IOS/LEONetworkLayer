@@ -76,7 +76,7 @@ class AuthorizationHandler: RequestAdapter, RequestRetrier {
         self.isRefreshing = true
         
         
-        self.authService.refresh()
+        self.authService.refreshSession()
             .do(
                 onNext: { _ in
                     completion(true)
@@ -97,12 +97,12 @@ class AuthorizationHandler: RequestAdapter, RequestRetrier {
     
     //MARK: - Routines
     private func isRefresh(_ request: URLRequest?) -> Bool {
-        return AuthRouter.refreshToken(refreshToken: String()).fullUrl.absoluteURL == request?.url
+        return AuthRouter.refreshToken("").fullUrl.absoluteURL == request?.url
     }
     
     
     private func isLogin(_ request: URLRequest?) -> Bool {
-        return AuthRouter.login(login: LogInRequest()).fullUrl.absoluteURL == request?.url
+        return AuthRouter.signIn(SignInRequest()).fullUrl.absoluteURL == request?.url
     }
     
     

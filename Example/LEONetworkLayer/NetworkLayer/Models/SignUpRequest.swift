@@ -1,6 +1,6 @@
 import ObjectMapper
 
-class RegistrationRequest: Mappable {
+class SignUpRequest: Mappable {
     
     var fullname: String = ""
     var email: String = ""

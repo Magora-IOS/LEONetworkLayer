@@ -5,8 +5,8 @@ import ObjectMapper
 
 
 public enum Response<T> {
-    case Success(T)
-    case Error(Error)
+    case success(T)
+    case error(Error)
 }
 
 
@@ -22,16 +22,16 @@ extension DataRequest {
             case .success(let rawJson):
                 do {
                     let parsed: T = try self.map(data: rawJson)
-                    leoCompletionHandler(.Success(parsed))
+                    leoCompletionHandler(.success(parsed))
                     
                 } catch {
-                    leoCompletionHandler(.Error(error))
+                    leoCompletionHandler(.error(error))
                 }
                 
                 
             case .failure(let error):
                 let leoError = self.getLeoError(error)
-                leoCompletionHandler(.Error(leoError))
+                leoCompletionHandler(.error(leoError))
             }
         }
     }

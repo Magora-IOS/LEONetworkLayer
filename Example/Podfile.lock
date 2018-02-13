@@ -8,21 +8,6 @@ PODS:
     - AlamofireObjectMapper (~> 5.0.0)
     - ObjectMapper (~> 3.1.0)
   - ObjectMapper (3.1.0)
-  - OHHTTPStubs (6.1.0):
-    - OHHTTPStubs/Default (= 6.1.0)
-  - OHHTTPStubs/Core (6.1.0)
-  - OHHTTPStubs/Default (6.1.0):
-    - OHHTTPStubs/Core
-    - OHHTTPStubs/JSON
-    - OHHTTPStubs/NSURLSession
-    - OHHTTPStubs/OHPathHelpers
-  - OHHTTPStubs/JSON (6.1.0):
-    - OHHTTPStubs/Core
-  - OHHTTPStubs/NSURLSession (6.1.0):
-    - OHHTTPStubs/Core
-  - OHHTTPStubs/OHPathHelpers (6.1.0)
-  - OHHTTPStubs/Swift (6.1.0):
-    - OHHTTPStubs/Default
   - Realm (3.0.2):
     - Realm/Headers (= 3.0.2)
   - Realm/Headers (3.0.2)
@@ -34,8 +19,6 @@ PODS:
 
 DEPENDENCIES:
   - LEONetworkLayer (from `../`)
-  - OHHTTPStubs (~> 6.0)
-  - OHHTTPStubs/Swift (~> 6.0)
   - RealmSwift (~> 3.0)
   - RxCocoa (~> 4.0.0)
   - RxSwift (~> 4.0.0)
@@ -49,12 +32,11 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
   LEONetworkLayer: 8c57609b54fecbbceff08801cf1542dce0d91333
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
-  OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
   RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
   RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
   RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
 
-PODFILE CHECKSUM: 3c1824b9d6a376a4e9bf02242809f31e65de9e75
+PODFILE CHECKSUM: 18569600a23d8cd6dd73169b9d7c9feddcb411b5
 
 COCOAPODS: 1.3.1

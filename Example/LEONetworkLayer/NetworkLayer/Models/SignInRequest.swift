@@ -1,6 +1,6 @@
 import ObjectMapper
 
-class LogInRequest: Mappable {
+class SignInRequest: Mappable {
     
     var login: String?
     var password: String?
