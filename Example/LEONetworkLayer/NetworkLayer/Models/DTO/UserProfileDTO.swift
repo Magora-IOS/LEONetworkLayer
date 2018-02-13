@@ -2,26 +2,46 @@ import ObjectMapper
 import LEONetworkLayer
 
 
-class UserProfileDTO: Mappable {
+struct UserProfileDTO: ImmutableMappable {
     
-    var id: Int?
-    var name: String?
-    var email: String?
-    var address: String?
+    var id: String
+    var name: String
+    var email: String
     var phone: String?
-    var birthDate: Date?
+    var birthDate: Date
     
-    init() {}
+
     
-    required init?(map: Map) {}
+    init(map: Map) throws {
+        id = try map.value("id")
+        name = try map.value("fullName")
+        email = try map.value("email")
+        phone = try? map.value("phoneNumber")
+        birthDate = try map.value("dob", using: DateTransformISO8061())
+    }
+    
     
     func mapping(map: Map) {
-        id <- map["id"]
-        name <- map["fullName"]
-        email <- map["email"]
-        address <- map["address"]
-        phone <- map["phoneNumber"]
-        birthDate <- (map["dob"], DateTransformISO8061())
+        name >>> map["fullName"]
+        email >>> map["email"]
+        phone >>> map["phoneNumber"]
+        birthDate >>> (map["dob"], DateTransformISO8061())
     }
 
+}
+
+
+
+
+
+extension UserProfileDTO {
+    
+    init(object: UserProfile) {
+        id = object.id
+        name = object.name
+        email = object.email
+        phone = object.phone
+        birthDate = object.birthDate
+    }
+    
 }

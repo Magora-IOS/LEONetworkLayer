@@ -16,6 +16,10 @@
 		C7A621C62032E7BB006ED490 /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A621C32032E7BB006ED490 /* CommonError.swift */; };
 		C7A621C72032E7BB006ED490 /* ErrorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A621C42032E7BB006ED490 /* ErrorObject.swift */; };
 		C7A621C82032E7BB006ED490 /* ErrorObjectProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A621C52032E7BB006ED490 /* ErrorObjectProvider.swift */; };
+		C7A621CA2032F69D006ED490 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A621C92032F69D006ED490 /* UserProfile.swift */; };
+		C7A621CC2032F6AF006ED490 /* UserProfile+DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A621CB2032F6AF006ED490 /* UserProfile+DTO.swift */; };
+		C7A621CF2032F773006ED490 /* MediaResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A621CD2032F773006ED490 /* MediaResource.swift */; };
+		C7A621D02032F773006ED490 /* MediaResource+LEO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A621CE2032F773006ED490 /* MediaResource+LEO.swift */; };
 		C7C9243A20173A2E00C49B56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C9242D20173A2E00C49B56 /* AppDelegate.swift */; };
 		C7C9243B20173A2E00C49B56 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7C9242F20173A2E00C49B56 /* Images.xcassets */; };
 		C7C9243D20173A2E00C49B56 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C9243520173A2E00C49B56 /* LaunchScreen.xib */; };
@@ -35,7 +39,6 @@
 		C7CB123F20188B030010F2CD /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB123C20188B030010F2CD /* ProfileService.swift */; };
 		C7CB124020188B030010F2CD /* RxRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB123D20188B030010F2CD /* RxRequestService.swift */; };
 		C7CB124620188FF00010F2CD /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB124220188FEF0010F2CD /* Storage.swift */; };
-		C7CB124720188FF00010F2CD /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB124420188FEF0010F2CD /* UserProfile.swift */; };
 		C7CB124820188FF00010F2CD /* AuthStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB124520188FEF0010F2CD /* AuthStorage.swift */; };
 		C7D1C07E2024253100D7442A /* AuthSessionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1C07D2024253100D7442A /* AuthSessionDTO.swift */; };
 		C7D1C0842024288E00D7442A /* AuthSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1C0832024288E00D7442A /* AuthSession.swift */; };
@@ -72,6 +75,10 @@
 		C7A621C32032E7BB006ED490 /* CommonError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
 		C7A621C42032E7BB006ED490 /* ErrorObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorObject.swift; sourceTree = "<group>"; };
 		C7A621C52032E7BB006ED490 /* ErrorObjectProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorObjectProvider.swift; sourceTree = "<group>"; };
+		C7A621C92032F69D006ED490 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		C7A621CB2032F6AF006ED490 /* UserProfile+DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserProfile+DTO.swift"; sourceTree = "<group>"; };
+		C7A621CD2032F773006ED490 /* MediaResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaResource.swift; sourceTree = "<group>"; };
+		C7A621CE2032F773006ED490 /* MediaResource+LEO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MediaResource+LEO.swift"; sourceTree = "<group>"; };
 		C7C9242D20173A2E00C49B56 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7C9242F20173A2E00C49B56 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C7C9243220173A2E00C49B56 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -92,7 +99,6 @@
 		C7CB123C20188B030010F2CD /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		C7CB123D20188B030010F2CD /* RxRequestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxRequestService.swift; sourceTree = "<group>"; };
 		C7CB124220188FEF0010F2CD /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
-		C7CB124420188FEF0010F2CD /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		C7CB124520188FEF0010F2CD /* AuthStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthStorage.swift; sourceTree = "<group>"; };
 		C7D1C07D2024253100D7442A /* AuthSessionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSessionDTO.swift; sourceTree = "<group>"; };
 		C7D1C0832024288E00D7442A /* AuthSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSession.swift; sourceTree = "<group>"; };
@@ -335,8 +341,8 @@
 		C7CB124120188FEF0010F2CD /* Storages */ = {
 			isa = PBXGroup;
 			children = (
-				C7CB124220188FEF0010F2CD /* Storage.swift */,
 				C7CB124320188FEF0010F2CD /* Models */,
+				C7CB124220188FEF0010F2CD /* Storage.swift */,
 				C7CB124520188FEF0010F2CD /* AuthStorage.swift */,
 			);
 			path = Storages;
@@ -345,7 +351,6 @@
 		C7CB124320188FEF0010F2CD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C7CB124420188FEF0010F2CD /* UserProfile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -363,6 +368,10 @@
 			children = (
 				C7D1C0832024288E00D7442A /* AuthSession.swift */,
 				C7D1C08520242CFB00D7442A /* AuthSession+DTO.swift */,
+				C7A621C92032F69D006ED490 /* UserProfile.swift */,
+				C7A621CB2032F6AF006ED490 /* UserProfile+DTO.swift */,
+				C7A621CD2032F773006ED490 /* MediaResource.swift */,
+				C7A621CE2032F773006ED490 /* MediaResource+LEO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -609,6 +618,7 @@
 				C7CB124620188FF00010F2CD /* Storage.swift in Sources */,
 				C7CB122F201886090010F2CD /* ResetPasswordResponse.swift in Sources */,
 				C7CB1234201886090010F2CD /* ProfileRouter.swift in Sources */,
+				C7A621CC2032F6AF006ED490 /* UserProfile+DTO.swift in Sources */,
 				C7A621C62032E7BB006ED490 /* CommonError.swift in Sources */,
 				C7CB123A201888D30010F2CD /* Constants.swift in Sources */,
 				C7CB1231201886090010F2CD /* SignUpRequest.swift in Sources */,
@@ -617,10 +627,12 @@
 				C7CB124020188B030010F2CD /* RxRequestService.swift in Sources */,
 				C760D611202018D700486C9E /* LEOProvider.swift in Sources */,
 				C760D60F202018D100486C9E /* LEORouter.swift in Sources */,
+				C7A621D02032F773006ED490 /* MediaResource+LEO.swift in Sources */,
 				C7D1C08620242CFB00D7442A /* AuthSession+DTO.swift in Sources */,
+				C7A621CF2032F773006ED490 /* MediaResource.swift in Sources */,
 				C7CB122E201886090010F2CD /* UserProfileDTO.swift in Sources */,
 				C7A621BC2032D38B006ED490 /* Log.swift in Sources */,
-				C7CB124720188FF00010F2CD /* UserProfile.swift in Sources */,
+				C7A621CA2032F69D006ED490 /* UserProfile.swift in Sources */,
 				C7CB1236201886090010F2CD /* RequestRouter.swift in Sources */,
 				C7CB1235201886090010F2CD /* AuthRouter.swift in Sources */,
 				C7A621C82032E7BB006ED490 /* ErrorObjectProvider.swift in Sources */,

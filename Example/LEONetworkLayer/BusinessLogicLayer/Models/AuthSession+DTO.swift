@@ -4,7 +4,6 @@ import ObjectMapper
 
 
 
-
 extension AuthSession {
     
     init(dto: AuthSessionDTO) {
@@ -20,7 +19,11 @@ extension AuthSession {
 
 extension AuthInfo {
     
-    init(dto: AuthInfoDTO) {
+    init?(dto: AuthInfoDTO?) {
+        guard let dto = dto else {
+            return nil
+        }
+        
         displayName = dto.displayName
         userId = dto.userId
     }
