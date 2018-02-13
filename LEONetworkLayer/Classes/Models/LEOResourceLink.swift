@@ -1,11 +1,14 @@
 import ObjectMapper
 
-class LEOResourceLink: ImmutableMappable {
+
+
+open class LEOResourceLink: ImmutableMappable {
+
+    public let resourceId: String
+    public let uploadUrl: String
     
-    let resourceId: String
-    let uploadUrl: String
     
-    required init(map: Map) throws {
+    public required init(map: Map) throws {
         resourceId = try map.value("resourceId")
         uploadUrl = try map.value("uploadUrl")
     }

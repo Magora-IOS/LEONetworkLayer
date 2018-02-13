@@ -32,11 +32,8 @@ open class LEOBaseResponse: ImmutableMappable {
 }
 
 extension LEOBaseResponse {
-    func getNetworkError() -> LEONetworkLayerError {
-        return .businessProblem(code: self.code, errors: errors)
-    }
     
-    var isSuccess: Bool {
+    public var isSuccess: Bool {
         if self.code == .success {
             return true
         }
