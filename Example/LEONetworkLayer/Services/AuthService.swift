@@ -26,7 +26,7 @@ class AuthServiceImpl: AuthService, RxRequestService {
     
     
     
-    enum Error: ErrorObjectProvider {
+    enum ServiceError: ErrorObjectProvider {
         case method(String, Swift.Error)
         case noRefreshToken
         
@@ -93,7 +93,7 @@ class AuthServiceImpl: AuthService, RxRequestService {
                 AuthSession(dto: $0.data)
             }
             .catchError {
-                Observable.error(Error.method("Sign In", $0).object)
+                Observable.error(ServiceError.method("Sign In", $0).object)
             }
             .do(
                 onNext: { [weak self] authSession in
@@ -111,7 +111,7 @@ class AuthServiceImpl: AuthService, RxRequestService {
                 AuthSession(dto: $0.data)
             }
             .catchError {
-                Observable.error(Error.method("Sign Up", $0).object)
+                Observable.error(ServiceError.method("Sign Up", $0).object)
             }
             .do(
                 onNext: { [weak self] authSession in
@@ -135,7 +135,7 @@ class AuthServiceImpl: AuthService, RxRequestService {
                 $0.data
             }
             .catchError {
-                Observable.error(Error.method("Reset password", $0).object)
+                Observable.error(ServiceError.method("Reset password", $0).object)
             }
 	}
     
@@ -147,7 +147,7 @@ class AuthServiceImpl: AuthService, RxRequestService {
                 $0.data
             }
             .catchError {
-                Observable.error(Error.method("Create new password", $0).object)
+                Observable.error(ServiceError.method("Create new password", $0).object)
             }
     }
     
@@ -155,7 +155,7 @@ class AuthServiceImpl: AuthService, RxRequestService {
     
     func refreshSession() -> Observable<AuthSession> {
         guard let token = self.authSession.refreshToken else {
-            return Observable.error(Error.noRefreshToken.object)
+            return Observable.error(ServiceError.noRefreshToken.object)
         }
         
         let router = AuthRouter.refreshToken(token)
@@ -164,7 +164,7 @@ class AuthServiceImpl: AuthService, RxRequestService {
                 AuthSession(dto: $0.data)
             }
             .catchError {
-                Observable.error(Error.method("Refresh token", $0).object)
+                Observable.error(ServiceError.method("Refresh token", $0).object)
             }
             .do(
                 onNext: { [weak self] authSession in

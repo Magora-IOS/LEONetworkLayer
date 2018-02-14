@@ -39,7 +39,7 @@ extension DataRequest {
     
     private func map<T: LEOBaseResponse>(data: Any) throws -> T {
         guard let json = data as? [String: Any] else {
-            throw LEONetworkLayerError.badResponse(message: "Data is not an dictionary, but: \(type(of: data))")
+            throw NetworkLayerError.badResponse(message: "Data is not an dictionary, but: \(type(of: data))")
         }
         
         let map = Map(mappingType: .fromJSON, JSON: json)
@@ -48,13 +48,13 @@ extension DataRequest {
     }
     
     
-    private func getLeoError(_ error: Error) -> LEONetworkLayerError {
-        if error is LEONetworkLayerError {
-            return error as! LEONetworkLayerError
+    private func getLeoError(_ error: Error) -> NetworkLayerError {
+        if error is NetworkLayerError {
+            return error as! NetworkLayerError
         } else {
             let error = error as NSError
             guard error.domain == NSURLErrorDomain else {
-                return LEONetworkLayerError.unknown
+                return NetworkLayerError.unknown
             }
             
             switch error.code {
@@ -69,10 +69,10 @@ extension DataRequest {
                  NSURLErrorResourceUnavailable,
                  NSURLErrorNotConnectedToInternet,
                  NSURLErrorRedirectToNonExistentLocation:
-                return LEONetworkLayerError.connectionFail(reason: .noConnection)
+                return NetworkLayerError.connectionFail(reason: .noConnection)
                 
             default:
-                return LEONetworkLayerError.unknown
+                return NetworkLayerError.unknown
             }
         }
         

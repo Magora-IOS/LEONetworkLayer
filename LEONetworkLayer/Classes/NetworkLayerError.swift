@@ -1,4 +1,4 @@
-public enum LEONetworkLayerError: Error {
+public enum NetworkLayerError: Error {
     
     public enum ConnectionFailReasons {
         case noConnection
@@ -10,4 +10,5 @@ public enum LEONetworkLayerError: Error {
     case connectionFail(reason: ConnectionFailReasons)
     case businessProblem(code: LEOApiGlobalErrorCode, errors:[LEOError]?)
 }
+
 
