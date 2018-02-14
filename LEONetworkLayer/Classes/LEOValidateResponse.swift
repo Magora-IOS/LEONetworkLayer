@@ -5,7 +5,7 @@ import Alamofire
 extension DataRequest {
     
     @discardableResult
-    public func validateLEOErrors() -> Self {
+    public func leo_validateResponse() -> Self {
         return self.validate { (request, response, data) -> Request.ValidationResult in
             
             guard let jsonData = data, let jsonString = String(data: jsonData, encoding: .utf8) else {

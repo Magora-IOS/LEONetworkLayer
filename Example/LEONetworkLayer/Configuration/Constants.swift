@@ -25,6 +25,15 @@ class Constants {
     }
     
     
+    static var isDebug: Bool {
+        var result = false
+        #if DEBUG
+            result = true
+        #endif
+        return result
+    }
+    
+    
     @available(iOS, introduced: 100.0, deprecated: 100.0, message: "Use valid Build Scheme")
     private static var constantsNotAvailable: ConstantsBase.Type {
         //Just for compilation

@@ -2,7 +2,7 @@ import ObjectMapper
 
 
 
-open class LEOResourceLink: ImmutableMappable {
+open class LEOMediaResourceUploadLink: ImmutableMappable {
 
     public let resourceId: String
     public let uploadUrl: String

@@ -14,7 +14,7 @@ public enum Response<T> {
 extension DataRequest {
     
     @discardableResult
-    public func responseLEO<T: LEOBaseResponse>(completionHandler leoCompletionHandler: @escaping (Response<T>) -> Void) -> Self {
+    public func leo_mapResponse<T: LEOBaseResponse>(completionHandler leoCompletionHandler: @escaping (Response<T>) -> Void) -> Self {
         
         return self.responseJSON { (data: DataResponse<Any>) in
             switch data.result {

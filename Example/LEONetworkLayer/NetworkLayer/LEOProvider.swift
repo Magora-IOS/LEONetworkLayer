@@ -34,10 +34,10 @@ class LEOProvider {
             
             return self.sessionManager
                 .request(router)
-                .logResponse(log: true)
-                .validateLEOErrors()
-                .responseLEO(completionHandler: completionHandler)
-                .printRequestCURL()
+                .leo_logRequestCURL { Log($0) }
+                .leo_logResponse{ Log($0) }
+                .leo_validateResponse()
+                .leo_mapResponse(completionHandler: completionHandler)
     }
     
 }
