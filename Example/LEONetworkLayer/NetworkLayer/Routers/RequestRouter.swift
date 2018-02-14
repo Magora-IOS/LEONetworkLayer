@@ -19,7 +19,7 @@ extension RequestRouter {
     }
     
     
-    func createUrlWithParameters(_ param: () -> Parameters? ) throws -> URLRequest {
+    func createUrlWithParameters(_ params: () -> Parameters? ) throws -> URLRequest {
         var result = URLRequest(url: self.fullUrl)
         result.httpMethod = self.method.rawValue
         
@@ -27,28 +27,29 @@ extension RequestRouter {
         var contentType: String?
         
         switch self.method {
-        case .get:
+        case .get, .head, .options, .trace, .delete:
             encoding = URLEncoding()
-            contentType = "application/x-www-form-urlencoded"
             
-        default:
+        case .post, .put, .patch:
             encoding = JSONEncoding()
             contentType = "application/json"
+            
+        case .connect:
+            //TODO: clear this
+            break
         }
         
+        
+        if let contentType = contentType {
+            result.setValue(contentType, forHTTPHeaderField: "Content-Type")
+        }
         
         let error = ErrorObject(domain: "RequestRouter")
-        guard contentType != nil else {
-            error.desc = "contentType isn't set"
-            throw error
-        }
-        result.setValue(contentType!, forHTTPHeaderField: "Content-Type")
-        
         guard encoding != nil else {
             error.desc = "encoding isn't set"
             throw error
         }
-        result = try encoding!.encode(result, with: param())
+        result = try encoding!.encode(result, with: params())
         
         return result
     }
