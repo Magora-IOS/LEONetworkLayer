@@ -9,9 +9,9 @@ class KeychainStorage: KeyValueStorage {
     
     
     //MARK: - Lifecycle
-    init(_ prefix: String) {
+    init(prefix: String, icloud: Bool) {
         self.storage = KeychainSwift(keyPrefix: prefix)
-        self.storage.synchronizable = true
+        self.storage.synchronizable = icloud
     }
     
     
@@ -25,6 +25,9 @@ class KeychainStorage: KeyValueStorage {
         }
         else if let data = value as? Data {
             self.storage.set(data, forKey: key.rawValue)
+        }
+        else if value == nil {
+            self.storage.delete(key.rawValue)
         }
         else {
             return false
@@ -51,3 +54,4 @@ class KeychainStorage: KeyValueStorage {
     
     
 }
+
