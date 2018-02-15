@@ -1,5 +1,7 @@
 import ObjectMapper
 
+
+
 open class DateTransformMiliseconds: TransformType {
     
     public init() {        
@@ -7,21 +9,22 @@ open class DateTransformMiliseconds: TransformType {
     
     
     open func transformFromJSON(_ value: Any?) -> Date? {
-        if let timeInt = value as? Double {
-            return Date(timeIntervalSince1970: TimeInterval(timeInt / 1000.0))
+        if let double = value as? Double {
+            return Date(timeIntervalSince1970: TimeInterval(double / 1000.0))
         }
-        
-        if let timeStr = value as? String {
-            return Date(timeIntervalSince1970: TimeInterval(atof(timeStr)))
+         else if let string = value as? String {
+            return self.transformFromJSON(Double(string))
+        } else {
+            return nil
         }
-        
-        return nil
     }
     
+    
     open func transformToJSON(_ value: Date?) -> Double? {
-        if let date = value {
-            return Double(date.timeIntervalSince1970) * 1000.0
+        guard let date = value else {
+            return nil
         }
-        return nil
+        
+        return Double(date.timeIntervalSince1970) * 1000.0
     }
 }

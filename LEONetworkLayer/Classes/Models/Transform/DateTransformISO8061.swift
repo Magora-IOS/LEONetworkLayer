@@ -1,35 +1,53 @@
 import ObjectMapper
 
+
+
 public class DateTransformISO8061: TransformType {
 	
-	var zeroTimezone: Bool = false
-    var dateFormat: String = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    //MARK: - Properties
+	private let zeroTimezone: Bool
+    private let dateFormat: String
     
+    
+    //MARK: - Lifecycle
 	public init(zeroTimezone: Bool = true) {
-		if zeroTimezone {
-			self.zeroTimezone = true
-			dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-		}
+        self.zeroTimezone = zeroTimezone
+        self.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 	}
     
+    
     public init(withFormat format: String) {
-        dateFormat = format
+        self.zeroTimezone = false
+        self.dateFormat = format
     }
     
+    
+    //MARK: - Transform
     open func transformFromJSON(_ value: Any?) -> Date? {
-		guard let dateString = value as? String else { return nil }
-		return dateFormatter().date(from: dateString)
+		guard let string = value as? String else {
+            return nil
+        }
+        
+		return self.dateFormatter().date(from: string)
     }
+    
     
     open func transformToJSON(_ value: Date?) -> String? {
-		guard let date = value else { return nil }
-		return dateFormatter().string(from: date)
+		guard let date = value else {
+            return nil
+        }
+        
+		return self.dateFormatter().string(from: date)
     }
 	
+    
+    
+    //MARK: - Routines
 	private func dateFormatter() -> DateFormatter {
 		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = dateFormat
-		if zeroTimezone {
+		dateFormatter.dateFormat = self.dateFormat
+        
+		if self.zeroTimezone {
 			dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
 		}
 		
