@@ -20,6 +20,11 @@
 		C7A2739520357CC600506C79 /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2739120357CC600506C79 /* KeychainStorage.swift */; };
 		C7A2739620357CC600506C79 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2739220357CC600506C79 /* UserDefaultsStorage.swift */; };
 		C7A2739720357CC600506C79 /* KeyValueStorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2739320357CC600506C79 /* KeyValueStorageKey.swift */; };
+		C7A273A5203589FF00506C79 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A273A3203589FF00506C79 /* AppCoordinator.swift */; };
+		C7A273A6203589FF00506C79 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A273A4203589FF00506C79 /* AppContext.swift */; };
+		C7A273AA20358A5900506C79 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A273A820358A5900506C79 /* BaseCoordinator.swift */; };
+		C7A273AB20358A5900506C79 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A273A920358A5900506C79 /* Coordinator.swift */; };
+		C7A273AE20358A8D00506C79 /* UIWindow+ChangeRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A273AD20358A8D00506C79 /* UIWindow+ChangeRoot.swift */; };
 		C7A621BC2032D38B006ED490 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A621BB2032D38B006ED490 /* Log.swift */; };
 		C7A621C62032E7BB006ED490 /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A621C32032E7BB006ED490 /* CommonError.swift */; };
 		C7A621C72032E7BB006ED490 /* ErrorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A621C42032E7BB006ED490 /* ErrorObject.swift */; };
@@ -82,6 +87,11 @@
 		C7A2739120357CC600506C79 /* KeychainStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
 		C7A2739220357CC600506C79 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 		C7A2739320357CC600506C79 /* KeyValueStorageKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueStorageKey.swift; sourceTree = "<group>"; };
+		C7A273A3203589FF00506C79 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		C7A273A4203589FF00506C79 /* AppContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
+		C7A273A820358A5900506C79 /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		C7A273A920358A5900506C79 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		C7A273AD20358A8D00506C79 /* UIWindow+ChangeRoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+ChangeRoot.swift"; sourceTree = "<group>"; };
 		C7A621BB2032D38B006ED490 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		C7A621C32032E7BB006ED490 /* CommonError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
 		C7A621C42032E7BB006ED490 /* ErrorObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorObject.swift; sourceTree = "<group>"; };
@@ -235,9 +245,28 @@
 			path = KeyValue;
 			sourceTree = "<group>";
 		};
+		C7A273A720358A5900506C79 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				C7A273A820358A5900506C79 /* BaseCoordinator.swift */,
+				C7A273A920358A5900506C79 /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		C7A273AC20358A8D00506C79 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C7A273AD20358A8D00506C79 /* UIWindow+ChangeRoot.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C7A621B92032D38B006ED490 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				C7A273AC20358A8D00506C79 /* Extensions */,
+				C7A273A720358A5900506C79 /* Coordinator */,
 				C7A621C22032E7BB006ED490 /* Errors */,
 				C7A621BA2032D38B006ED490 /* Log */,
 			);
@@ -265,9 +294,9 @@
 		C7C9242B20173A2E00C49B56 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C7CB123D20188B030010F2CD /* RxRequestService.swift */,
 				C7CB123B20188B020010F2CD /* AuthService.swift */,
 				C7CB123C20188B030010F2CD /* ProfileService.swift */,
-				C7CB123D20188B030010F2CD /* RxRequestService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -275,6 +304,8 @@
 		C7C9242C20173A2E00C49B56 /* ApplicationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				C7A273A4203589FF00506C79 /* AppContext.swift */,
+				C7A273A3203589FF00506C79 /* AppCoordinator.swift */,
 				C7C9242D20173A2E00C49B56 /* AppDelegate.swift */,
 			);
 			path = ApplicationLayer;
@@ -637,6 +668,7 @@
 			files = (
 				C7A2739620357CC600506C79 /* UserDefaultsStorage.swift in Sources */,
 				C7A621C72032E7BB006ED490 /* ErrorObject.swift in Sources */,
+				C7A273A5203589FF00506C79 /* AppCoordinator.swift in Sources */,
 				C7C9243E20173A2E00C49B56 /* ViewController.swift in Sources */,
 				C7A2739520357CC600506C79 /* KeychainStorage.swift in Sources */,
 				C7CB1234201886090010F2CD /* ProfileRouter.swift in Sources */,
@@ -645,14 +677,17 @@
 				C7CB123A201888D30010F2CD /* Constants.swift in Sources */,
 				C7CB123F20188B030010F2CD /* ProfileService.swift in Sources */,
 				C7C9243A20173A2E00C49B56 /* AppDelegate.swift in Sources */,
+				C7A273AE20358A8D00506C79 /* UIWindow+ChangeRoot.swift in Sources */,
 				C7CB124020188B030010F2CD /* RxRequestService.swift in Sources */,
 				C760D611202018D700486C9E /* LEOProvider.swift in Sources */,
 				C760D60F202018D100486C9E /* LEORouter.swift in Sources */,
 				C7A2739720357CC600506C79 /* KeyValueStorageKey.swift in Sources */,
+				C7A273AB20358A5900506C79 /* Coordinator.swift in Sources */,
 				C7A621D02032F773006ED490 /* MediaResource+LEO.swift in Sources */,
 				C7D1C08620242CFB00D7442A /* AuthSession+DTO.swift in Sources */,
 				C77292E52033FEE300CB4F13 /* SignUpRequest.swift in Sources */,
 				C7A621CF2032F773006ED490 /* MediaResource.swift in Sources */,
+				C7A273AA20358A5900506C79 /* BaseCoordinator.swift in Sources */,
 				C7CB122E201886090010F2CD /* UserProfileDTO.swift in Sources */,
 				C7A621BC2032D38B006ED490 /* Log.swift in Sources */,
 				C7A621CA2032F69D006ED490 /* UserProfile.swift in Sources */,
@@ -665,6 +700,7 @@
 				C7D1C0842024288E00D7442A /* AuthSession.swift in Sources */,
 				C7D1C07E2024253100D7442A /* AuthSessionDTO.swift in Sources */,
 				C7CB122D201886090010F2CD /* AuthorizationHandler.swift in Sources */,
+				C7A273A6203589FF00506C79 /* AppContext.swift in Sources */,
 				C7CB124820188FF00010F2CD /* AuthStorage.swift in Sources */,
 				C7CB123E20188B030010F2CD /* AuthService.swift in Sources */,
 				C77292E62033FEE300CB4F13 /* SignInRequest.swift in Sources */,

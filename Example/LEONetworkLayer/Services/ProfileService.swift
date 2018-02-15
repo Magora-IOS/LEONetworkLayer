@@ -7,7 +7,7 @@ protocol ProfileService {
 }
 
 
-class ProfileServiceImp: ProfileService, RxRequestService {
+class ProfileServiceImpl: ProfileService, RxRequestService {
     
     //MARK: - Properties
     let apiProvider: LEOProvider
