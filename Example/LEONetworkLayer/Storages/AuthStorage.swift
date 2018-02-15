@@ -1,44 +1,38 @@
 import Foundation
 
-protocol KVStorage {
-    func setValue(value: Any?, forKey: String)
-    func getValue(forKey: String) -> Any?
-}
+
 
 protocol AuthStorage {
     var authSession: AuthSession { get set }
 }
 
-class UserDefaultsStorage : KVStorage {
+
+
+class AuthStorageImpl: AuthStorage {
     
-    init() {}
+    //MARK: - Properties
+    private let storage: KeyValueStorage
     
-    func setValue(value: Any?, forKey: String) {
-        UserDefaults.standard.set(value, forKey: forKey)
-        UserDefaults.standard.synchronize()
+    
+    //MARK: - Lifecycle
+    init(storage: KeyValueStorage) {
+        self.storage = storage
     }
+
     
-    func getValue(forKey: String) -> Any? {
-        return UserDefaults.standard.value(forKey: forKey)
-    }
-}
-
-
-
-extension UserDefaultsStorage: AuthStorage {
-    
+    //MARK: - Interface
     var authSession: AuthSession {
         get {
             var session = AuthSession()
-            session.accessToken = getValue(forKey: "accessToken") as? String
-            session.refreshToken = getValue(forKey: "refreshToken") as? String
-            session.accessTokenExpire = getValue(forKey: "accessTokenExpire") as? Date
+            session.accessToken = self.storage.getValue(key: .authSessionAccessToken) as? String
+            session.refreshToken = self.storage.getValue(key: .authSessionRefreshToken) as? String
+            session.accessTokenExpire = self.storage.getValue(key: .authSessionAccessTokenExpirationDate) as? Date
             return session
         }
         set {
-            setValue(value: newValue.accessToken, forKey: "accessToken")
-            setValue(value: newValue.refreshToken, forKey: "refreshToken")
-            setValue(value: newValue.accessTokenExpire, forKey: "accessTokenExpire")
+            self.storage.setValue(value: newValue.accessToken, key: .authSessionAccessToken)
+            self.storage.setValue(value: newValue.refreshToken, key: .authSessionRefreshToken)
+            self.storage.setValue(value: newValue.accessTokenExpire, key: .authSessionAccessTokenExpirationDate)
         }
     }
 }

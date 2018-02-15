@@ -16,6 +16,10 @@
 		C77292E62033FEE300CB4F13 /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77292E12033FEE300CB4F13 /* SignInRequest.swift */; };
 		C77292E72033FEE300CB4F13 /* CreatePasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77292E32033FEE300CB4F13 /* CreatePasswordResponse.swift */; };
 		C77292E82033FEE300CB4F13 /* ResetPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77292E42033FEE300CB4F13 /* ResetPasswordResponse.swift */; };
+		C7A2739420357CC600506C79 /* KeyValueStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2739020357CC600506C79 /* KeyValueStorage.swift */; };
+		C7A2739520357CC600506C79 /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2739120357CC600506C79 /* KeychainStorage.swift */; };
+		C7A2739620357CC600506C79 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2739220357CC600506C79 /* UserDefaultsStorage.swift */; };
+		C7A2739720357CC600506C79 /* KeyValueStorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2739320357CC600506C79 /* KeyValueStorageKey.swift */; };
 		C7A621BC2032D38B006ED490 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A621BB2032D38B006ED490 /* Log.swift */; };
 		C7A621C62032E7BB006ED490 /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A621C32032E7BB006ED490 /* CommonError.swift */; };
 		C7A621C72032E7BB006ED490 /* ErrorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A621C42032E7BB006ED490 /* ErrorObject.swift */; };
@@ -38,7 +42,6 @@
 		C7CB123E20188B030010F2CD /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB123B20188B020010F2CD /* AuthService.swift */; };
 		C7CB123F20188B030010F2CD /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB123C20188B030010F2CD /* ProfileService.swift */; };
 		C7CB124020188B030010F2CD /* RxRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB123D20188B030010F2CD /* RxRequestService.swift */; };
-		C7CB124620188FF00010F2CD /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB124220188FEF0010F2CD /* Storage.swift */; };
 		C7CB124820188FF00010F2CD /* AuthStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB124520188FEF0010F2CD /* AuthStorage.swift */; };
 		C7D1C07E2024253100D7442A /* AuthSessionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1C07D2024253100D7442A /* AuthSessionDTO.swift */; };
 		C7D1C0842024288E00D7442A /* AuthSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1C0832024288E00D7442A /* AuthSession.swift */; };
@@ -75,6 +78,10 @@
 		C77292E12033FEE300CB4F13 /* SignInRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
 		C77292E32033FEE300CB4F13 /* CreatePasswordResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePasswordResponse.swift; sourceTree = "<group>"; };
 		C77292E42033FEE300CB4F13 /* ResetPasswordResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordResponse.swift; sourceTree = "<group>"; };
+		C7A2739020357CC600506C79 /* KeyValueStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueStorage.swift; sourceTree = "<group>"; };
+		C7A2739120357CC600506C79 /* KeychainStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
+		C7A2739220357CC600506C79 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
+		C7A2739320357CC600506C79 /* KeyValueStorageKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueStorageKey.swift; sourceTree = "<group>"; };
 		C7A621BB2032D38B006ED490 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		C7A621C32032E7BB006ED490 /* CommonError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
 		C7A621C42032E7BB006ED490 /* ErrorObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorObject.swift; sourceTree = "<group>"; };
@@ -98,7 +105,6 @@
 		C7CB123B20188B020010F2CD /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		C7CB123C20188B030010F2CD /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		C7CB123D20188B030010F2CD /* RxRequestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxRequestService.swift; sourceTree = "<group>"; };
-		C7CB124220188FEF0010F2CD /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		C7CB124520188FEF0010F2CD /* AuthStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthStorage.swift; sourceTree = "<group>"; };
 		C7D1C07D2024253100D7442A /* AuthSessionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSessionDTO.swift; sourceTree = "<group>"; };
 		C7D1C0832024288E00D7442A /* AuthSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSession.swift; sourceTree = "<group>"; };
@@ -216,6 +222,17 @@
 				C77292E42033FEE300CB4F13 /* ResetPasswordResponse.swift */,
 			);
 			path = Responses;
+			sourceTree = "<group>";
+		};
+		C7A2738F20357CC600506C79 /* KeyValue */ = {
+			isa = PBXGroup;
+			children = (
+				C7A2739020357CC600506C79 /* KeyValueStorage.swift */,
+				C7A2739320357CC600506C79 /* KeyValueStorageKey.swift */,
+				C7A2739220357CC600506C79 /* UserDefaultsStorage.swift */,
+				C7A2739120357CC600506C79 /* KeychainStorage.swift */,
+			);
+			path = KeyValue;
 			sourceTree = "<group>";
 		};
 		C7A621B92032D38B006ED490 /* External */ = {
@@ -357,18 +374,10 @@
 		C7CB124120188FEF0010F2CD /* Storages */ = {
 			isa = PBXGroup;
 			children = (
-				C7CB124320188FEF0010F2CD /* Models */,
-				C7CB124220188FEF0010F2CD /* Storage.swift */,
+				C7A2738F20357CC600506C79 /* KeyValue */,
 				C7CB124520188FEF0010F2CD /* AuthStorage.swift */,
 			);
 			path = Storages;
-			sourceTree = "<group>";
-		};
-		C7CB124320188FEF0010F2CD /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		C7D1C0812024286D00D7442A /* BusinessLogicLayer */ = {
@@ -565,6 +574,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-LEONetworkLayer_Example/Pods-LEONetworkLayer_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/LEONetworkLayer/LEONetworkLayer.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -574,6 +584,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LEONetworkLayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -624,9 +635,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7A2739620357CC600506C79 /* UserDefaultsStorage.swift in Sources */,
 				C7A621C72032E7BB006ED490 /* ErrorObject.swift in Sources */,
 				C7C9243E20173A2E00C49B56 /* ViewController.swift in Sources */,
-				C7CB124620188FF00010F2CD /* Storage.swift in Sources */,
+				C7A2739520357CC600506C79 /* KeychainStorage.swift in Sources */,
 				C7CB1234201886090010F2CD /* ProfileRouter.swift in Sources */,
 				C7A621CC2032F6AF006ED490 /* UserProfile+DTO.swift in Sources */,
 				C7A621C62032E7BB006ED490 /* CommonError.swift in Sources */,
@@ -636,6 +648,7 @@
 				C7CB124020188B030010F2CD /* RxRequestService.swift in Sources */,
 				C760D611202018D700486C9E /* LEOProvider.swift in Sources */,
 				C760D60F202018D100486C9E /* LEORouter.swift in Sources */,
+				C7A2739720357CC600506C79 /* KeyValueStorageKey.swift in Sources */,
 				C7A621D02032F773006ED490 /* MediaResource+LEO.swift in Sources */,
 				C7D1C08620242CFB00D7442A /* AuthSession+DTO.swift in Sources */,
 				C77292E52033FEE300CB4F13 /* SignUpRequest.swift in Sources */,
@@ -646,6 +659,7 @@
 				C7CB1236201886090010F2CD /* RequestRouter.swift in Sources */,
 				C77292E72033FEE300CB4F13 /* CreatePasswordResponse.swift in Sources */,
 				C77292E82033FEE300CB4F13 /* ResetPasswordResponse.swift in Sources */,
+				C7A2739420357CC600506C79 /* KeyValueStorage.swift in Sources */,
 				C7CB1235201886090010F2CD /* AuthRouter.swift in Sources */,
 				C7A621C82032E7BB006ED490 /* ErrorObjectProvider.swift in Sources */,
 				C7D1C0842024288E00D7442A /* AuthSession.swift in Sources */,

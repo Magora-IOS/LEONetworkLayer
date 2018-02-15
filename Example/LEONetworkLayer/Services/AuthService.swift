@@ -49,17 +49,15 @@ class AuthServiceImpl: AuthService, RxRequestService {
     //MARK: - Properties
     let apiProvider: LEOProvider
     var authStorage: AuthStorage
-    var profileStorage: UserProfileStorage
     var logoutHandler: (() -> Void)?
     var authorised: Variable<Bool>
     
    
     
     //MARK: - Lifecycle
-    init(apiProvider: LEOProvider, authStorage: AuthStorage, profileStorage: UserProfileStorage) {
+    init(apiProvider: LEOProvider, authStorage: AuthStorage) {
         self.apiProvider = apiProvider
         self.authStorage = authStorage
-        self.profileStorage = profileStorage
         self.authorised = Variable(authStorage.authSession.accessToken != nil)
 
     }

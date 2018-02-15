@@ -8,10 +8,10 @@ target 'LEONetworkLayer_Example' do
   pod 'LEONetworkLayer', :path => '../'
   pod 'RxSwift', '~> 4.0.0'
   pod 'RxCocoa', '~> 4.0.0'
+  pod 'KeychainSwift', '~> 10.0.0'
   
   target 'LEONetworkLayer_Tests' do
     inherit! :search_paths
   end
-  
   
 end
