@@ -59,8 +59,6 @@ class AuthorizationHandler: RequestAdapter, RequestRetrier {
         if !self.isRefreshing {
             self.refreshToken { [weak self] succeeded in
                 guard let strongSelf = self else { return }
-                strongSelf.lock.lock()
-                defer { strongSelf.lock.unlock() }
                 
                 strongSelf.requestsToRetry.forEach { $0(succeeded, 0.0) }
                 strongSelf.requestsToRetry.removeAll()
@@ -77,19 +75,17 @@ class AuthorizationHandler: RequestAdapter, RequestRetrier {
         
         
         self.authService.refreshSession()
-            .do(
-                onNext: { _ in
-                    completion(true)
-            },
-                onError: {
+            .subscribe(
+                onError: { [weak self] in
                     Log($0)
                     completion(false)
-            },
-                onCompleted: { [weak self] in
+                    self?.isRefreshing = false
+                },
+                onCompleted: {  [weak self] in
+                    completion(true)
                     self?.isRefreshing = false
                 }
             )
-            .subscribe()
             .disposed(by: self.disposeBag)
     }
     
@@ -97,11 +93,13 @@ class AuthorizationHandler: RequestAdapter, RequestRetrier {
     
     //MARK: - Routines
     private func isRefresh(_ request: URLRequest?) -> Bool {
+        //TODO: potential problem when request URL depends of parameters
         return AuthRouter.refreshToken("").fullUrl.absoluteURL == request?.url
     }
     
     
     private func isLogin(_ request: URLRequest?) -> Bool {
+        //TODO: potential problem when request URL depends of parameters
         return AuthRouter.signIn(SignInRequest()).fullUrl.absoluteURL == request?.url
     }
     
