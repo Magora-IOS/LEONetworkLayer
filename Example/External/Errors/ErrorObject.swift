@@ -35,8 +35,7 @@ public protocol ErrorProtocol: class, LocalizedError, CustomStringConvertible {
     
     //Computable
     var fullDescription: String { get }
-    var userFriendlyDescription: String { get }
-    var consoleDescription: String { get }
+
 }
 
 
@@ -96,20 +95,6 @@ open class ErrorObject: ErrorProtocol {
         return result
     }
     
-    
-    public var userFriendlyDescription: String {
-        //TODO: localize
-        var result = "We are sorry"
-    
-        if let description = self.desc {
-            result.append(": \(description)\n")
-        }
-        return result
-    }
-    
-    public var consoleDescription: String {
-        return self.fullDescription
-    }
 }
 
 
@@ -117,7 +102,7 @@ open class ErrorObject: ErrorProtocol {
 
 extension ErrorObject: Swift.Error {
     public var localizedDescription: String {
-        return self.fullDescription
+        return self.desc ?? ""
     }
 }
 

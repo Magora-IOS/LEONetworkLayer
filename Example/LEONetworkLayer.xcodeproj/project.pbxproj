@@ -10,6 +10,9 @@
 		247FC57149D27615BECA8B51 /* Pods_LEONetworkLayer_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 551E7ED57F89D3BE23A92721 /* Pods_LEONetworkLayer_Example.framework */; };
 		24B8F18D3C4CAB431D822E58 /* Pods_LEONetworkLayer_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16646520E7F708EB64BFFF25 /* Pods_LEONetworkLayer_Tests.framework */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		C728E3EB2047E27500345B69 /* Error+ApiBusinessError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728E3E82047E27500345B69 /* Error+ApiBusinessError.swift */; };
+		C728E3EC2047E27500345B69 /* Error+NoInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728E3E92047E27500345B69 /* Error+NoInternet.swift */; };
+		C728E3ED2047E27500345B69 /* BusinessError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728E3EA2047E27500345B69 /* BusinessError.swift */; };
 		C760D60F202018D100486C9E /* LEORouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760D60E202018D100486C9E /* LEORouter.swift */; };
 		C760D611202018D700486C9E /* LEOProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760D610202018D700486C9E /* LEOProvider.swift */; };
 		C77292E52033FEE300CB4F13 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77292E02033FEE300CB4F13 /* SignUpRequest.swift */; };
@@ -77,6 +80,9 @@
 		8CC451428ABBD3603FB26D47 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		A7B9607EDA9BEC24288AD21D /* Pods-LEONetworkLayer_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LEONetworkLayer_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LEONetworkLayer_Tests/Pods-LEONetworkLayer_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		BB06845F1DD2A91BB84DC357 /* Pods-LEONetworkLayer_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LEONetworkLayer_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LEONetworkLayer_Tests/Pods-LEONetworkLayer_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		C728E3E82047E27500345B69 /* Error+ApiBusinessError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Error+ApiBusinessError.swift"; sourceTree = "<group>"; };
+		C728E3E92047E27500345B69 /* Error+NoInternet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Error+NoInternet.swift"; sourceTree = "<group>"; };
+		C728E3EA2047E27500345B69 /* BusinessError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessError.swift; sourceTree = "<group>"; };
 		C760D60E202018D100486C9E /* LEORouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEORouter.swift; sourceTree = "<group>"; };
 		C760D610202018D700486C9E /* LEOProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOProvider.swift; sourceTree = "<group>"; };
 		C77292E02033FEE300CB4F13 /* SignUpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
@@ -214,6 +220,16 @@
 				16646520E7F708EB64BFFF25 /* Pods_LEONetworkLayer_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C728E3E72047E27500345B69 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				C728E3E82047E27500345B69 /* Error+ApiBusinessError.swift */,
+				C728E3E92047E27500345B69 /* Error+NoInternet.swift */,
+				C728E3EA2047E27500345B69 /* BusinessError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		C77292DF2033FEE300CB4F13 /* Requests */ = {
@@ -414,6 +430,7 @@
 		C7D1C0812024286D00D7442A /* BusinessLogicLayer */ = {
 			isa = PBXGroup;
 			children = (
+				C728E3E72047E27500345B69 /* Errors */,
 				C7D1C0822024288300D7442A /* Models */,
 			);
 			path = BusinessLogicLayer;
@@ -670,8 +687,10 @@
 				C7A621C72032E7BB006ED490 /* ErrorObject.swift in Sources */,
 				C7A273A5203589FF00506C79 /* AppCoordinator.swift in Sources */,
 				C7C9243E20173A2E00C49B56 /* ViewController.swift in Sources */,
+				C728E3EC2047E27500345B69 /* Error+NoInternet.swift in Sources */,
 				C7A2739520357CC600506C79 /* KeychainStorage.swift in Sources */,
 				C7CB1234201886090010F2CD /* ProfileRouter.swift in Sources */,
+				C728E3ED2047E27500345B69 /* BusinessError.swift in Sources */,
 				C7A621CC2032F6AF006ED490 /* UserProfile+DTO.swift in Sources */,
 				C7A621C62032E7BB006ED490 /* CommonError.swift in Sources */,
 				C7CB123A201888D30010F2CD /* Constants.swift in Sources */,
@@ -688,6 +707,7 @@
 				C77292E52033FEE300CB4F13 /* SignUpRequest.swift in Sources */,
 				C7A621CF2032F773006ED490 /* MediaResource.swift in Sources */,
 				C7A273AA20358A5900506C79 /* BaseCoordinator.swift in Sources */,
+				C728E3EB2047E27500345B69 /* Error+ApiBusinessError.swift in Sources */,
 				C7CB122E201886090010F2CD /* UserProfileDTO.swift in Sources */,
 				C7A621BC2032D38B006ED490 /* Log.swift in Sources */,
 				C7A621CA2032F69D006ED490 /* UserProfile.swift in Sources */,

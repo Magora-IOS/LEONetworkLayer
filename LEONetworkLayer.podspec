@@ -2,7 +2,6 @@ Pod::Spec.new do |s|
   s.name             = 'LEONetworkLayer'
   s.version          = '0.2.0'
   s.summary          = "Network layer for iOS apps with Magora\'s Leopold protocol"
-
   s.homepage         = 'https://github.com/Magora-IOS/LEONetworkLayer'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Magora iOS department' => 'rosenberg@magora-systems.com' }
@@ -11,10 +10,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'LEONetworkLayer/Classes/**/*'
   
-#s.resource_bundles = {
-#   'LEONetworkLayer' => ['LEONetworkLayer/Assets/*.lproj/*.strings']
-# }
-
   s.dependency 'ObjectMapper', '~> 3.1.0'
   s.dependency 'Alamofire', '~> 4.6.0'
   s.dependency 'AlamofireObjectMapper', '~> 5.0.0'

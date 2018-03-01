@@ -7,9 +7,10 @@ enum CommonError: ErrorObjectProvider {
     case raw(message: String)
     case disposed
     
-    //TODO: localize
+    
     var object: Swift.Error {
-        let result = ErrorObject(domain: "Common")
+        //TODO: localize
+        let result = ErrorObject(domain: "L10n.Common.error")
         
         
         switch self {

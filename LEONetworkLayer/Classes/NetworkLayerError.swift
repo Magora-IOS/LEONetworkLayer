@@ -1,3 +1,5 @@
+import Foundation
+
 public enum NetworkLayerError: Error {
     
     public enum ConnectionFailReasons {
@@ -10,5 +12,6 @@ public enum NetworkLayerError: Error {
     case connectionFail(reason: ConnectionFailReasons)
     case businessProblem(code: LEOApiGlobalErrorCode, errors:[LEOError]?)
 }
+
 
 

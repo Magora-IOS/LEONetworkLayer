@@ -1,6 +1,6 @@
 import ObjectMapper
 
-enum LEOApiErrorCode: String {
+public enum LEOApiErrorCode: String {
     
     case unknown = "Unknown"
     case invalidAuthData = "sec.invalid_auth_data"
@@ -22,22 +22,45 @@ enum LEOApiErrorCode: String {
     case cardNumberNotValid = "common.field_card_number"
     case phoneNumberNotValid = "common.field_phone"
     case fieldDuplicate = "common.field_duplicate"
+    
 }
 
 
-public class LEOError: ImmutableMappable {
-    
-    let code: LEOApiErrorCode
-    let message: String
-    var field: String?
-    
 
+
+
+open class LEOError: ImmutableMappable {
+    
+    //Code can be custom and outise of enum
+    //TODO: support custom errors
+    public var code: LEOApiErrorCode? {
+        return LEOApiErrorCode(rawValue: self.rawCode)
+    }
+    
+    public let rawCode: String
+    public let message: String
+    public var field: String?
+    
+    
     
     public required init(map: Map) throws {
-        code = try map.value("code", using: EnumTransform<LEOApiErrorCode>())
+        rawCode = try map.value("code")
         message = try map.value("message")
         field = try? map.value("field")
     }
     
     
 }
+
+
+
+
+
+
+extension LEOError: CustomStringConvertible {
+    
+    public var description: String {
+        return "Code: \"\(self.rawCode)\", message: \"\(self.message)\", field: \"\(self.field ?? "")\"."
+    }
+}
+

@@ -26,7 +26,7 @@ class AuthServiceImpl: AuthService, RxRequestService {
     
     
     
-    enum ServiceError: ErrorObjectProvider {
+    private enum ServiceError: ErrorObjectProvider {
         case method(String, Swift.Error)
         case noRefreshToken
         
