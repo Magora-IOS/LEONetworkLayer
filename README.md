@@ -1,10 +1,14 @@
 # LEONetworkLayer
+Network layer for iOS apps with Magora's Leopold protocol
+
 
 ## Example
-
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+
 ## Requirements
+iOS 9
+
 
 ## Installation
 
@@ -17,6 +21,7 @@ pod 'LEONetworkLayer'
 
 ## Author
 
+Magora iOS department
 
 
 ## License
