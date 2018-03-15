@@ -35,7 +35,7 @@ class ResourcesServiceImpl: RxRequestService, ResourcesService {
             
             switch self {
             case let .method(name, error):
-                result.desc = L10n.Common.Apimethodfailed.format(name)
+                result.desc = "\"\(name)\" action failed"
                 result.underlyingError = error
                 
             case .badMediaResource:

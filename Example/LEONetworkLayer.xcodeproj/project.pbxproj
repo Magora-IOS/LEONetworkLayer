@@ -17,6 +17,8 @@
 		C760D611202018D700486C9E /* LEOProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760D610202018D700486C9E /* LEOProvider.swift */; };
 		C76DC384205A5A2A00C04868 /* UploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76DC382205A5A2A00C04868 /* UploadService.swift */; };
 		C76DC385205A5A2A00C04868 /* ResourcesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76DC383205A5A2A00C04868 /* ResourcesService.swift */; };
+		C76DC388205A5B0F00C04868 /* ExampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76DC387205A5B0F00C04868 /* ExampleViewModel.swift */; };
+		C76DC38A205A5DF300C04868 /* ResourceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76DC389205A5DF300C04868 /* ResourceRouter.swift */; };
 		C77292E52033FEE300CB4F13 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77292E02033FEE300CB4F13 /* SignUpRequest.swift */; };
 		C77292E62033FEE300CB4F13 /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77292E12033FEE300CB4F13 /* SignInRequest.swift */; };
 		C77292E72033FEE300CB4F13 /* CreatePasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77292E32033FEE300CB4F13 /* CreatePasswordResponse.swift */; };
@@ -89,6 +91,8 @@
 		C760D610202018D700486C9E /* LEOProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOProvider.swift; sourceTree = "<group>"; };
 		C76DC382205A5A2A00C04868 /* UploadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadService.swift; sourceTree = "<group>"; };
 		C76DC383205A5A2A00C04868 /* ResourcesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourcesService.swift; sourceTree = "<group>"; };
+		C76DC387205A5B0F00C04868 /* ExampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewModel.swift; sourceTree = "<group>"; };
+		C76DC389205A5DF300C04868 /* ResourceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceRouter.swift; sourceTree = "<group>"; };
 		C77292E02033FEE300CB4F13 /* SignUpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
 		C77292E12033FEE300CB4F13 /* SignInRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
 		C77292E32033FEE300CB4F13 /* CreatePasswordResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePasswordResponse.swift; sourceTree = "<group>"; };
@@ -236,6 +240,14 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
+		C76DC386205A5AF500C04868 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				C76DC387205A5B0F00C04868 /* ExampleViewModel.swift */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
 		C77292DF2033FEE300CB4F13 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +378,7 @@
 			children = (
 				C7C9243420173A2E00C49B56 /* Launch */,
 				C7C9243620173A2E00C49B56 /* Main */,
+				C76DC386205A5AF500C04868 /* Example */,
 			);
 			path = Workflows;
 			sourceTree = "<group>";
@@ -420,6 +433,7 @@
 				C760D60E202018D100486C9E /* LEORouter.swift */,
 				C7CB1228201886090010F2CD /* ProfileRouter.swift */,
 				C7CB1229201886090010F2CD /* AuthRouter.swift */,
+				C76DC389205A5DF300C04868 /* ResourceRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -722,6 +736,7 @@
 				C7CB1236201886090010F2CD /* RequestRouter.swift in Sources */,
 				C77292E72033FEE300CB4F13 /* CreatePasswordResponse.swift in Sources */,
 				C77292E82033FEE300CB4F13 /* ResetPasswordResponse.swift in Sources */,
+				C76DC38A205A5DF300C04868 /* ResourceRouter.swift in Sources */,
 				C7A2739420357CC600506C79 /* KeyValueStorage.swift in Sources */,
 				C7CB1235201886090010F2CD /* AuthRouter.swift in Sources */,
 				C7A621C82032E7BB006ED490 /* ErrorObjectProvider.swift in Sources */,
@@ -730,6 +745,7 @@
 				C7CB122D201886090010F2CD /* AuthorizationHandler.swift in Sources */,
 				C7A273A6203589FF00506C79 /* AppContext.swift in Sources */,
 				C7CB124820188FF00010F2CD /* AuthStorage.swift in Sources */,
+				C76DC388205A5B0F00C04868 /* ExampleViewModel.swift in Sources */,
 				C7CB123E20188B030010F2CD /* AuthService.swift in Sources */,
 				C77292E62033FEE300CB4F13 /* SignInRequest.swift in Sources */,
 			);

@@ -17,13 +17,18 @@ protocol ProfileServiceContext {
 }
 
 
+protocol ResourcesServiceContext {
+    var resourcesService: ResourcesService { get }
+}
+
 
 
 
 protocol AppContext: class,
     AuthStorageContext,
     AuthServiceContext,
-    ProfileServiceContext
+    ProfileServiceContext,
+    ResourcesServiceContext
     {}
 
 
@@ -35,6 +40,7 @@ class AppContextImpl: AppContext {
     let authService: AuthService
     let apiProvider: LEOProvider
     
+    let resourcesService: ResourcesService
     let profileService: ProfileService
 
     
@@ -45,6 +51,7 @@ class AppContextImpl: AppContext {
         self.authService = AuthServiceImpl(apiProvider: self.apiProvider, authStorage: self.authStorage)
         self.apiProvider.authHandler = AuthorizationHandler(authService: self.authService)
         
+        self.resourcesService = ResourcesServiceImpl(apiProvider: self.apiProvider, uploadProvider: UploadServiceImpl())
         self.profileService = ProfileServiceImpl(apiProvider: self.apiProvider)
        
     }
