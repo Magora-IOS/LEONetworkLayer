@@ -1,10 +1,13 @@
 import RxSwift
+import Alamofire
+
 
 
 
 protocol UploadService {
    
-    func upload(data: Data, contentType: String, url: URL) -> Observable<Void>
+    func upload(data: Data, contentType: String, url: URL) -> Observable<Progress>
+    func upload(file: URL, contentType: String, url: URL) -> Observable<Progress>
 }
 
 
@@ -13,32 +16,81 @@ protocol UploadService {
 class UploadServiceImpl: UploadService {
     
     
-    func upload(data: Data, contentType: String, url: URL) -> Observable<Void> {
-        
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "PUT"
-        urlRequest.httpBody = data
-        urlRequest.addValue(contentType, forHTTPHeaderField: "Content-Type")
-        urlRequest.addValue(String(data.count),
-                            forHTTPHeaderField: "Content-Length")
+    
+    
+    private enum Error: ErrorObjectProvider {
+        case wrongHttpStatus
 
-        return Observable<Void>.create { observer -> Disposable in
+        
+        var object: Swift.Error {
+            let result = ErrorObject(domain: "UploadService")
             
-            let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-                if error != nil {
-                    observer.onError(error!)
-                } else {
-                    observer.onNext(())
-                    observer.onCompleted()
-                }
+            switch self {
+            case .wrongHttpStatus:
+                break;
             }
-            
-            task.resume()
+            return result
+        }
+    }
+    
+    
+    
+    
+    //MARK: - Properties
+    private let sessionManager: SessionManager
+
+    
+    //MARK: - Lifecycle
+    init(withConfiguration configuration: URLSessionConfiguration) {
+        self.sessionManager = SessionManager(configuration: configuration)
+    }
+    
+    
+    
+    //MARK: - Interface
+    func upload(data: Data, contentType: String, url: URL) -> Observable<Progress> {
+        
+        return Observable<Progress>.create { observer -> Disposable in
+            let request = self.sessionManager.upload(data, to: url, method: .put, headers: ["Content-Type": contentType])
+                .uploadProgress {
+                    observer.onNext($0)
+                }
+                .response(completionHandler: {
+                    guard let code = $0.response?.statusCode, code == 200 else {
+                        observer.onError(Error.wrongHttpStatus.object)
+                        return
+                    }
+                    
+                    observer.onCompleted()
+                })
             
             return Disposables.create {
-                task.cancel()
+                request.cancel()
             }
         }
     }
     
+    
+    
+    func upload(file: URL, contentType: String, url: URL) -> Observable<Progress> {
+        
+        return Observable<Progress>.create { observer -> Disposable in
+            let request = self.sessionManager.upload(file, to: url, method: .put, headers: ["Content-Type": contentType])
+                .uploadProgress {
+                    observer.onNext($0)
+                }
+                .response(completionHandler: {
+                    guard let code = $0.response?.statusCode, code == 200 else {
+                        observer.onError(Error.wrongHttpStatus.object)
+                        return
+                    }
+                    
+                    observer.onCompleted()
+                })
+            
+            return Disposables.create {
+                request.cancel()
+            }
+        }
+    }
 }

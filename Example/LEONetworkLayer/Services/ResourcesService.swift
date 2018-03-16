@@ -52,9 +52,11 @@ class ResourcesServiceImpl: RxRequestService, ResourcesService {
     }
     
     
+    
     //MARK: - Properties
     let apiProvider: LEOProvider
     private let uploadService: UploadService
+    
     
     
     //MARK: - Lifecycle
@@ -81,8 +83,6 @@ class ResourcesServiceImpl: RxRequestService, ResourcesService {
     func upload(image: UIImage) -> Observable<String> {
         let contentType = ResourceContentType.jpeg
         return self.convertImageToData(image, contentType: contentType)
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.instance)
             .flatMap { [weak self] in
                 return self?.createMediaResource(data: $0, contentType: contentType) ?? Observable.error(CommonError.disposed.object)
             }
@@ -94,15 +94,17 @@ class ResourcesServiceImpl: RxRequestService, ResourcesService {
     
     //MARK: - Routines
     private func convertVideoToData(_ videoURL: URL) -> Observable<Data> {
-        return Observable<Data>.create ({ observer -> Disposable in
-            if let data = try? Data(contentsOf: videoURL) {
-                observer.onNext(data)
-                observer.onCompleted()
-            } else {
+        return Observable<Data>.create { observer -> Disposable in
+            guard let data = try? Data(contentsOf: videoURL) else {
                 observer.onError(Error.badMediaResource.object)
+                return Disposables.create()
             }
-            return Disposables.create { }
-        })
+           
+            observer.onNext(data)
+            observer.onCompleted()
+           
+            return Disposables.create()
+        }
     }
     
     
@@ -121,17 +123,16 @@ class ResourcesServiceImpl: RxRequestService, ResourcesService {
             //    Log("\(contentType) not supported")
             }
             
-            let disposable = Disposables.create { }
             
             guard data != nil else {
                 observer.onError(Error.badMediaResource.object)
-                return disposable
+                return Disposables.create()
             }
             
             observer.onNext(data!)
             observer.onCompleted()
         
-            return disposable
+            return Disposables.create()
         })
     }
     
@@ -150,7 +151,7 @@ class ResourcesServiceImpl: RxRequestService, ResourcesService {
                 }
                 
                 return strongSelf.uploadMedia(data, uploadUrl: resource.uploadUrl, contentType: contentType)
-                    .flatMap { (url) -> Observable<String> in
+                    .flatMap { url -> Observable<String> in
                         return Observable.just(resource.resourceId)
                     }
             }
@@ -158,7 +159,11 @@ class ResourcesServiceImpl: RxRequestService, ResourcesService {
 
     
     private func uploadMedia(_ data: Data, uploadUrl: URL, contentType: ResourceContentType) -> Observable<Void> {
-        return self.uploadService.upload(data: data, contentType: contentType.rawValue, url: uploadUrl)
+        
+        return self.uploadService
+            .upload(data: data, contentType: contentType.rawValue, url: uploadUrl)
+            .filter { _ in false }
+            .flatMap { _ in Observable.just(()) }
     }
  
 }

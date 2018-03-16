@@ -51,7 +51,7 @@ class AppContextImpl: AppContext {
         self.authService = AuthServiceImpl(apiProvider: self.apiProvider, authStorage: self.authStorage)
         self.apiProvider.authHandler = AuthorizationHandler(authService: self.authService)
         
-        self.resourcesService = ResourcesServiceImpl(apiProvider: self.apiProvider, uploadProvider: UploadServiceImpl())
+        self.resourcesService = ResourcesServiceImpl(apiProvider: self.apiProvider, uploadProvider: UploadServiceImpl(withConfiguration: URLSessionConfiguration.background(withIdentifier: "UploadService")))
         self.profileService = ProfileServiceImpl(apiProvider: self.apiProvider)
        
     }
