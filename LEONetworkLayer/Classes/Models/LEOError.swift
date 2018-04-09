@@ -7,6 +7,7 @@ public enum LEOApiErrorCode: String {
     case loginShouldBeConfirmed = "sec.login_should_be_confirmed"
     case refreshTokenInvalid = "sec.refresh_token_invalid"
     case accessTokenInvalid = "sec.access_token_invalid"
+    case accessTokenExpired = "sec.access_token_expired"
     case passCodeNotValid = "sec.pass_code_not_valid"
     
     case fieldNotBlank = "common.field_not_blank"
