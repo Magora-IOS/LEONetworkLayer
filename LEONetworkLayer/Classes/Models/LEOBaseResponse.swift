@@ -17,9 +17,9 @@ public enum LEOApiGlobalErrorCode: String {
 
 open class LEOBaseResponse: ImmutableMappable {
     
-    let code: LEOApiGlobalErrorCode
-    let message: String?
-    let errors: [LEOError]?
+    public let code: LEOApiGlobalErrorCode
+    public let message: String?
+    public let errors: [LEOError]?
     
     
     required public init(map: Map) throws {
