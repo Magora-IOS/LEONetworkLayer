@@ -2,7 +2,7 @@ import ObjectMapper
 
 
 
-public class DateTransformISO8061: TransformType {
+public class DateTransformISO8601: TransformType {
 	
     //MARK: - Properties
 	private let zeroTimezone: Bool

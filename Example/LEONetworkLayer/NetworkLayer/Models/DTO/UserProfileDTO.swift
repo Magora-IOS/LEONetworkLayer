@@ -17,7 +17,7 @@ struct UserProfileDTO: ImmutableMappable {
         name = try map.value("fullName")
         email = try map.value("email")
         phone = try? map.value("phoneNumber")
-        birthDate = try map.value("dob", using: DateTransformISO8061())
+        birthDate = try map.value("dob", using: DateTransformISO8601())
     }
     
     
@@ -25,7 +25,7 @@ struct UserProfileDTO: ImmutableMappable {
         name >>> map["fullName"]
         email >>> map["email"]
         phone >>> map["phoneNumber"]
-        birthDate >>> (map["dob"], DateTransformISO8061())
+        birthDate >>> (map["dob"], DateTransformISO8601())
     }
 
 }

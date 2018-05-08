@@ -2,7 +2,7 @@ import ObjectMapper
 
 
 
-public class InstantDateTransformISO8061: TransformType {
+public class InstantDateTransformISO8601: TransformType {
     
     public typealias Object = Date
     public typealias JSON = String
