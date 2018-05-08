@@ -19,6 +19,15 @@ extension DataRequest {
         }
     }
     
+    
+    
+    @discardableResult
+    public func leo_logRequestAndResponse(_ logger: @escaping (String)->()) -> Self {
+        return self.responseString {
+            logger(self.debugDescription + "\n" + $0.description)
+        }
+    }
+    
 
     
 }

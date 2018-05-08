@@ -6,20 +6,26 @@ import ObjectMapper
 enum ProfileRouter: LEORouter {
     
     case getProfile(userId: Int)
-  
+    case updateAvatar(resourceId: String)
+    
     
     public var method: HTTPMethod {
         switch self {
         case .getProfile:
             return .get
 
+        case .updateAvatar:
+            return .put
         }
     }
     
     public var path: String {
         switch self {
         case let .getProfile(userId):
-            return String(format: "/Users/%d", userId)  //"/profiles/my"
+            return "/users/\(userId)"
+            
+        case .updateAvatar:
+            return "/user/profile/avatar"
         }
     }
     
@@ -28,9 +34,11 @@ enum ProfileRouter: LEORouter {
     func asURLRequest() throws -> URLRequest {
         return try self.createUrlWithParameters {
             switch self {
-           
-            default:
-                return [:]
+            case .getProfile:
+                return nil
+                
+            case let .updateAvatar(resourceId):
+                return ["resourceId": resourceId]
             }
         }
     }

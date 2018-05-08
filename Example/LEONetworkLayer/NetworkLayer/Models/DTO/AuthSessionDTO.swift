@@ -14,7 +14,7 @@ struct AuthSessionDTO: ImmutableMappable {
     
     init(map: Map) throws {
         accessToken = try map.value("accessToken")
-        accessTokenExpire =  try map.value("accessTokenExpire", using: DateTransformMiliseconds())
+        accessTokenExpire =  try map.value("accessTokenExpire", using: DateTransformISO8061())
         refreshToken = try map.value("refreshToken")
         authInfo = try map.value("authInfo")
     }
