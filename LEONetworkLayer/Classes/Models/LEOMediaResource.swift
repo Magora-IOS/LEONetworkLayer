@@ -13,7 +13,7 @@ open class LEOMediaResource: ImmutableMappable {
     
     public required init(map: Map) throws {
         id = try map.value("id")
-        contentType = try? map.value("contentType")
+        contentType = try map.valueOrNil("contentType")
         originalUrl = try map.value("originalUrl", using: URLTransform())
         formatUrls = try map.value("formatUrls")
     }
