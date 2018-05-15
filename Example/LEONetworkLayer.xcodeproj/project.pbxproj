@@ -61,6 +61,8 @@
 		ED4FF50120AA946C003B3AC5 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF50020AA946C003B3AC5 /* SignInViewModel.swift */; };
 		ED4FF50620AAD8AE003B3AC5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF50520AAD8AD003B3AC5 /* TableViewController.swift */; };
 		ED4FF50820AAD8C5003B3AC5 /* Table.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4FF50720AAD8C5003B3AC5 /* Table.storyboard */; };
+		ED4FF50A20AAD9C0003B3AC5 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF50920AAD9C0003B3AC5 /* TableViewModel.swift */; };
+		ED4FF50C20AADC6C003B3AC5 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF50B20AADC6C003B3AC5 /* MainViewModel.swift */; };
 		EDFAC07320A976F300D900ED /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDFAC07220A976F300D900ED /* Auth.storyboard */; };
 		EDFAC07520A9770D00D900ED /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFAC07420A9770D00D900ED /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
@@ -141,6 +143,8 @@
 		ED4FF50020AA946C003B3AC5 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		ED4FF50520AAD8AD003B3AC5 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		ED4FF50720AAD8C5003B3AC5 /* Table.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Table.storyboard; sourceTree = "<group>"; };
+		ED4FF50920AAD9C0003B3AC5 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
+		ED4FF50B20AADC6C003B3AC5 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		EDFAC07220A976F300D900ED /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		EDFAC07420A9770D00D900ED /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -407,6 +411,7 @@
 			children = (
 				C7C9243820173A2E00C49B56 /* Main.storyboard */,
 				C7C9243720173A2E00C49B56 /* MainViewController.swift */,
+				ED4FF50B20AADC6C003B3AC5 /* MainViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -489,6 +494,7 @@
 			children = (
 				ED4FF50720AAD8C5003B3AC5 /* Table.storyboard */,
 				ED4FF50520AAD8AD003B3AC5 /* TableViewController.swift */,
+				ED4FF50920AAD9C0003B3AC5 /* TableViewModel.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -685,6 +691,7 @@
 				C7A273A5203589FF00506C79 /* AppCoordinator.swift in Sources */,
 				C7C9243E20173A2E00C49B56 /* MainViewController.swift in Sources */,
 				C728E3EC2047E27500345B69 /* Error+NoInternet.swift in Sources */,
+				ED4FF50C20AADC6C003B3AC5 /* MainViewModel.swift in Sources */,
 				C7A2739520357CC600506C79 /* KeychainStorage.swift in Sources */,
 				C7CB1234201886090010F2CD /* ProfileRouter.swift in Sources */,
 				C728E3ED2047E27500345B69 /* BusinessError.swift in Sources */,
@@ -723,6 +730,7 @@
 				C7CB122D201886090010F2CD /* AuthorizationHandler.swift in Sources */,
 				C7A273A6203589FF00506C79 /* AppContext.swift in Sources */,
 				C7CB124820188FF00010F2CD /* AuthStorage.swift in Sources */,
+				ED4FF50A20AAD9C0003B3AC5 /* TableViewModel.swift in Sources */,
 				ED4FF50620AAD8AE003B3AC5 /* TableViewController.swift in Sources */,
 				C76DC388205A5B0F00C04868 /* ExampleViewModel.swift in Sources */,
 				C7CB123E20188B030010F2CD /* AuthService.swift in Sources */,

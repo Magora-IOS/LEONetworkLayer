@@ -36,9 +36,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Srq-Ya-tuz" kind="show" id="Xuf-fj-ufc"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -49,18 +46,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Main" id="on3-v9-dLO"/>
+                    <connections>
+                        <outlet property="tableCell" destination="q1Y-Zv-BNK" id="mea-nv-Llf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8I-oR-M1i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-302" y="-21"/>
-        </scene>
-        <!--TableViewController-->
-        <scene sceneID="fIY-wt-l2M">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Table" referencedIdentifier="TableViewController" id="Srq-Ya-tuz" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TfT-4k-s6Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="272" y="-282"/>
         </scene>
     </scenes>
 </document>

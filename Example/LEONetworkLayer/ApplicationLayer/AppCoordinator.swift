@@ -49,24 +49,37 @@ class AppCoordinator: BaseCoordinator {
     
     
     private func startLogin() {
-        let nvc = UINavigationController()
-        self.window.changeRootViewController(nvc)
+        self.window.changeRootViewController(UINavigationController())
         
         let vc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
         vc.viewModel = SignInViewModel(context: self.context)
-        nvc.pushViewController(vc, animated: true)
+        self.rootViewController?.pushViewController(vc, animated: true)
     }
     
     
     
     private func startMain() {
-        let nvc = UINavigationController()
-        self.window.changeRootViewController(nvc)
+        self.window.changeRootViewController(UINavigationController())
      
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController")
-        nvc.pushViewController(vc, animated: true)
+        let vm = MainViewModelImpl(context: ())
+        vm.tableSignal.subscribe(onNext: { [weak self] in
+            self?.startTable()
+        })
+        .disposed(by: self.disposeBag)
+        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        vc.viewModel = vm
+        
+        self.rootViewController?.pushViewController(vc, animated: true)
     }
     
     
+    
 
+    //MARK: - Flows (2nd Level)
+    private func startTable() {
+        let vc = UIStoryboard(name: "Table", bundle: nil).instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
+        vc.viewModel = TableViewModelImpl(context: self.context)
+        self.rootViewController?.pushViewController(vc, animated: true)
+    }
 }
