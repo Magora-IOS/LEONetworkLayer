@@ -59,7 +59,8 @@
 		C7D1C0842024288E00D7442A /* AuthSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1C0832024288E00D7442A /* AuthSession.swift */; };
 		C7D1C08620242CFB00D7442A /* AuthSession+DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1C08520242CFB00D7442A /* AuthSession+DTO.swift */; };
 		ED4FF50120AA946C003B3AC5 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF50020AA946C003B3AC5 /* SignInViewModel.swift */; };
-		ED4FF50320AAD7BB003B3AC5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF50220AAD7BB003B3AC5 /* TableViewController.swift */; };
+		ED4FF50620AAD8AE003B3AC5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF50520AAD8AD003B3AC5 /* TableViewController.swift */; };
+		ED4FF50820AAD8C5003B3AC5 /* Table.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4FF50720AAD8C5003B3AC5 /* Table.storyboard */; };
 		EDFAC07320A976F300D900ED /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDFAC07220A976F300D900ED /* Auth.storyboard */; };
 		EDFAC07520A9770D00D900ED /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFAC07420A9770D00D900ED /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
@@ -138,7 +139,8 @@
 		C7D1C0832024288E00D7442A /* AuthSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSession.swift; sourceTree = "<group>"; };
 		C7D1C08520242CFB00D7442A /* AuthSession+DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthSession+DTO.swift"; sourceTree = "<group>"; };
 		ED4FF50020AA946C003B3AC5 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
-		ED4FF50220AAD7BB003B3AC5 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		ED4FF50520AAD8AD003B3AC5 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		ED4FF50720AAD8C5003B3AC5 /* Table.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Table.storyboard; sourceTree = "<group>"; };
 		EDFAC07220A976F300D900ED /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		EDFAC07420A9770D00D900ED /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -386,6 +388,7 @@
 				C7C9243420173A2E00C49B56 /* Launch */,
 				EDFAC07120A976E500D900ED /* Auth */,
 				C7C9243620173A2E00C49B56 /* Main */,
+				ED4FF50420AAD8AD003B3AC5 /* Table */,
 				C76DC386205A5AF500C04868 /* Example */,
 			);
 			path = Workflows;
@@ -404,7 +407,6 @@
 			children = (
 				C7C9243820173A2E00C49B56 /* Main.storyboard */,
 				C7C9243720173A2E00C49B56 /* MainViewController.swift */,
-				ED4FF50220AAD7BB003B3AC5 /* TableViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -480,6 +482,15 @@
 				A7B9607EDA9BEC24288AD21D /* Pods-LEONetworkLayer_Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		ED4FF50420AAD8AD003B3AC5 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				ED4FF50720AAD8C5003B3AC5 /* Table.storyboard */,
+				ED4FF50520AAD8AD003B3AC5 /* TableViewController.swift */,
+			);
+			path = Table;
 			sourceTree = "<group>";
 		};
 		EDFAC07120A976E500D900ED /* Auth */ = {
@@ -580,6 +591,7 @@
 			files = (
 				EDFAC07320A976F300D900ED /* Auth.storyboard in Resources */,
 				C7C9243D20173A2E00C49B56 /* LaunchScreen.xib in Resources */,
+				ED4FF50820AAD8C5003B3AC5 /* Table.storyboard in Resources */,
 				C7C9243B20173A2E00C49B56 /* Images.xcassets in Resources */,
 				C7C9243F20173A2E00C49B56 /* Main.storyboard in Resources */,
 			);
@@ -711,7 +723,7 @@
 				C7CB122D201886090010F2CD /* AuthorizationHandler.swift in Sources */,
 				C7A273A6203589FF00506C79 /* AppContext.swift in Sources */,
 				C7CB124820188FF00010F2CD /* AuthStorage.swift in Sources */,
-				ED4FF50320AAD7BB003B3AC5 /* TableViewController.swift in Sources */,
+				ED4FF50620AAD8AE003B3AC5 /* TableViewController.swift in Sources */,
 				C76DC388205A5B0F00C04868 /* ExampleViewModel.swift in Sources */,
 				C7CB123E20188B030010F2CD /* AuthService.swift in Sources */,
 				EDFAC07520A9770D00D900ED /* SignInViewController.swift in Sources */,

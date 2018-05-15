@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,7 +37,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="IAL-bS-lyr" kind="show" id="iiu-Kq-XUZ"/>
+                                            <segue destination="Srq-Ya-tuz" kind="show" id="Xuf-fj-ufc"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -55,21 +54,13 @@
             </objects>
             <point key="canvasLocation" x="-302" y="-21"/>
         </scene>
-        <!--Table-->
-        <scene sceneID="Wdb-B5-av7">
+        <!--TableViewController-->
+        <scene sceneID="fIY-wt-l2M">
             <objects>
-                <viewController storyboardIdentifier="TableViewController" id="IAL-bS-lyr" customClass="TableViewController" customModule="LEONetworkLayer_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="00W-Sh-NW4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="FwD-vk-h2R"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Table" id="eq7-E1-Fuy"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="R3k-iu-FBa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Table" referencedIdentifier="TableViewController" id="Srq-Ya-tuz" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TfT-4k-s6Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="457" y="-21"/>
+            <point key="canvasLocation" x="272" y="-282"/>
         </scene>
     </scenes>
 </document>
