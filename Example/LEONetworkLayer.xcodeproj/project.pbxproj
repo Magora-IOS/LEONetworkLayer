@@ -59,6 +59,7 @@
 		C7D1C0842024288E00D7442A /* AuthSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1C0832024288E00D7442A /* AuthSession.swift */; };
 		C7D1C08620242CFB00D7442A /* AuthSession+DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1C08520242CFB00D7442A /* AuthSession+DTO.swift */; };
 		ED4FF50120AA946C003B3AC5 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF50020AA946C003B3AC5 /* SignInViewModel.swift */; };
+		ED4FF50320AAD7BB003B3AC5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF50220AAD7BB003B3AC5 /* TableViewController.swift */; };
 		EDFAC07320A976F300D900ED /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDFAC07220A976F300D900ED /* Auth.storyboard */; };
 		EDFAC07520A9770D00D900ED /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFAC07420A9770D00D900ED /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
@@ -137,6 +138,7 @@
 		C7D1C0832024288E00D7442A /* AuthSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSession.swift; sourceTree = "<group>"; };
 		C7D1C08520242CFB00D7442A /* AuthSession+DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthSession+DTO.swift"; sourceTree = "<group>"; };
 		ED4FF50020AA946C003B3AC5 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		ED4FF50220AAD7BB003B3AC5 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		EDFAC07220A976F300D900ED /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		EDFAC07420A9770D00D900ED /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -402,6 +404,7 @@
 			children = (
 				C7C9243820173A2E00C49B56 /* Main.storyboard */,
 				C7C9243720173A2E00C49B56 /* MainViewController.swift */,
+				ED4FF50220AAD7BB003B3AC5 /* TableViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -708,6 +711,7 @@
 				C7CB122D201886090010F2CD /* AuthorizationHandler.swift in Sources */,
 				C7A273A6203589FF00506C79 /* AppContext.swift in Sources */,
 				C7CB124820188FF00010F2CD /* AuthStorage.swift in Sources */,
+				ED4FF50320AAD7BB003B3AC5 /* TableViewController.swift in Sources */,
 				C76DC388205A5B0F00C04868 /* ExampleViewModel.swift in Sources */,
 				C7CB123E20188B030010F2CD /* AuthService.swift in Sources */,
 				EDFAC07520A9770D00D900ED /* SignInViewController.swift in Sources */,
