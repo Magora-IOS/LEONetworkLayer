@@ -52,7 +52,8 @@ class AppCoordinator: BaseCoordinator {
         let nvc = UINavigationController()
         self.window.changeRootViewController(nvc)
         
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login")
+        let vc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+        vc.viewModel = SignInViewModel(context: self.context)
         nvc.pushViewController(vc, animated: true)
     }
     
@@ -62,7 +63,7 @@ class AppCoordinator: BaseCoordinator {
         let nvc = UINavigationController()
         self.window.changeRootViewController(nvc)
      
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Main")
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController")
         nvc.pushViewController(vc, animated: true)
     }
     

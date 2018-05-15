@@ -19,7 +19,7 @@ class SignInRequest: Mappable {
     required init?(map: Map) {}
     
     func mapping(map: Map) {
-        login <- map["email"]
+        login <- map["login"]
         password <- map["password"]
         platform <- map["meta.platform"]
         deviceId <- map["meta.deviceId"]
