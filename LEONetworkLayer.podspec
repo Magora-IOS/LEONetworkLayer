@@ -11,6 +11,6 @@ Pod::Spec.new do |s|
   s.source_files = 'LEONetworkLayer/Classes/**/*'
   
   s.dependency 'ObjectMapper', '~> 3.1.0'
-  s.dependency 'Alamofire', '~> 4.6.0'
+  s.dependency 'Alamofire', '~> 4.7.2'
   s.dependency 'AlamofireObjectMapper', '~> 5.0.0'
 end

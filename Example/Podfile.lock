@@ -1,23 +1,23 @@
 PODS:
-  - Alamofire (4.6.0)
+  - Alamofire (4.7.2)
   - AlamofireObjectMapper (5.0.0):
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 3.0)
-  - KeychainSwift (10.0.0)
+  - KeychainSwift (11.0.0)
   - LEONetworkLayer (0.2.3):
-    - Alamofire (~> 4.6.0)
+    - Alamofire (~> 4.7.2)
     - AlamofireObjectMapper (~> 5.0.0)
     - ObjectMapper (~> 3.1.0)
   - ObjectMapper (3.1.0)
-  - RxCocoa (4.0.0):
+  - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
-  - RxSwift (4.0.0)
+  - RxSwift (4.1.2)
 
 DEPENDENCIES:
-  - KeychainSwift (~> 10.0.0)
+  - KeychainSwift (~> 11.0.0)
   - LEONetworkLayer (from `../`)
-  - RxCocoa (~> 4.0.0)
-  - RxSwift (~> 4.0.0)
+  - RxCocoa (~> 4.1.2)
+  - RxSwift (~> 4.1.2)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -33,14 +33,14 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
-  KeychainSwift: f9f7910449a0c0fd2cabc889121530dd2c477c33
-  LEONetworkLayer: cf557b9cf7836c7a6c07de94da9745496867517b
+  KeychainSwift: bea6bd9f98af7b8d7ca4aa79fe105c00fab532db
+  LEONetworkLayer: 600cfe94ec7721f0ce57463dc8ee801b3c791a89
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
-  RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
-  RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
+  RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
+  RxSwift: e49536837d9901277638493ea537394d4b55f570
 
-PODFILE CHECKSUM: f1381d204366857a07e6910b1f8e9e53db886b28
+PODFILE CHECKSUM: 2763f854e47a157390179133caf3bc2908f40e0a
 
 COCOAPODS: 1.5.0
