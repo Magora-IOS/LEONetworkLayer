@@ -4,7 +4,7 @@ PODS:
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 3.0)
   - KeychainSwift (11.0.0)
-  - LEONetworkLayer (0.2.3):
+  - LEONetworkLayer (0.3.0):
     - Alamofire (~> 4.7.2)
     - AlamofireObjectMapper (~> 5.0.0)
     - ObjectMapper (~> 3.1.0)
@@ -36,7 +36,7 @@ SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
   KeychainSwift: bea6bd9f98af7b8d7ca4aa79fe105c00fab532db
-  LEONetworkLayer: 600cfe94ec7721f0ce57463dc8ee801b3c791a89
+  LEONetworkLayer: 6eb1ddbc151a6312465893a5f191aaf33696ce1f
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxSwift: e49536837d9901277638493ea537394d4b55f570
