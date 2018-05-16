@@ -63,6 +63,13 @@
 		ED4FF50820AAD8C5003B3AC5 /* Table.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4FF50720AAD8C5003B3AC5 /* Table.storyboard */; };
 		ED4FF50A20AAD9C0003B3AC5 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF50920AAD9C0003B3AC5 /* TableViewModel.swift */; };
 		ED4FF50C20AADC6C003B3AC5 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF50B20AADC6C003B3AC5 /* MainViewModel.swift */; };
+		ED84BB9320AC1DA2009658D9 /* CollectionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84BB9220AC1DA2009658D9 /* CollectionRouter.swift */; };
+		ED84BB9620AC1E3A009658D9 /* PageParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84BB9520AC1E3A009658D9 /* PageParameters.swift */; };
+		ED84BB9820AC1E45009658D9 /* CursorParamaters.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84BB9720AC1E45009658D9 /* CursorParamaters.swift */; };
+		ED84BB9A20AC20BE009658D9 /* CollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84BB9920AC20BE009658D9 /* CollectionService.swift */; };
+		ED84BB9C20AC2148009658D9 /* CollectionItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84BB9B20AC2148009658D9 /* CollectionItemDTO.swift */; };
+		ED84BB9E20AC262D009658D9 /* CollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84BB9D20AC262D009658D9 /* CollectionItem.swift */; };
+		ED84BBA020AC2636009658D9 /* CollectionItem+DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84BB9F20AC2636009658D9 /* CollectionItem+DTO.swift */; };
 		EDFAC07320A976F300D900ED /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDFAC07220A976F300D900ED /* Auth.storyboard */; };
 		EDFAC07520A9770D00D900ED /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFAC07420A9770D00D900ED /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
@@ -145,6 +152,13 @@
 		ED4FF50720AAD8C5003B3AC5 /* Table.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Table.storyboard; sourceTree = "<group>"; };
 		ED4FF50920AAD9C0003B3AC5 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 		ED4FF50B20AADC6C003B3AC5 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		ED84BB9220AC1DA2009658D9 /* CollectionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRouter.swift; sourceTree = "<group>"; };
+		ED84BB9520AC1E3A009658D9 /* PageParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageParameters.swift; sourceTree = "<group>"; };
+		ED84BB9720AC1E45009658D9 /* CursorParamaters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorParamaters.swift; sourceTree = "<group>"; };
+		ED84BB9920AC20BE009658D9 /* CollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionService.swift; sourceTree = "<group>"; };
+		ED84BB9B20AC2148009658D9 /* CollectionItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItemDTO.swift; sourceTree = "<group>"; };
+		ED84BB9D20AC262D009658D9 /* CollectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItem.swift; sourceTree = "<group>"; };
+		ED84BB9F20AC2636009658D9 /* CollectionItem+DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionItem+DTO.swift"; sourceTree = "<group>"; };
 		EDFAC07220A976F300D900ED /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		EDFAC07420A9770D00D900ED /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -264,6 +278,7 @@
 		C77292DF2033FEE300CB4F13 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				ED84BB9420AC1E1B009658D9 /* Parameters */,
 				C77292E02033FEE300CB4F13 /* SignUpRequest.swift */,
 				C77292E12033FEE300CB4F13 /* SignInRequest.swift */,
 			);
@@ -344,6 +359,7 @@
 				C7CB123C20188B030010F2CD /* ProfileService.swift */,
 				C76DC383205A5A2A00C04868 /* ResourcesService.swift */,
 				C76DC382205A5A2A00C04868 /* UploadService.swift */,
+				ED84BB9920AC20BE009658D9 /* CollectionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -431,6 +447,7 @@
 			children = (
 				C7D1C07D2024253100D7442A /* AuthSessionDTO.swift */,
 				C7CB1221201886090010F2CD /* UserProfileDTO.swift */,
+				ED84BB9B20AC2148009658D9 /* CollectionItemDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -443,6 +460,7 @@
 				C7CB1228201886090010F2CD /* ProfileRouter.swift */,
 				C7CB1229201886090010F2CD /* AuthRouter.swift */,
 				C76DC389205A5DF300C04868 /* ResourceRouter.swift */,
+				ED84BB9220AC1DA2009658D9 /* CollectionRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -474,6 +492,8 @@
 				C7A621CB2032F6AF006ED490 /* UserProfile+DTO.swift */,
 				C7A621CD2032F773006ED490 /* MediaResource.swift */,
 				C7A621CE2032F773006ED490 /* MediaResource+LEO.swift */,
+				ED84BB9D20AC262D009658D9 /* CollectionItem.swift */,
+				ED84BB9F20AC2636009658D9 /* CollectionItem+DTO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -497,6 +517,15 @@
 				ED4FF50920AAD9C0003B3AC5 /* TableViewModel.swift */,
 			);
 			path = Table;
+			sourceTree = "<group>";
+		};
+		ED84BB9420AC1E1B009658D9 /* Parameters */ = {
+			isa = PBXGroup;
+			children = (
+				ED84BB9520AC1E3A009658D9 /* PageParameters.swift */,
+				ED84BB9720AC1E45009658D9 /* CursorParamaters.swift */,
+			);
+			path = Parameters;
 			sourceTree = "<group>";
 		};
 		EDFAC07120A976E500D900ED /* Auth */ = {
@@ -562,11 +591,15 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 65B5B68C2U;
 						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 65B5B68C2U;
 						LastSwiftMigration = 0900;
+						ProvisioningStyle = Manual;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -688,17 +721,22 @@
 			files = (
 				C7A2739620357CC600506C79 /* UserDefaultsStorage.swift in Sources */,
 				C7A621C72032E7BB006ED490 /* ErrorObject.swift in Sources */,
+				ED84BB9C20AC2148009658D9 /* CollectionItemDTO.swift in Sources */,
 				C7A273A5203589FF00506C79 /* AppCoordinator.swift in Sources */,
+				ED84BB9E20AC262D009658D9 /* CollectionItem.swift in Sources */,
 				C7C9243E20173A2E00C49B56 /* MainViewController.swift in Sources */,
 				C728E3EC2047E27500345B69 /* Error+NoInternet.swift in Sources */,
 				ED4FF50C20AADC6C003B3AC5 /* MainViewModel.swift in Sources */,
 				C7A2739520357CC600506C79 /* KeychainStorage.swift in Sources */,
 				C7CB1234201886090010F2CD /* ProfileRouter.swift in Sources */,
+				ED84BB9820AC1E45009658D9 /* CursorParamaters.swift in Sources */,
+				ED84BB9620AC1E3A009658D9 /* PageParameters.swift in Sources */,
 				C728E3ED2047E27500345B69 /* BusinessError.swift in Sources */,
 				C7A621CC2032F6AF006ED490 /* UserProfile+DTO.swift in Sources */,
 				ED4FF50120AA946C003B3AC5 /* SignInViewModel.swift in Sources */,
 				C7A621C62032E7BB006ED490 /* CommonError.swift in Sources */,
 				C7CB123A201888D30010F2CD /* Constants.swift in Sources */,
+				ED84BB9320AC1DA2009658D9 /* CollectionRouter.swift in Sources */,
 				C7CB123F20188B030010F2CD /* ProfileService.swift in Sources */,
 				C7C9243A20173A2E00C49B56 /* AppDelegate.swift in Sources */,
 				C7A273AE20358A8D00506C79 /* UIWindow+ChangeRoot.swift in Sources */,
@@ -707,6 +745,7 @@
 				C760D611202018D700486C9E /* LEOProvider.swift in Sources */,
 				C760D60F202018D100486C9E /* LEORouter.swift in Sources */,
 				C7A2739720357CC600506C79 /* KeyValueStorageKey.swift in Sources */,
+				ED84BBA020AC2636009658D9 /* CollectionItem+DTO.swift in Sources */,
 				C7A273AB20358A5900506C79 /* Coordinator.swift in Sources */,
 				C7A621D02032F773006ED490 /* MediaResource+LEO.swift in Sources */,
 				C7D1C08620242CFB00D7442A /* AuthSession+DTO.swift in Sources */,
@@ -716,6 +755,7 @@
 				C728E3EB2047E27500345B69 /* Error+ApiBusinessError.swift in Sources */,
 				C76DC385205A5A2A00C04868 /* ResourcesService.swift in Sources */,
 				C7CB122E201886090010F2CD /* UserProfileDTO.swift in Sources */,
+				ED84BB9A20AC20BE009658D9 /* CollectionService.swift in Sources */,
 				C7A621BC2032D38B006ED490 /* Log.swift in Sources */,
 				C7A621CA2032F69D006ED490 /* UserProfile.swift in Sources */,
 				C7CB1236201886090010F2CD /* RequestRouter.swift in Sources */,
@@ -866,11 +906,15 @@
 			baseConfigurationReference = 6621F9285B557BF283669006 /* Pods-LEONetworkLayer_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 65B5B68C2U;
 				INFOPLIST_FILE = LEONetworkLayer/Configuration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.magora-team.LEONetworkLayer-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -882,11 +926,15 @@
 			baseConfigurationReference = 0CB421C6B53487233C4EE750 /* Pods-LEONetworkLayer_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 65B5B68C2U;
 				INFOPLIST_FILE = LEONetworkLayer/Configuration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.magora-team.LEONetworkLayer-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -898,6 +946,8 @@
 			baseConfigurationReference = BB06845F1DD2A91BB84DC357 /* Pods-LEONetworkLayer_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 65B5B68C2U;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -907,6 +957,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -917,11 +968,14 @@
 			baseConfigurationReference = A7B9607EDA9BEC24288AD21D /* Pods-LEONetworkLayer_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};

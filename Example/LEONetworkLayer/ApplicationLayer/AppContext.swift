@@ -22,13 +22,19 @@ protocol ResourcesServiceContext {
 }
 
 
+protocol CollectionServiceContext {
+    var collectionService: CollectionService { get }
+}
+
+
 
 
 protocol AppContext: class,
     AuthStorageContext,
     AuthServiceContext,
     ProfileServiceContext,
-    ResourcesServiceContext
+    ResourcesServiceContext,
+    CollectionServiceContext
     {}
 
 
@@ -42,7 +48,8 @@ class AppContextImpl: AppContext {
     
     let resourcesService: ResourcesService
     let profileService: ProfileService
-
+    let collectionService: CollectionService
+    
     
     init() {
         self.authStorage = AuthStorageImpl(storage: KeychainStorage(prefix: "AuthStorage", icloud: false))
@@ -53,7 +60,7 @@ class AppContextImpl: AppContext {
         
         self.resourcesService = ResourcesServiceImpl(apiProvider: self.apiProvider, uploadProvider: UploadServiceImpl())
         self.profileService = ProfileServiceImpl(apiProvider: self.apiProvider)
-       
+        self.collectionService = CollectionServiceImpl(apiProvider: self.apiProvider)
     }
     
 }

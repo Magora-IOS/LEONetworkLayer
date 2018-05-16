@@ -19,6 +19,10 @@ enum TableViewModelState {
 
 protocol TableViewModel {
     
+    func reload()
+    func loadNextPage()
+    
+    var items: BehaviorRelay<[CollectionItem]> { get }
     var state: BehaviorRelay<TableViewModelState> { get }
 }
 
@@ -27,7 +31,7 @@ protocol TableViewModel {
 
 class TableViewModelImpl: TableViewModel {
     
-    typealias Context = ResourcesServiceContext & ProfileServiceContext
+    typealias Context = CollectionServiceContext
     
     
     
@@ -35,6 +39,7 @@ class TableViewModelImpl: TableViewModel {
     private let context: Context
     private let disposeBag = DisposeBag()
     
+    let items = BehaviorRelay<[CollectionItem]>(value: [])
     let state = BehaviorRelay<TableViewModelState>(value: .empty)
     
     
@@ -53,7 +58,14 @@ class TableViewModelImpl: TableViewModel {
     
     
     //MARK: - Routines
+    func reload() {
+        
+    }
     
+    
+    func loadNextPage() {
+        
+    }
     
     
    
