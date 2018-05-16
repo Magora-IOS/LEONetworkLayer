@@ -1,4 +1,5 @@
 import RxSwift
+import RxCocoa
 import ObjectMapper
 import LEONetworkLayer
 
@@ -7,7 +8,7 @@ import LEONetworkLayer
 
 protocol AuthService {
     var isAuth: Bool { get }
-    var authorised: Variable<Bool> { get }
+    var authorised: BehaviorRelay<Bool> { get }
  
     var authSession: AuthSession { get set }
     var logoutHandler: (() -> Void)? { get set }
@@ -50,7 +51,7 @@ class AuthServiceImpl: AuthService, RxRequestService {
     let apiProvider: LEOProvider
     var authStorage: AuthStorage
     var logoutHandler: (() -> Void)?
-    var authorised: Variable<Bool>
+    var authorised: BehaviorRelay<Bool>
     
    
     
@@ -58,7 +59,7 @@ class AuthServiceImpl: AuthService, RxRequestService {
     init(apiProvider: LEOProvider, authStorage: AuthStorage) {
         self.apiProvider = apiProvider
         self.authStorage = authStorage
-        self.authorised = Variable(authStorage.authSession.accessToken != nil)
+        self.authorised = BehaviorRelay(value: authStorage.authSession.accessToken != nil)
 
     }
     
@@ -96,7 +97,7 @@ class AuthServiceImpl: AuthService, RxRequestService {
             .do(
                 onNext: { [weak self] authSession in
                     self?.saveSession(authSession)
-                    self?.authorised.value = true
+                    self?.authorised.accept(true)
                 }
             )
     }
@@ -114,7 +115,7 @@ class AuthServiceImpl: AuthService, RxRequestService {
             .do(
                 onNext: { [weak self] authSession in
                     self?.saveSession(authSession)
-                    self?.authorised.value = true
+                    self?.authorised.accept(true)
                 }
             )
     }
@@ -122,7 +123,7 @@ class AuthServiceImpl: AuthService, RxRequestService {
     
     func signOut() {
         self.clearSession()
-        self.authorised.value = false
+        self.authorised.accept(false)
     }
 
     

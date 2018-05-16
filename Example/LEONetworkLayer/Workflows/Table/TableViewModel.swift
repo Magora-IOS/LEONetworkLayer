@@ -1,6 +1,6 @@
 import Foundation
 import RxSwift
-
+import RxCocoa
 
 
 
@@ -19,7 +19,7 @@ enum TableViewModelState {
 
 protocol TableViewModel {
     
-    var state: Variable<TableViewModelState> { get }
+    var state: BehaviorRelay<TableViewModelState> { get }
 }
 
 
@@ -35,7 +35,7 @@ class TableViewModelImpl: TableViewModel {
     private let context: Context
     private let disposeBag = DisposeBag()
     
-    let state = Variable<TableViewModelState>(.empty)
+    let state = BehaviorRelay<TableViewModelState>(value: .empty)
     
     
     
