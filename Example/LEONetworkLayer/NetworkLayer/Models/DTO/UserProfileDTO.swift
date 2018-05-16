@@ -16,7 +16,7 @@ struct UserProfileDTO: ImmutableMappable {
         id = try map.value("id")
         name = try map.value("fullName")
         email = try map.value("email")
-        phone = try? map.value("phoneNumber")
+        phone = try map.valueOrNil("phoneNumber")
         birthDate = try map.value("dob", using: DateTransformISO8601())
     }
     

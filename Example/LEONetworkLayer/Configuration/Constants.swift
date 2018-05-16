@@ -53,7 +53,7 @@ class Constants {
     //MARK: - Constants
     private class ConstantsBase: DontAutocompleteMe_ConstantsRequirements {
         //class var used for override ability
-        class var apiBaseURL: URL { return URL(string: "http://standard.java.magora.team:8080/api")! }
+        class var apiBaseURL: URL { return URL(string: "http://api.demo.java.magora.team/api")! }
         class var apiVersion: String { return "v1" }
     }
     

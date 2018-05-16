@@ -43,7 +43,7 @@
 		C7C9243A20173A2E00C49B56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C9242D20173A2E00C49B56 /* AppDelegate.swift */; };
 		C7C9243B20173A2E00C49B56 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7C9242F20173A2E00C49B56 /* Images.xcassets */; };
 		C7C9243D20173A2E00C49B56 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C9243520173A2E00C49B56 /* LaunchScreen.xib */; };
-		C7C9243E20173A2E00C49B56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C9243720173A2E00C49B56 /* ViewController.swift */; };
+		C7C9243E20173A2E00C49B56 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C9243720173A2E00C49B56 /* MainViewController.swift */; };
 		C7C9243F20173A2E00C49B56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7C9243820173A2E00C49B56 /* Main.storyboard */; };
 		C7CB122D201886090010F2CD /* AuthorizationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB121E201886090010F2CD /* AuthorizationHandler.swift */; };
 		C7CB122E201886090010F2CD /* UserProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB1221201886090010F2CD /* UserProfileDTO.swift */; };
@@ -58,6 +58,13 @@
 		C7D1C07E2024253100D7442A /* AuthSessionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1C07D2024253100D7442A /* AuthSessionDTO.swift */; };
 		C7D1C0842024288E00D7442A /* AuthSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1C0832024288E00D7442A /* AuthSession.swift */; };
 		C7D1C08620242CFB00D7442A /* AuthSession+DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1C08520242CFB00D7442A /* AuthSession+DTO.swift */; };
+		ED4FF50120AA946C003B3AC5 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF50020AA946C003B3AC5 /* SignInViewModel.swift */; };
+		ED4FF50620AAD8AE003B3AC5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF50520AAD8AD003B3AC5 /* TableViewController.swift */; };
+		ED4FF50820AAD8C5003B3AC5 /* Table.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4FF50720AAD8C5003B3AC5 /* Table.storyboard */; };
+		ED4FF50A20AAD9C0003B3AC5 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF50920AAD9C0003B3AC5 /* TableViewModel.swift */; };
+		ED4FF50C20AADC6C003B3AC5 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF50B20AADC6C003B3AC5 /* MainViewModel.swift */; };
+		EDFAC07320A976F300D900ED /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDFAC07220A976F300D900ED /* Auth.storyboard */; };
+		EDFAC07520A9770D00D900ED /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFAC07420A9770D00D900ED /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,7 +125,7 @@
 		C7C9242F20173A2E00C49B56 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C7C9243220173A2E00C49B56 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7C9243520173A2E00C49B56 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		C7C9243720173A2E00C49B56 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C7C9243720173A2E00C49B56 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C7C9243820173A2E00C49B56 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C7CB121E201886090010F2CD /* AuthorizationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationHandler.swift; sourceTree = "<group>"; };
 		C7CB1221201886090010F2CD /* UserProfileDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileDTO.swift; sourceTree = "<group>"; };
@@ -133,6 +140,13 @@
 		C7D1C07D2024253100D7442A /* AuthSessionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSessionDTO.swift; sourceTree = "<group>"; };
 		C7D1C0832024288E00D7442A /* AuthSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSession.swift; sourceTree = "<group>"; };
 		C7D1C08520242CFB00D7442A /* AuthSession+DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthSession+DTO.swift"; sourceTree = "<group>"; };
+		ED4FF50020AA946C003B3AC5 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		ED4FF50520AAD8AD003B3AC5 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		ED4FF50720AAD8C5003B3AC5 /* Table.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Table.storyboard; sourceTree = "<group>"; };
+		ED4FF50920AAD9C0003B3AC5 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
+		ED4FF50B20AADC6C003B3AC5 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		EDFAC07220A976F300D900ED /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		EDFAC07420A9770D00D900ED /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				C7C9242C20173A2E00C49B56 /* ApplicationLayer */,
-				C7C9243920173A2E00C49B56 /* Common */,
 				C7C9243120173A2E00C49B56 /* Configuration */,
 				C7D1C0812024286D00D7442A /* BusinessLogicLayer */,
 				C7C9243020173A2E00C49B56 /* NetworkLayer */,
@@ -377,7 +390,9 @@
 			isa = PBXGroup;
 			children = (
 				C7C9243420173A2E00C49B56 /* Launch */,
+				EDFAC07120A976E500D900ED /* Auth */,
 				C7C9243620173A2E00C49B56 /* Main */,
+				ED4FF50420AAD8AD003B3AC5 /* Table */,
 				C76DC386205A5AF500C04868 /* Example */,
 			);
 			path = Workflows;
@@ -394,17 +409,11 @@
 		C7C9243620173A2E00C49B56 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				C7C9243720173A2E00C49B56 /* ViewController.swift */,
 				C7C9243820173A2E00C49B56 /* Main.storyboard */,
+				C7C9243720173A2E00C49B56 /* MainViewController.swift */,
+				ED4FF50B20AADC6C003B3AC5 /* MainViewModel.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		C7C9243920173A2E00C49B56 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		C7CB121F201886090010F2CD /* Models */ = {
@@ -480,6 +489,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		ED4FF50420AAD8AD003B3AC5 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				ED4FF50720AAD8C5003B3AC5 /* Table.storyboard */,
+				ED4FF50520AAD8AD003B3AC5 /* TableViewController.swift */,
+				ED4FF50920AAD9C0003B3AC5 /* TableViewModel.swift */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
+		EDFAC07120A976E500D900ED /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				EDFAC07220A976F300D900ED /* Auth.storyboard */,
+				EDFAC07420A9770D00D900ED /* SignInViewController.swift */,
+				ED4FF50020AA946C003B3AC5 /* SignInViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -528,7 +557,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
@@ -566,7 +595,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDFAC07320A976F300D900ED /* Auth.storyboard in Resources */,
 				C7C9243D20173A2E00C49B56 /* LaunchScreen.xib in Resources */,
+				ED4FF50820AAD8C5003B3AC5 /* Table.storyboard in Resources */,
 				C7C9243B20173A2E00C49B56 /* Images.xcassets in Resources */,
 				C7C9243F20173A2E00C49B56 /* Main.storyboard in Resources */,
 			);
@@ -658,12 +689,14 @@
 				C7A2739620357CC600506C79 /* UserDefaultsStorage.swift in Sources */,
 				C7A621C72032E7BB006ED490 /* ErrorObject.swift in Sources */,
 				C7A273A5203589FF00506C79 /* AppCoordinator.swift in Sources */,
-				C7C9243E20173A2E00C49B56 /* ViewController.swift in Sources */,
+				C7C9243E20173A2E00C49B56 /* MainViewController.swift in Sources */,
 				C728E3EC2047E27500345B69 /* Error+NoInternet.swift in Sources */,
+				ED4FF50C20AADC6C003B3AC5 /* MainViewModel.swift in Sources */,
 				C7A2739520357CC600506C79 /* KeychainStorage.swift in Sources */,
 				C7CB1234201886090010F2CD /* ProfileRouter.swift in Sources */,
 				C728E3ED2047E27500345B69 /* BusinessError.swift in Sources */,
 				C7A621CC2032F6AF006ED490 /* UserProfile+DTO.swift in Sources */,
+				ED4FF50120AA946C003B3AC5 /* SignInViewModel.swift in Sources */,
 				C7A621C62032E7BB006ED490 /* CommonError.swift in Sources */,
 				C7CB123A201888D30010F2CD /* Constants.swift in Sources */,
 				C7CB123F20188B030010F2CD /* ProfileService.swift in Sources */,
@@ -697,8 +730,11 @@
 				C7CB122D201886090010F2CD /* AuthorizationHandler.swift in Sources */,
 				C7A273A6203589FF00506C79 /* AppContext.swift in Sources */,
 				C7CB124820188FF00010F2CD /* AuthStorage.swift in Sources */,
+				ED4FF50A20AAD9C0003B3AC5 /* TableViewModel.swift in Sources */,
+				ED4FF50620AAD8AE003B3AC5 /* TableViewController.swift in Sources */,
 				C76DC388205A5B0F00C04868 /* ExampleViewModel.swift in Sources */,
 				C7CB123E20188B030010F2CD /* AuthService.swift in Sources */,
+				EDFAC07520A9770D00D900ED /* SignInViewController.swift in Sources */,
 				C77292E62033FEE300CB4F13 /* SignInRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -734,12 +770,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -787,12 +825,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

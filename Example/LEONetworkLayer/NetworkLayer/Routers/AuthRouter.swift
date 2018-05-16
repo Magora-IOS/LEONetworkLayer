@@ -31,15 +31,15 @@ enum AuthRouter: LEORouter {
     var path: String {
         switch self {
         case .signUp:
-            return "/Users"
+            return "/auth"
         case .signIn:
-            return "/Users/login"
+            return "/auth/token"
         case .refreshToken:
             return "/auth/token"
 		case .resetPassword:
-			return "/Users/reset"
+			return "/auth/reset"
         case .createNewPassword(let code, _):
-            return "/Users/reset-password/\(code)"
+            return "/auth/reset-password/\(code)"
         }
     }
     
