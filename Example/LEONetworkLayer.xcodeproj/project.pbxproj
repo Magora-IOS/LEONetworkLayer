@@ -539,8 +539,8 @@
 		ED74E73F20B2814500970AB5 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				ED74E74020B2814500970AB5 /* TableViewCell.swift */,
 				ED74E74120B2814500970AB5 /* TableViewCell.xib */,
+				ED74E74020B2814500970AB5 /* TableViewCell.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";

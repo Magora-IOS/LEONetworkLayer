@@ -39,7 +39,7 @@ class TableViewModelImpl: TableViewModel {
     private let context: Context
     private let disposeBag = DisposeBag()
     private var queryParams: CursorParameters!
-    private var pageSize = 10
+    private var pageSize = 3
 
     
     let items = BehaviorRelay<[CollectionItem]>(value: [])
@@ -73,10 +73,14 @@ class TableViewModelImpl: TableViewModel {
     
     
    
-    private var loadDisposeBag: DisposeBag?
+    private var loadDisposeBag: DisposeBag!
+    private var finished = false
+    
     private func load() {
+        
+        guard !self.finished else { return }
         self.loadDisposeBag = DisposeBag()
-     
+        
         self.context.collectionService.items(self.queryParams)
             .do(onSubscribe: { [weak self] in
                 self?.state.accept(.loading)
@@ -93,17 +97,18 @@ class TableViewModelImpl: TableViewModel {
                         strongSelf.items.accept(new)
                     }
                     
-                    if !items.isEmpty {
-                        strongSelf.queryParams.cursor = $0.1.next
-                    }
+                    let nextCursor = $0.1.next
+                    strongSelf.queryParams.cursor = nextCursor
+                    strongSelf.finished = nextCursor == nil
                     
                     strongSelf.state.accept(.done)
                 },
                 onError: { [weak self] in
                     self?.state.accept(.error($0))
+                    Log($0)
                 }
             )
-            .disposed(by: self.loadDisposeBag!)
+            .disposed(by: self.loadDisposeBag)
         
     }
     
