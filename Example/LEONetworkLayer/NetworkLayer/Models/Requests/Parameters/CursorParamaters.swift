@@ -6,7 +6,7 @@ import ObjectMapper
 
 class CursorParameters: Mappable {
     
-    var cursor: String
+    var cursor: String?
     var size: Int
     
     
@@ -19,7 +19,7 @@ class CursorParameters: Mappable {
         size <- map["pageSize"]
     }
     
-    init(cursor: String, size: Int) {
+    init(cursor: String?, size: Int) {
         self.cursor = cursor
         self.size = size
     }

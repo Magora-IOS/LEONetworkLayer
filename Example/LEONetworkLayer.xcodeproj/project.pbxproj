@@ -63,6 +63,10 @@
 		ED4FF50820AAD8C5003B3AC5 /* Table.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4FF50720AAD8C5003B3AC5 /* Table.storyboard */; };
 		ED4FF50A20AAD9C0003B3AC5 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF50920AAD9C0003B3AC5 /* TableViewModel.swift */; };
 		ED4FF50C20AADC6C003B3AC5 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FF50B20AADC6C003B3AC5 /* MainViewModel.swift */; };
+		ED74E73820B27F4000970AB5 /* Cursors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED74E73720B27F4000970AB5 /* Cursors.swift */; };
+		ED74E73A20B27FD200970AB5 /* Pages.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED74E73920B27FD200970AB5 /* Pages.swift */; };
+		ED74E74220B2814500970AB5 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED74E74020B2814500970AB5 /* TableViewCell.swift */; };
+		ED74E74320B2814500970AB5 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED74E74120B2814500970AB5 /* TableViewCell.xib */; };
 		ED74E74620B2822600970AB5 /* NSObject+NameOfClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED74E74420B2822600970AB5 /* NSObject+NameOfClass.swift */; };
 		ED74E74720B2822600970AB5 /* UIView+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED74E74520B2822600970AB5 /* UIView+Load.swift */; };
 		ED84BB9320AC1DA2009658D9 /* CollectionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84BB9220AC1DA2009658D9 /* CollectionRouter.swift */; };
@@ -154,6 +158,10 @@
 		ED4FF50720AAD8C5003B3AC5 /* Table.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Table.storyboard; sourceTree = "<group>"; };
 		ED4FF50920AAD9C0003B3AC5 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 		ED4FF50B20AADC6C003B3AC5 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		ED74E73720B27F4000970AB5 /* Cursors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cursors.swift; sourceTree = "<group>"; };
+		ED74E73920B27FD200970AB5 /* Pages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pages.swift; sourceTree = "<group>"; };
+		ED74E74020B2814500970AB5 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		ED74E74120B2814500970AB5 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		ED74E74420B2822600970AB5 /* NSObject+NameOfClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+NameOfClass.swift"; sourceTree = "<group>"; };
 		ED74E74520B2822600970AB5 /* UIView+Load.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Load.swift"; sourceTree = "<group>"; };
 		ED84BB9220AC1DA2009658D9 /* CollectionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRouter.swift; sourceTree = "<group>"; };
@@ -294,6 +302,8 @@
 			children = (
 				C77292E32033FEE300CB4F13 /* CreatePasswordResponse.swift */,
 				C77292E42033FEE300CB4F13 /* ResetPasswordResponse.swift */,
+				ED74E73720B27F4000970AB5 /* Cursors.swift */,
+				ED74E73920B27FD200970AB5 /* Pages.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -519,10 +529,20 @@
 			isa = PBXGroup;
 			children = (
 				ED4FF50720AAD8C5003B3AC5 /* Table.storyboard */,
+				ED74E73F20B2814500970AB5 /* Subviews */,
 				ED4FF50520AAD8AD003B3AC5 /* TableViewController.swift */,
 				ED4FF50920AAD9C0003B3AC5 /* TableViewModel.swift */,
 			);
 			path = Table;
+			sourceTree = "<group>";
+		};
+		ED74E73F20B2814500970AB5 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				ED74E74020B2814500970AB5 /* TableViewCell.swift */,
+				ED74E74120B2814500970AB5 /* TableViewCell.xib */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		ED84BB9420AC1E1B009658D9 /* Parameters */ = {
@@ -635,6 +655,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDFAC07320A976F300D900ED /* Auth.storyboard in Resources */,
+				ED74E74320B2814500970AB5 /* TableViewCell.xib in Resources */,
 				C7C9243D20173A2E00C49B56 /* LaunchScreen.xib in Resources */,
 				ED4FF50820AAD8C5003B3AC5 /* Table.storyboard in Resources */,
 				C7C9243B20173A2E00C49B56 /* Images.xcassets in Resources */,
@@ -726,6 +747,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7A2739620357CC600506C79 /* UserDefaultsStorage.swift in Sources */,
+				ED74E74620B2822600970AB5 /* NSObject+NameOfClass.swift in Sources */,
 				C7A621C72032E7BB006ED490 /* ErrorObject.swift in Sources */,
 				ED84BB9C20AC2148009658D9 /* CollectionItemDTO.swift in Sources */,
 				C7A273A5203589FF00506C79 /* AppCoordinator.swift in Sources */,
@@ -734,9 +756,11 @@
 				C728E3EC2047E27500345B69 /* Error+NoInternet.swift in Sources */,
 				ED4FF50C20AADC6C003B3AC5 /* MainViewModel.swift in Sources */,
 				C7A2739520357CC600506C79 /* KeychainStorage.swift in Sources */,
+				ED74E73820B27F4000970AB5 /* Cursors.swift in Sources */,
 				C7CB1234201886090010F2CD /* ProfileRouter.swift in Sources */,
 				ED84BB9820AC1E45009658D9 /* CursorParamaters.swift in Sources */,
 				ED84BB9620AC1E3A009658D9 /* PageParameters.swift in Sources */,
+				ED74E74720B2822600970AB5 /* UIView+Load.swift in Sources */,
 				C728E3ED2047E27500345B69 /* BusinessError.swift in Sources */,
 				C7A621CC2032F6AF006ED490 /* UserProfile+DTO.swift in Sources */,
 				ED4FF50120AA946C003B3AC5 /* SignInViewModel.swift in Sources */,
@@ -759,6 +783,7 @@
 				C7A621CF2032F773006ED490 /* MediaResource.swift in Sources */,
 				C7A273AA20358A5900506C79 /* BaseCoordinator.swift in Sources */,
 				C728E3EB2047E27500345B69 /* Error+ApiBusinessError.swift in Sources */,
+				ED74E73A20B27FD200970AB5 /* Pages.swift in Sources */,
 				C76DC385205A5A2A00C04868 /* ResourcesService.swift in Sources */,
 				C7CB122E201886090010F2CD /* UserProfileDTO.swift in Sources */,
 				ED84BB9A20AC20BE009658D9 /* CollectionService.swift in Sources */,
@@ -768,6 +793,7 @@
 				C77292E72033FEE300CB4F13 /* CreatePasswordResponse.swift in Sources */,
 				C77292E82033FEE300CB4F13 /* ResetPasswordResponse.swift in Sources */,
 				C76DC38A205A5DF300C04868 /* ResourceRouter.swift in Sources */,
+				ED74E74220B2814500970AB5 /* TableViewCell.swift in Sources */,
 				C7A2739420357CC600506C79 /* KeyValueStorage.swift in Sources */,
 				C7CB1235201886090010F2CD /* AuthRouter.swift in Sources */,
 				C7A621C82032E7BB006ED490 /* ErrorObjectProvider.swift in Sources */,

@@ -6,8 +6,8 @@ import LEONetworkLayer
 protocol CollectionService {
     
     func items() -> Single<[CollectionItem]>
-    func items(_ params: PageParameters) -> Single<[CollectionItem]>
-    func items(_ params: CursorParameters) -> Single<[CollectionItem]>
+    func items(_ params: PageParameters) -> Single<([CollectionItem], Pages)>
+    func items(_ params: CursorParameters) -> Single<([CollectionItem], Cursors)>
 }
 
 
@@ -59,11 +59,12 @@ class CollectionServiceImpl: CollectionService, RxRequestService {
     }
     
     
-    func items(_ params: PageParameters) -> Single<[CollectionItem]> {
-        let router = CollectionRouter.items
+    func items(_ params: PageParameters) -> Single<([CollectionItem], Pages)> {
+        let router = CollectionRouter.itemsPage(params)
         return self.createObserver(type: LEOArrayResponse<CollectionItemDTO>.self, router: router)
             .map {
-                $0.data.map { CollectionItem(dto: $0) }
+                ($0.data.map { CollectionItem(dto: $0) },
+                 Pages())
             }
             .catchError {
                 Observable.error(Error.method("Items by Page", $0).object)
@@ -72,11 +73,12 @@ class CollectionServiceImpl: CollectionService, RxRequestService {
     }
     
     
-    func items(_ params: CursorParameters) -> Single<[CollectionItem]> {
-        let router = CollectionRouter.items
+    func items(_ params: CursorParameters) -> Single<([CollectionItem], Cursors)> {
+        let router = CollectionRouter.itemsCursor(params)
         return self.createObserver(type: LEOListResponse<CollectionItemDTO>.self, router: router)
             .map {
-                $0.data.map { CollectionItem(dto: $0) }
+                ($0.data.map { CollectionItem(dto: $0) },
+                 Cursors(previous: $0.prevCursor, next: $0.nextCursor))
             }
             .catchError {
                 Observable.error(Error.method("Items by Cursor", $0).object)

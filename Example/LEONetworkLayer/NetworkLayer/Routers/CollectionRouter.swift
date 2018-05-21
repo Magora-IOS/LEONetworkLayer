@@ -14,11 +14,11 @@ enum CollectionRouter: LEORouter {
     var method: HTTPMethod {
         switch self {
         case .items:
-            return .post
+            return .get
         case .itemsPage:
-            return .post
+            return .get
         case .itemsCursor:
-            return .put
+            return .get
         }
     }
     

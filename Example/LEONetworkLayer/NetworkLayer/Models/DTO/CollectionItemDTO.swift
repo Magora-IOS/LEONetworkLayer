@@ -18,7 +18,7 @@ struct CollectionItemDTO: ImmutableMappable {
         number = try map.value("number")
         title = try map.value("title")
         deleted = try map.value("deleted")
-        created = try map.value("created", using: DateTransformISO8601())
+        created = try map.value("createdAt", using: DateTransformISO8601())
         blocked = try map.value("blocked")
     }
     
