@@ -7,6 +7,7 @@ class MainViewController: UITableViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var tableCell: UITableViewCell!
+    @IBOutlet weak var rxTableCell: UITableViewCell!
     
     
     //MARK: - Properties
@@ -32,7 +33,10 @@ class MainViewController: UITableViewController {
         switch cell {
         case self.tableCell:
             self.viewModel.tableSignal.onNext(())
-            
+          
+        case self.rxTableCell:
+            self.viewModel.rxTableSignal.onNext(())
+        
         default:
             return
         }

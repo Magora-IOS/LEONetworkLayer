@@ -80,6 +80,8 @@
 		ED9EE12E20B3D74600115894 /* EmptyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EE12D20B3D74600115894 /* EmptyTableView.swift */; };
 		ED9EE13020B3D75000115894 /* EmptyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED9EE12F20B3D75000115894 /* EmptyTableView.xib */; };
 		ED9EE13220B3FBDF00115894 /* UIRefreshControl+BeginRefreshingManually.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EE13120B3FBDF00115894 /* UIRefreshControl+BeginRefreshingManually.swift */; };
+		ED9EE13520B4127E00115894 /* RxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EE13420B4127E00115894 /* RxTableViewController.swift */; };
+		ED9EE13720B412AF00115894 /* RxTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED9EE13620B412AE00115894 /* RxTable.storyboard */; };
 		EDFAC07320A976F300D900ED /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDFAC07220A976F300D900ED /* Auth.storyboard */; };
 		EDFAC07520A9770D00D900ED /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFAC07420A9770D00D900ED /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
@@ -179,6 +181,8 @@
 		ED9EE12D20B3D74600115894 /* EmptyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableView.swift; sourceTree = "<group>"; };
 		ED9EE12F20B3D75000115894 /* EmptyTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyTableView.xib; sourceTree = "<group>"; };
 		ED9EE13120B3FBDF00115894 /* UIRefreshControl+BeginRefreshingManually.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+BeginRefreshingManually.swift"; sourceTree = "<group>"; };
+		ED9EE13420B4127E00115894 /* RxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxTableViewController.swift; sourceTree = "<group>"; };
+		ED9EE13620B412AE00115894 /* RxTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RxTable.storyboard; sourceTree = "<group>"; };
 		EDFAC07220A976F300D900ED /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		EDFAC07420A9770D00D900ED /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -435,6 +439,7 @@
 				EDFAC07120A976E500D900ED /* Auth */,
 				C7C9243620173A2E00C49B56 /* Main */,
 				ED4FF50420AAD8AD003B3AC5 /* Table */,
+				ED9EE13320B4127E00115894 /* RxTable */,
 				C76DC386205A5AF500C04868 /* Example */,
 			);
 			path = Workflows;
@@ -574,6 +579,15 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		ED9EE13320B4127E00115894 /* RxTable */ = {
+			isa = PBXGroup;
+			children = (
+				ED9EE13620B412AE00115894 /* RxTable.storyboard */,
+				ED9EE13420B4127E00115894 /* RxTableViewController.swift */,
+			);
+			path = RxTable;
+			sourceTree = "<group>";
+		};
 		EDFAC07120A976E500D900ED /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -677,6 +691,7 @@
 				EDFAC07320A976F300D900ED /* Auth.storyboard in Resources */,
 				ED74E74320B2814500970AB5 /* TableViewCell.xib in Resources */,
 				C7C9243D20173A2E00C49B56 /* LaunchScreen.xib in Resources */,
+				ED9EE13720B412AF00115894 /* RxTable.storyboard in Resources */,
 				ED4FF50820AAD8C5003B3AC5 /* Table.storyboard in Resources */,
 				ED9EE13020B3D75000115894 /* EmptyTableView.xib in Resources */,
 				C7C9243B20173A2E00C49B56 /* Images.xcassets in Resources */,
@@ -830,6 +845,7 @@
 				C7CB124820188FF00010F2CD /* AuthStorage.swift in Sources */,
 				ED4FF50A20AAD9C0003B3AC5 /* TableViewModel.swift in Sources */,
 				ED4FF50620AAD8AE003B3AC5 /* TableViewController.swift in Sources */,
+				ED9EE13520B4127E00115894 /* RxTableViewController.swift in Sources */,
 				C76DC388205A5B0F00C04868 /* ExampleViewModel.swift in Sources */,
 				C7CB123E20188B030010F2CD /* AuthService.swift in Sources */,
 				EDFAC07520A9770D00D900ED /* SignInViewController.swift in Sources */,
