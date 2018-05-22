@@ -79,6 +79,7 @@
 		ED9EE12C20B3D3AD00115894 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EE12B20B3D3AD00115894 /* ErrorAlert.swift */; };
 		ED9EE12E20B3D74600115894 /* EmptyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EE12D20B3D74600115894 /* EmptyTableView.swift */; };
 		ED9EE13020B3D75000115894 /* EmptyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED9EE12F20B3D75000115894 /* EmptyTableView.xib */; };
+		ED9EE13220B3FBDF00115894 /* UIRefreshControl+BeginRefreshingManually.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EE13120B3FBDF00115894 /* UIRefreshControl+BeginRefreshingManually.swift */; };
 		EDFAC07320A976F300D900ED /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDFAC07220A976F300D900ED /* Auth.storyboard */; };
 		EDFAC07520A9770D00D900ED /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFAC07420A9770D00D900ED /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
@@ -177,6 +178,7 @@
 		ED9EE12B20B3D3AD00115894 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		ED9EE12D20B3D74600115894 /* EmptyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableView.swift; sourceTree = "<group>"; };
 		ED9EE12F20B3D75000115894 /* EmptyTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyTableView.xib; sourceTree = "<group>"; };
+		ED9EE13120B3FBDF00115894 /* UIRefreshControl+BeginRefreshingManually.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+BeginRefreshingManually.swift"; sourceTree = "<group>"; };
 		EDFAC07220A976F300D900ED /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		EDFAC07420A9770D00D900ED /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -340,6 +342,7 @@
 				ED74E74420B2822600970AB5 /* NSObject+NameOfClass.swift */,
 				ED74E74520B2822600970AB5 /* UIView+Load.swift */,
 				C7A273AD20358A8D00506C79 /* UIWindow+ChangeRoot.swift */,
+				ED9EE13120B3FBDF00115894 /* UIRefreshControl+BeginRefreshingManually.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -783,6 +786,7 @@
 				ED9EE12C20B3D3AD00115894 /* ErrorAlert.swift in Sources */,
 				ED84BB9620AC1E3A009658D9 /* PageParameters.swift in Sources */,
 				ED74E74720B2822600970AB5 /* UIView+Load.swift in Sources */,
+				ED9EE13220B3FBDF00115894 /* UIRefreshControl+BeginRefreshingManually.swift in Sources */,
 				C728E3ED2047E27500345B69 /* BusinessError.swift in Sources */,
 				C7A621CC2032F6AF006ED490 /* UserProfile+DTO.swift in Sources */,
 				ED4FF50120AA946C003B3AC5 /* SignInViewModel.swift in Sources */,

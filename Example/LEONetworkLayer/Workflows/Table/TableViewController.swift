@@ -28,7 +28,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         self.buildViews()
         self.binding()
-        self.viewModel.reload()
+        self.refreshControl.beginRefreshingManually(animated: false)
     }
     
     
