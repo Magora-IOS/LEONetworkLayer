@@ -21,6 +21,7 @@ protocol TableViewModel {
     
     func reload()
     func loadNextPage()
+    func isMoreItems() -> Bool
     
     var items: BehaviorRelay<[CollectionItem]> { get }
     var state: BehaviorRelay<TableViewModelState> { get }
@@ -39,7 +40,7 @@ class TableViewModelImpl: TableViewModel {
     private let context: Context
     private let disposeBag = DisposeBag()
     private var queryParams: CursorParameters!
-    private var pageSize = 3
+    private var pageSize = 30
 
     
     let items = BehaviorRelay<[CollectionItem]>(value: [])
@@ -60,7 +61,7 @@ class TableViewModelImpl: TableViewModel {
     
     
     
-    //MARK: - Routines
+    //MARK: - Loading
     func reload() {
         self.queryParams = self.initialCursor()
         self.load()
@@ -72,13 +73,19 @@ class TableViewModelImpl: TableViewModel {
     }
     
     
+    func isMoreItems() -> Bool {
+        return !self.noMoreItems
+    }
    
+    
+    //MARK: - Loading Routines
     private var loadDisposeBag: DisposeBag!
-    private var finished = false
+    private var noMoreItems = false
+    
     
     private func load() {
         
-        guard !self.finished else { return }
+        guard !self.noMoreItems else { return }
         self.loadDisposeBag = DisposeBag()
         
         self.context.collectionService.items(self.queryParams)
@@ -89,6 +96,7 @@ class TableViewModelImpl: TableViewModel {
                 onSuccess: { [weak self] in
                     guard let strongSelf = self else { return }
                     let items = $0.0
+                    let cursors = $0.1
 
                     if strongSelf.queryParams.cursor == nil {
                         strongSelf.items.accept(items)
@@ -97,9 +105,9 @@ class TableViewModelImpl: TableViewModel {
                         strongSelf.items.accept(new)
                     }
                     
-                    let nextCursor = $0.1.next
+                    let nextCursor = cursors.next
                     strongSelf.queryParams.cursor = nextCursor
-                    strongSelf.finished = nextCursor == nil
+                    strongSelf.noMoreItems = nextCursor == nil
                     
                     strongSelf.state.accept(.done)
                 },

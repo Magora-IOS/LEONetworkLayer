@@ -52,6 +52,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.addInfiniteScroll { [weak self] _ in
             self?.viewModel.loadNextPage()
         }
+        
+        self.tableView.setShouldShowInfiniteScrollHandler { [weak self] _ in
+            self?.viewModel.isMoreItems() ?? false
+        }
     }
     
     
@@ -72,7 +76,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.nameOfClass, for: indexPath) as! TableViewCell
         
         let item = self.viewModel.items.value[indexPath.row]
-        let title = (1...20).reduce("", { (result, _) in
+        let title = (1...10).reduce("", { (result, _) in
             result + item.title + "\n"
         })
         cell.textLabel?.text = title
