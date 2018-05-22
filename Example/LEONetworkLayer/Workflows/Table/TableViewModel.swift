@@ -113,7 +113,6 @@ class TableViewModelImpl: TableViewModel {
                 },
                 onError: { [weak self] in
                     self?.state.accept(.error($0))
-                    Log($0)
                 }
             )
             .disposed(by: self.loadDisposeBag)

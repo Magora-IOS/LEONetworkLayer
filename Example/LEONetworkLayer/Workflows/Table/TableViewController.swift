@@ -17,6 +17,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     
+    private var refreshControl: UIRefreshControl!
+    
     
     
     //MARK: - Lifecycle
@@ -30,6 +32,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     private func buildViews() {
+        self.refreshControl = UIRefreshControl()
+        self.tableView.insertSubview(self.refreshControl, at: 0)
+        
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = UITableViewAutomaticDimension
         self.tableView.infiniteScrollTriggerOffset = 700
@@ -56,6 +61,31 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.setShouldShowInfiniteScrollHandler { [weak self] _ in
             self?.viewModel.isMoreItems() ?? false
         }
+        
+        self.refreshControl.rx.controlEvent(.valueChanged)
+            .subscribe(onNext: { [weak self] in
+                self?.viewModel.reload()
+            })
+            .disposed(by: self.disposeBag)
+        
+        
+        self.viewModel.state.asObservable()
+            .subscribe(onNext: { [weak self] state in
+                switch state {
+                case .loading:
+                    break;
+                    
+                case .empty, .done:
+                    self?.refreshControl.endRefreshing()
+                    self?.tableView.finishInfiniteScroll()
+                    
+                case let .error(e):
+                    self?.refreshControl.endRefreshing()
+                    self?.tableView.finishInfiniteScroll()
+                    ErrorAlert(error: e, presenter: self)
+                }
+            })
+            .disposed(by: self.disposeBag)
     }
     
     
