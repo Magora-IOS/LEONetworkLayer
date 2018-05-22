@@ -18,6 +18,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     
     private var refreshControl: UIRefreshControl!
+    private var emptyView: EmptyTableView!
     
     
     
@@ -38,6 +39,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = UITableViewAutomaticDimension
         self.tableView.infiniteScrollTriggerOffset = 700
+        
+        self.emptyView = EmptyTableView.loadFromNib()!
+        self.tableView.backgroundView = self.emptyView
     }
     
     
@@ -59,7 +63,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         
         self.tableView.setShouldShowInfiniteScrollHandler { [weak self] _ in
-            self?.viewModel.isMoreItems() ?? false
+            guard let strongSelf = self else { return false }
+            if case .empty = strongSelf.viewModel.state.value {
+                return false
+            } else {
+                return strongSelf.viewModel.isMoreItems()
+            }
         }
         
         self.refreshControl.rx.controlEvent(.valueChanged)
@@ -72,14 +81,24 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.viewModel.state.asObservable()
             .subscribe(onNext: { [weak self] state in
                 switch state {
-                case .loading:
-                    break;
+                case .initial:
+                    self?.emptyView.isHidden = true
                     
-                case .empty, .done:
+                case .loading:
+                    self?.emptyView.isHidden = true
+                    
+                case .empty:
+                    self?.emptyView.isHidden = false
+                    self?.refreshControl.endRefreshing()
+                    self?.tableView.finishInfiniteScroll()
+                    
+                case .done:
+                    self?.emptyView.isHidden = true
                     self?.refreshControl.endRefreshing()
                     self?.tableView.finishInfiniteScroll()
                     
                 case let .error(e):
+                    self?.emptyView.isHidden = true
                     self?.refreshControl.endRefreshing()
                     self?.tableView.finishInfiniteScroll()
                     ErrorAlert(error: e, presenter: self)

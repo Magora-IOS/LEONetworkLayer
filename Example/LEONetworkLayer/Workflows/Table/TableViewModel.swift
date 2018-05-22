@@ -5,6 +5,7 @@ import RxCocoa
 
 
 enum TableViewModelState {
+    case initial
     case empty
     case loading
     case done
@@ -44,7 +45,7 @@ class TableViewModelImpl: TableViewModel {
 
     
     let items = BehaviorRelay<[CollectionItem]>(value: [])
-    let state = BehaviorRelay<TableViewModelState>(value: .empty)
+    let state = BehaviorRelay<TableViewModelState>(value: .initial)
     
     
     
