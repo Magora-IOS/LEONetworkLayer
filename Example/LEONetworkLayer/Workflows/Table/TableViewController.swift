@@ -125,9 +125,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.nameOfClass, for: indexPath) as! TableViewCell
         
         let item = self.viewModel.items.value[indexPath.row]
-        let title = (1...10).reduce("", { (result, _) in
+        
+        let repeats = indexPath.row % 10 + 1
+        var title = (1...repeats).reduce("", { (result, _) in
             result + item.title + "\n"
         })
+        title.removeLast()
+        
         cell.textLabel?.text = title
         return cell
     }

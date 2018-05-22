@@ -41,7 +41,7 @@ class TableViewModelImpl: TableViewModel {
     private let context: Context
     private let disposeBag = DisposeBag()
     private var queryParams: CursorParameters!
-    private var pageSize = 30
+    private var pageSize = 10
 
     
     let items = BehaviorRelay<[CollectionItem]>(value: [])
