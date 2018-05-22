@@ -77,6 +77,8 @@
 		ED84BB9E20AC262D009658D9 /* CollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84BB9D20AC262D009658D9 /* CollectionItem.swift */; };
 		ED84BBA020AC2636009658D9 /* CollectionItem+DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84BB9F20AC2636009658D9 /* CollectionItem+DTO.swift */; };
 		ED9EE12C20B3D3AD00115894 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EE12B20B3D3AD00115894 /* ErrorAlert.swift */; };
+		ED9EE12E20B3D74600115894 /* EmptyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EE12D20B3D74600115894 /* EmptyTableView.swift */; };
+		ED9EE13020B3D75000115894 /* EmptyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED9EE12F20B3D75000115894 /* EmptyTableView.xib */; };
 		EDFAC07320A976F300D900ED /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDFAC07220A976F300D900ED /* Auth.storyboard */; };
 		EDFAC07520A9770D00D900ED /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFAC07420A9770D00D900ED /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
@@ -173,6 +175,8 @@
 		ED84BB9D20AC262D009658D9 /* CollectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItem.swift; sourceTree = "<group>"; };
 		ED84BB9F20AC2636009658D9 /* CollectionItem+DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionItem+DTO.swift"; sourceTree = "<group>"; };
 		ED9EE12B20B3D3AD00115894 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
+		ED9EE12D20B3D74600115894 /* EmptyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableView.swift; sourceTree = "<group>"; };
+		ED9EE12F20B3D75000115894 /* EmptyTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyTableView.xib; sourceTree = "<group>"; };
 		EDFAC07220A976F300D900ED /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		EDFAC07420A9770D00D900ED /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -544,6 +548,8 @@
 			children = (
 				ED74E74120B2814500970AB5 /* TableViewCell.xib */,
 				ED74E74020B2814500970AB5 /* TableViewCell.swift */,
+				ED9EE12F20B3D75000115894 /* EmptyTableView.xib */,
+				ED9EE12D20B3D74600115894 /* EmptyTableView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -669,6 +675,7 @@
 				ED74E74320B2814500970AB5 /* TableViewCell.xib in Resources */,
 				C7C9243D20173A2E00C49B56 /* LaunchScreen.xib in Resources */,
 				ED4FF50820AAD8C5003B3AC5 /* Table.storyboard in Resources */,
+				ED9EE13020B3D75000115894 /* EmptyTableView.xib in Resources */,
 				C7C9243B20173A2E00C49B56 /* Images.xcassets in Resources */,
 				C7C9243F20173A2E00C49B56 /* Main.storyboard in Resources */,
 			);
@@ -760,6 +767,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7A2739620357CC600506C79 /* UserDefaultsStorage.swift in Sources */,
+				ED9EE12E20B3D74600115894 /* EmptyTableView.swift in Sources */,
 				ED74E74620B2822600970AB5 /* NSObject+NameOfClass.swift in Sources */,
 				C7A621C72032E7BB006ED490 /* ErrorObject.swift in Sources */,
 				ED84BB9C20AC2148009658D9 /* CollectionItemDTO.swift in Sources */,
