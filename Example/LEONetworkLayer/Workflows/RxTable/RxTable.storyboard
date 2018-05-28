@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table-->
+        <!--RxTable-->
         <scene sceneID="W8m-BY-czv">
             <objects>
-                <viewController storyboardIdentifier="TableViewController" id="mTm-8G-ehg" customClass="TableViewController" customModule="LEONetworkLayer_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RxTableViewController" id="mTm-8G-ehg" customClass="RxTableViewController" customModule="LEONetworkLayer_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bqj-kf-qxW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,7 +42,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dGp-ph-uNg"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Table" id="nNY-e5-EIN"/>
+                    <navigationItem key="navigationItem" title="RxTable" id="nNY-e5-EIN"/>
                     <connections>
                         <outlet property="tableView" destination="W89-7h-gPP" id="cWC-7q-rYG"/>
                     </connections>

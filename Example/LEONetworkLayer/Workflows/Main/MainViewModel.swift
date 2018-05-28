@@ -7,7 +7,9 @@ import RxSwift
 
 
 protocol MainViewModel {
+    
     var tableSignal: PublishSubject<Void> { get }
+    var rxTableSignal: PublishSubject<Void> { get }
 }
 
 
@@ -25,6 +27,7 @@ class MainViewModelImpl: MainViewModel {
     private let disposeBag = DisposeBag()
     
     let tableSignal = PublishSubject<Void>()
+    let rxTableSignal = PublishSubject<Void>()
     
     
     

@@ -5,7 +5,7 @@ import UIScrollView_InfiniteScroll
 
 
 
-class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class RxTableViewController: UIViewController {
     
     
     
@@ -47,16 +47,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     private func binding() {
         self.tableView.register(TableViewCell.nib(), forCellReuseIdentifier: TableViewCell.nameOfClass)
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        
-        self.viewModel.items
-            .subscribe(onNext: { [weak self] _ in
-                self?.tableView.reloadData()
-                self?.tableView.finishInfiniteScroll()
-            })
-            .disposed(by: self.disposeBag)
-        
+      
+        self.viewModel.items.asObservable()
+            .bind(to: self.tableView.rx.items(cellIdentifier: TableViewCell.nameOfClass,
+                                              cellType: TableViewCell.self)) { (row, data, cell) in
+                                                cell.data = (data, row)
+            }.disposed(by: self.disposeBag)
         
         self.tableView.addInfiniteScroll { [weak self] _ in
             self?.viewModel.loadNextPage()
@@ -105,27 +101,5 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 }
             })
             .disposed(by: self.disposeBag)
-    }
-    
-    
-    
-    
-    //MARK: - Table
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.items.value.count
-    }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.nameOfClass, for: indexPath) as! TableViewCell
-        
-        let item = self.viewModel.items.value[indexPath.row]
-        cell.data = (item, indexPath.row)
-        return cell
     }
 }
