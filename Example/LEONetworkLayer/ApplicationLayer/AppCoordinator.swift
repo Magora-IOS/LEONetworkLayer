@@ -62,10 +62,16 @@ class AppCoordinator: BaseCoordinator {
         self.window.changeRootViewController(UINavigationController())
      
         let vm = MainViewModelImpl(context: ())
+        
         vm.tableSignal.subscribe(onNext: { [weak self] in
             self?.startTable()
         })
         .disposed(by: self.disposeBag)
+        
+        vm.rxTableSignal.subscribe(onNext: { [weak self] in
+            self?.startRxTable()
+        })
+            .disposed(by: self.disposeBag)
         
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         vc.viewModel = vm
@@ -79,6 +85,12 @@ class AppCoordinator: BaseCoordinator {
     //MARK: - Flows (2nd Level)
     private func startTable() {
         let vc = UIStoryboard(name: "Table", bundle: nil).instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
+        vc.viewModel = TableViewModelImpl(context: self.context)
+        self.rootViewController?.pushViewController(vc, animated: true)
+    }
+    
+    private func startRxTable() {
+        let vc = UIStoryboard(name: "RxTable", bundle: nil).instantiateViewController(withIdentifier: "RxTableViewController") as! RxTableViewController
         vc.viewModel = TableViewModelImpl(context: self.context)
         self.rootViewController?.pushViewController(vc, animated: true)
     }
