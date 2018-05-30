@@ -17,6 +17,7 @@ class AuthStorageImpl: AuthStorage {
     //MARK: - Lifecycle
     init(storage: KeyValueStorage) {
         self.storage = storage
+    
     }
 
     
@@ -24,15 +25,27 @@ class AuthStorageImpl: AuthStorage {
     var authSession: AuthSession {
         get {
             var session = AuthSession()
-            session.accessToken = self.storage.getValue(key: .authSessionAccessToken) as? String
-            session.refreshToken = self.storage.getValue(key: .authSessionRefreshToken) as? String
-            session.accessTokenExpire = self.storage.getValue(key: .authSessionAccessTokenExpirationDate) as? Date
+            do {
+                session.accessToken = try self.storage.getValue(forKey: .authSessionAccessToken, type: String.self)
+                session.refreshToken = try self.storage.getValue(forKey: .authSessionRefreshToken, type: String.self)
+                session.accessTokenExpire = try self.storage.getValue(forKey: .authSessionAccessTokenExpirationDate, type: Date.self)
+            } catch {
+                //Error is ignored, cant throw from property
+                //TODO: rethrow error
+                Log(error)
+            }
             return session
         }
         set {
-            self.storage.setValue(value: newValue.accessToken, key: .authSessionAccessToken)
-            self.storage.setValue(value: newValue.refreshToken, key: .authSessionRefreshToken)
-            self.storage.setValue(value: newValue.accessTokenExpire, key: .authSessionAccessTokenExpirationDate)
+            do {
+                try self.storage.setValue(newValue.accessToken, forKey: .authSessionAccessToken)
+                try self.storage.setValue(newValue.refreshToken, forKey: .authSessionRefreshToken)
+                try self.storage.setValue(newValue.accessTokenExpire, forKey: .authSessionAccessTokenExpirationDate)
+            } catch {
+                //Error is ignored, cant throw from property
+                //TODO: rethrow error
+                Log(error)
+            }
         }
     }
 }

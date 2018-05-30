@@ -3,6 +3,7 @@ import Foundation
 
 
 class UserDefaultsStorage: KeyValueStorage {
+  
     
     private let storage: UserDefaults
     
@@ -14,14 +15,14 @@ class UserDefaultsStorage: KeyValueStorage {
     
     
     //MARK: - KeyValueStorage
-    func setValue(value: Any?, key: KeyValueStorageKey) -> Bool {
+    func setValue(_ value: Any?, forKey key: KeyValueStorageKey) throws {
         self.storage.set(value, forKey: key.rawValue)
-        return self.storage.synchronize()
+        self.storage.synchronize()
     }
     
     
-    func getValue(key: KeyValueStorageKey) -> Any? {
-        return self.storage.value(forKey: key.rawValue)
+    func getValue<T>(forKey key: KeyValueStorageKey, type: T.Type) throws -> T? {
+        return self.storage.value(forKey: key.rawValue) as? T
     }
     
 }
