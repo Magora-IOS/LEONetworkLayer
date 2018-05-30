@@ -12,5 +12,5 @@ func Log(_ message: String?, file: StaticString = #file, line: UInt = #line) {
 
 
 func Log(_ error: Error?, file: StaticString = #file, line: UInt = #line) {
-    Log(error?.localizedDescription, file: file, line: line)
+    Log("Error occured\n\(error?.localizedDescription ?? "")", file: file, line: line)
 }
