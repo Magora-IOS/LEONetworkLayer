@@ -102,7 +102,7 @@ open class ErrorObject: ErrorProtocol {
 
 extension ErrorObject: Swift.Error {
     public var localizedDescription: String {
-        return self.desc ?? ""
+        return self.fullDescription
     }
 }
 
@@ -110,7 +110,7 @@ extension ErrorObject: Swift.Error {
 
 extension ErrorObject: LocalizedError {
     public var errorDescription: String? {
-        return self.desc
+        return self.fullDescription
     }
     
     public var failureReason: String? {

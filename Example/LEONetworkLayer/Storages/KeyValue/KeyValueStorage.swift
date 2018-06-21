@@ -3,8 +3,6 @@ import Foundation
 
 protocol KeyValueStorage {
 
-    @discardableResult
-	func setValue(value: Any?, key: KeyValueStorageKey) -> Bool
-	
-    func getValue(key: KeyValueStorageKey) -> Any?
+	func setValue(_ value: Any?, forKey key: KeyValueStorageKey) throws
+    func getValue<T>(forKey key: KeyValueStorageKey, type: T.Type) throws -> T?
 }
