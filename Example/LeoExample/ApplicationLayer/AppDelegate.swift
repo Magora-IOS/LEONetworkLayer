@@ -11,17 +11,25 @@ import LEONetworkLayer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
-
+    let context = AppContextImpl()
+    var appCoordinator: AppCoordinator!
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        self.startRouter()
+        return true
+    }
+    
+    private func startRouter() {
+        let screenBounds = UIScreen.main.bounds
+        window = UIWindow(frame: screenBounds)
+        window?.makeKeyAndVisible()
+        
+        appCoordinator = AppCoordinator(window: window!, context: context)
+        appCoordinator.start()
         
         print(LeoTestClass.value)
         print(LeoTestClass2.value)
-        
-        return true
     }
-
 }
-

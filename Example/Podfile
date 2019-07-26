@@ -2,5 +2,6 @@ platform :ios, '10.0'
 
 target 'LeoExample' do
   use_frameworks!
+  pod 'BaseCoordinator'
   pod 'LEONetworkLayer', :path => '../'
 end

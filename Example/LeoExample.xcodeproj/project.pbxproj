@@ -3,27 +3,53 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		03524CD9916FB761F1E220F4 /* Pods_LeoExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5D4B51707EAB1C0B610162 /* Pods_LeoExample.framework */; };
 		8D4546FB22E1BE45008B7C61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4546FA22E1BE45008B7C61 /* AppDelegate.swift */; };
-		8D4546FD22E1BE45008B7C61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4546FC22E1BE45008B7C61 /* ViewController.swift */; };
-		8D45470022E1BE45008B7C61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D4546FE22E1BE45008B7C61 /* Main.storyboard */; };
 		8D45470222E1BE46008B7C61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D45470122E1BE46008B7C61 /* Assets.xcassets */; };
 		8D45470522E1BE46008B7C61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D45470322E1BE46008B7C61 /* LaunchScreen.storyboard */; };
+		9AEB96E122E9906A0060E6F8 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB96E022E9906A0060E6F8 /* AccountService.swift */; };
+		9AEB96E622E990750060E6F8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB96E322E990750060E6F8 /* AppCoordinator.swift */; };
+		9AEB96E722E990750060E6F8 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB96E422E990750060E6F8 /* AppContext.swift */; };
+		9AEB96EA22E990C10060E6F8 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB96E822E990C10060E6F8 /* AuthenticationCoordinator.swift */; };
+		9AEB96F022E990D80060E6F8 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB96EE22E990D80060E6F8 /* MainCoordinator.swift */; };
+		9AEB96F422E991550060E6F8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB96F222E991550060E6F8 /* MainViewController.swift */; };
+		9AEB96F522E991550060E6F8 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEB96F322E991550060E6F8 /* MainViewController.xib */; };
+		9AEB96F822E9915F0060E6F8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB96F622E9915E0060E6F8 /* WelcomeViewController.swift */; };
+		9AEB96F922E9915F0060E6F8 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEB96F722E9915E0060E6F8 /* WelcomeViewController.xib */; };
+		9AEB970122E9961C0060E6F8 /* AuthentificationTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB970022E9961C0060E6F8 /* AuthentificationTarget.swift */; };
+		9AEB970322E997170060E6F8 /* LeoTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB970222E997170060E6F8 /* LeoTargetType.swift */; };
+		9AEB970522E9A52E0060E6F8 /* LeoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB970422E9A52E0060E6F8 /* LeoProvider.swift */; };
+		9AEB970822E9B8900060E6F8 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB970722E9B8900060E6F8 /* AuthenticationViewModel.swift */; };
+		9AEB972D22EAF1BC0060E6F8 /* LeoErrorPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB972C22EAF1BC0060E6F8 /* LeoErrorPlugin.swift */; };
+		9AEB972F22EAF6500060E6F8 /* TestPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB972E22EAF6500060E6F8 /* TestPlugin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		13CB7EE18DC746281241AE2A /* Pods-LeoExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeoExample.debug.xcconfig"; path = "Target Support Files/Pods-LeoExample/Pods-LeoExample.debug.xcconfig"; sourceTree = "<group>"; };
 		8D4546F722E1BE45008B7C61 /* LeoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D4546FA22E1BE45008B7C61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8D4546FC22E1BE45008B7C61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8D4546FF22E1BE45008B7C61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D45470122E1BE46008B7C61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D45470422E1BE46008B7C61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D45470622E1BE46008B7C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AEB96E022E9906A0060E6F8 /* AccountService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		9AEB96E322E990750060E6F8 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		9AEB96E422E990750060E6F8 /* AppContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
+		9AEB96E822E990C10060E6F8 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
+		9AEB96EE22E990D80060E6F8 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		9AEB96F222E991550060E6F8 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9AEB96F322E991550060E6F8 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		9AEB96F622E9915E0060E6F8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		9AEB96F722E9915E0060E6F8 /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		9AEB970022E9961C0060E6F8 /* AuthentificationTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationTarget.swift; sourceTree = "<group>"; };
+		9AEB970222E997170060E6F8 /* LeoTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoTargetType.swift; sourceTree = "<group>"; };
+		9AEB970422E9A52E0060E6F8 /* LeoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoProvider.swift; sourceTree = "<group>"; };
+		9AEB970722E9B8900060E6F8 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		9AEB972C22EAF1BC0060E6F8 /* LeoErrorPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoErrorPlugin.swift; sourceTree = "<group>"; };
+		9AEB972E22EAF6500060E6F8 /* TestPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPlugin.swift; sourceTree = "<group>"; };
 		CC5D4B51707EAB1C0B610162 /* Pods_LeoExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeoExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C94BC866C9FD443CF9BA98 /* Pods-LeoExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeoExample.release.xcconfig"; path = "Target Support Files/Pods-LeoExample/Pods-LeoExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,14 +95,139 @@
 		8D4546F922E1BE45008B7C61 /* LeoExample */ = {
 			isa = PBXGroup;
 			children = (
-				8D4546FA22E1BE45008B7C61 /* AppDelegate.swift */,
-				8D4546FC22E1BE45008B7C61 /* ViewController.swift */,
-				8D4546FE22E1BE45008B7C61 /* Main.storyboard */,
-				8D45470122E1BE46008B7C61 /* Assets.xcassets */,
-				8D45470322E1BE46008B7C61 /* LaunchScreen.storyboard */,
-				8D45470622E1BE46008B7C61 /* Info.plist */,
+				9AEB96DE22E98FD80060E6F8 /* ApplicationLayer */,
+				9AEB96D422E98F0A0060E6F8 /* Configuration */,
+				9AEB96FB22E995230060E6F8 /* NetworkLayer */,
+				9AEB96D622E98F3C0060E6F8 /* Resources */,
+				9AEB96DF22E98FE20060E6F8 /* Services */,
+				9AEB96D522E98F1C0060E6F8 /* Workflows */,
 			);
 			path = LeoExample;
+			sourceTree = "<group>";
+		};
+		9AEB96D422E98F0A0060E6F8 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				8D45470622E1BE46008B7C61 /* Info.plist */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		9AEB96D522E98F1C0060E6F8 /* Workflows */ = {
+			isa = PBXGroup;
+			children = (
+				9AEB96D722E98F650060E6F8 /* Authentication */,
+				9AEB96D822E98F700060E6F8 /* Main */,
+			);
+			path = Workflows;
+			sourceTree = "<group>";
+		};
+		9AEB96D622E98F3C0060E6F8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D45470122E1BE46008B7C61 /* Assets.xcassets */,
+				8D45470322E1BE46008B7C61 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9AEB96D722E98F650060E6F8 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				9AEB970C22E9B9E60060E6F8 /* ViewModel */,
+				9AEB96EC22E990CA0060E6F8 /* Views */,
+				9AEB96E822E990C10060E6F8 /* AuthenticationCoordinator.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		9AEB96D822E98F700060E6F8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9AEB96F122E990DF0060E6F8 /* Views */,
+				9AEB96EE22E990D80060E6F8 /* MainCoordinator.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9AEB96DE22E98FD80060E6F8 /* ApplicationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				9AEB96E422E990750060E6F8 /* AppContext.swift */,
+				9AEB96E322E990750060E6F8 /* AppCoordinator.swift */,
+				8D4546FA22E1BE45008B7C61 /* AppDelegate.swift */,
+			);
+			path = ApplicationLayer;
+			sourceTree = "<group>";
+		};
+		9AEB96DF22E98FE20060E6F8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9AEB96E022E9906A0060E6F8 /* AccountService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9AEB96EC22E990CA0060E6F8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9AEB96F622E9915E0060E6F8 /* WelcomeViewController.swift */,
+				9AEB96F722E9915E0060E6F8 /* WelcomeViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9AEB96F122E990DF0060E6F8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9AEB96F222E991550060E6F8 /* MainViewController.swift */,
+				9AEB96F322E991550060E6F8 /* MainViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9AEB96FB22E995230060E6F8 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				9AEB96FC22E995450060E6F8 /* Models */,
+				9AEB96FD22E9954C0060E6F8 /* Targets */,
+				9AEB972B22EAF1820060E6F8 /* Plugins */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		9AEB96FC22E995450060E6F8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9AEB96FD22E9954C0060E6F8 /* Targets */ = {
+			isa = PBXGroup;
+			children = (
+				9AEB970022E9961C0060E6F8 /* AuthentificationTarget.swift */,
+				9AEB970222E997170060E6F8 /* LeoTargetType.swift */,
+				9AEB970422E9A52E0060E6F8 /* LeoProvider.swift */,
+			);
+			path = Targets;
+			sourceTree = "<group>";
+		};
+		9AEB970C22E9B9E60060E6F8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9AEB970722E9B8900060E6F8 /* AuthenticationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9AEB972B22EAF1820060E6F8 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				9AEB972C22EAF1BC0060E6F8 /* LeoErrorPlugin.swift */,
+				9AEB972E22EAF6500060E6F8 /* TestPlugin.swift */,
+			);
+			path = Plugins;
 			sourceTree = "<group>";
 		};
 		BF8D357137A633E22A9BD93E /* Pods */ = {
@@ -149,8 +300,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D45470522E1BE46008B7C61 /* LaunchScreen.storyboard in Resources */,
+				9AEB96F922E9915F0060E6F8 /* WelcomeViewController.xib in Resources */,
+				9AEB96F522E991550060E6F8 /* MainViewController.xib in Resources */,
 				8D45470222E1BE46008B7C61 /* Assets.xcassets in Resources */,
-				8D45470022E1BE45008B7C61 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,22 +355,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D4546FD22E1BE45008B7C61 /* ViewController.swift in Sources */,
+				9AEB970822E9B8900060E6F8 /* AuthenticationViewModel.swift in Sources */,
+				9AEB96F422E991550060E6F8 /* MainViewController.swift in Sources */,
+				9AEB970322E997170060E6F8 /* LeoTargetType.swift in Sources */,
+				9AEB96F822E9915F0060E6F8 /* WelcomeViewController.swift in Sources */,
+				9AEB96EA22E990C10060E6F8 /* AuthenticationCoordinator.swift in Sources */,
+				9AEB96F022E990D80060E6F8 /* MainCoordinator.swift in Sources */,
+				9AEB972F22EAF6500060E6F8 /* TestPlugin.swift in Sources */,
+				9AEB96E722E990750060E6F8 /* AppContext.swift in Sources */,
+				9AEB972D22EAF1BC0060E6F8 /* LeoErrorPlugin.swift in Sources */,
+				9AEB96E122E9906A0060E6F8 /* AccountService.swift in Sources */,
+				9AEB96E622E990750060E6F8 /* AppCoordinator.swift in Sources */,
+				9AEB970122E9961C0060E6F8 /* AuthentificationTarget.swift in Sources */,
 				8D4546FB22E1BE45008B7C61 /* AppDelegate.swift in Sources */,
+				9AEB970522E9A52E0060E6F8 /* LeoProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8D4546FE22E1BE45008B7C61 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8D4546FF22E1BE45008B7C61 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8D45470322E1BE46008B7C61 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -353,7 +509,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65B5B68C2U;
-				INFOPLIST_FILE = LeoExample/Info.plist;
+				INFOPLIST_FILE = LeoExample/Configuration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -373,7 +529,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65B5B68C2U;
-				INFOPLIST_FILE = LeoExample/Info.plist;
+				INFOPLIST_FILE = LeoExample/Configuration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

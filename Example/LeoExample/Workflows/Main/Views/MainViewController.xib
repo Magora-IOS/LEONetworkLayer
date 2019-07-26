@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="Example" customModuleProvider="target">
+            <connections>
+                <outlet property="errorLabel" destination="VTY-wW-xTQ" id="pMs-Ak-fb9"/>
+                <outlet property="nextButton" destination="FWE-HQ-B4U" id="tUP-gx-mJ4"/>
+                <outlet property="view" destination="lsM-az-5WX" id="1uC-ti-DO4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="lsM-az-5WX">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWE-HQ-B4U">
+                    <rect key="frame" x="167.5" y="139" width="79" height="39"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <state key="normal" title="Sign out">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTY-wW-xTQ">
+                    <rect key="frame" x="32" y="196" width="350" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="FWE-HQ-B4U" firstAttribute="centerX" secondItem="lsM-az-5WX" secondAttribute="centerX" id="4GF-Gi-ICY"/>
+                <constraint firstItem="VTY-wW-xTQ" firstAttribute="top" secondItem="FWE-HQ-B4U" secondAttribute="bottom" constant="18" id="Eko-Dk-H1U"/>
+                <constraint firstItem="FWE-HQ-B4U" firstAttribute="top" secondItem="09d-DC-yLr" secondAttribute="top" constant="95" id="LDm-yp-NB1"/>
+                <constraint firstItem="09d-DC-yLr" firstAttribute="trailing" secondItem="VTY-wW-xTQ" secondAttribute="trailing" constant="32" id="PGw-9L-KW6"/>
+                <constraint firstItem="VTY-wW-xTQ" firstAttribute="leading" secondItem="09d-DC-yLr" secondAttribute="leading" constant="32" id="Qf0-Q8-WKO"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="09d-DC-yLr"/>
+            <point key="canvasLocation" x="61" y="50"/>
+        </view>
+    </objects>
+</document>
