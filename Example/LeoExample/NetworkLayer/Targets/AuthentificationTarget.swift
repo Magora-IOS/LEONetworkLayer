@@ -1,66 +1,66 @@
 import Foundation
+import LEONetworkLayer
 import Moya
 
 enum AuthentificationTarget {
-    case createUser(name: String)
-    case readUsers
-    case updateUser(id: Int, name: String)
-    case deleteUser(id: Int)
+    case sendPhone(phone: String)
+    case login(login: TokenRequestParameters)
+    case refreshToken(refreshToken: String)
 }
 
-extension AuthentificationTarget: LeoTargetType {
+extension AuthentificationTarget: ILeoTargetType {
     var path: String {
         switch self {
-        case .readUsers, .createUser(_):
-            return "/users"
-        case .updateUser(let id, _), .deleteUser(let id):
-            return "/users/\(id)"
+        case .sendPhone:
+            return "/tokens/codes"
+        case .login:
+            return "/tokens/sms"
+        case .refreshToken:
+            return "/tokens"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .createUser(_):
+        case .sendPhone, .login:
             return .post
-        case .readUsers:
-            return .get
-        case .updateUser(_, _):
+        case .refreshToken:
             return .put
-        case .deleteUser(_):
-            return .delete
         }
+    }
+
+    var task: Task {
+        switch self {
+        case .sendPhone(let phone):
+            return .requestParameters(parameters: ["phone":phone], encoding: JSONEncoding.default)
+        case .login(let loginData):
+            return .requestJSONEncodable(loginData)
+        case .refreshToken(let refreshToken):
+            return .requestParameters(parameters: ["refreshToken": refreshToken], encoding: JSONEncoding.default)
+        }
+    }
+    
+    var authorizationType: AuthorizationType {
+        switch self {
+        case .login:
+            return .none
+        default:
+            return self.authorization
+        }        
     }
     
     var sampleData: Data {
         switch self {
-        case .createUser(let name):
-            var str = """
-            {"name": "\(name)","id":3}
-            """
-            print(str)
-            
-            return str.data(using: .utf8)!
-        case .readUsers:
-            return """
-                [{"id":3, "name":"testo2"}, {"id":2, "name":"testo3"}]
-            """.data(using: .utf8)!
-        case .updateUser(let id, let name):
-            return """
-                {"id":\(id),"name": "\(name)"}
-                """.data(using: .utf8)!
-        case .deleteUser(let id):
-            return """
-                {"id":\(id)}
-                """.data(using: .utf8)!
+            case .sendPhone:
+                let mockResponse = """
+                    {"data": {
+                        "signUp": false            
+                        },
+                     "code":"not_found"}
+                    """
+                return mockResponse.data(using: .utf8)!
+            default:
+                    return Data()
         }
     }
-    
-    var task: Task {
-        switch self {
-        case .readUsers, .deleteUser(_):
-            return .requestPlain
-        case .createUser(let name), .updateUser(_, let name):
-            return .requestParameters(parameters: ["name":name], encoding: JSONEncoding.default)
-        }
-    }    
 }

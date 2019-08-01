@@ -10,12 +10,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController" customModule="LeoExample" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthenticationViewController">
             <connections>
                 <outlet property="errorLabel" destination="VTY-wW-xTQ" id="pMs-Ak-fb9"/>
+                <outlet property="loadingIndicator" destination="NbM-9S-afV" id="d1P-3n-nHS"/>
                 <outlet property="messageLabel" destination="Etj-NN-seo" id="QmD-4Z-HFh"/>
                 <outlet property="nextButton" destination="FWE-HQ-B4U" id="tUP-gx-mJ4"/>
-                <outlet property="phoneField" destination="StL-HH-Wfh" id="c25-vh-As0"/>
+                <outlet property="numberField" destination="StL-HH-Wfh" id="RtX-jQ-Sd4"/>
                 <outlet property="view" destination="lsM-az-5WX" id="1uC-ti-DO4"/>
             </connections>
         </placeholder>
@@ -24,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter login" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Etj-NN-seo">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter phone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Etj-NN-seo">
                     <rect key="frame" x="32" y="54" width="350" height="35"/>
                     <fontDescription key="fontDescription" type="system" pointSize="29"/>
                     <nil key="textColor"/>
@@ -46,12 +47,15 @@
                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                     </state>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTY-wW-xTQ">
-                    <rect key="frame" x="32" y="246" width="350" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTY-wW-xTQ">
+                    <rect key="frame" x="32" y="246" width="350" height="23"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NbM-9S-afV">
+                    <rect key="frame" x="197" y="438" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -66,6 +70,8 @@
                 <constraint firstItem="VTY-wW-xTQ" firstAttribute="leading" secondItem="09d-DC-yLr" secondAttribute="leading" constant="32" id="Qf0-Q8-WKO"/>
                 <constraint firstItem="StL-HH-Wfh" firstAttribute="leading" secondItem="09d-DC-yLr" secondAttribute="leading" constant="42" id="Rf8-Nr-cK4"/>
                 <constraint firstItem="09d-DC-yLr" firstAttribute="trailing" secondItem="StL-HH-Wfh" secondAttribute="trailing" constant="42" id="Ym2-OO-i2G"/>
+                <constraint firstItem="NbM-9S-afV" firstAttribute="centerX" secondItem="lsM-az-5WX" secondAttribute="centerX" id="lJz-xX-BST"/>
+                <constraint firstItem="NbM-9S-afV" firstAttribute="centerY" secondItem="lsM-az-5WX" secondAttribute="centerY" id="qP9-XY-mAy"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="09d-DC-yLr"/>
             <point key="canvasLocation" x="61" y="50"/>

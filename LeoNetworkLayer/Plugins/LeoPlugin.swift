@@ -9,63 +9,70 @@
 import Moya
 import enum Result.Result
 
-final class LeoErrorPlugin: PluginType {
-    var request: (RequestType, TargetType)?
-    var result: Result<Moya.Response, MoyaError>?
-    var didPrepare = false
+public class LeoPlugin: PluginType {
+    private var tokenManager: ILeoTokenManager?
+    private var request: (RequestType, TargetType)?
+    private var result: Result<Moya.Response, MoyaError>?
     
-    func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
-        print("==========")
-        print("prepare")
-        
+    private var didPrepare = false
+    
+    public init(tokenManager: ILeoTokenManager?) {
+        self.tokenManager = tokenManager
+    }
+    
+    
+    public func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
         var request = request
         request.addValue("yes", forHTTPHeaderField: "prepared")
         return request
     }
     
-    func willSend(_ request: RequestType, target: TargetType) {
+    public func willSend(_ request: RequestType, target: TargetType) {
         print("send")
         self.request = (request, target)
-        
-        // We check for whether or not we did prepare here to make sure prepare gets called
-        // before willSend
         didPrepare = request.request?.allHTTPHeaderFields?["prepared"] == "yes"
     }
     
-    func didReceive(_ result: Result<Moya.Response, MoyaError>, target: TargetType) {
+    public func didReceive(_ result: Result<Moya.Response, MoyaError>, target: TargetType) {
         print("did receive")
         self.result = result
-        
     }
     
-    func process(_ result: Result<Response, MoyaError>, target: TargetType) -> Result<Response, MoyaError> {
+    public func process(_ result: Result<Response, MoyaError>, target: TargetType) -> Result<Response, MoyaError> {
         print("process")
-        var result = result
+        
+        let result = result
         
         switch result {
         case .failure(let error):
-            print("error")
             return .failure(error)
-            
-            /*if let request = error.response?.request, let cache = URLCache.cachedResponse(request) {
-             let cachedResponse = Response(request: request, cache: cache)
-             return Result(cachedResponse, failWith: error)
-             }*/
         case .success(let response):
-            print("response")
-            return .success(response)
+            
+            if let serverError = response.checkServerError() {
+                return serverError
+            }
+            
+            if response.isNotAuthorized {
+                self.tokenManager?.clearTokensAndHandleLogout()
+                return .failure(MoyaError.underlying(LeoProviderError.securityError, response))
+            }
+            
+            if let code = response.parseCode() {
+                
+            }
+            
+            
+            if let data = response.parseSuccess() {
+                return data
+            }
+            
+            
+            
+            return .failure(MoyaError.statusCode(response))
         }
-        
-        /*
-        if case .success(let response) = result {
-            let processedResponse = Response(statusCode: -1, data: response.data, request: response.request, response: response.response)
-            result = .success(processedResponse)
-        }*/
     }
-
-
-
     
+
     
     //func process(_ result: Result<Moya.Response, MoyaError>, target: TargetType) -> Result<Moya.Response, MoyaError> {
         

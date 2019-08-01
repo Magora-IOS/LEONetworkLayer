@@ -9,8 +9,21 @@
 /* Begin PBXBuildFile section */
 		0B680F9D02047677B0BB4E29 /* libPods-LeoNetworkLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F3CEEE75507E5594B33D55 /* libPods-LeoNetworkLayer.a */; };
 		8D45464D22E1A370008B7C61 /* LeoNetworkLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D45464B22E1A370008B7C61 /* LeoNetworkLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8D4546AE22E1B129008B7C61 /* TestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4546AD22E1B129008B7C61 /* TestClass.swift */; };
-		8D4546B122E1B819008B7C61 /* TestClass2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4546B022E1B819008B7C61 /* TestClass2.swift */; };
+		9A0D316622F2C8A3006894E0 /* LeoLocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D316522F2C8A3006894E0 /* LeoLocalizedError.swift */; };
+		9A0D316A22F2CC67006894E0 /* LeoProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D316922F2CC67006894E0 /* LeoProviderError.swift */; };
+		9A5E828722F043810089C626 /* LeoBaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E828622F043810089C626 /* LeoBaseObject.swift */; };
+		9AE179A222F04454006DECBD /* LeoCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE179A122F04454006DECBD /* LeoCodes.swift */; };
+		9AE179A622F06DA4006DECBD /* LeoApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE179A522F06DA4006DECBD /* LeoApiError.swift */; };
+		9AE179A822F17E4F006DECBD /* RefreshTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE179A722F17E4F006DECBD /* RefreshTokenPlugin.swift */; };
+		9AEB973A22EE9A170060E6F8 /* ILeoTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB973922EE9A170060E6F8 /* ILeoTargetType.swift */; };
+		9AEB975722EEE7040060E6F8 /* ILeoTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB975622EEE7040060E6F8 /* ILeoTokenManager.swift */; };
+		9AEB975A22EEEB860060E6F8 /* Error+LeoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB975822EEEB860060E6F8 /* Error+LeoError.swift */; };
+		9AEB975B22EEEB860060E6F8 /* LeoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB975922EEEB860060E6F8 /* LeoError.swift */; };
+		9AEB975D22EEF3170060E6F8 /* LeoMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB975C22EEF3170060E6F8 /* LeoMock.swift */; };
+		9AEB976222EEFD600060E6F8 /* LeoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB976122EEFD600060E6F8 /* LeoProvider.swift */; };
+		9AEB976422EEFDC60060E6F8 /* LeoPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB976322EEFDC60060E6F8 /* LeoPlugin.swift */; };
+		9AEB976622EEFE2B0060E6F8 /* LeoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB976522EEFE2B0060E6F8 /* LeoResponse.swift */; };
+		9AEDD4F822F2E44100F3AF43 /* String+Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDD4F722F2E44100F3AF43 /* String+Edit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,8 +33,21 @@
 		8D45464822E1A370008B7C61 /* LeoNetworkLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LeoNetworkLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D45464B22E1A370008B7C61 /* LeoNetworkLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeoNetworkLayer.h; sourceTree = "<group>"; };
 		8D45464C22E1A370008B7C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8D4546AD22E1B129008B7C61 /* TestClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestClass.swift; sourceTree = "<group>"; };
-		8D4546B022E1B819008B7C61 /* TestClass2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestClass2.swift; sourceTree = "<group>"; };
+		9A0D316522F2C8A3006894E0 /* LeoLocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoLocalizedError.swift; sourceTree = "<group>"; };
+		9A0D316922F2CC67006894E0 /* LeoProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoProviderError.swift; sourceTree = "<group>"; };
+		9A5E828622F043810089C626 /* LeoBaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoBaseObject.swift; sourceTree = "<group>"; };
+		9AE179A122F04454006DECBD /* LeoCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoCodes.swift; sourceTree = "<group>"; };
+		9AE179A522F06DA4006DECBD /* LeoApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeoApiError.swift; sourceTree = "<group>"; };
+		9AE179A722F17E4F006DECBD /* RefreshTokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenPlugin.swift; sourceTree = "<group>"; };
+		9AEB973922EE9A170060E6F8 /* ILeoTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ILeoTargetType.swift; sourceTree = "<group>"; };
+		9AEB975622EEE7040060E6F8 /* ILeoTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ILeoTokenManager.swift; sourceTree = "<group>"; };
+		9AEB975822EEEB860060E6F8 /* Error+LeoError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Error+LeoError.swift"; sourceTree = "<group>"; };
+		9AEB975922EEEB860060E6F8 /* LeoError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeoError.swift; sourceTree = "<group>"; };
+		9AEB975C22EEF3170060E6F8 /* LeoMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoMock.swift; sourceTree = "<group>"; };
+		9AEB976122EEFD600060E6F8 /* LeoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeoProvider.swift; sourceTree = "<group>"; };
+		9AEB976322EEFDC60060E6F8 /* LeoPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeoPlugin.swift; sourceTree = "<group>"; };
+		9AEB976522EEFE2B0060E6F8 /* LeoResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeoResponse.swift; sourceTree = "<group>"; };
+		9AEDD4F722F2E44100F3AF43 /* String+Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Edit.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,20 +83,81 @@
 		8D45464A22E1A370008B7C61 /* LeoNetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
-				8D4546AF22E1B80B008B7C61 /* Nested */,
+				9AEDD4F622F2E42B00F3AF43 /* Extenisions */,
+				9AEB975522EEE66E0060E6F8 /* Mock */,
+				9AEB974122EEA71D0060E6F8 /* Errors */,
+				9AEB974022EEA6F40060E6F8 /* Models */,
+				9AEB973F22EEA6E20060E6F8 /* Plugins */,
+				9AEB976022EEFD190060E6F8 /* Provider */,
+				9AEB973822EE99EB0060E6F8 /* Targets */,
 				8D45464B22E1A370008B7C61 /* LeoNetworkLayer.h */,
 				8D45464C22E1A370008B7C61 /* Info.plist */,
-				8D4546AD22E1B129008B7C61 /* TestClass.swift */,
 			);
 			path = LeoNetworkLayer;
 			sourceTree = "<group>";
 		};
-		8D4546AF22E1B80B008B7C61 /* Nested */ = {
+		9AEB973822EE99EB0060E6F8 /* Targets */ = {
 			isa = PBXGroup;
 			children = (
-				8D4546B022E1B819008B7C61 /* TestClass2.swift */,
+				9AEB973922EE9A170060E6F8 /* ILeoTargetType.swift */,
 			);
-			path = Nested;
+			path = Targets;
+			sourceTree = "<group>";
+		};
+		9AEB973F22EEA6E20060E6F8 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				9AEB976522EEFE2B0060E6F8 /* LeoResponse.swift */,
+				9AEB976322EEFDC60060E6F8 /* LeoPlugin.swift */,
+				9AEB975622EEE7040060E6F8 /* ILeoTokenManager.swift */,
+				9AE179A722F17E4F006DECBD /* RefreshTokenPlugin.swift */,
+			);
+			path = Plugins;
+			sourceTree = "<group>";
+		};
+		9AEB974022EEA6F40060E6F8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9A5E828622F043810089C626 /* LeoBaseObject.swift */,
+				9AE179A122F04454006DECBD /* LeoCodes.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9AEB974122EEA71D0060E6F8 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				9AE179A522F06DA4006DECBD /* LeoApiError.swift */,
+				9AEB975822EEEB860060E6F8 /* Error+LeoError.swift */,
+				9AEB975922EEEB860060E6F8 /* LeoError.swift */,
+				9A0D316522F2C8A3006894E0 /* LeoLocalizedError.swift */,
+				9A0D316922F2CC67006894E0 /* LeoProviderError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		9AEB975522EEE66E0060E6F8 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				9AEB975C22EEF3170060E6F8 /* LeoMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		9AEB976022EEFD190060E6F8 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				9AEB976122EEFD600060E6F8 /* LeoProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		9AEDD4F622F2E42B00F3AF43 /* Extenisions */ = {
+			isa = PBXGroup;
+			children = (
+				9AEDD4F722F2E44100F3AF43 /* String+Edit.swift */,
+			);
+			path = Extenisions;
 			sourceTree = "<group>";
 		};
 		BB6D4FD90F02A45AABFB9599 /* Frameworks */ = {
@@ -195,8 +282,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D4546AE22E1B129008B7C61 /* TestClass.swift in Sources */,
-				8D4546B122E1B819008B7C61 /* TestClass2.swift in Sources */,
+				9AE179A622F06DA4006DECBD /* LeoApiError.swift in Sources */,
+				9AEB975D22EEF3170060E6F8 /* LeoMock.swift in Sources */,
+				9AE179A822F17E4F006DECBD /* RefreshTokenPlugin.swift in Sources */,
+				9AEB975A22EEEB860060E6F8 /* Error+LeoError.swift in Sources */,
+				9AEDD4F822F2E44100F3AF43 /* String+Edit.swift in Sources */,
+				9A5E828722F043810089C626 /* LeoBaseObject.swift in Sources */,
+				9AEB975722EEE7040060E6F8 /* ILeoTokenManager.swift in Sources */,
+				9AEB976622EEFE2B0060E6F8 /* LeoResponse.swift in Sources */,
+				9AEB976222EEFD600060E6F8 /* LeoProvider.swift in Sources */,
+				9AEB976422EEFDC60060E6F8 /* LeoPlugin.swift in Sources */,
+				9A0D316622F2C8A3006894E0 /* LeoLocalizedError.swift in Sources */,
+				9AE179A222F04454006DECBD /* LeoCodes.swift in Sources */,
+				9AEB973A22EE9A170060E6F8 /* ILeoTargetType.swift in Sources */,
+				9A0D316A22F2CC67006894E0 /* LeoProviderError.swift in Sources */,
+				9AEB975B22EEEB860060E6F8 /* LeoError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

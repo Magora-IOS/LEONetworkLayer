@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import BaseCoordinator
+import RxCocoa
 
 class AppCoordinator: BaseCoordinator {
     let window: UIWindow

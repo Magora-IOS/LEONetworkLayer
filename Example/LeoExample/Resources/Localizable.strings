@@ -1,0 +1,13 @@
+
+"Authentication.welcome.message" = "Enter phone";
+"Authentication.code.message" = "Enter sms-code";
+
+
+"Errors.LeoProvider.serverError.title" = "Server error";
+"Errors.LeoProvider.serverError.description" = "Unexpected behaviour for the server Or there is no handlers for it.";
+
+"Errors.LeoProvider.securityError.title" = "Authentication is required";
+"Errors.LeoProvider.securityError.description" = "The client is not authenticated";
+
+"Errors.LeoProvider.badLeoResponse.title" = "NetworkResponse is not valid";
+"Errors.LeoProvider.badLeoResponse.description" = "Could not parse response";

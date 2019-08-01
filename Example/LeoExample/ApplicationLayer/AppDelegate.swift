@@ -13,7 +13,7 @@ import LEONetworkLayer
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    let context = AppContextImpl()
+    let context = AppContext()
     var appCoordinator: AppCoordinator!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -27,9 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         appCoordinator = AppCoordinator(window: window!, context: context)
-        appCoordinator.start()
-        
-        print(LeoTestClass.value)
-        print(LeoTestClass2.value)
+        appCoordinator.start()            
     }
 }

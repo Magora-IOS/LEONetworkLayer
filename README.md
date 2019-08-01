@@ -20,8 +20,7 @@ pod 'LEONetworkLayer'
 ```
 
 ## Author
-
-Magora iOS department
+Yuriy Savitskiy
 
 
 ## License
