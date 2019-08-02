@@ -13,7 +13,7 @@ public extension Error {
         return LeoError.toLeoError(error)
     }
     
-    func toLeoError() -> ILeoError? {
+    private func toLeoError() -> ILeoError? {
         return LeoError.toLeoError(self)
     }
     
@@ -23,5 +23,16 @@ public extension Error {
         }
         return nil
     }
+    
+    var leoError: ILeoError? {
+        return self.toLeoError()
+    }
+    
+    var moyaError: MoyaError? {
+        if let moyaError = self as? MoyaError {
+            return moyaError
+        }
+        return nil
+    }        
 }
 

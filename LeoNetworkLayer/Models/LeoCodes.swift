@@ -17,7 +17,7 @@ enum LeoCodes: String, Codable  {
     case notFound = "not_found"
     case securityError = "security_error"
     case permissionError = "permission_error"
-    case unknown = "Unknown"
+    case unknown = "unknown"
     
     init(from decoder: Decoder) throws {
         if let value = try? decoder.singleValueContainer().decode(String.self) {
@@ -26,6 +26,11 @@ enum LeoCodes: String, Codable  {
             self = .unknown
         }
     }
+    
+    func encode(to encoder: Encoder) throws {
+        
+    }
 }
+
 
 

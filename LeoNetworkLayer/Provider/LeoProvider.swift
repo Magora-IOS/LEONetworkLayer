@@ -11,7 +11,11 @@ import Moya
 import Alamofire
 
 open class LeoProvider<T:TargetType>: MoyaProvider<T> {
-    public init(tokenManager:ILeoTokenManager?, mockType: LeoMock = .none, plugins: [PluginType] = [] ) {
+    
+    var sessionManager: Manager
+    
+    public init(tokenManager:ILeoTokenManager?, mockType: LeoMock = .none, plugins: [PluginType] = [], timeoutForRequest:TimeInterval = 20.0, timeoutForResponse: TimeInterval = 40.0) {
+        
         var mockClosure: StubClosure
         switch mockType {
             case LeoMock.none:
@@ -21,6 +25,15 @@ open class LeoProvider<T:TargetType>: MoyaProvider<T> {
             case LeoMock.delay(let seconds):
                 mockClosure = MoyaProvider<T>.delayedStub(seconds)
         }
+        
+        let configuration = URLSessionConfiguration.default
+        configuration.httpAdditionalHeaders = Manager.defaultHTTPHeaders
+        configuration.timeoutIntervalForRequest = timeoutForRequest
+        configuration.timeoutIntervalForResource = timeoutForResponse
+        configuration.requestCachePolicy = .useProtocolCachePolicy
+        self.sessionManager = Manager(configuration: configuration)
+        self.sessionManager.startRequestsImmediately = false
+        
         
         let leoPlugin = LeoPlugin(tokenManager: tokenManager)
         var allPlugins:[PluginType] = [leoPlugin] + plugins
@@ -43,15 +56,11 @@ open class LeoProvider<T:TargetType>: MoyaProvider<T> {
             super.init(endpointClosure: <#T##(TargetType) -> Endpoint#>, requestClosure: <#T##(Endpoint, @escaping (Result<URLRequest, MoyaError>) -> Void) -> Void#>, stubClosure: <#T##(TargetType) -> StubBehavior#>, callbackQueue: <#T##DispatchQueue?#>, manager: <#T##Manager#>, plugins: <#T##[PluginType]#>, trackInflights: <#T##Bool#>)
             */
             
-            super.init(requestClosure: requestClosure, stubClosure: mockClosure, plugins: allPlugins)
+            super.init(requestClosure: requestClosure, stubClosure: mockClosure, manager: self.sessionManager, plugins: allPlugins)
         } else {
-            super.init(stubClosure: mockClosure, plugins: allPlugins)
+            super.init(stubClosure: mockClosure, manager: self.sessionManager, plugins: allPlugins)
         }
     }
-    
-    
-    
-    
     
     static func endpointToken(manager: ILeoTokenManager) -> MoyaProvider<Target>.RequestClosure {
         return { (endpoint, closure) in

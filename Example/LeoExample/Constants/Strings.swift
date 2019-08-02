@@ -31,6 +31,12 @@ internal enum L10n {
         /// NetworkResponse is not valid
         internal static let title = L10n.tr("Localizable", "Errors.LeoProvider.badLeoResponse.title")
       }
+      internal enum ConnectionFailed {
+        /// Check your connection and try again
+        internal static let description = L10n.tr("Localizable", "Errors.LeoProvider.connectionFailed.description")
+        /// Connection Failed
+        internal static let title = L10n.tr("Localizable", "Errors.LeoProvider.connectionFailed.title")
+      }
       internal enum SecurityError {
         /// The client is not authenticated
         internal static let description = L10n.tr("Localizable", "Errors.LeoProvider.securityError.description")
@@ -38,11 +44,23 @@ internal enum L10n {
         internal static let title = L10n.tr("Localizable", "Errors.LeoProvider.securityError.title")
       }
       internal enum ServerError {
-        /// Unexpected behaviour for the server Or there is no handlers for it.
+        /// Unexpected behaviour for the server
         internal static let description = L10n.tr("Localizable", "Errors.LeoProvider.serverError.description")
         /// Server error
         internal static let title = L10n.tr("Localizable", "Errors.LeoProvider.serverError.title")
       }
+      internal enum TimeoutError {
+        /// Looks like the server is taking to long to respond, please try again in sometime
+        internal static let description = L10n.tr("Localizable", "Errors.LeoProvider.timeoutError.description")
+        /// Timeout error
+        internal static let title = L10n.tr("Localizable", "Errors.LeoProvider.timeoutError.title")
+      }
+    }
+    internal enum Unknown {
+      /// 
+      internal static let description = L10n.tr("Localizable", "Errors.Unknown.description")
+      /// Unknown error
+      internal static let title = L10n.tr("Localizable", "Errors.Unknown.title")
     }
   }
 }

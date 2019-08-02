@@ -45,7 +45,7 @@ public class LeoPlugin: PluginType {
         
         switch result {
         case .failure(let error):
-            return .failure(error)
+            return .failure(error.leoConverter())
         case .success(let response):
             
             if let serverError = response.checkServerError() {
@@ -57,10 +57,9 @@ public class LeoPlugin: PluginType {
                 return .failure(MoyaError.underlying(LeoProviderError.securityError, response))
             }
             
-            if let code = response.parseCode() {
+            if let code = response.parseErrors() {
                 
             }
-            
             
             if let data = response.parseSuccess() {
                 return data
@@ -73,7 +72,6 @@ public class LeoPlugin: PluginType {
     }
     
 
-    
     //func process(_ result: Result<Moya.Response, MoyaError>, target: TargetType) -> Result<Moya.Response, MoyaError> {
         
     

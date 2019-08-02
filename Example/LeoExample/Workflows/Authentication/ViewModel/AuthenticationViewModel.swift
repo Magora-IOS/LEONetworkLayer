@@ -49,10 +49,8 @@ class AuthenticationViewModel {
                             case let .success(response):
                                 self?.onSuccessEvent.accept(())
                             case let .error(error):
-                                if let leoError = error.localizedLeoError {
-                                    self?.errorMessage.accept(leoError.infoString)
-                                } else {
-                                    self?.errorMessage.accept(error.localizedDescription)
+                                if let error = error as? AccountServiceError {
+                                    self?.errorMessage.accept(error.infoString)
                                 }
                             }
                             }).disposed(by: self.disposeBag)

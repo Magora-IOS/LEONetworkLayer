@@ -20,10 +20,19 @@ extension Response: ILeoResponse {
         return self.statusCode == 401
     }
     
-    public func parseCode() -> Result<Response, MoyaError>? {
+    public func parseErrors() -> Result<Response, MoyaError>? {
         var result: Result<Response, MoyaError>? = nil
         if let baseObject = try? self.map(LeoBaseObject.self) {
-            print(baseObject.code)
+            switch baseObject.code {
+            case .success:
+                result = nil
+            default:
+                if let baseError = try? self.map(LeoBaseError.self) {
+                    print("oki")                    
+                } else {
+                    result = .failure(MoyaError.underlying(LeoProviderError.badLeoResponse, self))
+                }
+            }
         } else {
             result = .failure(MoyaError.underlying(LeoProviderError.badLeoResponse, self))
         }

@@ -15,7 +15,7 @@ protocol IAccountService {
     var isAuthenticated: Bool { get }
     var logoutHandler: (() -> Void)? { get set }
     
-    func sendPhone(phone: String) -> Single<Response>
+    func sendPhone(phone: String) -> Single<AccountStatus>
     //func signin(phone: String, code: String) -> Single<SignInResponse>
     
     func login()
@@ -27,15 +27,18 @@ class AccountService: IAccountService {
     private(set) var accountStorage: IAccountStorage
     lazy public var accountProvider = LeoProvider<AuthentificationTarget>(tokenManager: self, mockType: .none, plugins: [TestPlugin()])
     
-    private let loginKey = "login"
+    func requestMap<T:Codable>(_ input: T.Type, target:AuthentificationTarget) -> Single<T> {
+        return accountProvider.rx.request(target).map(T.self).catchError({ error in
+            return Single.error(AccountServiceError.commonError(error))
+        })
+    }
     
-    var isAuthenticated: Bool {
+    var isAuthenticated: Bool {        
         return accountStorage.accessToken != nil
     }
     
-    func sendPhone(phone: String) -> Single<Response> {
-        return accountProvider.rx
-            .request(.sendPhone(phone: phone))
+    func sendPhone(phone: String) -> Single<AccountStatus> {
+        return requestMap(AccountStatus.self, target: .sendPhone(phone: phone))
     }
     
     func login() {

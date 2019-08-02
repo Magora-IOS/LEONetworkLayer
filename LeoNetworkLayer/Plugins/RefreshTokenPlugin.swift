@@ -26,15 +26,9 @@ public class RefreshTokenPlugin: PluginType {
         guard let authorizable = target as? AccessTokenAuthorizable else { return request }
         
         let requestAuthorizationType = authorizable.authorizationType
-        var request = request
+        self.authorizationType = requestAuthorizationType
         
-        switch requestAuthorizationType {
-        case .none:
-            break
-        default:
-            self.authorizationType = requestAuthorizationType
-        }
-        
+        let request = request
         return request
     }
     

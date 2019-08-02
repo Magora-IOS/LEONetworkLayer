@@ -2,9 +2,20 @@
 "Authentication.welcome.message" = "Enter phone";
 "Authentication.code.message" = "Enter sms-code";
 
+"Errors.Unknown.title" = "Unknown error";
+"Errors.Unknown.description" = "";
 
 "Errors.LeoProvider.serverError.title" = "Server error";
-"Errors.LeoProvider.serverError.description" = "Unexpected behaviour for the server Or there is no handlers for it.";
+"Errors.LeoProvider.serverError.description" = "Unexpected behaviour for the server";
+
+"Errors.LeoProvider.securityError.title" = "Authentication is required";
+"Errors.LeoProvider.securityError.description" = "The client is not authenticated";
+
+"Errors.LeoProvider.timeoutError.title" = "Timeout error";
+"Errors.LeoProvider.timeoutError.description" = "Looks like the server is taking to long to respond, please try again in sometime";
+
+"Errors.LeoProvider.connectionFailed.title" = "Connection Failed";
+"Errors.LeoProvider.connectionFailed.description" = "Check your connection and try again";
 
 "Errors.LeoProvider.securityError.title" = "Authentication is required";
 "Errors.LeoProvider.securityError.description" = "The client is not authenticated";

@@ -8,6 +8,7 @@
 
 import LEONetworkLayer
 import Moya
+import Alamofire
 
 extension ILeoTargetType {
     var baseURL: URL {
@@ -25,5 +26,6 @@ extension ILeoTargetType {
     var authorization: AuthorizationType {
         return .bearer
     }
+    
 }
 

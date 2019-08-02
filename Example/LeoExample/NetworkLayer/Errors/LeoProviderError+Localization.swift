@@ -22,6 +22,15 @@ extension LeoProviderError: ILeoLocalizedError {
         case .badLeoResponse:
             result.title = L10n.Errors.LeoProvider.BadLeoResponse.title
             result.description = L10n.Errors.LeoProvider.BadLeoResponse.description
+        case .timeoutError:
+            result.title = L10n.Errors.LeoProvider.TimeoutError.title
+            result.description = L10n.Errors.LeoProvider.TimeoutError.description
+        case .connectionFailed:
+            result.title = L10n.Errors.LeoProvider.ConnectionFailed.title
+            result.description = L10n.Errors.LeoProvider.ConnectionFailed.description
+        case .moyaError(let moyaError):
+            result.title = moyaError.info.title
+            result.description = moyaError.info.description
         default:
             result.title = String(describing: self)
             result.description = nil

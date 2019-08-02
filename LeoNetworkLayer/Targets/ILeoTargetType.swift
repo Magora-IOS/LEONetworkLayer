@@ -22,6 +22,6 @@ public extension ILeoTargetType {
     
     var authorizationType: AuthorizationType {
         return authorization
-    }
+    }        
 }
 
