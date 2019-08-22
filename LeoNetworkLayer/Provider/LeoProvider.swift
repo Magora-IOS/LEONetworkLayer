@@ -10,29 +10,75 @@ import Foundation
 import Moya
 import Alamofire
 
-open class LeoProvider<T:TargetType>: MoyaProvider<T> {
+open class LeoProviderFactory<T:TargetType> {
     
-    var sessionManager: Manager
-    
-    public init(tokenManager:ILeoTokenManager?, mockType: LeoMock = .none, plugins: [PluginType] = [], timeoutForRequest:TimeInterval = 20.0, timeoutForResponse: TimeInterval = 40.0) {
+    public func makeProvider(tokenManager:ILeoTokenManager?, mockType: StubBehavior = .never, plugins: [PluginType] = [], customConfiguration: URLSessionConfiguration?) -> MoyaProvider<T> {
         
-        var mockClosure: StubClosure
-        switch mockType {
-            case LeoMock.none:
-                mockClosure = MoyaProvider<T>.neverStub
-            case LeoMock.immediately:
-                mockClosure = MoyaProvider<T>.immediatelyStub
-            case LeoMock.delay(let seconds):
-                mockClosure = MoyaProvider<T>.delayedStub(seconds)
+        let allPlugins = makeTokenPlugins(tokenManager: tokenManager) + makeLeoPlugins(tokenManager: tokenManager) + plugins
+        
+        let sessionManager = makeSessionManager(customConfiguration: customConfiguration)
+        
+        return MoyaProvider<T>(stubClosure:{ _ in return mockType }, manager: sessionManager, plugins: allPlugins)
+    }
+    
+    
+    public func makeProvider(tokenManager:ILeoTokenManager?, mockType: StubBehavior = .never, plugins: [PluginType] = [], timeoutForRequest:TimeInterval = 20.0, timeoutForResponse: TimeInterval = 40.0) -> MoyaProvider<T> {
+        
+        
+        let configuration = makeConfiguration(timeoutForRequest: timeoutForRequest, timeoutForResponse: timeoutForResponse)
+        
+        return makeProvider(tokenManager: tokenManager, mockType: mockType, customConfiguration: configuration)
+    }
+    
+    private func makeTokenPlugins(tokenManager:ILeoTokenManager?) -> [PluginType] {
+        var result:[PluginType] = []
+        if let tokenManager = tokenManager {
+            let accessTokenPlugin = AccessTokenPlugin(tokenClosure: tokenManager.getAccessToken)
+            let refreshTokenPlugin = RefreshTokenPlugin(tokenManager: tokenManager)
+            result = [accessTokenPlugin, refreshTokenPlugin]
         }
-        
-        let configuration = URLSessionConfiguration.default
+        return result
+    }
+    
+    private func makeLeoPlugins(tokenManager:ILeoTokenManager?) -> [PluginType] {
+        let leoPlugin = LeoPlugin(tokenManager: tokenManager)
+        return [leoPlugin]
+    }
+    
+    private func makeConfiguration(timeoutForRequest:TimeInterval = 20.0, timeoutForResponse: TimeInterval = 40.0) ->  URLSessionConfiguration {
+        let configuration: URLSessionConfiguration
+        configuration = URLSessionConfiguration.default
         configuration.httpAdditionalHeaders = Manager.defaultHTTPHeaders
         configuration.timeoutIntervalForRequest = timeoutForRequest
         configuration.timeoutIntervalForResource = timeoutForResponse
         configuration.requestCachePolicy = .useProtocolCachePolicy
-        self.sessionManager = Manager(configuration: configuration)
-        self.sessionManager.startRequestsImmediately = false
+        return configuration
+    }
+    
+    private func makeSessionManager(customConfiguration: URLSessionConfiguration?) -> SessionManager {
+        var sessionManager: Manager
+        
+        if let configuration = customConfiguration {
+            sessionManager = Manager(configuration: configuration)
+            sessionManager.startRequestsImmediately = false
+        } else {
+            sessionManager = MoyaProvider<T>.defaultAlamofireManager()
+        }
+        
+        return sessionManager
+    }
+    
+    public init () {
+    }
+}
+
+
+/*
+open class LeoProvider<T:TargetType>: MoyaProvider<T> {
+    
+    
+    public init(tokenManager:ILeoTokenManager?, mockType: StubBehavior = .never, plugins: [PluginType] = [], timeoutForRequest:TimeInterval = 20.0, timeoutForResponse: TimeInterval = 40.0, customConfiguration: URLSessionConfiguration? = nil) {
+        
         
         
         let leoPlugin = LeoPlugin(tokenManager: tokenManager)
@@ -56,9 +102,9 @@ open class LeoProvider<T:TargetType>: MoyaProvider<T> {
             super.init(endpointClosure: <#T##(TargetType) -> Endpoint#>, requestClosure: <#T##(Endpoint, @escaping (Result<URLRequest, MoyaError>) -> Void) -> Void#>, stubClosure: <#T##(TargetType) -> StubBehavior#>, callbackQueue: <#T##DispatchQueue?#>, manager: <#T##Manager#>, plugins: <#T##[PluginType]#>, trackInflights: <#T##Bool#>)
             */
             
-            super.init(requestClosure: requestClosure, stubClosure: mockClosure, manager: self.sessionManager, plugins: allPlugins)
+            super.init(requestClosure: requestClosure, stubClosure: { _ in return mockType }, manager: sessionManager, plugins: allPlugins)
         } else {
-            super.init(stubClosure: mockClosure, manager: self.sessionManager, plugins: allPlugins)
+            super.init(stubClosure: { _ in return mockType }, manager: sessionManager, plugins: allPlugins)
         }
     }
     
@@ -99,3 +145,4 @@ open class LeoProvider<T:TargetType>: MoyaProvider<T> {
         }
     }
 }
+*/

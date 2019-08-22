@@ -10,6 +10,10 @@ public protocol ILeoResponse {
 }
 
 
+enum DataKey: String, CodingKey {
+    case data
+}
+
 extension Response: ILeoResponse {
     
     public func decodeData<T:Codable>(_ type: T.Type) -> T? {
@@ -20,6 +24,14 @@ extension Response: ILeoResponse {
         return self.statusCode == 401
     }
     
+    public func checkServerError() -> Result<Response, MoyaError>? {
+        var result: Result<Response, MoyaError>? = nil
+        if (self.statusCode >= 500) && (self.statusCode <= 599) {
+            result = .failure(MoyaError.underlying(LeoProviderError.serverError, self))
+        }
+        return result
+    }
+    
     public func parseErrors() -> Result<Response, MoyaError>? {
         var result: Result<Response, MoyaError>? = nil
         if let baseObject = try? self.map(LeoBaseObject.self) {
@@ -28,7 +40,8 @@ extension Response: ILeoResponse {
                 result = nil
             default:
                 if let baseError = try? self.map(LeoBaseError.self) {
-                    print("oki")                    
+                    //TODO process errors
+                    print("oki")
                 } else {
                     result = .failure(MoyaError.underlying(LeoProviderError.badLeoResponse, self))
                 }
@@ -44,22 +57,23 @@ extension Response: ILeoResponse {
         var result: Result<Response, MoyaError>? = nil
         
         if (self.statusCode >= 200) && (self.statusCode <= 299) {
-            //print(String(data: self.data, encoding: .utf8))
-            
             if let baseObject = try? self.map(LeoBaseObject.self) {
-                print(baseObject.code)
+                if baseObject.success {
+                    if let json = try? self.mapJSON(failsOnEmptyData: false) as? [String:AnyObject] {
+                        if let jsonData = json[DataKey.data.rawValue] {
+                            if let newData = try? JSONSerialization.data(withJSONObject: jsonData, options: .prettyPrinted) {
+                                let dataResponse = Response(statusCode: self.statusCode, data: newData, request: self.request, response: self.response)
+                                result = .success(dataResponse)
+                            }
+                        }
+                    }
+                }
             }
             
-            result = .failure(MoyaError.underlying(LeoProviderError.badLeoResponse, self))
+            if result == nil {
+                result = .failure(MoyaError.underlying(LeoProviderError.badLeoResponse, self))
+            }
         }
         return result
     }
-    
-    public func checkServerError() -> Result<Response, MoyaError>? {
-        var result: Result<Response, MoyaError>? = nil
-        if (self.statusCode >= 500) && (self.statusCode <= 599) {
-            result = .failure(MoyaError.underlying(LeoProviderError.serverError, self))
-        }
-        return result
-    }        
 }

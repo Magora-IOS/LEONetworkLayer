@@ -15,6 +15,7 @@ class AuthenticationCoordinator: BaseCoordinator {
     private let router: UINavigationController
     private var context: AppContext
     private let disposeBag = DisposeBag()
+    private var phoneNumber = ""
     
     init(router: UINavigationController, context: AppContext) {
         self.router = router
@@ -32,7 +33,8 @@ class AuthenticationCoordinator: BaseCoordinator {
     // MARK: Starting modules
     private func startWelcome() {
         let viewModel = AuthenticationViewModel(context: self.context, startState: .welcome)
-        viewModel.onSuccessEvent.bind(onNext: {[weak self] state in
+        viewModel.onSuccessPhoneEvent.bind(onNext: {[weak self] phoneNumber in
+            self?.phoneNumber = phoneNumber
             self?.startCode()
         })
             .disposed(by: disposeBag)
@@ -43,15 +45,12 @@ class AuthenticationCoordinator: BaseCoordinator {
     }
     
     private func startCode() {
-        let viewModel = AuthenticationViewModel(context: self.context, startState: .confirmation)
-        viewModel.onNextEvent.bind(onNext: {[weak self] state in
+        let viewModel = AuthenticationViewModel(context: self.context, startState: .confirmation(phoneNumber))
+        viewModel.onSuccessPinEvent.bind(onNext: {[weak self] _ in
             self?.completionHandler?()
-        })
-            .disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
         
-        let viewController = AuthenticationViewController(viewModel: viewModel)
-                
+        let viewController = AuthenticationViewController(viewModel: viewModel)                
         router.pushViewController(viewController, animated: true)
     }
-    
 }

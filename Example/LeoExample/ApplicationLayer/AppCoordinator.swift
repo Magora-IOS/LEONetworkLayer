@@ -31,7 +31,11 @@ class AppCoordinator: BaseCoordinator {
     
     func chooseFlow() {
         if self.context.accountService.isAuthenticated {
-            self.startMain()
+            if self.context.accountService.isRegistered {
+                self.startMain()
+            } else {
+                self.startRegistration()
+            }
         } else {
             self.startAuthentication()
         }
@@ -58,6 +62,20 @@ class AppCoordinator: BaseCoordinator {
         let coordinator = MainCoordinator(router: mainNavigationController, context: context)
         self.mainCoordinator = coordinator
         self.addDependency(coordinator)
+        coordinator.start()
+    }
+    
+    func startRegistration() {
+        let registrationNavigationController = UINavigationController()
+        window.rootViewController = registrationNavigationController
+        
+        let coordinator = RegistrationCoordinator(router: registrationNavigationController, context: self.context)
+        self.addDependency(coordinator)
+        
+        coordinator.completionHandler = { [weak self, weak coordinator] in
+            self?.removeDependency(coordinator)
+            self?.completionHandler?()
+        }
         coordinator.start()
     }
 }

@@ -15,7 +15,7 @@ protocol INewsService {
 class NewsService: INewsService {
     var tokenManager: ILeoTokenManager
     
-    lazy private var userProvider = LeoProvider<NewsTarget>(tokenManager: self.tokenManager)
+    lazy private var userProvider = LeoProviderFactory<NewsTarget>().makeProvider(tokenManager: self.tokenManager)
     
     init(tokenManager: ILeoTokenManager) {
         self.tokenManager = tokenManager

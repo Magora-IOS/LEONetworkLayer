@@ -2,6 +2,18 @@
 "Authentication.welcome.message" = "Enter phone";
 "Authentication.code.message" = "Enter sms-code";
 
+"Authetication.registration.title" = "Let's get you setup!";
+"Authetication.registration.message" = "What's your name, email and zip code?";
+
+"Authetication.message.enterName" = "Enter full name";
+"Authetication.message.enterEmail" = "Enter email";
+"Authetication.message.enterZip" = "Enter zip";
+
+"Errors.AccountService.CommonTitle" = "AccountService Error";
+
+"Errors.AccountService.TokenFailed.description" = "Token failed";
+"Errors.AccountService.noAuth.description" = "Authorization error";
+
 "Errors.Unknown.title" = "Unknown error";
 "Errors.Unknown.description" = "";
 

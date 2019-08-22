@@ -6,6 +6,7 @@ protocol IAccountStorage {
     var accessToken: String? {get set}
     var refreshToken: String? {get set}
     var pushToken: String? {get set}
+    var registered: Bool {get set}
 }
 
 class AccountStorage: IAccountStorage {
@@ -18,6 +19,7 @@ class AccountStorage: IAccountStorage {
         case accessToken
         case refreshToken
         case pushTokenKey
+        case registered
     }
     
     var deviceID: String {
@@ -40,7 +42,14 @@ class AccountStorage: IAccountStorage {
             self.storage.setValue(value: refreshToken, forKey: Keys.refreshToken.rawValue)
         }
     }
+    
     var pushToken: String? {
+        didSet {
+            self.storage.setValue(value: pushToken, forKey: Keys.pushTokenKey.rawValue)
+        }
+    }
+    
+    var registered: Bool {
         didSet {
             self.storage.setValue(value: pushToken, forKey: Keys.pushTokenKey.rawValue)
         }
@@ -55,6 +64,7 @@ class AccountStorage: IAccountStorage {
         accessToken = self.storage.getValue(forKey: Keys.accessToken.rawValue, type: String.self)
         refreshToken = self.storage.getValue(forKey: Keys.refreshToken.rawValue, type: String.self)
         pushToken = self.storage.getValue(forKey: Keys.pushTokenKey.rawValue, type: String.self)
+        registered = self.storage.getValue(forKey: Keys.registered.rawValue, type: Bool.self) ?? false
         
         if let id = self.storage.getValue(forKey: Keys.deviceID.rawValue, type: String.self) {
             deviceID = id

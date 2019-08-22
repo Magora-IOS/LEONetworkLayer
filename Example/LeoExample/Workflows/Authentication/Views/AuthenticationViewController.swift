@@ -29,7 +29,7 @@ class AuthenticationViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    let userProvider = LeoProvider<UserTarget>(tokenManager: nil)
+    let userProvider = LeoProviderFactory<UserTarget>().makeProvider(tokenManager: nil)
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -57,8 +57,7 @@ class AuthenticationViewController: UIViewController {
             .disposed(by: self.disposeBag)
         
         self.viewModel.state.subscribe(onNext: {
-            [unowned self] state in
-            
+            [unowned self] state in            
             //loading
             if case .loading = state {
                 self.loadingIndicator.startAnimating()               
@@ -66,18 +65,26 @@ class AuthenticationViewController: UIViewController {
                self.loadingIndicator.stopAnimating()
             }
             
-            //confirmation
-            if case .confirmation = state {
-                self.messageLabel.text = L10n.Authentication.Code.message
+            //error
+            if case .dataError(let message) = state {
+                self.errorLabel.text = message
             } else {
-                self.messageLabel.text = L10n.Authentication.Welcome.message
+                self.errorLabel.text = ""
             }
             
         }).disposed(by: self.disposeBag)
         
-        self.nextButton.rx.tap
-            .bind(to: self.viewModel.onNextEvent)
-            .disposed(by: self.disposeBag)
+        if case .welcome = self.viewModel.state.value {
+            self.nextButton.rx.tap
+                .bind(to: self.viewModel.onSendPhoneEvent)
+                .disposed(by: self.disposeBag)
+        }
+        
+        if case .confirmation = self.viewModel.state.value {
+            self.nextButton.rx.tap
+                .bind(to: self.viewModel.onSendPinEvent)
+                .disposed(by: self.disposeBag)
+        }
         
         self.numberField.rx
             .controlEvent(.editingChanged)
@@ -88,10 +95,6 @@ class AuthenticationViewController: UIViewController {
                 return result
             })
             .bind(to: viewModel.number)
-            .disposed(by: self.disposeBag)
-        
-        self.viewModel.errorMessage
-            .bind(to: self.errorLabel.rx.text)
-            .disposed(by: self.disposeBag)        
+            .disposed(by: self.disposeBag)                        
     }
 }

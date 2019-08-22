@@ -43,9 +43,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWE-HQ-B4U">
                     <rect key="frame" x="184.5" y="189" width="45" height="39"/>
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                    <state key="normal" title="Next">
-                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                    </state>
+                    <state key="normal" title="Next"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTY-wW-xTQ">
                     <rect key="frame" x="32" y="246" width="350" height="23"/>

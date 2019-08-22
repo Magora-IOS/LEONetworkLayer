@@ -9,5 +9,5 @@
 import Foundation
 
 struct AccountStatus: Codable {
-    let isRegistered: Bool
+    let signUp: Bool
 }

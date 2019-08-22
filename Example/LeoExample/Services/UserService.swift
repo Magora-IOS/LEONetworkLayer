@@ -19,7 +19,7 @@ protocol IUserService {
 class UserService: IUserService {
     var tokenManager: ILeoTokenManager
     
-    lazy private var userProvider = LeoProvider<AuthentificationTarget>(tokenManager: self.tokenManager)
+    lazy private var userProvider = LeoProviderFactory<AuthentificationTarget>().makeProvider(tokenManager: self.tokenManager)
     
     init(tokenManager: ILeoTokenManager) {
         self.tokenManager = tokenManager

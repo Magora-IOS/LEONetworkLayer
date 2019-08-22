@@ -9,5 +9,9 @@
 import Foundation
 
 open class LeoBaseObject: Codable {
-    var code: LeoCodes      
+    var code: LeoCodes
+    
+    var success: Bool {
+        return code == .success
+    }
 }

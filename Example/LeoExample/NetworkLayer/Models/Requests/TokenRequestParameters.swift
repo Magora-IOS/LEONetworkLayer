@@ -8,21 +8,27 @@
 
 import UIKit
 
-class TokenRequestParameters: Codable {
+class MetaParameters: Codable  {
     var platform: String
     var deviceID: String?
     var versionApp: String?
-    var pushDeviceId: String?
-    var code: String?
-    var phone: String?
     
     init() {
         self.versionApp = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-        
         self.platform = "i_o_s"
         //or
         //let systemVersion = UIDevice.current.systemVersion
         //self.platform = "ios.\(systemVersion)"
+    }
+}
+
+class TokenRequestParameters: Codable {
+    var code: String?
+    var phone: String?
+    var meta: MetaParameters
+    
+    init() {
+        self.meta = MetaParameters()
     }
 }
 

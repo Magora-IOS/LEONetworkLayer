@@ -36,7 +36,5 @@ extension LeoProviderError: ILeoLocalizedError {
             result.description = nil
         }
         return result
-    }       
+    }
 }
-
-

@@ -13,22 +13,26 @@ import LEONetworkLayer
 
 protocol IAccountService {
     var isAuthenticated: Bool { get }
+    var isRegistered: Bool { get }
+    
     var logoutHandler: (() -> Void)? { get set }
     
     func sendPhone(phone: String) -> Single<AccountStatus>
-    //func signin(phone: String, code: String) -> Single<SignInResponse>
+    func signIn(phone: String, code: String) -> Single<SignInResponse>
+    func registerUser(userData: UserRegistrationInfoDTO) -> Single<Void>
     
-    func login()
     func signOut()
-    var accountProvider: LeoProvider<AuthentificationTarget> {get}
+    func setRegistration(passed: Bool)
 }
 
 class AccountService: IAccountService {
     private(set) var accountStorage: IAccountStorage
-    lazy public var accountProvider = LeoProvider<AuthentificationTarget>(tokenManager: self, mockType: .none, plugins: [TestPlugin()])
+    lazy private var accountProvider = LeoProviderFactory<AuthentificationTarget>().makeProvider(tokenManager: self)
+    lazy private var mockAccountProvider = LeoProviderFactory<AuthentificationTarget>().makeProvider(tokenManager: self, mockType: .delayed(seconds: 0.5))
     
-    func requestMap<T:Codable>(_ input: T.Type, target:AuthentificationTarget) -> Single<T> {
-        return accountProvider.rx.request(target).map(T.self).catchError({ error in
+    func requestMap<T:Codable>(_ input: T.Type, target:AuthentificationTarget, mock: Bool = false) -> Single<T> {
+        let provider = mock ? mockAccountProvider : accountProvider
+        return provider.rx.request(target).map(T.self).catchError({ error in
             return Single.error(AccountServiceError.commonError(error))
         })
     }
@@ -37,19 +41,59 @@ class AccountService: IAccountService {
         return accountStorage.accessToken != nil
     }
     
+    var isRegistered: Bool {
+        return accountStorage.registered
+    }
+    
     func sendPhone(phone: String) -> Single<AccountStatus> {
         return requestMap(AccountStatus.self, target: .sendPhone(phone: phone))
     }
     
-    func login() {
-        accountStorage.accessToken = "test"
+    func signIn(phone: String, code: String) -> Single<SignInResponse> {
+        let request = TokenRequestParameters()
+        request.phone = phone
+        request.code = code
+        request.meta.deviceID = self.accountStorage.deviceID
+        
+        return accountProvider.rx.request(.login(login: request)).flatMap({
+            response in
+            if let tokens = try? response.map(TokenResponse.self) {
+                self.accountStorage.accessToken = tokens.accessToken
+                self.accountStorage.refreshToken = tokens.refreshToken
+            } else {
+                throw AccountServiceError.noTokenError
+            }
+            
+            if let signInResponse = try? response.map(SignInResponse.self) {
+                self.accountStorage.userID = signInResponse.authInfo.userId
+                return .just(signInResponse)
+            } else {
+                throw AccountServiceError.noAuthDataError
+            }
+        }).catchError({ error in
+            return Single.error(AccountServiceError.commonError(error))
+        })
     }
     
+    func registerUser(userData: UserRegistrationInfoDTO) -> Single<Void> {
+        return accountProvider.rx
+            .request(.register(data: userData)).flatMap({
+                response in
+                    return .just(())
+            }).catchError({ error in
+                return Single.error(AccountServiceError.commonError(error))
+            })
+    }
+
     var logoutHandler: (() -> Void)?
     
     func signOut() {
         invalidateTokens()
         logoutHandler?()
+    }
+    
+    func setRegistration(passed: Bool) {
+        self.accountStorage.registered = passed
     }
     
     func invalidateTokens() {

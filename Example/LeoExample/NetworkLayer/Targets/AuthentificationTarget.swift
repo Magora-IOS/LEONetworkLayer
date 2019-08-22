@@ -6,6 +6,7 @@ enum AuthentificationTarget {
     case sendPhone(phone: String)
     case login(login: TokenRequestParameters)
     case refreshToken(refreshToken: String)
+    case register(data: UserRegistrationInfoDTO)
 }
 
 extension AuthentificationTarget: ILeoTargetType {
@@ -17,12 +18,14 @@ extension AuthentificationTarget: ILeoTargetType {
             return "/tokens/sms"
         case .refreshToken:
             return "/tokens"
+        case .register:
+            return "/register"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .sendPhone, .login:
+        case .sendPhone, .login, .register:
             return .post
         case .refreshToken:
             return .put
@@ -37,12 +40,14 @@ extension AuthentificationTarget: ILeoTargetType {
             return .requestJSONEncodable(loginData)
         case .refreshToken(let refreshToken):
             return .requestParameters(parameters: ["refreshToken": refreshToken], encoding: JSONEncoding.default)
+        case .register(let data):
+            return .requestJSONEncodable(data)
         }
     }
     
     var authorizationType: AuthorizationType {
         switch self {
-        case .login:
+        case .login, .refreshToken:
             return .none
         default:
             return self.authorization
@@ -51,12 +56,13 @@ extension AuthentificationTarget: ILeoTargetType {
     
     var sampleData: Data {
         switch self {
+            
             case .sendPhone:
                 let mockResponse = """
                     {"data": {
                         "signUp": false            
                         },
-                     "code":"not_found"}
+                     "code":"success"}
                     """
                 return mockResponse.data(using: .utf8)!
             default:

@@ -9,38 +9,29 @@
 import Moya
 import enum Result.Result
 
-public class LeoPlugin: PluginType {
+class LeoPlugin: PluginType {
     private var tokenManager: ILeoTokenManager?
     private var request: (RequestType, TargetType)?
     private var result: Result<Moya.Response, MoyaError>?
     
-    private var didPrepare = false
-    
-    public init(tokenManager: ILeoTokenManager?) {
+    init(tokenManager: ILeoTokenManager?) {
         self.tokenManager = tokenManager
     }
     
-    
-    public func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
-        var request = request
-        request.addValue("yes", forHTTPHeaderField: "prepared")
+    func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
+        let request = request
         return request
     }
     
-    public func willSend(_ request: RequestType, target: TargetType) {
-        print("send")
+    func willSend(_ request: RequestType, target: TargetType) {
         self.request = (request, target)
-        didPrepare = request.request?.allHTTPHeaderFields?["prepared"] == "yes"
     }
     
-    public func didReceive(_ result: Result<Moya.Response, MoyaError>, target: TargetType) {
-        print("did receive")
+    func didReceive(_ result: Result<Moya.Response, MoyaError>, target: TargetType) {
         self.result = result
     }
     
-    public func process(_ result: Result<Response, MoyaError>, target: TargetType) -> Result<Response, MoyaError> {
-        print("process")
-        
+    func process(_ result: Result<Response, MoyaError>, target: TargetType) -> Result<Response, MoyaError> {
         let result = result
         
         switch result {
@@ -53,19 +44,17 @@ public class LeoPlugin: PluginType {
             }
             
             if response.isNotAuthorized {
-                self.tokenManager?.clearTokensAndHandleLogout()
+                //self.tokenManager?.clearTokensAndHandleLogout()
                 return .failure(MoyaError.underlying(LeoProviderError.securityError, response))
             }
             
-            if let code = response.parseErrors() {
-                
+            if let errors = response.parseErrors() {
+                return errors
             }
             
             if let data = response.parseSuccess() {
                 return data
             }
-            
-            
             
             return .failure(MoyaError.statusCode(response))
         }

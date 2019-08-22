@@ -10,12 +10,18 @@ import Foundation
 import LEONetworkLayer
 
 enum AccountServiceError: ILeoError {
+   case noTokenError
+   case noAuthDataError
    case commonError(Error)
 }
 
 extension AccountServiceError: ILeoLocalizedError {
     var info: (title: String, description: String?) {
         switch self {
+        case .noTokenError:
+            return (title: L10n.Errors.AccountService.commonTitle, description: L10n.Errors.AccountService.TokenFailed.description)
+        case .noAuthDataError:
+            return (title: L10n.Errors.AccountService.commonTitle, description: L10n.Errors.AccountService.NoAuth.description)
         case .commonError(let error):
             if let leoError = error.localizedLeoError {
                 return leoError.info

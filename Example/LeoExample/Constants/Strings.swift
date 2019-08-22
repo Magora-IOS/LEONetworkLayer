@@ -23,7 +23,36 @@ internal enum L10n {
     }
   }
 
+  internal enum Authetication {
+    internal enum Message {
+      /// Enter email
+      internal static let enterEmail = L10n.tr("Localizable", "Authetication.message.enterEmail")
+      /// Enter full name
+      internal static let enterName = L10n.tr("Localizable", "Authetication.message.enterName")
+      /// Enter zip
+      internal static let enterZip = L10n.tr("Localizable", "Authetication.message.enterZip")
+    }
+    internal enum Registration {
+      /// What's your name, email and zip code?
+      internal static let message = L10n.tr("Localizable", "Authetication.registration.message")
+      /// Let's get you setup!
+      internal static let title = L10n.tr("Localizable", "Authetication.registration.title")
+    }
+  }
+
   internal enum Errors {
+    internal enum AccountService {
+      /// AccountService Error
+      internal static let commonTitle = L10n.tr("Localizable", "Errors.AccountService.CommonTitle")
+      internal enum TokenFailed {
+        /// Token failed
+        internal static let description = L10n.tr("Localizable", "Errors.AccountService.TokenFailed.description")
+      }
+      internal enum NoAuth {
+        /// Authorization error
+        internal static let description = L10n.tr("Localizable", "Errors.AccountService.noAuth.description")
+      }
+    }
     internal enum LeoProvider {
       internal enum BadLeoResponse {
         /// Could not parse response

@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="Example" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="LeoExample" customModuleProvider="target">
             <connections>
                 <outlet property="errorLabel" destination="VTY-wW-xTQ" id="pMs-Ak-fb9"/>
                 <outlet property="nextButton" destination="FWE-HQ-B4U" id="tUP-gx-mJ4"/>
@@ -25,9 +25,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWE-HQ-B4U">
                     <rect key="frame" x="167.5" y="139" width="79" height="39"/>
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                    <state key="normal" title="Sign out">
-                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                    </state>
+                    <state key="normal" title="Sign out"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTY-wW-xTQ">
                     <rect key="frame" x="32" y="196" width="350" height="21"/>
