@@ -10,6 +10,7 @@ class AppCoordinator: BaseCoordinator {
     
     private var mainCoordinator: MainCoordinator?
     private var authenticationCoordinator: AuthenticationCoordinator?
+    private var registrationCoordinator: RegistrationCoordinator?
     
     init(window: UIWindow, context: AppContext) {
         self.window = window
@@ -21,6 +22,7 @@ class AppCoordinator: BaseCoordinator {
             guard let `self` = self else { return }
             self.mainCoordinator = nil
             self.authenticationCoordinator = nil
+            self.registrationCoordinator = nil
             for childCoordinator in self.childCoordinators {
                 self.removeDependency(childCoordinator)
             }
@@ -40,6 +42,7 @@ class AppCoordinator: BaseCoordinator {
             self.startAuthentication()
         }
     }
+    
     
     func startAuthentication() {
         let navigationController = UINavigationController()
@@ -70,12 +73,14 @@ class AppCoordinator: BaseCoordinator {
         window.rootViewController = registrationNavigationController
         
         let coordinator = RegistrationCoordinator(router: registrationNavigationController, context: self.context)
+        self.registrationCoordinator = coordinator
         self.addDependency(coordinator)
         
-        coordinator.completionHandler = { [weak self, weak coordinator] in
-            self?.removeDependency(coordinator)
-            self?.completionHandler?()
+        coordinator.completionHandler = { [weak self] in
+            self?.removeDependency(self?.authenticationCoordinator)
+            self?.registrationCoordinator = nil
+            self?.chooseFlow()
         }
-        coordinator.start()
+        coordinator.start()        
     }
 }

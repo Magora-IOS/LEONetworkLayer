@@ -13,12 +13,11 @@ import RxCocoa
 
 class RegistrationCoordinator: BaseCoordinator {
     private let router: UINavigationController
-    private let context: Context
-    typealias Context = IAccountServiceContext
+    private var context: AppContext
     private let disposeBag = DisposeBag()
     private var registered = false
     
-    init(router: UINavigationController, context: Context) {
+    init(router: UINavigationController, context: AppContext) {
         self.router = router
         self.context = context
     }

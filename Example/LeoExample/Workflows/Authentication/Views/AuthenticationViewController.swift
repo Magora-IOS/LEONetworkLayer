@@ -29,8 +29,6 @@ class AuthenticationViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    let userProvider = LeoProviderFactory<UserTarget>().makeProvider(tokenManager: nil)
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -92,6 +92,11 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "Errors.Unknown.title")
     }
   }
+
+  internal enum News {
+    /// The news
+    internal static let title = L10n.tr("Localizable", "News.Title")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name

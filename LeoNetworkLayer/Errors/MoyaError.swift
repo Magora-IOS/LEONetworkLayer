@@ -19,7 +19,7 @@ extension MoyaError {
                 case URLError.Code.timedOut:
                     return MoyaError.underlying(LeoProviderError.timeoutError(error), response)
                     
-                case URLError.Code.badURL,
+                case URLError.Code.badURL,                     
                      URLError.Code.unsupportedURL,
                      URLError.Code.notConnectedToInternet,
                      URLError.Code.cannotConnectToHost,

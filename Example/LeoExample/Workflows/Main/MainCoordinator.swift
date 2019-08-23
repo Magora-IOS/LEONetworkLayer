@@ -8,18 +8,23 @@
 
 import Foundation
 import BaseCoordinator
+import RxSwift
 
 class MainCoordinator: BaseCoordinator {
     typealias Router = UINavigationController
     
     private var router: Router
     private let context: AppContext
+    private var disposeBag = DisposeBag()
     
     override func start() {
-        let viewController = MainViewController()
-        viewController.onExit = { [weak self] in
-            self?.context.accountService.signOut()            
-        }
+        let viewModel = NewsViewModel(context: context)
+        
+        viewModel.onExit.bind(onNext: {[weak self] _ in
+             self?.context.accountService.signOut()
+        }).disposed(by: disposeBag)
+        
+        let viewController = MainViewController(viewModel: viewModel)
         router.pushViewController(viewController, animated: true)
     }
     

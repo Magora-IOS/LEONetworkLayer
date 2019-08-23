@@ -51,7 +51,7 @@ class AccountStorage: IAccountStorage {
     
     var registered: Bool {
         didSet {
-            self.storage.setValue(value: pushToken, forKey: Keys.pushTokenKey.rawValue)
+            self.storage.setValue(value: registered, forKey: Keys.registered.rawValue)
         }
     }
     

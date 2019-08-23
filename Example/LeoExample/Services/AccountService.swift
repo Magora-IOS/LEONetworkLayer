@@ -27,10 +27,11 @@ protocol IAccountService {
 
 class AccountService: IAccountService {
     private(set) var accountStorage: IAccountStorage
-    lazy private var accountProvider = LeoProviderFactory<AuthentificationTarget>().makeProvider(tokenManager: self)
-    lazy private var mockAccountProvider = LeoProviderFactory<AuthentificationTarget>().makeProvider(tokenManager: self, mockType: .delayed(seconds: 0.5))
     
-    func requestMap<T:Codable>(_ input: T.Type, target:AuthentificationTarget, mock: Bool = false) -> Single<T> {
+    lazy private var accountProvider = LeoProviderFactory<AuthentificationTarget>().makeProvider(tokenManager: self)
+    lazy private var mockAccountProvider = LeoProviderFactory<AuthentificationTarget>().makeProvider(mockType: .delayed(seconds: 0.5))
+    
+    func requestMap<T:Codable>(_ input: T.Type, target: AuthentificationTarget, mock: Bool = false) -> Single<T> {
         let provider = mock ? mockAccountProvider : accountProvider
         return provider.rx.request(target).map(T.self).catchError({ error in
             return Single.error(AccountServiceError.commonError(error))
@@ -76,7 +77,8 @@ class AccountService: IAccountService {
     }
     
     func registerUser(userData: UserRegistrationInfoDTO) -> Single<Void> {
-        return accountProvider.rx
+        //mock for register request
+        return mockAccountProvider.rx
             .request(.register(data: userData)).flatMap({
                 response in
                     return .just(())
@@ -130,7 +132,7 @@ extension AccountService: ILeoTokenManager {
         return accountStorage.refreshToken ?? ""
     }
     
-    func refreshToken() -> Single<Response>? {
+    func refreshToken() -> Single<Moya.Response>? {
         if let token = accountStorage.refreshToken {
             return accountProvider.rx.request(.refreshToken(refreshToken: token ))
         } else {

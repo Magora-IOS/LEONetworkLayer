@@ -16,4 +16,6 @@ target 'LeoExample' do
   # Helpers
   pod 'KeychainSwift', '~> 16.0'
 
+  # UI
+  pod 'UIScrollView-InfiniteScroll', '~> 1.1.0'
 end

@@ -41,6 +41,7 @@ public class RefreshTokenPlugin: PluginType {
     }            
     
     public func process(_ result: Result<Response, MoyaError>, target: TargetType) -> Result<Response, MoyaError> {
+        
         print("processToken")
         
         let result = result
@@ -49,11 +50,15 @@ public class RefreshTokenPlugin: PluginType {
         case .failure(let error):
             return .failure(error)
         case .success(let response):
+            
             if case .none = self.authorizationType {
                 return .success(response)
             }
             
             if response.isNotAuthorized {
+                self.tokenManager.clearTokensAndHandleLogout()
+                return .failure(MoyaError.underlying(LeoProviderError.securityError, response))
+                                
                 print("RefreshNotAuthorizedTOKEN=")
                 
                 print("NotAuthorized2")

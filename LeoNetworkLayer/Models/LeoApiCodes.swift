@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum LeoApiCodes: String, Codable  {
+public enum LeoApiCodes: String, Codable  {
     
     case invalidAuthData = "sec.invalid_auth_data"
     case loginShouldBeConfirmed = "sec.login_should_be_confirmed"
@@ -32,7 +32,7 @@ enum LeoApiCodes: String, Codable  {
     case fieldDuplicate = "common.field_duplicate"
     case unknown = "unknown"
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         if let value = try? decoder.singleValueContainer().decode(String.self) {
             self = LeoApiCodes(rawValue: value) ?? .unknown
         } else {

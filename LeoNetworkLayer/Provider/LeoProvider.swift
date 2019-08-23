@@ -12,7 +12,7 @@ import Alamofire
 
 open class LeoProviderFactory<T:TargetType> {
     
-    public func makeProvider(tokenManager:ILeoTokenManager?, mockType: StubBehavior = .never, plugins: [PluginType] = [], customConfiguration: URLSessionConfiguration?) -> MoyaProvider<T> {
+    public func makeProvider(tokenManager:ILeoTokenManager? = nil, mockType: StubBehavior = .never, plugins: [PluginType] = [], customConfiguration: URLSessionConfiguration?) -> MoyaProvider<T> {
         
         let allPlugins = makeTokenPlugins(tokenManager: tokenManager) + makeLeoPlugins(tokenManager: tokenManager) + plugins
         
@@ -22,7 +22,7 @@ open class LeoProviderFactory<T:TargetType> {
     }
     
     
-    public func makeProvider(tokenManager:ILeoTokenManager?, mockType: StubBehavior = .never, plugins: [PluginType] = [], timeoutForRequest:TimeInterval = 20.0, timeoutForResponse: TimeInterval = 40.0) -> MoyaProvider<T> {
+    public func makeProvider(tokenManager:ILeoTokenManager? = nil, mockType: StubBehavior = .never, plugins: [PluginType] = [], timeoutForRequest:TimeInterval = 20.0, timeoutForResponse: TimeInterval = 40.0) -> MoyaProvider<T> {
         
         
         let configuration = makeConfiguration(timeoutForRequest: timeoutForRequest, timeoutForResponse: timeoutForResponse)

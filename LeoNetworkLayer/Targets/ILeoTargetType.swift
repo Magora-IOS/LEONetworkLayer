@@ -17,7 +17,7 @@ public extension ILeoTargetType {
     }
     
     var sampleData: Data {
-        return Data()
+        return LeoMockResponse.emptySuccess
     }
     
     var authorizationType: AuthorizationType {

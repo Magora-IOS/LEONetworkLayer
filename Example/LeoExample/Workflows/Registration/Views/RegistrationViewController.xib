@@ -34,7 +34,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oGM-yZ-ATO" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="260.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Smg-hA-4Mf">
                                     <rect key="frame" x="32" y="10" width="350" height="31.5"/>
@@ -72,7 +72,7 @@
                                 <constraint firstItem="yGy-Cf-pHL" firstAttribute="leading" secondItem="oGM-yZ-ATO" secondAttribute="leading" constant="32" id="4PY-Ac-RHk"/>
                                 <constraint firstItem="Smg-hA-4Mf" firstAttribute="leading" secondItem="oGM-yZ-ATO" secondAttribute="leading" constant="32" id="6cg-n1-LEq"/>
                                 <constraint firstAttribute="trailing" secondItem="3nL-C0-7f0" secondAttribute="trailing" constant="42" id="C6D-a4-rq2"/>
-                                <constraint firstAttribute="bottom" secondItem="yGy-Cf-pHL" secondAttribute="bottom" constant="20" id="D4Y-vz-947"/>
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yGy-Cf-pHL" secondAttribute="bottom" constant="20" id="D4Y-vz-947"/>
                                 <constraint firstItem="yGy-Cf-pHL" firstAttribute="top" secondItem="IcA-Rt-ruo" secondAttribute="bottom" constant="12" id="Qkp-bO-Agl"/>
                                 <constraint firstItem="IcA-Rt-ruo" firstAttribute="centerX" secondItem="oGM-yZ-ATO" secondAttribute="centerX" id="QnK-by-r7M"/>
                                 <constraint firstItem="GJ0-2b-okh" firstAttribute="top" secondItem="Smg-hA-4Mf" secondAttribute="bottom" constant="12" id="UjB-Pe-fno"/>
@@ -89,7 +89,6 @@
                     <constraints>
                         <constraint firstItem="oGM-yZ-ATO" firstAttribute="top" secondItem="uqa-uy-Vde" secondAttribute="top" id="4nJ-1V-q8M"/>
                         <constraint firstAttribute="trailing" secondItem="oGM-yZ-ATO" secondAttribute="trailing" id="DS2-AF-FVP"/>
-                        <constraint firstItem="oGM-yZ-ATO" firstAttribute="width" secondItem="uqa-uy-Vde" secondAttribute="width" id="evn-i8-NyK"/>
                         <constraint firstItem="oGM-yZ-ATO" firstAttribute="leading" secondItem="uqa-uy-Vde" secondAttribute="leading" id="g5m-7V-wRC"/>
                         <constraint firstAttribute="bottom" secondItem="oGM-yZ-ATO" secondAttribute="bottom" id="tfL-cN-J2C"/>
                     </constraints>
@@ -100,6 +99,8 @@
                 <constraint firstItem="Lph-2L-n2a" firstAttribute="top" secondItem="uqa-uy-Vde" secondAttribute="top" id="LAn-hy-Lfi"/>
                 <constraint firstItem="Lph-2L-n2a" firstAttribute="trailing" secondItem="uqa-uy-Vde" secondAttribute="trailing" id="SfT-PM-HAt"/>
                 <constraint firstItem="yeV-dj-syt" firstAttribute="centerX" secondItem="9BV-Wl-Jup" secondAttribute="centerX" id="Srx-RI-bBy"/>
+                <constraint firstItem="oGM-yZ-ATO" firstAttribute="width" secondItem="9BV-Wl-Jup" secondAttribute="width" id="d6u-B4-4jH"/>
+                <constraint firstItem="oGM-yZ-ATO" firstAttribute="height" secondItem="9BV-Wl-Jup" secondAttribute="height" priority="750" id="hS9-PA-mdo"/>
                 <constraint firstItem="uqa-uy-Vde" firstAttribute="leading" secondItem="Lph-2L-n2a" secondAttribute="leading" id="lnr-ys-CN5"/>
                 <constraint firstItem="yeV-dj-syt" firstAttribute="centerY" secondItem="9BV-Wl-Jup" secondAttribute="centerY" id="qbD-LC-Y0d"/>
                 <constraint firstItem="Lph-2L-n2a" firstAttribute="bottom" secondItem="uqa-uy-Vde" secondAttribute="bottom" id="rBG-MG-jgF"/>

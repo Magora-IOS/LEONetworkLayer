@@ -47,26 +47,19 @@ extension AuthentificationTarget: ILeoTargetType {
     
     var authorizationType: AuthorizationType {
         switch self {
-        case .login, .refreshToken:
-            return .none
-        default:
+        case .register:
             return self.authorization
-        }        
+        default:
+            return .none
+        }
     }
     
     var sampleData: Data {
         switch self {
-            
             case .sendPhone:
-                let mockResponse = """
-                    {"data": {
-                        "signUp": false            
-                        },
-                     "code":"success"}
-                    """
-                return mockResponse.data(using: .utf8)!
+                return LeoMockResponse.success(value: #" "signUp": false "#)
             default:
-                    return Data()
+                return LeoMockResponse.emptySuccess
         }
     }
 }

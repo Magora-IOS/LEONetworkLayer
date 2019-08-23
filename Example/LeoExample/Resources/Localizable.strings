@@ -34,3 +34,6 @@
 
 "Errors.LeoProvider.badLeoResponse.title" = "NetworkResponse is not valid";
 "Errors.LeoProvider.badLeoResponse.description" = "Could not parse response";
+
+
+"News.Title" = "The news";
