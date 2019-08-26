@@ -22,19 +22,12 @@ class NewsCell: UITableViewCell {
     override func prepareForReuse() {
         self.titleLabel.text = nil
         self.dateLabel.text = nil
-        self.descriptionLabel = nil
+        self.descriptionLabel.text = nil
     }
     
     func configureWithNews(_ news: News?) {
         self.titleLabel.text = news?.title
-        
-        if let date = news?.createDate {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .medium
-            dateFormatter.timeStyle = .none
-            self.dateLabel.text = dateFormatter.string(from: date)
-        }
-        
-        self.descriptionLabel.text = news?.description
+        self.dateLabel.text = news?.createDate?.dateTimeNewsFormat
+        self.descriptionLabel.attributedText = news?.description?.htmlCentered()
     }
 }

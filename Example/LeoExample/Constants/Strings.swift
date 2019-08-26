@@ -40,6 +40,11 @@ internal enum L10n {
     }
   }
 
+  internal enum DetailedNews {
+    /// The detailed news
+    internal static let title = L10n.tr("Localizable", "DetailedNews.Title")
+  }
+
   internal enum Errors {
     internal enum AccountService {
       /// AccountService Error
@@ -55,7 +60,7 @@ internal enum L10n {
     }
     internal enum LeoProvider {
       internal enum BadLeoResponse {
-        /// Could not parse response
+        /// Could not parse leo response
         internal static let description = L10n.tr("Localizable", "Errors.LeoProvider.badLeoResponse.description")
         /// NetworkResponse is not valid
         internal static let title = L10n.tr("Localizable", "Errors.LeoProvider.badLeoResponse.title")
@@ -83,6 +88,14 @@ internal enum L10n {
         internal static let description = L10n.tr("Localizable", "Errors.LeoProvider.timeoutError.description")
         /// Timeout error
         internal static let title = L10n.tr("Localizable", "Errors.LeoProvider.timeoutError.title")
+      }
+    }
+    internal enum Moya {
+      internal enum Parsing {
+        /// Could not parse json
+        internal static let description = L10n.tr("Localizable", "Errors.Moya.parsing.description")
+        /// NetworkResponse is not valid
+        internal static let title = L10n.tr("Localizable", "Errors.Moya.parsing.title")
       }
     }
     internal enum Unknown {

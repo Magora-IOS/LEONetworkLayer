@@ -9,7 +9,7 @@
 import Foundation
 
 open class LeoArray<T>: Codable where T:Codable {
-    var items: [T] = []
+    public var items: [T] = []
     
     private enum CodingKeys: String, CodingKey {
         case items

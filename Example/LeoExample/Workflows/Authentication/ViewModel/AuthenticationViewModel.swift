@@ -88,7 +88,7 @@ class AuthenticationViewModel {
                                 if let error = error as? AccountServiceError {
                                     self?.state.accept(.dataError(error.infoString))
                                 } else {
-                                    self?.state.accept(.dataError(L10n.Errors.Unknown.description))
+                                    self?.state.accept(.dataError(L10n.Errors.Unknown.title))
                                 }
                             }
                         }).disposed(by: self.disposeBag)

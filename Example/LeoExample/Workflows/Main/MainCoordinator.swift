@@ -20,9 +20,13 @@ class MainCoordinator: BaseCoordinator {
     override func start() {
         let viewModel = NewsViewModel(context: context)
         
+        viewModel.detailRequested.bind(onNext: {[weak self] news in
+            self?.showDetailed(news: news)
+        }).disposed(by: viewModel.disposeBag)
+        
         viewModel.onExit.bind(onNext: {[weak self] _ in
              self?.context.accountService.signOut()
-        }).disposed(by: disposeBag)
+        }).disposed(by: viewModel.disposeBag)
         
         let viewController = MainViewController(viewModel: viewModel)
         router.pushViewController(viewController, animated: true)
@@ -33,6 +37,11 @@ class MainCoordinator: BaseCoordinator {
         self.context = context
         super.init()
     }
-    
+ 
+    private func showDetailed(news: News) {
+        let viewModel = DetailedNewsViewModel(context: context, news: news)
+        let viewController = DetailedNewsViewController(viewModel: viewModel)
+        router.pushViewController(viewController, animated: true)
+    }
 }
 

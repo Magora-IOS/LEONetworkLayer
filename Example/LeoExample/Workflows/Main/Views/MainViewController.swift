@@ -25,7 +25,7 @@ class MainViewController: UIViewController {
     }
     
     // MARK: lifecycle    
-    private let viewModel: NewsViewModel
+    private let viewModel: NewsViewModel    
     
     // MARK: lifecycle
     init(viewModel: NewsViewModel) {
@@ -53,7 +53,9 @@ class MainViewController: UIViewController {
         //refresh
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        self.tableView.tableFooterView = UIView(frame: .zero)
         self.tableView.refreshControl = refreshControl
+        self.tableView.allowsMultipleSelection = false
     }
     
     func setupRx() {
@@ -98,6 +100,10 @@ class MainViewController: UIViewController {
         data.drive(self.tableView.rx.items(cellIdentifier: NewsCell.Identifier, cellType:NewsCell.self)) { _, viewModel, cell in
             cell.configureWithNews(viewModel)
             }.disposed(by: disposeBag)
+        
+        self.tableView.rx.modelSelected(News.self).subscribe(onNext: { [weak self] item in
+            self?.viewModel.detailRequested.accept(item)
+        }).disposed(by: self.disposeBag)             
     }
     
     @objc func refresh(sender:AnyObject)

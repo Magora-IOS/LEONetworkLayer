@@ -21,6 +21,7 @@
 		9AA92A80230FC36700B64658 /* LeoArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA92A7F230FC36700B64658 /* LeoArray.swift */; };
 		9AA92A82230FC45500B64658 /* LeoArrayRegular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA92A81230FC45500B64658 /* LeoArrayRegular.swift */; };
 		9AA92A84230FC85300B64658 /* LeoArraySeeking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA92A83230FC85300B64658 /* LeoArraySeeking.swift */; };
+		9AA92A9B2313CF8500B64658 /* Formatter+iso8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA92A9A2313CF8500B64658 /* Formatter+iso8601.swift */; };
 		9AE179A222F04454006DECBD /* LeoCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE179A122F04454006DECBD /* LeoCodes.swift */; };
 		9AE179A822F17E4F006DECBD /* RefreshTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE179A722F17E4F006DECBD /* RefreshTokenPlugin.swift */; };
 		9AEB973A22EE9A170060E6F8 /* ILeoTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB973922EE9A170060E6F8 /* ILeoTargetType.swift */; };
@@ -52,6 +53,7 @@
 		9AA92A7F230FC36700B64658 /* LeoArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoArray.swift; sourceTree = "<group>"; };
 		9AA92A81230FC45500B64658 /* LeoArrayRegular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoArrayRegular.swift; sourceTree = "<group>"; };
 		9AA92A83230FC85300B64658 /* LeoArraySeeking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoArraySeeking.swift; sourceTree = "<group>"; };
+		9AA92A9A2313CF8500B64658 /* Formatter+iso8601.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+iso8601.swift"; sourceTree = "<group>"; };
 		9AE179A122F04454006DECBD /* LeoCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoCodes.swift; sourceTree = "<group>"; };
 		9AE179A722F17E4F006DECBD /* RefreshTokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenPlugin.swift; sourceTree = "<group>"; };
 		9AEB973922EE9A170060E6F8 /* ILeoTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ILeoTargetType.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			children = (
 				9AEDD4F722F2E44100F3AF43 /* String+Edit.swift */,
 				9AA92A7D230FA9C900B64658 /* Encodable+Data.swift */,
+				9AA92A9A2313CF8500B64658 /* Formatter+iso8601.swift */,
 			);
 			path = Extenisions;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				9AE179A222F04454006DECBD /* LeoCodes.swift in Sources */,
 				9AEB973A22EE9A170060E6F8 /* ILeoTargetType.swift in Sources */,
 				9A0D316A22F2CC67006894E0 /* LeoProviderError.swift in Sources */,
+				9AA92A9B2313CF8500B64658 /* Formatter+iso8601.swift in Sources */,
 				9AA92A7E230FA9C900B64658 /* Encodable+Data.swift in Sources */,
 				9AEB975B22EEEB860060E6F8 /* LeoError.swift in Sources */,
 			);

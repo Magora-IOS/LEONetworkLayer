@@ -33,7 +33,12 @@
 "Errors.LeoProvider.securityError.description" = "The client is not authenticated";
 
 "Errors.LeoProvider.badLeoResponse.title" = "NetworkResponse is not valid";
-"Errors.LeoProvider.badLeoResponse.description" = "Could not parse response";
+"Errors.LeoProvider.badLeoResponse.description" = "Could not parse leo response";
+
+"Errors.Moya.parsing.title" = "NetworkResponse is not valid";
+"Errors.Moya.parsing.description" = "Could not parse json";
+
 
 
 "News.Title" = "The news";
+"DetailedNews.Title" = "The detailed news";

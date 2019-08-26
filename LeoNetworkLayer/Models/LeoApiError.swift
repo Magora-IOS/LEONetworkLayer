@@ -10,7 +10,7 @@ import Foundation
 
 
 open class LeoApiError: Codable {
-    var code: String
-    var message: String?
-    var field: String?
+    public var code: String
+    public var message: String?
+    public var field: String?
 }

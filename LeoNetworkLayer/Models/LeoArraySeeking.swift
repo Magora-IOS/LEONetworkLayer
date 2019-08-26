@@ -9,9 +9,9 @@
 import Foundation
 
 open class LeoArraySeeking<T>: LeoArray<T> where T:Codable {
-    var nextCursor: String
-    var prevCursor: String
-    var total: Int?
+    public var nextCursor: String
+    public var prevCursor: String
+    public var total: Int?
     
     private enum CodingKeys: String, CodingKey {
         case nextCursor

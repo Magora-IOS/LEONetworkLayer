@@ -9,9 +9,9 @@
 import Foundation
 
 open class LeoArrayRegular<T>: LeoArray<T> where T:Codable {
-    var page: Int = 0
-    var pageSize: Int = 0
-    var total: Int?
+    public var page: Int = 0
+    public var pageSize: Int = 0
+    public var total: Int?
     
     private enum CodingKeys: String, CodingKey {
         case page

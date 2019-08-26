@@ -1,8 +1,8 @@
 //
-//  NewsViewModel.swift
+//  OneNewsViewModel.swift
 //  LeoExample
 //
-//  Created by Yuriy Savitskiy on 8/22/19.
+//  Created by Yuriy Savitskiy on 8/26/19.
 //  Copyright © 2019 Yuriy Savitskiy. All rights reserved.
 //
 
@@ -10,40 +10,33 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-enum NewsViewModelState {
+enum DetailedNewsViewModelState {
     case start
     case loading
     case dataError(String)
-    case finished
+    case finished(News)
 }
 
-class NewsViewModel {
+class DetailedNewsViewModel {
     
     private let context: Context
     typealias Context = INewsServiceContext
     
-    var items = BehaviorRelay<[News]>(value: [])
-    var onExit = PublishRelay<Void>()
     var disposeBag = DisposeBag()
-    let state = BehaviorRelay<NewsViewModelState>(value: .start)
-    let detailRequested = PublishRelay<News>()
+    let state = BehaviorRelay<DetailedNewsViewModelState>(value: .start)
+    var news: News
     
-    init(context: Context) {
+    init(context: Context, news: News) {
         self.context = context
+        self.news = news
         self.refresh()
-    }    
-
-    func exit() {
-        self.onExit.accept(())
     }
     
     func refresh() {
-        let cursor = CursorRequestParameters(page: 1, pageSize: 5)
-        self.context.newsService.getNews(cursor: cursor).subscribe({[weak self] event in
+        self.context.newsService.getNews(id: self.news.id).subscribe({[weak self] event in
             switch event {
-            case .success(let news):
-                self?.items.accept(news)
-                self?.state.accept(.finished)
+            case .success(let news):                
+                self?.state.accept(.finished(news))
             case let .error(error):
                 if let error = error as? NewsServiceError {
                     self?.state.accept(.dataError(error.infoString))

@@ -9,7 +9,7 @@
 import Foundation
 
 struct News {
-    let id: String?
+    let id: String
     var title: String?
     var description: String?
     var createDate: Date?
@@ -19,9 +19,11 @@ struct News {
     }
     
     init(_ dto: NewsDTO) {
-        self.id = dto.id
+        self.init(id: dto.id)
         self.title = dto.title
         self.description = dto.description
-        //self.createDate = dto.createDate
+        self.createDate = dto.createDate
     }
 }
+
+
