@@ -40,8 +40,7 @@ extension Response: ILeoResponse {
                 result = nil
             default:
                 if let baseError = try? self.map(LeoBaseError.self) {
-                    //TODO process errors
-                    print("oki")
+                    result = .failure(MoyaError.underlying(LeoProviderError.leoBaseError(baseError), self))
                 } else {
                     result = .failure(MoyaError.underlying(LeoProviderError.badLeoResponse, self))
                 }

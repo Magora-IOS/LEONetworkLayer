@@ -7,3 +7,10 @@
 //
 
 import Foundation
+import LEONetworkLayer
+
+extension LeoBaseError: ILeoLocalizedError {
+    public var info: (title: String, description: String?) {
+        return (title: self.rawCode, description: self.message)
+    }
+}

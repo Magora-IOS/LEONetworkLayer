@@ -23,6 +23,6 @@ extension MoyaError: ILeoLocalizedError {
         default:
             return (title: String(describing: self), description: self.localizedDescription)
         }
-        return result        
+        return result
     }
 }

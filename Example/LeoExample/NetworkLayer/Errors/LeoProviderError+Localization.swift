@@ -25,6 +25,9 @@ extension LeoProviderError: ILeoLocalizedError {
         case .timeoutError:
             result.title = L10n.Errors.LeoProvider.TimeoutError.title
             result.description = L10n.Errors.LeoProvider.TimeoutError.description
+        case .leoBaseError(let baseLeoError):
+            result.title = baseLeoError.info.title
+            result.description = baseLeoError.info.description
         case .connectionFailed:
             result.title = L10n.Errors.LeoProvider.ConnectionFailed.title
             result.description = L10n.Errors.LeoProvider.ConnectionFailed.description

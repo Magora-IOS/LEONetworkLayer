@@ -34,7 +34,8 @@ class AccountService: IAccountService {
     func requestMap<T:Codable>(_ input: T.Type, target: AuthentificationTarget, mock: Bool = false) -> Single<T> {
         let provider = mock ? mockAccountProvider : accountProvider
         return provider.rx.request(target).map(T.self).catchError({ error in
-            return Single.error(AccountServiceError.commonError(error))
+            let serviceError = AccountServiceError.convertError(error)
+            return Single.error(serviceError)
         })
     }
     
@@ -72,7 +73,8 @@ class AccountService: IAccountService {
                 throw AccountServiceError.noAuthDataError
             }
         }).catchError({ error in
-            return Single.error(AccountServiceError.commonError(error))
+            let serviceError = AccountServiceError.convertError(error)
+            return Single.error(serviceError)
         })
     }
     
@@ -83,7 +85,8 @@ class AccountService: IAccountService {
                 response in
                     return .just(())
             }).catchError({ error in
-                return Single.error(AccountServiceError.commonError(error))
+                let serviceError = AccountServiceError.convertError(error)
+                return Single.error(serviceError)
             })
     }
 
@@ -144,3 +147,4 @@ extension AccountService: ILeoTokenManager {
         signOut()
     }
 }
+

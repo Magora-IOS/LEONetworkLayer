@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		187048125AC86133E83C2EDE /* Pods_LeoExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43189A6242D6A2C2703792B4 /* Pods_LeoExample.framework */; };
+		1C3B34262EBE0A2D7A1FF4C8 /* Pods_LeoExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2DF7C87C860131EEF66FAD /* Pods_LeoExample.framework */; };
 		8D4546FB22E1BE45008B7C61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4546FA22E1BE45008B7C61 /* AppDelegate.swift */; };
 		8D45470222E1BE46008B7C61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D45470122E1BE46008B7C61 /* Assets.xcassets */; };
 		8D45470522E1BE46008B7C61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D45470322E1BE46008B7C61 /* LaunchScreen.storyboard */; };
@@ -37,6 +37,8 @@
 		9AA92A972313A3A300B64658 /* DeatailedNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA92A962313A3A300B64658 /* DeatailedNewsViewController.swift */; };
 		9AA92A992313A45700B64658 /* DetailedNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AA92A982313A45700B64658 /* DetailedNewsViewController.xib */; };
 		9AA92A9D2313DEF600B64658 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA92A9C2313DEF600B64658 /* Date+Format.swift */; };
+		9AA92A9F2313E45F00B64658 /* String+Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA92A9E2313E45F00B64658 /* String+Edit.swift */; };
+		9AA92AA12313FB5E00B64658 /* LeoApiError+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA92AA02313FB5E00B64658 /* LeoApiError+Localization.swift */; };
 		9AE179AB22F1B811006DECBD /* LeoProviderError+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE179AA22F1B811006DECBD /* LeoProviderError+Localization.swift */; };
 		9AEB96E122E9906A0060E6F8 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB96E022E9906A0060E6F8 /* AccountService.swift */; };
 		9AEB96E622E990750060E6F8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB96E322E990750060E6F8 /* AppCoordinator.swift */; };
@@ -51,25 +53,24 @@
 		9AEB970322E997170060E6F8 /* LeoTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB970222E997170060E6F8 /* LeoTargetType.swift */; };
 		9AEB970822E9B8900060E6F8 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB970722E9B8900060E6F8 /* AuthenticationViewModel.swift */; };
 		9AEB972F22EAF6500060E6F8 /* TestPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB972E22EAF6500060E6F8 /* TestPlugin.swift */; };
-		9AEB973722EB26610060E6F8 /* String+Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB973622EB26610060E6F8 /* String+Edit.swift */; };
 		9AEB974D22EEAE1E0060E6F8 /* AccountStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB974C22EEAE1E0060E6F8 /* AccountStorage.swift */; };
 		9AEB975422EEC1520060E6F8 /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB975322EEC1520060E6F8 /* KeychainStorage.swift */; };
 		9AEB976A22EF05810060E6F8 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB976922EF05810060E6F8 /* NewsService.swift */; };
 		9AEB976E22EF05C00060E6F8 /* NewsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB976D22EF05C00060E6F8 /* NewsTarget.swift */; };
 		9AEB977222EF12C40060E6F8 /* TokenRequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB977122EF12C40060E6F8 /* TokenRequestParameters.swift */; };
-		9AEDD4FA22F2E5D500F3AF43 /* LeoApiError+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDD4F922F2E5D500F3AF43 /* LeoApiError+Localization.swift */; };
 		9AEDD4FC22F2E7FF00F3AF43 /* MoyaError+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDD4FB22F2E7FF00F3AF43 /* MoyaError+Localization.swift */; };
 		9AEDD4FE22F3EF7300F3AF43 /* AccountServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDD4FD22F3EF7300F3AF43 /* AccountServiceError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		43189A6242D6A2C2703792B4 /* Pods_LeoExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeoExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B6CCA892E2ACEB1AA9C9FFB /* Pods-LeoExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeoExample.debug.xcconfig"; path = "Target Support Files/Pods-LeoExample/Pods-LeoExample.debug.xcconfig"; sourceTree = "<group>"; };
+		6CC4E8142AC4E253E5CE4D43 /* Pods-LeoExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeoExample.debug.xcconfig"; path = "Target Support Files/Pods-LeoExample/Pods-LeoExample.debug.xcconfig"; sourceTree = "<group>"; };
+		7E2DF7C87C860131EEF66FAD /* Pods_LeoExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeoExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D4546F722E1BE45008B7C61 /* LeoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D4546FA22E1BE45008B7C61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D45470122E1BE46008B7C61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D45470422E1BE46008B7C61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D45470622E1BE46008B7C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9483A65E3BDAF80641BAAAF5 /* Pods-LeoExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeoExample.release.xcconfig"; path = "Target Support Files/Pods-LeoExample/Pods-LeoExample.release.xcconfig"; sourceTree = "<group>"; };
 		9A5E827B22EFF11D0089C626 /* SwiftGen.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = SwiftGen.sh; sourceTree = "<group>"; };
 		9A5E827E22EFF29D0089C626 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		9A5E828022EFFBB90089C626 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -96,6 +97,8 @@
 		9AA92A962313A3A300B64658 /* DeatailedNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeatailedNewsViewController.swift; sourceTree = "<group>"; };
 		9AA92A982313A45700B64658 /* DetailedNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailedNewsViewController.xib; sourceTree = "<group>"; };
 		9AA92A9C2313DEF600B64658 /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
+		9AA92A9E2313E45F00B64658 /* String+Edit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Edit.swift"; sourceTree = "<group>"; };
+		9AA92AA02313FB5E00B64658 /* LeoApiError+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LeoApiError+Localization.swift"; sourceTree = "<group>"; };
 		9AE179AA22F1B811006DECBD /* LeoProviderError+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LeoProviderError+Localization.swift"; sourceTree = "<group>"; };
 		9AEB96E022E9906A0060E6F8 /* AccountService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		9AEB96E322E990750060E6F8 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -110,16 +113,13 @@
 		9AEB970222E997170060E6F8 /* LeoTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoTargetType.swift; sourceTree = "<group>"; };
 		9AEB970722E9B8900060E6F8 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		9AEB972E22EAF6500060E6F8 /* TestPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPlugin.swift; sourceTree = "<group>"; };
-		9AEB973622EB26610060E6F8 /* String+Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Edit.swift"; sourceTree = "<group>"; };
 		9AEB974C22EEAE1E0060E6F8 /* AccountStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStorage.swift; sourceTree = "<group>"; };
 		9AEB975322EEC1520060E6F8 /* KeychainStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
 		9AEB976922EF05810060E6F8 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
 		9AEB976D22EF05C00060E6F8 /* NewsTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTarget.swift; sourceTree = "<group>"; };
 		9AEB977122EF12C40060E6F8 /* TokenRequestParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRequestParameters.swift; sourceTree = "<group>"; };
-		9AEDD4F922F2E5D500F3AF43 /* LeoApiError+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LeoApiError+Localization.swift"; sourceTree = "<group>"; };
 		9AEDD4FB22F2E7FF00F3AF43 /* MoyaError+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaError+Localization.swift"; sourceTree = "<group>"; };
 		9AEDD4FD22F3EF7300F3AF43 /* AccountServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServiceError.swift; sourceTree = "<group>"; };
-		E2814E1E50FE017EE9BC80D5 /* Pods-LeoExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeoExample.release.xcconfig"; path = "Target Support Files/Pods-LeoExample/Pods-LeoExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,20 +127,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				187048125AC86133E83C2EDE /* Pods_LeoExample.framework in Frameworks */,
+				1C3B34262EBE0A2D7A1FF4C8 /* Pods_LeoExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5550B5720D0C0BACAE860EC9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E2DF7C87C860131EEF66FAD /* Pods_LeoExample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8D4546EE22E1BE45008B7C61 = {
 			isa = PBXGroup;
 			children = (
 				8D4546F922E1BE45008B7C61 /* LeoExample */,
 				8D4546F822E1BE45008B7C61 /* Products */,
 				BF8D357137A633E22A9BD93E /* Pods */,
-				E74F25D13ED7CFE3C1B56D2E /* Frameworks */,
+				5550B5720D0C0BACAE860EC9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -251,8 +259,8 @@
 		9AE179A922F1B7F4006DECBD /* Errors */ = {
 			isa = PBXGroup;
 			children = (
+				9AA92AA02313FB5E00B64658 /* LeoApiError+Localization.swift */,
 				9AE179AA22F1B811006DECBD /* LeoProviderError+Localization.swift */,
-				9AEDD4F922F2E5D500F3AF43 /* LeoApiError+Localization.swift */,
 				9AEDD4FB22F2E7FF00F3AF43 /* MoyaError+Localization.swift */,
 			);
 			path = Errors;
@@ -402,7 +410,7 @@
 		9AEB973522EB26460060E6F8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9AEB973622EB26610060E6F8 /* String+Edit.swift */,
+				9AA92A9E2313E45F00B64658 /* String+Edit.swift */,
 				9AA92A91231399A800B64658 /* String+Html.swift */,
 				9AA92A9C2313DEF600B64658 /* Date+Format.swift */,
 			);
@@ -447,18 +455,10 @@
 		BF8D357137A633E22A9BD93E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6B6CCA892E2ACEB1AA9C9FFB /* Pods-LeoExample.debug.xcconfig */,
-				E2814E1E50FE017EE9BC80D5 /* Pods-LeoExample.release.xcconfig */,
+				6CC4E8142AC4E253E5CE4D43 /* Pods-LeoExample.debug.xcconfig */,
+				9483A65E3BDAF80641BAAAF5 /* Pods-LeoExample.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		E74F25D13ED7CFE3C1B56D2E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				43189A6242D6A2C2703792B4 /* Pods_LeoExample.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,12 +468,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D45470922E1BE46008B7C61 /* Build configuration list for PBXNativeTarget "LeoExample" */;
 			buildPhases = (
-				A8303875383EB1D2D50B075E /* [CP] Check Pods Manifest.lock */,
+				F0C6BA2808A042C3C37D01D2 /* [CP] Check Pods Manifest.lock */,
 				9A5E827D22EFF1B80089C626 /* SwiftGen */,
 				8D4546F322E1BE45008B7C61 /* Sources */,
 				8D4546F422E1BE45008B7C61 /* Frameworks */,
 				8D4546F522E1BE45008B7C61 /* Resources */,
-				A32BA9EA4A4989FFEF9D6B73 /* [CP] Embed Pods Frameworks */,
+				2ACFE840B8F4224C8765B252 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -537,6 +537,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2ACFE840B8F4224C8765B252 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LeoExample/Pods-LeoExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LeoExample/Pods-LeoExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LeoExample/Pods-LeoExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9A5E827D22EFF1B80089C626 /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -555,24 +572,7 @@
 			shellPath = /bin/sh;
 			shellScript = "$PROJECT_DIR/$PROJECT_NAME/Configuration/SwiftGen.sh\n";
 		};
-		A32BA9EA4A4989FFEF9D6B73 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LeoExample/Pods-LeoExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LeoExample/Pods-LeoExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LeoExample/Pods-LeoExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A8303875383EB1D2D50B075E /* [CP] Check Pods Manifest.lock */ = {
+		F0C6BA2808A042C3C37D01D2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -611,7 +611,6 @@
 				9A82E762230AB44800C67B1C /* SignInResponse.swift in Sources */,
 				9AEB96F422E991550060E6F8 /* MainViewController.swift in Sources */,
 				9AEB970322E997170060E6F8 /* LeoTargetType.swift in Sources */,
-				9AEDD4FA22F2E5D500F3AF43 /* LeoApiError+Localization.swift in Sources */,
 				9AA92A72230EA0DA00B64658 /* NewsCell.swift in Sources */,
 				9AA92A75230EB2E400B64658 /* NewsViewModel.swift in Sources */,
 				9AEB976E22EF05C00060E6F8 /* NewsTarget.swift in Sources */,
@@ -634,14 +633,15 @@
 				9AEB96E722E990750060E6F8 /* AppContext.swift in Sources */,
 				9AEB96E122E9906A0060E6F8 /* AccountService.swift in Sources */,
 				9AEB96E622E990750060E6F8 /* AppCoordinator.swift in Sources */,
-				9AEB973722EB26610060E6F8 /* String+Edit.swift in Sources */,
 				9A82E75C230AAB1900C67B1C /* RegistrationViewController.swift in Sources */,
+				9AA92AA12313FB5E00B64658 /* LeoApiError+Localization.swift in Sources */,
 				9AA92A972313A3A300B64658 /* DeatailedNewsViewController.swift in Sources */,
 				9AEB970122E9961C0060E6F8 /* AuthentificationTarget.swift in Sources */,
 				8D4546FB22E1BE45008B7C61 /* AppDelegate.swift in Sources */,
 				9AEB975422EEC1520060E6F8 /* KeychainStorage.swift in Sources */,
 				9AA92A8B230FD1AA00B64658 /* NewsDTO.swift in Sources */,
 				9A5E828122EFFBB90089C626 /* Strings.swift in Sources */,
+				9AA92A9F2313E45F00B64658 /* String+Edit.swift in Sources */,
 				9A82E760230AAC7300C67B1C /* RegistrationCoordinator.swift in Sources */,
 				9A5E828422F039790089C626 /* AccountStatus.swift in Sources */,
 			);
@@ -779,7 +779,7 @@
 		};
 		8D45470A22E1BE46008B7C61 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B6CCA892E2ACEB1AA9C9FFB /* Pods-LeoExample.debug.xcconfig */;
+			baseConfigurationReference = 6CC4E8142AC4E253E5CE4D43 /* Pods-LeoExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -799,7 +799,7 @@
 		};
 		8D45470B22E1BE46008B7C61 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E2814E1E50FE017EE9BC80D5 /* Pods-LeoExample.release.xcconfig */;
+			baseConfigurationReference = 9483A65E3BDAF80641BAAAF5 /* Pods-LeoExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

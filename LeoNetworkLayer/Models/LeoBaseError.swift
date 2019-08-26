@@ -8,8 +8,24 @@
 
 import Foundation
 
-open class LeoBaseError: Codable {
-    var errors: [LeoApiCodes]
-    var code: LeoCodes
-    var message: String
+open class LeoBaseError: ILeoError, Codable {
+    public let code: LeoCodes
+    public let rawCode: String
+    public let message: String?
+    public let errors: [LeoApiError]?
+    
+    private enum CodingKeys: String, CodingKey {
+        case code
+        case errors
+        case message
+    }
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.code = try container.decode(LeoCodes.self, forKey: .code)
+        self.rawCode = try container.decode(String.self, forKey: .code)
+        self.message = try? container.decode(String.self, forKey: .message)
+        self.errors = try? container.decode([LeoApiError].self, forKey: .errors)
+    }
 }

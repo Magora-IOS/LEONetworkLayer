@@ -33,6 +33,15 @@ public extension Error {
             return moyaError
         }
         return nil
-    }        
+    }
+    
+    var baseLeoError: LeoBaseError? {
+        if let baseError = self.toLeoError() as? LeoProviderError {
+            if case .leoBaseError(let leoBaseError) = baseError {
+                return leoBaseError
+            }
+        }
+        return nil
+    }
 }
 

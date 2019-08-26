@@ -10,6 +10,16 @@ import Foundation
 
 public extension String {
 
+    /**
+     Indicates whether a specified string is null, empty, or consists only of white-space characters
+     
+     - Author:
+     Yuriy Savitskiy
+     
+     - Version:
+     1.0
+     */
+    
     func isEmptyOrWhitespace() -> Bool {
         if self.isEmpty {
             return true

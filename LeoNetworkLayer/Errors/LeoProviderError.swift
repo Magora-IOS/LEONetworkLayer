@@ -13,8 +13,10 @@ public enum LeoProviderError: ILeoError {
     case serverError
     case securityError
     case badLeoResponse
+    case leoBaseError(LeoBaseError)
     case timeoutError(URLError)
     case connectionFailed(URLError)
+    case refreshTokenFailed
     case moyaError(MoyaError)    
 }
 
