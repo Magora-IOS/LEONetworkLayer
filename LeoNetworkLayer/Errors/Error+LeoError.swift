@@ -45,3 +45,23 @@ public extension Error {
     }
 }
 
+internal extension Error {
+    var securityError: Bool {
+        var result = false
+        
+        if let providerError = self.leoError as? LeoProviderError {
+            if case .securityError = providerError {
+                result = true
+            }
+        }
+        
+        if let error = self.baseLeoError {
+            if case .securityError = error.code {
+                result = true
+            }
+        }
+        
+        return result
+    }
+}
+

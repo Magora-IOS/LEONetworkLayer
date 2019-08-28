@@ -128,17 +128,17 @@ extension AccountService: ILeoTokenManager {
     }
     
     func getAccessToken() -> String {
-        return accountStorage.accessToken ?? ""
+        return (accountStorage.accessToken ?? "")
     }
     
     func refreshToken() -> Single<Void>? {
         if let token = accountStorage.refreshToken {
             return accountProvider.rx.request(.refreshToken(refreshToken: token ))
-                .flatMap({
+                .flatMap({[weak self]
                     response in
                     if let tokens = try? response.map(TokenResponse.self) {
-                        self.accountStorage.accessToken = tokens.accessToken
-                        self.accountStorage.refreshToken = tokens.refreshToken
+                        self?.accountStorage.accessToken = tokens.accessToken
+                        self?.accountStorage.refreshToken = tokens.refreshToken
                         return Single.just(())
                     } else {
                         throw AccountServiceError.noTokenError

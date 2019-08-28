@@ -34,6 +34,7 @@ extension Response: ILeoResponse {
     
     public func parseErrors() -> Result<Response, MoyaError>? {
         var result: Result<Response, MoyaError>? = nil
+        
         if let baseObject = try? self.map(LeoBaseObject.self) {
             switch baseObject.code {
             case .success:
@@ -46,8 +47,12 @@ extension Response: ILeoResponse {
                     result = .failure(MoyaError.underlying(LeoProviderError.badLeoResponse, self))
                 }
             }
-        } else {
-            result = .failure(MoyaError.underlying(LeoProviderError.badLeoResponse, self))
+        }
+        
+        if result == nil {
+            if isNotAuthorized {
+                result = .failure(MoyaError.underlying(LeoProviderError.securityError, self))
+            }
         }
         return result
     }
