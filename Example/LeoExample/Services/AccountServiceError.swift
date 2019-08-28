@@ -12,6 +12,8 @@ import LEONetworkLayer
 enum AccountServiceError: ILeoError {
    case noTokenError
    case noAuthDataError
+   case codeExpired(LeoApiError)
+   case invalidSmsCode(LeoApiError)
    case apiError(LeoApiError)
    case commonError(Error)
 }
@@ -23,6 +25,10 @@ extension AccountServiceError: ILeoLocalizedError {
             return (title: L10n.Errors.AccountService.commonTitle, description: L10n.Errors.AccountService.TokenFailed.description)
         case .noAuthDataError:
             return (title: L10n.Errors.AccountService.commonTitle, description: L10n.Errors.AccountService.NoAuth.description)
+        case .codeExpired:
+            return (title: L10n.Errors.AccountService.commonTitle, description: L10n.Errors.AccountService.CodeExpired.description)
+        case .invalidSmsCode:
+            return (title: L10n.Errors.AccountService.commonTitle, description: L10n.Errors.AccountService.InvalidSmsCode.description)
         case .apiError(let apiError):
             return (title: apiError.message ?? "", description: nil)
         case .commonError(let error):
@@ -38,10 +44,17 @@ extension AccountServiceError {
     static func convertError(_ error: Error) -> AccountServiceError {
         if let baseLeoError = error.baseLeoError {
             if let anyAPiError = baseLeoError.errors?.first {
-               return AccountServiceError.apiError(anyAPiError)
+                switch anyAPiError.rawCode {
+                case "sec.invalid_code":
+                    return .invalidSmsCode(anyAPiError)
+                case "code_expired":
+                    return .codeExpired(anyAPiError)
+                default:
+                    return .apiError(anyAPiError)
+                }
             }
         }
-        return AccountServiceError.commonError(error)
+        return .commonError(error)
     }
 }
 

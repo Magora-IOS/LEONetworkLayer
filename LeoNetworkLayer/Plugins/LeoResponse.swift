@@ -40,6 +40,7 @@ extension Response: ILeoResponse {
                 result = nil
             default:
                 if let baseError = try? self.map(LeoBaseError.self) {
+                    baseError.configureWithResponse(self)
                     result = .failure(MoyaError.underlying(LeoProviderError.leoBaseError(baseError), self))
                 } else {
                     result = .failure(MoyaError.underlying(LeoProviderError.badLeoResponse, self))

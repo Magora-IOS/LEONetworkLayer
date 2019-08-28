@@ -53,6 +53,14 @@ internal enum L10n {
         /// Token failed
         internal static let description = L10n.tr("Localizable", "Errors.AccountService.TokenFailed.description")
       }
+      internal enum CodeExpired {
+        /// Sms code has expired
+        internal static let description = L10n.tr("Localizable", "Errors.AccountService.codeExpired.description")
+      }
+      internal enum InvalidSmsCode {
+        /// Bad sms code, please try again
+        internal static let description = L10n.tr("Localizable", "Errors.AccountService.invalidSmsCode.description")
+      }
       internal enum NoAuth {
         /// Authorization error
         internal static let description = L10n.tr("Localizable", "Errors.AccountService.noAuth.description")

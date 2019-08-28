@@ -123,21 +123,27 @@ class AccountService: IAccountService {
 
 extension AccountService: ILeoTokenManager {
     
-    var refreshTokenTimeout: TimeInterval {
-        return 12.0
+    var numberRefreshTokenAttempts: Int {
+        return 3
     }
     
     func getAccessToken() -> String {
         return accountStorage.accessToken ?? ""
     }
     
-    func getRefreshToken() -> String {
-        return accountStorage.refreshToken ?? ""
-    }
-    
-    func refreshToken() -> Single<Moya.Response>? {
+    func refreshToken() -> Single<Void>? {
         if let token = accountStorage.refreshToken {
             return accountProvider.rx.request(.refreshToken(refreshToken: token ))
+                .flatMap({
+                    response in
+                    if let tokens = try? response.map(TokenResponse.self) {
+                        self.accountStorage.accessToken = tokens.accessToken
+                        self.accountStorage.refreshToken = tokens.refreshToken
+                        return Single.just(())
+                    } else {
+                        throw AccountServiceError.noTokenError
+                    }
+                })
         } else {
             return nil
         }

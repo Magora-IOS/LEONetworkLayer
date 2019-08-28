@@ -8,22 +8,26 @@
 
 import Foundation
 import Moya
+import enum Result.Result
 import Alamofire
+import RxSwift
+
 
 open class LeoProviderFactory<T:TargetType> {
     
-    public func makeProvider(tokenManager:ILeoTokenManager? = nil, mockType: StubBehavior = .never, plugins: [PluginType] = [], customConfiguration: URLSessionConfiguration?) -> MoyaProvider<T> {
+    public func makeProvider(tokenManager:ILeoTokenManager? = nil, mockType: StubBehavior = .never, callbackQueue: DispatchQueue? = nil, plugins: [PluginType] = [], customConfiguration: URLSessionConfiguration?) -> MoyaProvider<T> {
         
         let allPlugins = makeTokenPlugins(tokenManager: tokenManager) + makeLeoPlugins(tokenManager: tokenManager) + plugins
         
         let sessionManager = makeSessionManager(customConfiguration: customConfiguration)
         
-        return MoyaProvider<T>(stubClosure:{ _ in return mockType }, manager: sessionManager, plugins: allPlugins)
+        let provider = LeoProvider<T>(stubClosure:{ _ in return mockType }, callbackQueue: callbackQueue, manager: sessionManager, plugins: allPlugins)
+        provider.tokenManager = tokenManager
+        return provider
     }
     
     
     public func makeProvider(tokenManager:ILeoTokenManager? = nil, mockType: StubBehavior = .never, plugins: [PluginType] = [], timeoutForRequest:TimeInterval = 20.0, timeoutForResponse: TimeInterval = 40.0) -> MoyaProvider<T> {
-        
         
         let configuration = makeConfiguration(timeoutForRequest: timeoutForRequest, timeoutForResponse: timeoutForResponse)
         
@@ -34,8 +38,7 @@ open class LeoProviderFactory<T:TargetType> {
         var result:[PluginType] = []
         if let tokenManager = tokenManager {
             let accessTokenPlugin = AccessTokenPlugin(tokenClosure: tokenManager.getAccessToken)
-            let refreshTokenPlugin = RefreshTokenPlugin(tokenManager: tokenManager)
-            result = [accessTokenPlugin, refreshTokenPlugin]
+            result = [accessTokenPlugin]
         }
         return result
     }
@@ -73,76 +76,76 @@ open class LeoProviderFactory<T:TargetType> {
 }
 
 
-/*
-open class LeoProvider<T:TargetType>: MoyaProvider<T> {
+private class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.TargetType {
     
+    var tokenManager:ILeoTokenManager?
+    private var disposeBag = DisposeBag()
     
-    public init(tokenManager:ILeoTokenManager?, mockType: StubBehavior = .never, plugins: [PluginType] = [], timeoutForRequest:TimeInterval = 20.0, timeoutForResponse: TimeInterval = 40.0, customConfiguration: URLSessionConfiguration? = nil) {
-        
-        
-        
-        let leoPlugin = LeoPlugin(tokenManager: tokenManager)
-        var allPlugins:[PluginType] = [leoPlugin] + plugins
-        
-        if let tokenManager = tokenManager {
-            let accessTokenPlugin = AccessTokenPlugin(tokenClosure: tokenManager.getAccessToken)
-            let refreshTokenPlugin = RefreshTokenPlugin(tokenManager: tokenManager)
-            allPlugins.insert(refreshTokenPlugin, at: 0)
-            allPlugins.insert(accessTokenPlugin, at: 0)
-            
-            let requestClosure: RequestClosure = LeoProvider.endpointToken(manager: tokenManager)
-        let endpointClosure = { (target: T) -> Endpoint in
-                
-                //MoyaProvider.defaultEndpointMapping(for: target)
-                let defaultEndpoint = Endpoint(url: "http://testo.com", sampleResponseClosure: { .networkResponse(200, Data()) }, method: Alamofire.HTTPMethod.get , task: Task.requestPlain, httpHeaderFields: nil)
-                print("endpoint2")
-                return defaultEndpoint
+    override func request(_ target: Target, callbackQueue: DispatchQueue? = .none, progress: ProgressBlock? = .none, completion: @escaping Completion) -> Cancellable {
+        if let tokenManer = self.tokenManager {
+            var attempts = tokenManer.numberRefreshTokenAttempts
+            if attempts > 10 {
+                attempts = 10
             }
-            /*
-            super.init(endpointClosure: <#T##(TargetType) -> Endpoint#>, requestClosure: <#T##(Endpoint, @escaping (Result<URLRequest, MoyaError>) -> Void) -> Void#>, stubClosure: <#T##(TargetType) -> StubBehavior#>, callbackQueue: <#T##DispatchQueue?#>, manager: <#T##Manager#>, plugins: <#T##[PluginType]#>, trackInflights: <#T##Bool#>)
-            */
-            
-            super.init(requestClosure: requestClosure, stubClosure: { _ in return mockType }, manager: sessionManager, plugins: allPlugins)
+            return self.customRequest(target, callbackQueue: callbackQueue, progress: progress, completion: completion, attempts: attempts)
         } else {
-            super.init(stubClosure: { _ in return mockType }, manager: sessionManager, plugins: allPlugins)
+            return super.request(target, callbackQueue: callbackQueue, progress: progress, completion: completion)
         }
     }
     
-    static func endpointToken(manager: ILeoTokenManager) -> MoyaProvider<Target>.RequestClosure {
-        return { (endpoint, closure) in
-            let request = try! endpoint.urlRequest()
-            print("oki")
-            
-            closure(.success(request))
-            
-            
-            
-            /*
-            //Getting the original request
-            let request = try! endpoint.urlRequest()
-            
-            //assume you have saved the existing token somewhere
-            if (#tokenIsNotExpired#) {
-                // Token is valid, so just resume the original request
-                closure(.success(request))
-                return
-            }
-            
-            //Do a request to refresh the authtoken based on refreshToken
-            authenticationProvider.request(.refreshToken(params)) { result in
+    private func customRequest(_ target: Target, callbackQueue: DispatchQueue? = .none, progress: ProgressBlock? = .none, completion: @escaping Completion, attempts: Int) -> Cancellable {
+        
+        return super.request(target, callbackQueue: callbackQueue, progress: progress, completion:
+            { (result) in
+                
+                let finalCompletion: Completion = completion
+                
                 switch result {
-                case .success(let response):
-                    let token = response.mapJSON()["token"]
-                    let newRefreshToken = response.mapJSON()["refreshToken"]
-                    //overwrite your old token with the new token
-                    //overwrite your old refreshToken with the new refresh token
-                    
-                    closure(.success(request)) // This line will "resume" the actual request, and then you can use AccessTokenPlugin to set the Authentication header
+                case .success:
+                    finalCompletion(result)
                 case .failure(let error):
-                    closure(.failure(error)) //something went terrible wrong! Request will not be performed
+                    if let authorizable = target as? AccessTokenAuthorizable,
+                       let tokenManager = self.tokenManager {
+                            var attemptsLeft = attempts
+                            let requestAuthorizationType = authorizable.authorizationType
+                        
+                            if case .none = requestAuthorizationType {
+                                finalCompletion(result)
+                            } else {
+                                if let error = error.baseLeoError {
+                                    if case .securityError = error.code {
+                                        tokenManager.refreshToken()?.subscribe {
+                                            [weak self] _ in
+                                            let failedResult: Result<Response, MoyaError> = .failure(MoyaError.underlying(LeoProviderError.refreshTokenFailed, nil))
+                                            
+                                            if let `self` = self {
+                                                attemptsLeft -= 1
+                                            
+                                                if attemptsLeft <= 0 {
+                                                    finalCompletion(failedResult)
+                                                    self.tokenManager?.clearTokensAndHandleLogout()
+                                                } else {
+                                                    _ = self.customRequest(target, callbackQueue: callbackQueue, progress: progress, completion: { (result) in
+                                                        finalCompletion(result)
+                                                    }, attempts: attemptsLeft)
+                                                }
+                                            } else {
+                                                finalCompletion(failedResult)
+                                            }
+                                        }.disposed(by: self.disposeBag)
+                                    }
+                                } else {
+                                    completion(result)
+                                }
+                            }
+                    } else {
+                        completion(result)
+                    }
                 }
-            }*/
-        }
+        })
     }
+    
+  
+
 }
-*/
+

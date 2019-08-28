@@ -13,6 +13,8 @@
 
 "Errors.AccountService.TokenFailed.description" = "Token failed";
 "Errors.AccountService.noAuth.description" = "Authorization error";
+"Errors.AccountService.invalidSmsCode.description" = "Bad sms code, please try again";
+"Errors.AccountService.codeExpired.description" = "Sms code has expired";
 
 "Errors.Unknown.title" = "Unknown error";
 "Errors.Unknown.description" = "";
@@ -37,6 +39,7 @@
 
 "Errors.Moya.parsing.title" = "NetworkResponse is not valid";
 "Errors.Moya.parsing.description" = "Could not parse json";
+
 
 
 

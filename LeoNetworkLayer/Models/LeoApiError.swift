@@ -26,6 +26,6 @@ open class LeoApiError: Codable {
         self.code = try container.decode(LeoApiCodes.self, forKey: .code)
         self.rawCode = try container.decode(String.self, forKey: .code)
         self.message = try? container.decode(String.self, forKey: .message)
-        self.field = try? container.decode(String.self, forKey: .field)
-    }    
+        self.field = try? container.decode(String.self, forKey: .field)    
+    }
 }
