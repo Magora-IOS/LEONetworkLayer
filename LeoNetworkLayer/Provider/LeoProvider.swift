@@ -102,7 +102,7 @@ private class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.Targe
                 
                 switch result {
                 case .success:
-                    finalCompletion(result)
+                    completion(result)
                 case .failure(let error):
                     if let authorizable = target as? AccessTokenAuthorizable,
                        let tokenManager = self.tokenManager {
@@ -110,7 +110,7 @@ private class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.Targe
                             let requestAuthorizationType = authorizable.authorizationType
                         
                             if case .none = requestAuthorizationType {
-                                finalCompletion(result)
+                                completion(result)
                             } else {
                                 if let error = error.baseLeoError {
                                     if case .securityError = error.code {
@@ -133,6 +133,8 @@ private class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.Targe
                                                 finalCompletion(failedResult)
                                             }
                                         }.disposed(by: self.disposeBag)
+                                    } else {
+                                        completion(result)
                                     }
                                 } else {
                                     completion(result)
