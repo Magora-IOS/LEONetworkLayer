@@ -13,20 +13,20 @@ class NewsDTO: Codable {
     var title: String?
     var description: String?
     var createDate: Date?
-    
+
     private enum CodingKeys: String, CodingKey {
         case id
         case title
         case description
         case createDate
     }
-    
+
     required public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(String.self, forKey: .id)
         self.title = try container.decode(String.self, forKey: .title)
         self.description = try container.decode(String.self, forKey: .description)
-        
+
         let dateString = try container.decode(String.self, forKey: .createDate)
         self.createDate = dateString.iso8601(withFormat: .withMoreMilliseconds)
     }

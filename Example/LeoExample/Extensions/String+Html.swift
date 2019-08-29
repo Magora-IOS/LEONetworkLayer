@@ -8,8 +8,7 @@
 
 import UIKit
 
-extension String
-{
+extension String {
     /**
      Converts to Html
      
@@ -28,7 +27,7 @@ extension String
             return NSMutableAttributedString()
         }
     }
-    
+
     /**
      Converts to Html + center
      
@@ -43,8 +42,8 @@ extension String
         let html = self.html()
         let style = NSMutableParagraphStyle()
         style.alignment = NSTextAlignment.center
-        html.addAttributes([ NSAttributedString.Key.paragraphStyle: style ],
-                                         range: NSMakeRange(0, html.length))
+        html.addAttributes([NSAttributedString.Key.paragraphStyle: style],
+                range: NSMakeRange(0, html.length))
         return html
     }
 }

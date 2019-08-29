@@ -18,8 +18,8 @@ extension MoyaError {
                 switch code {
                 case URLError.Code.timedOut:
                     return MoyaError.underlying(LeoProviderError.timeoutError(error), response)
-                    
-                case URLError.Code.badURL,                     
+
+                case URLError.Code.badURL,
                      URLError.Code.unsupportedURL,
                      URLError.Code.notConnectedToInternet,
                      URLError.Code.cannotConnectToHost,
@@ -35,12 +35,12 @@ extension MoyaError {
                      URLError.Code.secureConnectionFailed,
                      URLError.Code.cannotLoadFromNetwork:
                     return MoyaError.underlying(LeoProviderError.connectionFailed(error), response)
-                    
+
                 default:
                     return MoyaError.underlying(error, response)
                 }
             }
-            
+
             return MoyaError.underlying(error, response)
         }
         return self

@@ -19,12 +19,12 @@ public extension String {
      - Version:
      1.0
      */
-    
+
     func isEmptyOrWhitespace() -> Bool {
         if self.isEmpty {
             return true
         }
-        
+
         let whitespaceSet = CharacterSet.whitespaces
         return self.trimmingCharacters(in: whitespaceSet).isEmpty
     }

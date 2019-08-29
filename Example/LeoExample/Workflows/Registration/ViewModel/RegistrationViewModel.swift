@@ -20,29 +20,29 @@ enum RegistrationViewModelState {
 class RegistrationViewModel {
     private let context: Context
     typealias Context = IAccountServiceContext
-    
+
     var name: String?
     var email: String?
     var zip: String?
-    
+
     var disposeBag = DisposeBag()
     let onSuccessEvent = PublishRelay<Void>()
     let onExit = PublishRelay<Void>()
     let state = BehaviorRelay<RegistrationViewModelState>(value: .start)
-    
+
     init(context: Context) {
         self.context = context
     }
-    
+
     func sendData() {
         var userData = UserRegistrationInfoDTO()
         userData.name = self.name ?? ""
         userData.email = self.email ?? ""
         userData.zip = self.email ?? ""
-        
+
         self.state.accept(.loading)
-        
-        self.context.accountService.registerUser(userData: userData).subscribe({[weak self] event in
+
+        self.context.accountService.registerUser(userData: userData).subscribe({ [weak self] event in
             switch event {
             case .success(_):
                 self?.context.accountService.setRegistration(passed: true)
@@ -54,11 +54,11 @@ class RegistrationViewModel {
                 } else {
                     self?.state.accept(.dataError(L10n.Errors.Unknown.description))
                 }
-                
+
             }
         }).disposed(by: self.disposeBag)
     }
-    
+
     func exit() {
         self.onExit.accept(())
     }

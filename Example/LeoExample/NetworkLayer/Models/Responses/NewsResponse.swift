@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class NewsResponse: Codable {
     var news: NewsDTO
 }

@@ -18,28 +18,28 @@ enum NewsViewModelState {
 }
 
 class NewsViewModel {
-    
+
     private let context: Context
     typealias Context = INewsServiceContext
-    
+
     var items = BehaviorRelay<[News]>(value: [])
     var onExit = PublishRelay<Void>()
     var disposeBag = DisposeBag()
     let state = BehaviorRelay<NewsViewModelState>(value: .start)
     let detailRequested = PublishRelay<News>()
-    
+
     init(context: Context) {
         self.context = context
         self.refresh()
-    }    
+    }
 
     func exit() {
         self.onExit.accept(())
     }
-    
+
     func refresh() {
         let cursor = CursorRequestParameters(page: 1, pageSize: 5)
-        self.context.newsService.getNews(cursor: cursor).subscribe({[weak self] event in
+        self.context.newsService.getNews(cursor: cursor).subscribe({ [weak self] event in
             switch event {
             case .success(let news):
                 self?.items.accept(news)

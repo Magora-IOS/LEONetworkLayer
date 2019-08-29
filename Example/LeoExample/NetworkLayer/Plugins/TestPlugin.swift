@@ -20,22 +20,22 @@ final class TestPlugin: PluginType {
     var request: (RequestType, TargetType)?
     var result: Result<Moya.Response, MoyaError>?
     var didPrepare = false
-    
+
     func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
         var request = request
         request.addValue("yes", forHTTPHeaderField: "prepared")
         return request
     }
-    
+
     func willSend(_ request: RequestType, target: TargetType) {
         self.request = (request, target)
         didPrepare = request.request?.allHTTPHeaderFields?["prepared"] == "yes"
     }
-    
+
     func didReceive(_ result: Result<Moya.Response, MoyaError>, target: TargetType) {
         self.result = result
     }
-    
+
     func process(_ result: Result<Response, MoyaError>, target: TargetType) -> Result<Response, MoyaError> {
         let result = result
         switch result {

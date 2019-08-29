@@ -13,11 +13,11 @@ struct News {
     var title: String?
     var description: String?
     var createDate: Date?
-    
+
     init(id: String) {
         self.id = id
     }
-    
+
     init(_ dto: NewsDTO) {
         self.init(id: dto.id)
         self.title = dto.title

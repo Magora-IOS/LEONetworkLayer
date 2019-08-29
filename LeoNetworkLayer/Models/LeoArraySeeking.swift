@@ -8,17 +8,17 @@
 
 import Foundation
 
-open class LeoArraySeeking<T>: LeoArray<T> where T:Codable {
+open class LeoArraySeeking<T>: LeoArray<T> where T: Codable {
     public var nextCursor: String
     public var prevCursor: String
     public var total: Int?
-    
+
     private enum CodingKeys: String, CodingKey {
         case nextCursor
         case prevCursor
         case total
     }
-    
+
     required public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.nextCursor = try container.decode(String.self, forKey: .nextCursor)

@@ -8,11 +8,11 @@
 
 import UIKit
 
-class MetaParameters: Codable  {
+class MetaParameters: Codable {
     var platform: String
     var deviceID: String?
     var versionApp: String?
-    
+
     init() {
         self.versionApp = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         self.platform = "i_o_s"
@@ -26,7 +26,7 @@ class TokenRequestParameters: Codable {
     var code: String?
     var phone: String?
     var meta: MetaParameters
-    
+
     init() {
         self.meta = MetaParameters()
     }

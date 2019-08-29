@@ -15,7 +15,7 @@ enum NewsServiceError: ILeoError {
 
 extension NewsServiceError: ILeoLocalizedError {
     var info: (title: String, description: String?) {
-        switch self {        
+        switch self {
         case .commonError(let error):
             if let leoError = error.localizedLeoError {
                 return leoError.info

@@ -22,7 +22,7 @@ extension AuthentificationTarget: ILeoTargetType {
             return "/register"
         }
     }
-    
+
     var method: Moya.Method {
         switch self {
         case .sendPhone, .login, .register:
@@ -35,7 +35,7 @@ extension AuthentificationTarget: ILeoTargetType {
     var task: Task {
         switch self {
         case .sendPhone(let phone):
-            return .requestParameters(parameters: ["phone":phone], encoding: JSONEncoding.default)
+            return .requestParameters(parameters: ["phone": phone], encoding: JSONEncoding.default)
         case .login(let loginData):
             return .requestJSONEncodable(loginData)
         case .refreshToken(let refreshToken):
@@ -44,7 +44,7 @@ extension AuthentificationTarget: ILeoTargetType {
             return .requestJSONEncodable(data)
         }
     }
-    
+
     var authorizationType: AuthorizationType {
         switch self {
         case .register:
@@ -53,13 +53,13 @@ extension AuthentificationTarget: ILeoTargetType {
             return .none
         }
     }
-    
+
     var sampleData: Data {
         switch self {
-            case .sendPhone:
-                return LeoMockResponse.success(value: #" "signUp": false "#)
-            default:
-                return LeoMockResponse.emptySuccess
+        case .sendPhone:
+            return LeoMockResponse.success(value: #" "signUp": false "#)
+        default:
+            return LeoMockResponse.emptySuccess
         }
     }
 }

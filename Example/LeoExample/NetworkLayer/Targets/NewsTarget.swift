@@ -15,31 +15,31 @@ enum NewsTarget {
 }
 
 extension NewsTarget: ILeoTargetType {
-    
+
     var path: String {
         switch self {
-            case .getOneNews(let id): return "news/\(id)"
-            case .getNews: return "news"
+        case .getOneNews(let id): return "news/\(id)"
+        case .getNews: return "news"
         }
     }
-    
+
     var method: Moya.Method {
         switch self {
         case .getOneNews, .getNews:
             return .get
         }
     }
-    
+
     var task: Task {
         switch self {
         case .getOneNews:
             return .requestPlain
-        case .getNews(let cursor):            
-            return .requestParameters(parameters: cursor.toDictionary()  ?? [:], encoding: URLEncoding.default)
-            //return .requestJSONEncodable(cursor)
+        case .getNews(let cursor):
+            return .requestParameters(parameters: cursor.toDictionary() ?? [:], encoding: URLEncoding.default)
+                //return .requestJSONEncodable(cursor)
         }
     }
-    
+
     var sampleData: Data {
         switch self {
         case .getOneNews:

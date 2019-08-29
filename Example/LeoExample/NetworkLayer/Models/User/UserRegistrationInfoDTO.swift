@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct UserRegistrationInfoDTO: Codable  {
+struct UserRegistrationInfoDTO: Codable {
     var name: String = ""
     var email: String = ""
-    var zip: String = ""        
+    var zip: String = ""
 }

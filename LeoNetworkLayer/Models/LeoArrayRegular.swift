@@ -8,17 +8,17 @@
 
 import Foundation
 
-open class LeoArrayRegular<T>: LeoArray<T> where T:Codable {
+open class LeoArrayRegular<T>: LeoArray<T> where T: Codable {
     public var page: Int = 0
     public var pageSize: Int = 0
     public var total: Int?
-    
+
     private enum CodingKeys: String, CodingKey {
         case page
         case pageSize
         case total
     }
-    
+
     required public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.page = try container.decode(Int.self, forKey: .page)

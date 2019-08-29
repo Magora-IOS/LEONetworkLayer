@@ -16,26 +16,26 @@ class RegistrationCoordinator: BaseCoordinator {
     private var context: AppContext
     private let disposeBag = DisposeBag()
     private var registered = false
-    
+
     init(router: UINavigationController, context: AppContext) {
         self.router = router
         self.context = context
     }
-    
+
     override func start() {
         let viewModel = RegistrationViewModel(context: self.context)
-        
-        viewModel.onSuccessEvent.bind(onNext: {[weak self] in            
-            self?.completionHandler?()
-        })
-            .disposed(by: disposeBag)
-        
-        viewModel.onExit.bind(onNext: {[weak self] in
+
+        viewModel.onSuccessEvent.bind(onNext: { [weak self] in
+                    self?.completionHandler?()
+                })
+                .disposed(by: disposeBag)
+
+        viewModel.onExit.bind(onNext: { [weak self] in
             self?.context.accountService.clearTokensAndHandleLogout()
             self?.completionHandler?()
         }).disposed(by: disposeBag)
-        
-        let viewController = RegistrationViewController(viewModel: viewModel)        
+
+        let viewController = RegistrationViewController(viewModel: viewModel)
         router.pushViewController(viewController, animated: true)
     }
 }

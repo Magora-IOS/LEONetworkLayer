@@ -92,12 +92,12 @@ private class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.Targe
             return super.request(target, callbackQueue: callbackQueue, progress: progress, completion: completion)
         }
     }
-    
+
     private func checkAuthorization(target: Target) -> Bool {
         var result = false
         if let authorizable = target as? AccessTokenAuthorizable,
-            let tokenManager = self.tokenManager {
-            
+           let tokenManager = self.tokenManager {
+
             let requestAuthorizationType = authorizable.authorizationType
             if case .none = requestAuthorizationType {
             } else {
@@ -106,31 +106,31 @@ private class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.Targe
         }
         return result
     }
-    
+
     private func customRequest(_ target: Target, callbackQueue: DispatchQueue? = .none, progress: ProgressBlock? = .none, completion: @escaping Completion, attempts: Int) -> Cancellable {
 
         return super.request(target, callbackQueue: callbackQueue, progress: progress, completion:
-            {  [weak self] (result) in
-                
+        { [weak self] (result) in
+
             let finalCompletion: Completion = completion
 
             switch result {
             case .success:
                 completion(result)
             case .failure(let error):
-                if let `self` = self,                   
+                if let `self` = self,
                    let tokenManager = self.tokenManager,
                    self.checkAuthorization(target: target),
                    error.securityError {
                     var attemptsLeft = attempts
-                    
+
                     tokenManager.refreshToken()?.subscribe {
                         [weak self] _ in
                         let failedResult: Result<Response, MoyaError> = .failure(MoyaError.underlying(LeoProviderError.refreshTokenFailed, nil))
-                        
+
                         if let `self` = self {
                             attemptsLeft -= 1
-                            
+
                             if attemptsLeft <= 0 {
                                 finalCompletion(failedResult)
                                 self.tokenManager?.clearTokensAndHandleLogout()
@@ -142,7 +142,7 @@ private class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.Targe
                         } else {
                             finalCompletion(failedResult)
                         }
-                        }.disposed(by: self.disposeBag)
+                    }.disposed(by: self.disposeBag)
                 } else {
                     completion(result)
                 }

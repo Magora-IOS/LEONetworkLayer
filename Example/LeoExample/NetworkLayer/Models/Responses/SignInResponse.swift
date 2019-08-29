@@ -9,5 +9,5 @@
 import Foundation
 
 struct SignInResponse: Codable {
-    let authInfo: AuthInfoDTO    
+    let authInfo: AuthInfoDTO
 }

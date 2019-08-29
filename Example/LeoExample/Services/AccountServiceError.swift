@@ -10,12 +10,12 @@ import Foundation
 import LEONetworkLayer
 
 enum AccountServiceError: ILeoError {
-   case noTokenError
-   case noAuthDataError
-   case codeExpired(LeoApiError)
-   case invalidSmsCode(LeoApiError)
-   case apiError(LeoApiError)
-   case commonError(Error)
+    case noTokenError
+    case noAuthDataError
+    case codeExpired(LeoApiError)
+    case invalidSmsCode(LeoApiError)
+    case apiError(LeoApiError)
+    case commonError(Error)
 }
 
 extension AccountServiceError: ILeoLocalizedError {
@@ -38,7 +38,7 @@ extension AccountServiceError: ILeoLocalizedError {
             return (title: L10n.Errors.Unknown.title, description: L10n.Errors.Unknown.description)
         }
     }
-    }
+}
 
 extension AccountServiceError {
     static func convertError(_ error: Error) -> AccountServiceError {

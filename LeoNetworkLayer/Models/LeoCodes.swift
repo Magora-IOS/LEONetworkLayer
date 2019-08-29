@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum LeoCodes: String, Codable  {
+public enum LeoCodes: String, Codable {
     case success = "success"
     case businessConflict = "business_conflict"
     case unprocessableEntity = "unprocessable_entity"
@@ -18,7 +18,7 @@ public enum LeoCodes: String, Codable  {
     case securityError = "security_error"
     case permissionError = "permission_error"
     case unknown = "unknown"
-    
+
     public init(from decoder: Decoder) throws {
         if let value = try? decoder.singleValueContainer().decode(String.self) {
             self = LeoCodes(rawValue: value) ?? .unknown
@@ -26,9 +26,9 @@ public enum LeoCodes: String, Codable  {
             self = .unknown
         }
     }
-    
+
     public func encode(to encoder: Encoder) throws {
-        
+
     }
 }
 

@@ -1,7 +1,6 @@
 import Foundation
 
-extension String
-{
+extension String {
     /**
      Return left part of the string
      
@@ -11,10 +10,10 @@ extension String
      - Version:
      1.0
      */
-    func left(_ length: Int)->String {
+    func left(_ length: Int) -> String {
         if (self.count <= length) {
             return self
         }
-        return String( Array(self).prefix(upTo: length) )
+        return String(Array(self).prefix(upTo: length))
     }
 }

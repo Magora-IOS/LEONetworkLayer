@@ -16,12 +16,12 @@ class AuthenticationCoordinator: BaseCoordinator {
     private var context: AppContext
     private let disposeBag = DisposeBag()
     private var phoneNumber = ""
-    
+
     init(router: UINavigationController, context: AppContext) {
         self.router = router
         self.context = context
     }
-    
+
     override func start() {
         if !self.context.accountService.isAuthenticated {
             startWelcome()
@@ -29,28 +29,28 @@ class AuthenticationCoordinator: BaseCoordinator {
             self.completionHandler?()
         }
     }
-    
+
     // MARK: Starting modules
     private func startWelcome() {
         let viewModel = AuthenticationViewModel(context: self.context, startState: .welcome)
-        viewModel.onSuccessPhoneEvent.bind(onNext: {[weak self] phoneNumber in
-            self?.phoneNumber = phoneNumber
-            self?.startCode()
-        })
-            .disposed(by: disposeBag)
-        
+        viewModel.onSuccessPhoneEvent.bind(onNext: { [weak self] phoneNumber in
+                    self?.phoneNumber = phoneNumber
+                    self?.startCode()
+                })
+                .disposed(by: disposeBag)
+
         let viewController = AuthenticationViewController(viewModel: viewModel)
-        
+
         router.pushViewController(viewController, animated: true)
     }
-    
+
     private func startCode() {
         let viewModel = AuthenticationViewModel(context: self.context, startState: .confirmation(phoneNumber))
-        viewModel.onSuccessPinEvent.bind(onNext: {[weak self] _ in
+        viewModel.onSuccessPinEvent.bind(onNext: { [weak self] _ in
             self?.completionHandler?()
         }).disposed(by: disposeBag)
-        
-        let viewController = AuthenticationViewController(viewModel: viewModel)                
+
+        let viewController = AuthenticationViewController(viewModel: viewModel)
         router.pushViewController(viewController, animated: true)
     }
 }

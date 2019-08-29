@@ -18,24 +18,24 @@ enum DetailedNewsViewModelState {
 }
 
 class DetailedNewsViewModel {
-    
+
     private let context: Context
     typealias Context = INewsServiceContext
-    
+
     var disposeBag = DisposeBag()
     let state = BehaviorRelay<DetailedNewsViewModelState>(value: .start)
     var news: News
-    
+
     init(context: Context, news: News) {
         self.context = context
         self.news = news
         self.refresh()
     }
-    
+
     func refresh() {
-        self.context.newsService.getNews(id: self.news.id).subscribe({[weak self] event in
+        self.context.newsService.getNews(id: self.news.id).subscribe({ [weak self] event in
             switch event {
-            case .success(let news):                
+            case .success(let news):
                 self?.state.accept(.finished(news))
             case let .error(error):
                 if let error = error as? NewsServiceError {

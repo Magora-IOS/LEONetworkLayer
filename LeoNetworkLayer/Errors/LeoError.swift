@@ -9,7 +9,7 @@
 import Foundation
 import Moya
 
-public protocol ILeoError : Error {
+public protocol ILeoError: Error {
 }
 
 public protocol LeoErrorConverter {
@@ -28,7 +28,7 @@ public struct LeoError: ILeoError, LeoErrorConverter {
             return nil
         }
     }
-    
+
     public static func toLeoError(_ error: Error) -> ILeoError? {
         if let moyaError = error as? MoyaError {
             if case .underlying(let underlyingError, _) = moyaError {
@@ -38,11 +38,11 @@ public struct LeoError: ILeoError, LeoErrorConverter {
             }
             return LeoProviderError.moyaError(moyaError)
         }
-        
+
         if let leoError = error as? ILeoError {
             return leoError
         }
-        
+
         return nil
     }
 }

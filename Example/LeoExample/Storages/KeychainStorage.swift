@@ -8,49 +8,43 @@ protocol IKeychainStorage {
 }
 
 class KeychainStorage: IKeychainStorage {
-    
+
     private let storage: KeychainSwift
-    
+
     //MARK: - Lifecycle
-    
+
     init(prefix: String, icloud: Bool) {
         self.storage = KeychainSwift(keyPrefix: prefix)
         self.storage.synchronizable = icloud
     }
-    
+
     //MARK: - KeyValueStorage
-    
+
     func setValue(value: Any?, forKey key: String) {
         if let string = value as? String {
             self.storage.set(string, forKey: key)
-        }
-        else if let bool = value as? Bool {
+        } else if let bool = value as? Bool {
             self.storage.set(bool, forKey: key)
-        }
-        else if let data = value as? Data {
+        } else if let data = value as? Data {
             self.storage.set(data, forKey: key)
-        }
-        else if value == nil {
+        } else if value == nil {
             self.storage.delete(key)
         }
     }
-    
-    
+
+
     func getValue(forKey key: String) -> Any? {
         if let string = self.storage.get(key) {
             return string
-        }
-        else if let bool = self.storage.getBool(key) {
+        } else if let bool = self.storage.getBool(key) {
             return bool
-        }
-        else if let data = self.storage.getData(key) {
+        } else if let data = self.storage.getData(key) {
             return data
-        }
-        else {
+        } else {
             return nil
         }
     }
-    
+
     func getValue<T>(forKey key: String, type: T.Type) -> T? {
         switch type {
         case is Bool.Type:
