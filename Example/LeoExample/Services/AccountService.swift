@@ -52,14 +52,14 @@ class AccountService: IAccountService {
     }
 
     func signIn(phone: String, code: String) -> Single<SignInResponse> {
-        let request = TokenRequestParameters()
+        var request = TokenRequestParameters()
         request.phone = phone
         request.code = code
         request.meta.deviceID = self.accountStorage.deviceID
 
         return accountProvider.rx.request(.login(login: request)).flatMap({
             response in
-            if let tokens = try? response.map(TokenResponse.self) {
+            if let tokens = try? response.map(LeoToken.self) {
                 self.accountStorage.accessToken = tokens.accessToken
                 self.accountStorage.refreshToken = tokens.refreshToken
             } else {
@@ -131,19 +131,17 @@ extension AccountService: ILeoTokenManager {
         return (accountStorage.accessToken ?? "")
     }
 
-    func refreshToken() -> Single<Void>? {
+    func refreshToken() -> Completable? {
         if let token = accountStorage.refreshToken {
             return accountProvider.rx.request(.refreshToken(refreshToken: token))
-                    .flatMap({ [weak self]
-                    response in
-                        if let tokens = try? response.map(TokenResponse.self) {
-                            self?.accountStorage.accessToken = tokens.accessToken
-                            self?.accountStorage.refreshToken = tokens.refreshToken
-                            return Single.just(())
-                        } else {
-                            throw AccountServiceError.noTokenError
-                        }
-                    })
+                .do(onSuccess: { [weak self] response in
+                    if let tokens = try? response.map(LeoToken.self) {
+                        self?.accountStorage.accessToken = tokens.accessToken
+                        self?.accountStorage.refreshToken = tokens.refreshToken
+                    } else {
+                        throw AccountServiceError.noTokenError
+                    }
+                }).asCompletable()
         } else {
             return nil
         }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MetaParameters: Codable {
+struct MetaParameters: Codable {
     var platform: String
     var deviceID: String?
     var versionApp: String?
@@ -22,7 +22,7 @@ class MetaParameters: Codable {
     }
 }
 
-class TokenRequestParameters: Codable {
+struct TokenRequestParameters: Codable {
     var code: String?
     var phone: String?
     var meta: MetaParameters

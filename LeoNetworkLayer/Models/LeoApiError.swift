@@ -28,4 +28,11 @@ open class LeoApiError: Codable {
         self.message = try? container.decode(String.self, forKey: .message)
         self.field = try? container.decode(String.self, forKey: .field)
     }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.rawCode, forKey: .code)
+        try? container.encode(self.message, forKey: .message)
+        try? container.encode(self.field, forKey: .field)
+    }
 }

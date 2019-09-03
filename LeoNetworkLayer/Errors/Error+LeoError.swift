@@ -9,14 +9,7 @@
 import Moya
 
 public extension Error {
-    static func toLeoError(_ error: Error) -> ILeoError? {
-        return LeoError.toLeoError(error)
-    }
-
-    private func toLeoError() -> ILeoError? {
-        return LeoError.toLeoError(self)
-    }
-
+    
     var localizedLeoError: ILeoLocalizedError? {
         if let localizedError = self.toLeoError() as? ILeoLocalizedError {
             return localizedError
@@ -27,7 +20,11 @@ public extension Error {
     var leoError: ILeoError? {
         return self.toLeoError()
     }
-
+    
+    private func toLeoError() -> ILeoError? {
+        return LeoError.leoErrorFrom(self)
+    }
+    
     var moyaError: MoyaError? {
         if let moyaError = self as? MoyaError {
             return moyaError

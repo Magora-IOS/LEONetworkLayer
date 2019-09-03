@@ -22,10 +22,5 @@ extension ILeoTargetType {
             return URL(string: "http://dev.midea.back.magora.team/api/v0.1")!
         #endif
     }
-    
-    var authorization: AuthorizationType {
-        return .bearer
-    }
-    
 }
 

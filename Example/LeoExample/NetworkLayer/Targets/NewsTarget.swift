@@ -35,8 +35,7 @@ extension NewsTarget: ILeoTargetType {
         case .getOneNews:
             return .requestPlain
         case .getNews(let cursor):
-            return .requestParameters(parameters: cursor.toDictionary() ?? [:], encoding: URLEncoding.default)
-                //return .requestJSONEncodable(cursor)
+            return .requestParameters(parameters: cursor.toDictionary() ?? [:], encoding: URLEncoding.default)                
         }
     }
 

@@ -33,7 +33,11 @@ public extension String {
 
 
 public enum ISO8601LeoDateTimeFormat: String {
-    case withMilliseconds = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-    case withMoreMilliseconds = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS"
-    case dateOnly = "yyyy-MM-dd"
+    case simpleDate = "yyyy-MM-dd"
+    case time = "HH:mm:ss"
+    case dateTimeUtc0ms = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    case dateTimeUtc0msExtended = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS"
+    case dateTimeUtc0sec = "yyyy-MM-dd'T'HH:mm:ssZ"
+    case dateTimeZoned = "yyyy-MM-dd'T'HH:mm:ssZZZ"
+    case neutralDateTime = "yyyy-MM-dd'T'HH:mm:ss"
 }

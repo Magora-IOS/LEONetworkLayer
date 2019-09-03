@@ -35,11 +35,11 @@ extension AuthentificationTarget: ILeoTargetType {
     var task: Task {
         switch self {
         case .sendPhone(let phone):
-            return .requestParameters(parameters: ["phone": phone], encoding: JSONEncoding.default)
+            return .requestJSONEncodable(SendPhoneRequestParameters(phone: phone))
         case .login(let loginData):
             return .requestJSONEncodable(loginData)
         case .refreshToken(let refreshToken):
-            return .requestParameters(parameters: ["refreshToken": refreshToken], encoding: JSONEncoding.default)
+            return .requestJSONEncodable(RefreshTokenRequestParameters(refreshToken: refreshToken))
         case .register(let data):
             return .requestJSONEncodable(data)
         }
@@ -48,7 +48,7 @@ extension AuthentificationTarget: ILeoTargetType {
     var authorizationType: AuthorizationType {
         switch self {
         case .register:
-            return self.authorization
+            return self.defaultLeoAuthorization
         default:
             return .none
         }

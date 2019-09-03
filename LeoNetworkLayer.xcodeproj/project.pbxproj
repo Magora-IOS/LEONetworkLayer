@@ -31,6 +31,7 @@
 		9AEB976422EEFDC60060E6F8 /* LeoPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB976322EEFDC60060E6F8 /* LeoPlugin.swift */; };
 		9AEB976622EEFE2B0060E6F8 /* LeoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB976522EEFE2B0060E6F8 /* LeoResponse.swift */; };
 		9AEDD4F822F2E44100F3AF43 /* String+Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDD4F722F2E44100F3AF43 /* String+Edit.swift */; };
+		9AF71DDC231E480A00588795 /* LeoToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF71DDB231E480900588795 /* LeoToken.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		9AEB976322EEFDC60060E6F8 /* LeoPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeoPlugin.swift; sourceTree = "<group>"; };
 		9AEB976522EEFE2B0060E6F8 /* LeoResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeoResponse.swift; sourceTree = "<group>"; };
 		9AEDD4F722F2E44100F3AF43 /* String+Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Edit.swift"; sourceTree = "<group>"; };
+		9AF71DDB231E480900588795 /* LeoToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoToken.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				9AA92A7F230FC36700B64658 /* LeoArray.swift */,
 				9AA92A81230FC45500B64658 /* LeoArrayRegular.swift */,
 				9AA92A83230FC85300B64658 /* LeoArraySeeking.swift */,
+				9AF71DDB231E480900588795 /* LeoToken.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 			files = (
 				9A2E5C1522F4487D0073B551 /* LeoApiError.swift in Sources */,
 				9AEB975A22EEEB860060E6F8 /* Error+LeoError.swift in Sources */,
+				9AF71DDC231E480A00588795 /* LeoToken.swift in Sources */,
 				9AA92A7C230FA2CD00B64658 /* LeoMockResponse.swift in Sources */,
 				9AEDD4F822F2E44100F3AF43 /* String+Edit.swift in Sources */,
 				9A5E828722F043810089C626 /* LeoBaseObject.swift in Sources */,
@@ -399,7 +403,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -457,7 +461,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

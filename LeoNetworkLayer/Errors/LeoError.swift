@@ -13,23 +13,23 @@ public protocol ILeoError: Error {
 }
 
 public protocol LeoErrorConverter {
-    static func toLeoError(_ error: Error) -> ILeoError?
-    static func toLeoError(_ result: Result<Response, MoyaError>) -> ILeoError?
+    static func leoErrorFrom(_ error: Error) -> ILeoError?
+    static func leoErrorFrom(_ result: Result<Response, MoyaError>) -> ILeoError?
 }
 
 
 public struct LeoError: ILeoError, LeoErrorConverter {
-    public static func toLeoError(_ result: Result<Response, MoyaError>) -> ILeoError? {
+    public static func leoErrorFrom(_ result: Result<Response, MoyaError>) -> ILeoError? {
         let result = result
         switch result {
         case .failure(let error):
-            return toLeoError(error)
+            return self.leoErrorFrom(error)
         case .success(_):
             return nil
         }
     }
 
-    public static func toLeoError(_ error: Error) -> ILeoError? {
+    public static func leoErrorFrom(_ error: Error) -> ILeoError? {
         if let moyaError = error as? MoyaError {
             if case .underlying(let underlyingError, _) = moyaError {
                 if let leoError = underlyingError as? ILeoError {

@@ -26,10 +26,6 @@ public enum LeoCodes: String, Codable {
             self = .unknown
         }
     }
-
-    public func encode(to encoder: Encoder) throws {
-
-    }
 }
 
 

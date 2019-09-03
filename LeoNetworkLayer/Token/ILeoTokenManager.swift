@@ -10,7 +10,7 @@ public protocol ILeoTokenManager {
     /**
      Updates refresh token
      */
-    func refreshToken() -> Single<Void>?
+    func refreshToken() -> Completable?
 
     /**
      Number of refresh token attemts (min - 0, max - 10)

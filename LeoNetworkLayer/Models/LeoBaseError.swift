@@ -9,7 +9,7 @@
 import Foundation
 import Moya
 
-open class LeoBaseError: ILeoError, Codable {
+open class LeoBaseError: ILeoError, Decodable {
     public let code: LeoCodes
     public let rawCode: String
     public let message: String?
@@ -33,6 +33,13 @@ open class LeoBaseError: ILeoError, Codable {
         self.errors = try? container.decode([LeoApiError].self, forKey: .errors)
     }
 
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.rawCode, forKey: .code)
+        try? container.encode(self.errors, forKey: .errors)
+        try? container.encode(self.message, forKey: .message)        
+    }
+    
     public func configureWithResponse(_ moyaResponse: Moya.Response) {
         self.statusCode = moyaResponse.statusCode
         self.request = moyaResponse.request

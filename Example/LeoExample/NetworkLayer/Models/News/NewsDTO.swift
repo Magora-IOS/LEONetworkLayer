@@ -10,7 +10,7 @@ import Foundation
 
 class NewsDTO: Codable {
     let id: String
-    var title: String?
+    var title: String
     var description: String?
     var createDate: Date?
 
@@ -25,9 +25,13 @@ class NewsDTO: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(String.self, forKey: .id)
         self.title = try container.decode(String.self, forKey: .title)
-        self.description = try container.decode(String.self, forKey: .description)
+        self.description = try? container.decode(String.self, forKey: .description)
 
-        let dateString = try container.decode(String.self, forKey: .createDate)
-        self.createDate = dateString.iso8601(withFormat: .withMoreMilliseconds)
+        if let dateString = try? container.decode(String.self, forKey: .createDate) {
+            self.createDate = dateString.iso8601(withFormat: .dateTimeUtc0msExtended)
+        } else {
+            self.createDate = nil
+        }
+        
     }
 }

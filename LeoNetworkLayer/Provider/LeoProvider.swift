@@ -96,7 +96,7 @@ private class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.Targe
     private func checkAuthorization(target: Target) -> Bool {
         var result = false
         if let authorizable = target as? AccessTokenAuthorizable,
-           let tokenManager = self.tokenManager {
+           let _ = self.tokenManager {
 
             let requestAuthorizationType = authorizable.authorizationType
             if case .none = requestAuthorizationType {
@@ -120,26 +120,34 @@ private class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.Targe
             case .failure(let error):
                 if let `self` = self,
                    let tokenManager = self.tokenManager,
+                   let refreshToken = tokenManager.refreshToken(),
                    self.checkAuthorization(target: target),
                    error.securityError {
+
                     var attemptsLeft = attempts
 
-                    tokenManager.refreshToken()?.subscribe {
-                        [weak self] _ in
+                    refreshToken.subscribe {
+                        [weak self] completable in
+                        
                         let failedResult: Result<Response, MoyaError> = .failure(MoyaError.underlying(LeoProviderError.refreshTokenFailed, nil))
-
-                        if let `self` = self {
-                            attemptsLeft -= 1
-
-                            if attemptsLeft <= 0 {
-                                finalCompletion(failedResult)
-                                self.tokenManager?.clearTokensAndHandleLogout()
+                        
+                        switch completable {
+                        case .completed:
+                            if let `self` = self {
+                                attemptsLeft -= 1
+                                
+                                if attemptsLeft <= 0 {
+                                    finalCompletion(failedResult)
+                                    self.tokenManager?.clearTokensAndHandleLogout()
+                                } else {
+                                    _ = self.customRequest(target, callbackQueue: callbackQueue, progress: progress, completion: { (result) in
+                                        finalCompletion(result)
+                                    }, attempts: attemptsLeft)
+                                }
                             } else {
-                                _ = self.customRequest(target, callbackQueue: callbackQueue, progress: progress, completion: { (result) in
-                                    finalCompletion(result)
-                                }, attempts: attemptsLeft)
+                                finalCompletion(failedResult)
                             }
-                        } else {
+                        case .error( _):
                             finalCompletion(failedResult)
                         }
                     }.disposed(by: self.disposeBag)
