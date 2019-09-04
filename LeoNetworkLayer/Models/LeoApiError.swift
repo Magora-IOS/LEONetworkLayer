@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class LeoApiError: Codable {
+public struct LeoApiError: Codable {
     public let code: LeoApiCodes
     public let rawCode: String
     public let message: String?
@@ -20,7 +20,7 @@ open class LeoApiError: Codable {
         case field
     }
 
-    required public init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         self.code = try container.decode(LeoApiCodes.self, forKey: .code)

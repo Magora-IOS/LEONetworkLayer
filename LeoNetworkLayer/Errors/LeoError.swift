@@ -44,6 +44,6 @@ public struct LeoError: ILeoError, LeoErrorConverter {
         }
 
         return nil
-    }
+    }        
 }
 

@@ -19,26 +19,25 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="74" translatesAutoresizingMaskIntoConstraints="NO" id="kd0-Bh-kAN">
-                        <rect key="frame" x="0.0" y="5" width="376" height="23"/>
+                        <rect key="frame" x="0.0" y="5" width="376" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tn5-b6-gkW">
-                        <rect key="frame" x="0.0" y="52" width="376" height="22.5"/>
+                        <rect key="frame" x="0.0" y="53" width="376" height="21.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aF-Ec-91m">
-                        <rect key="frame" x="0.0" y="31" width="376" height="18"/>
+                        <rect key="frame" x="0.0" y="32" width="376" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="4aF-Ec-91m" firstAttribute="centerY" secondItem="cTI-61-Nwb" secondAttribute="centerY" id="2sW-06-pzk"/>
                     <constraint firstAttribute="bottom" secondItem="tn5-b6-gkW" secondAttribute="bottom" constant="5" id="4zm-Td-aBH"/>
                     <constraint firstItem="kd0-Bh-kAN" firstAttribute="top" secondItem="cTI-61-Nwb" secondAttribute="top" constant="5" id="QnS-g6-AnH"/>
                     <constraint firstItem="4aF-Ec-91m" firstAttribute="top" secondItem="kd0-Bh-kAN" secondAttribute="bottom" constant="3" id="XOM-M9-UfS"/>

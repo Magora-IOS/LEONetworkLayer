@@ -8,8 +8,8 @@
 
 import Foundation
 
-open class LeoBaseObject: Codable {
-    public var code: LeoCodes
+public struct LeoBaseObject: Codable {
+    public var code: LeoCode
 
     public var success: Bool {
         return code == .success

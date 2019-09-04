@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import UIScrollView_InfiniteScroll
 
 class MainViewController: UIViewController {
 
@@ -49,13 +50,23 @@ class MainViewController: UIViewController {
         self.tableView.register(cellNib, forCellReuseIdentifier: NewsCell.Identifier)
 
         self.loadingIndicator.transform = CGAffineTransform(scaleX: 2, y: 2)
-
+        
         //refresh
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         self.tableView.tableFooterView = UIView(frame: .zero)
         self.tableView.refreshControl = refreshControl
         self.tableView.allowsMultipleSelection = false
+        self.tableView.estimatedRowHeight = 50.0
+        
+        self.tableView.addInfiniteScroll { [weak self] (tableView) -> Void in
+            if let `self` = self {
+                if !self.viewModel.loadMore() {
+                    self.tableView.finishInfiniteScroll()
+                }
+            }
+        }
+        
     }
 
     func setupRx() {
@@ -82,6 +93,7 @@ class MainViewController: UIViewController {
             if case .loading = state {
 
             } else {
+                self.tableView.finishInfiniteScroll()
                 self.tableView.refreshControl?.endRefreshing()
             }
 
@@ -96,7 +108,7 @@ class MainViewController: UIViewController {
 
     }
 
-    private func setupRxCellConfiguration() {
+    private func setupRxCellConfiguration() {                
         data.drive(self.tableView.rx.items(cellIdentifier: NewsCell.Identifier, cellType: NewsCell.self)) { _, viewModel, cell in
             cell.configureWithNews(viewModel)
         }.disposed(by: disposeBag)

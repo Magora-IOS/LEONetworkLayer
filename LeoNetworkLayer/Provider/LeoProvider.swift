@@ -128,14 +128,12 @@ private class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.Targe
 
                     refreshToken.subscribe {
                         [weak self] completable in
-                        
                         let failedResult: Result<Response, MoyaError> = .failure(MoyaError.underlying(LeoProviderError.refreshTokenFailed, nil))
-                        
-                        switch completable {
-                        case .completed:
-                            if let `self` = self {
+                        if let `self` = self {
+                            switch completable {
+                            case .completed:
                                 attemptsLeft -= 1
-                                
+                                    
                                 if attemptsLeft <= 0 {
                                     finalCompletion(failedResult)
                                     self.tokenManager?.clearTokensAndHandleLogout()
@@ -144,10 +142,11 @@ private class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.Targe
                                         finalCompletion(result)
                                     }, attempts: attemptsLeft)
                                 }
-                            } else {
+                            case .error( _):
                                 finalCompletion(failedResult)
+                                self.tokenManager?.clearTokensAndHandleLogout()
                             }
-                        case .error( _):
+                        } else {
                             finalCompletion(failedResult)
                         }
                     }.disposed(by: self.disposeBag)

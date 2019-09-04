@@ -11,7 +11,7 @@ import RxSwift
 
 protocol INewsService {
     func getNews(id: String) -> Single<News>
-    func getNews(cursor: CursorRequestParameters) -> Single<[News]>
+    func getNews(cursor: CursorRequestParameters) -> Single<(news: [News], total: Int?)>
 }
 
 class NewsService: INewsService {
@@ -31,11 +31,11 @@ class NewsService: INewsService {
         })
     }
 
-    func getNews(cursor: CursorRequestParameters) -> Single<[News]> {
+    func getNews(cursor: CursorRequestParameters) -> Single<(news: [News], total: Int?)> {
         return requestMap(LeoArrayRegular<NewsResponse>.self, target: .getNews(cursor: cursor)).flatMap({
             response in
             let items: [NewsDTO] = response.items.map({ $0.news })
-            return Single.just(items.map(News.init))
+            return Single.just((items.map(News.init), response.total))
         })
     }
 

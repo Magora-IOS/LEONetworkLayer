@@ -3,7 +3,7 @@ import enum Result.Result
 import RxSwift
 
 public protocol ILeoResponse {
-    var isNotAuthorized: Bool { get }
+    var leoStatusCode: LeoStatusCode { get }
     func parseSuccess() -> Result<Response, MoyaError>?
     func checkServerError() -> Result<Response, MoyaError>?
     func decodeData<T: Codable>(_ type: T.Type) -> T?
@@ -19,14 +19,15 @@ extension Response: ILeoResponse {
     public func decodeData<T: Codable>(_ type: T.Type) -> T? {
         return try? JSONDecoder().decode(T.self, from: self.data)
     }
-
-    public var isNotAuthorized: Bool {
-        return self.statusCode == 401
+    
+    
+    public var leoStatusCode: LeoStatusCode {
+        return LeoStatusCode.valueFrom(self.statusCode)
     }
-
+    
     public func checkServerError() -> Result<Response, MoyaError>? {
         var result: Result<Response, MoyaError>? = nil
-        if (self.statusCode >= 500) && (self.statusCode <= 599) {
+        if case .internalError = self.leoStatusCode {
             result = .failure(MoyaError.underlying(LeoProviderError.serverError, self))
         }
         return result
@@ -40,7 +41,7 @@ extension Response: ILeoResponse {
             case .success:
                 result = nil
             default:
-                if let baseError = try? self.map(LeoBaseError.self) {
+                if var baseError = try? self.map(LeoBaseError.self) {
                     baseError.configureWithResponse(self)
                     result = .failure(MoyaError.underlying(LeoProviderError.leoBaseError(baseError), self))
                 } else {
@@ -50,18 +51,21 @@ extension Response: ILeoResponse {
         }
 
         if result == nil {
-            if isNotAuthorized {
+            if case .securityError = leoStatusCode {
                 result = .failure(MoyaError.underlying(LeoProviderError.securityError, self))
+            } else {
+                if var leoBaseError = LeoBaseError.from(leoStatusCode) {
+                    leoBaseError.configureWithResponse(self)
+                    result = .failure(MoyaError.underlying(LeoProviderError.leoBaseError(leoBaseError), self))
+                }
             }
         }
         return result
     }
 
     public func parseSuccess() -> Result<Response, MoyaError>? {
-        print(self.statusCode)
         var result: Result<Response, MoyaError>? = nil
-
-        if (self.statusCode >= 200) && (self.statusCode <= 299) {
+         if case .success = leoStatusCode {
             if let baseObject = try? self.map(LeoBaseObject.self) {
                 if baseObject.success {
                     if let json = try? self.mapJSON(failsOnEmptyData: false) as? [String: AnyObject] {

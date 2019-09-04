@@ -21,7 +21,9 @@ extension String {
 
     func html() -> NSMutableAttributedString {
         let data = Data((self).utf8)
-        if let attributedString = try? NSMutableAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+        if let attributedString = try? NSMutableAttributedString(data: data, options: [
+                .documentType: NSAttributedString.DocumentType.html,
+                .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil) {
             return attributedString
         } else {
             return NSMutableAttributedString()
