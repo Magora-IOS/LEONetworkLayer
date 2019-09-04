@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39302C9DBEEABD122C2660D0 /* Pods_LeoExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B8009D1020A280BA16BD127 /* Pods_LeoExample.framework */; };
 		8D4546FB22E1BE45008B7C61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4546FA22E1BE45008B7C61 /* AppDelegate.swift */; };
 		8D45470222E1BE46008B7C61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D45470122E1BE46008B7C61 /* Assets.xcassets */; };
 		8D45470522E1BE46008B7C61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D45470322E1BE46008B7C61 /* LaunchScreen.storyboard */; };
@@ -59,10 +60,11 @@
 		9AEDD4FE22F3EF7300F3AF43 /* AccountServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDD4FD22F3EF7300F3AF43 /* AccountServiceError.swift */; };
 		9AF71DD4231E2CCD00588795 /* SendPhoneRequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF71DD3231E2CCD00588795 /* SendPhoneRequestParameters.swift */; };
 		9AF71DD6231E2DF200588795 /* RefreshTokenRequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF71DD5231E2DF200588795 /* RefreshTokenRequestParameters.swift */; };
-		D3FA823ABD4F5065755B05D2 /* Pods_LeoExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA86ACE68598743A2B5DE35D /* Pods_LeoExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E965B3E2E2F876A9579840D /* Pods-LeoExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeoExample.debug.xcconfig"; path = "Target Support Files/Pods-LeoExample/Pods-LeoExample.debug.xcconfig"; sourceTree = "<group>"; };
+		72B10BF2944D85B60F2413A6 /* Pods-LeoExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeoExample.release.xcconfig"; path = "Target Support Files/Pods-LeoExample/Pods-LeoExample.release.xcconfig"; sourceTree = "<group>"; };
 		8D4546F722E1BE45008B7C61 /* LeoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D4546FA22E1BE45008B7C61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D45470122E1BE46008B7C61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -117,9 +119,7 @@
 		9AEDD4FD22F3EF7300F3AF43 /* AccountServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServiceError.swift; sourceTree = "<group>"; };
 		9AF71DD3231E2CCD00588795 /* SendPhoneRequestParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPhoneRequestParameters.swift; sourceTree = "<group>"; };
 		9AF71DD5231E2DF200588795 /* RefreshTokenRequestParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenRequestParameters.swift; sourceTree = "<group>"; };
-		AA86ACE68598743A2B5DE35D /* Pods_LeoExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeoExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D85DCEE60B7B21D2E3C18FBE /* Pods-LeoExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeoExample.debug.xcconfig"; path = "Target Support Files/Pods-LeoExample/Pods-LeoExample.debug.xcconfig"; sourceTree = "<group>"; };
-		E1F6A7C80BD36405FA09A237 /* Pods-LeoExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeoExample.release.xcconfig"; path = "Target Support Files/Pods-LeoExample/Pods-LeoExample.release.xcconfig"; sourceTree = "<group>"; };
+		9B8009D1020A280BA16BD127 /* Pods_LeoExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeoExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,28 +127,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3FA823ABD4F5065755B05D2 /* Pods_LeoExample.framework in Frameworks */,
+				39302C9DBEEABD122C2660D0 /* Pods_LeoExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		544481367D85AA03512B8EEF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				AA86ACE68598743A2B5DE35D /* Pods_LeoExample.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		8D4546EE22E1BE45008B7C61 = {
 			isa = PBXGroup;
 			children = (
 				8D4546F922E1BE45008B7C61 /* LeoExample */,
 				8D4546F822E1BE45008B7C61 /* Products */,
 				BF8D357137A633E22A9BD93E /* Pods */,
-				544481367D85AA03512B8EEF /* Frameworks */,
+				C3D0CF5F0B6B8B78EA2F51D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -455,10 +447,18 @@
 		BF8D357137A633E22A9BD93E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D85DCEE60B7B21D2E3C18FBE /* Pods-LeoExample.debug.xcconfig */,
-				E1F6A7C80BD36405FA09A237 /* Pods-LeoExample.release.xcconfig */,
+				2E965B3E2E2F876A9579840D /* Pods-LeoExample.debug.xcconfig */,
+				72B10BF2944D85B60F2413A6 /* Pods-LeoExample.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C3D0CF5F0B6B8B78EA2F51D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B8009D1020A280BA16BD127 /* Pods_LeoExample.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,12 +468,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D45470922E1BE46008B7C61 /* Build configuration list for PBXNativeTarget "LeoExample" */;
 			buildPhases = (
-				A9D8F9EA19AF2E7E99913EF1 /* [CP] Check Pods Manifest.lock */,
+				817ACA430AEB92A692CAE1C9 /* [CP] Check Pods Manifest.lock */,
 				9A5E827D22EFF1B80089C626 /* SwiftGen */,
 				8D4546F322E1BE45008B7C61 /* Sources */,
 				8D4546F422E1BE45008B7C61 /* Frameworks */,
 				8D4546F522E1BE45008B7C61 /* Resources */,
-				2AC410281F1DABFC4252A007 /* [CP] Embed Pods Frameworks */,
+				85F73BCCE1F665C87BB67B04 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -537,7 +537,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2AC410281F1DABFC4252A007 /* [CP] Embed Pods Frameworks */ = {
+		817ACA430AEB92A692CAE1C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LeoExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85F73BCCE1F665C87BB67B04 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -571,28 +593,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "$PROJECT_DIR/$PROJECT_NAME/Configuration/SwiftGen.sh\n";
-		};
-		A9D8F9EA19AF2E7E99913EF1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LeoExample-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -779,7 +779,7 @@
 		};
 		8D45470A22E1BE46008B7C61 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D85DCEE60B7B21D2E3C18FBE /* Pods-LeoExample.debug.xcconfig */;
+			baseConfigurationReference = 2E965B3E2E2F876A9579840D /* Pods-LeoExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -799,7 +799,7 @@
 		};
 		8D45470B22E1BE46008B7C61 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E1F6A7C80BD36405FA09A237 /* Pods-LeoExample.release.xcconfig */;
+			baseConfigurationReference = 72B10BF2944D85B60F2413A6 /* Pods-LeoExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

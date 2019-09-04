@@ -15,6 +15,7 @@
 		9A2E5C1122F4480D0073B551 /* LeoBaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E5C1022F4480D0073B551 /* LeoBaseError.swift */; };
 		9A2E5C1322F448580073B551 /* LeoApiCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E5C1222F448580073B551 /* LeoApiCodes.swift */; };
 		9A2E5C1522F4487D0073B551 /* LeoApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E5C1422F4487D0073B551 /* LeoApiError.swift */; };
+		9A5E48CA231FC5DE002D68F6 /* TokenRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E48C9231FC5DE002D68F6 /* TokenRefresher.swift */; };
 		9A5E828722F043810089C626 /* LeoBaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E828622F043810089C626 /* LeoBaseObject.swift */; };
 		9AA92A7C230FA2CD00B64658 /* LeoMockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA92A7B230FA2CD00B64658 /* LeoMockResponse.swift */; };
 		9AA92A7E230FA9C900B64658 /* Encodable+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA92A7D230FA9C900B64658 /* Encodable+Data.swift */; };
@@ -48,6 +49,7 @@
 		9A2E5C1022F4480D0073B551 /* LeoBaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoBaseError.swift; sourceTree = "<group>"; };
 		9A2E5C1222F448580073B551 /* LeoApiCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoApiCodes.swift; sourceTree = "<group>"; };
 		9A2E5C1422F4487D0073B551 /* LeoApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoApiError.swift; sourceTree = "<group>"; };
+		9A5E48C9231FC5DE002D68F6 /* TokenRefresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefresher.swift; sourceTree = "<group>"; };
 		9A5E828622F043810089C626 /* LeoBaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoBaseObject.swift; sourceTree = "<group>"; };
 		9AA92A7B230FA2CD00B64658 /* LeoMockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoMockResponse.swift; sourceTree = "<group>"; };
 		9AA92A7D230FA9C900B64658 /* Encodable+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Data.swift"; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				9AEB976122EEFD600060E6F8 /* LeoProvider.swift */,
+				9A5E48C9231FC5DE002D68F6 /* TokenRefresher.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				9AA92A7C230FA2CD00B64658 /* LeoMockResponse.swift in Sources */,
 				9AEDD4F822F2E44100F3AF43 /* String+Edit.swift in Sources */,
 				9AF71DFC231F5F1C00588795 /* LeoStatusCode.swift in Sources */,
+				9A5E48CA231FC5DE002D68F6 /* TokenRefresher.swift in Sources */,
 				9A5E828722F043810089C626 /* LeoBaseObject.swift in Sources */,
 				9AEB975722EEE7040060E6F8 /* ILeoTokenManager.swift in Sources */,
 				9AEB976622EEFE2B0060E6F8 /* LeoResponse.swift in Sources */,

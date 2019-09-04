@@ -12,13 +12,16 @@ import enum Result.Result
 import Alamofire
 import RxSwift
 
-
 open class LeoProviderFactory<T: TargetType> {
 
-    public func makeProvider(tokenManager: ILeoTokenManager? = nil, mockType: StubBehavior = .never, callbackQueue: DispatchQueue? = nil, plugins: [PluginType] = [], customConfiguration: URLSessionConfiguration?) -> MoyaProvider<T> {
+    public func makeProvider(tokenManager: ILeoTokenManager? = nil, mockType: StubBehavior = .never, consoleLogging: Bool = false, callbackQueue: DispatchQueue? = nil, plugins: [PluginType] = [], customConfiguration: URLSessionConfiguration?) -> MoyaProvider<T> {
 
-        let allPlugins = makeTokenPlugins(tokenManager: tokenManager) + makeLeoPlugins(tokenManager: tokenManager) + plugins
-
+        var allPlugins = makeTokenPlugins(tokenManager: tokenManager) + makeLeoPlugins(tokenManager: tokenManager)
+        if consoleLogging {
+            allPlugins += [NetworkLoggerPlugin()]
+        }
+        allPlugins += plugins
+        
         let sessionManager = makeSessionManager(customConfiguration: customConfiguration)
 
         let provider = LeoProvider<T>(stubClosure: { _ in return mockType }, callbackQueue: callbackQueue, manager: sessionManager, plugins: allPlugins)
@@ -27,11 +30,11 @@ open class LeoProviderFactory<T: TargetType> {
     }
 
 
-    public func makeProvider(tokenManager: ILeoTokenManager? = nil, mockType: StubBehavior = .never, callbackQueue: DispatchQueue? = nil, plugins: [PluginType] = [], timeoutForRequest: TimeInterval = 20.0, timeoutForResponse: TimeInterval = 40.0) -> MoyaProvider<T> {
+    public func makeProvider(tokenManager: ILeoTokenManager? = nil, mockType: StubBehavior = .never, consoleLogging: Bool = false, callbackQueue: DispatchQueue? = nil, plugins: [PluginType] = [], timeoutForRequest: TimeInterval = 20.0, timeoutForResponse: TimeInterval = 40.0) -> MoyaProvider<T> {
 
         let configuration = makeConfiguration(timeoutForRequest: timeoutForRequest, timeoutForResponse: timeoutForResponse)
 
-        return makeProvider(tokenManager: tokenManager, mockType: mockType, callbackQueue: callbackQueue, customConfiguration: configuration)
+        return makeProvider(tokenManager: tokenManager, mockType: mockType, consoleLogging: consoleLogging, callbackQueue: callbackQueue, customConfiguration: configuration)
     }
 
     private func makeTokenPlugins(tokenManager: ILeoTokenManager?) -> [PluginType] {
@@ -75,12 +78,10 @@ open class LeoProviderFactory<T: TargetType> {
     }
 }
 
-
 private class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.TargetType {
 
     var tokenManager: ILeoTokenManager?
-    private var disposeBag = DisposeBag()
-
+    
     override func request(_ target: Target, callbackQueue: DispatchQueue? = .none, progress: ProgressBlock? = .none, completion: @escaping Completion) -> Cancellable {
         if let tokenManer = self.tokenManager {
             var attempts = tokenManer.numberRefreshTokenAttempts
@@ -123,33 +124,33 @@ private class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.Targe
                    let refreshToken = tokenManager.refreshToken(),
                    self.checkAuthorization(target: target),
                    error.securityError {
-
+                    
+                    let failedResult: Result<Response, MoyaError> = .failure(MoyaError.underlying(LeoProviderError.refreshTokenFailed, nil))
+                    
                     var attemptsLeft = attempts
-
-                    refreshToken.subscribe {
-                        [weak self] completable in
-                        let failedResult: Result<Response, MoyaError> = .failure(MoyaError.underlying(LeoProviderError.refreshTokenFailed, nil))
-                        if let `self` = self {
-                            switch completable {
-                            case .completed:
-                                attemptsLeft -= 1
-                                    
-                                if attemptsLeft <= 0 {
-                                    finalCompletion(failedResult)
-                                    self.tokenManager?.clearTokensAndHandleLogout()
-                                } else {
+                    if attemptsLeft <= 0 {
+                        finalCompletion(failedResult)
+                        self.tokenManager?.clearTokensAndHandleLogout()
+                    } else {
+                        TokenRefresher.start(refreshToken: refreshToken) {
+                            [weak self] completable in
+                            
+                            if let `self` = self {
+                                switch completable {
+                                case .completed:
+                                    attemptsLeft -= 1
                                     _ = self.customRequest(target, callbackQueue: callbackQueue, progress: progress, completion: { (result) in
                                         finalCompletion(result)
                                     }, attempts: attemptsLeft)
+                                case .error( _):
+                                    finalCompletion(failedResult)
+                                    self.tokenManager?.clearTokensAndHandleLogout()
                                 }
-                            case .error( _):
+                            } else {
                                 finalCompletion(failedResult)
-                                self.tokenManager?.clearTokensAndHandleLogout()
                             }
-                        } else {
-                            finalCompletion(failedResult)
                         }
-                    }.disposed(by: self.disposeBag)
+                    }
                 } else {
                     completion(result)
                 }
