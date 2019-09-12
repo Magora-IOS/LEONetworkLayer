@@ -7,7 +7,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 
 ## Requirements
-iOS 9
+iOS 10
 
 
 ## Installation
@@ -20,10 +20,9 @@ pod 'LEONetworkLayer'
 ```
 
 ## Author
-
-Magora iOS department
+Yuriy Savitskiy
 
 
 ## License
-MIT License. Copyright (c) 2018 Magora Systems
+MIT License. Copyright (c) 2019 Magora Systems
 

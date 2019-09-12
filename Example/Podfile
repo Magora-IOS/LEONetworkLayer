@@ -1,18 +1,21 @@
-use_frameworks!
-platform :ios, '9.3'
+platform :ios, '10.0'
 
+target 'LeoExample' do
+  use_frameworks!
 
+  # Project maintenance
+  pod 'SwiftGen', '~> 6.1.0'
 
-target 'LEONetworkLayer_Example' do
-  
+  # General
+  pod 'BaseCoordinator', '~> 1.0'
+  pod 'RxCocoa', '~> 4.5.0'
+
+  # Networking
   pod 'LEONetworkLayer', :path => '../'
-  pod 'RxSwift', '~> 4.3.1'
-  pod 'RxCocoa', '~> 4.3.1'
-  pod 'KeychainSwift', '~> 12.0.0'
+
+  # Helpers
+  pod 'KeychainSwift', '~> 16.0'
+
+  # UI
   pod 'UIScrollView-InfiniteScroll', '~> 1.1.0'
-  
-  target 'LEONetworkLayer_Tests' do
-    inherit! :search_paths
-  end
-  
 end

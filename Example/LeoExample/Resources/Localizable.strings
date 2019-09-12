@@ -1,0 +1,47 @@
+
+"Authentication.welcome.message" = "Enter phone";
+"Authentication.code.message" = "Enter sms-code";
+
+"Authetication.registration.title" = "Let's get you setup!";
+"Authetication.registration.message" = "What's your name, email and zip code?";
+
+"Authetication.message.enterName" = "Enter full name";
+"Authetication.message.enterEmail" = "Enter email";
+"Authetication.message.enterZip" = "Enter zip";
+
+"Errors.AccountService.CommonTitle" = "AccountService Error";
+
+"Errors.AccountService.TokenFailed.description" = "Token failed";
+"Errors.AccountService.noAuth.description" = "Authorization error";
+"Errors.AccountService.invalidSmsCode.description" = "Bad sms code, please try again";
+"Errors.AccountService.codeExpired.description" = "Sms code has expired";
+
+"Errors.Unknown.title" = "Unknown error";
+"Errors.Unknown.description" = "";
+
+"Errors.LeoProvider.serverError.title" = "Server error";
+"Errors.LeoProvider.serverError.description" = "Unexpected behaviour for the server";
+
+"Errors.LeoProvider.securityError.title" = "Authentication is required";
+"Errors.LeoProvider.securityError.description" = "The client is not authenticated";
+
+"Errors.LeoProvider.timeoutError.title" = "Timeout error";
+"Errors.LeoProvider.timeoutError.description" = "Looks like the server is taking to long to respond, please try again in sometime";
+
+"Errors.LeoProvider.connectionFailed.title" = "Connection Failed";
+"Errors.LeoProvider.connectionFailed.description" = "Check your connection and try again";
+
+"Errors.LeoProvider.securityError.title" = "Authentication is required";
+"Errors.LeoProvider.securityError.description" = "The client is not authenticated";
+
+"Errors.LeoProvider.badLeoResponse.title" = "NetworkResponse is not valid";
+"Errors.LeoProvider.badLeoResponse.description" = "Could not parse leo response";
+
+"Errors.Moya.parsing.title" = "NetworkResponse is not valid";
+"Errors.Moya.parsing.description" = "Could not parse json";
+
+
+
+
+"News.Title" = "The news";
+"DetailedNews.Title" = "The detailed news";
