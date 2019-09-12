@@ -40,7 +40,7 @@ class NewsService: INewsService {
     }
 
     func getNews(id: String) -> Single<News> {
-        return requestMap(NewsResponse.self, target: .getOneNews(id))
+        return requestMap(NewsResponse.self, target: .getOneNews(id: id))
                 .map({ News($0.news) })
     }
 }

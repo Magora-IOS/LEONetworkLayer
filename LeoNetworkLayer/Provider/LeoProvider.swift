@@ -119,40 +119,43 @@ private class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.Targe
             case .success:
                 completion(result)
             case .failure(let error):
-                if let `self` = self,
-                   let tokenManager = self.tokenManager,
-                   let refreshToken = tokenManager.refreshToken(),
-                   self.checkAuthorization(target: target),
-                   error.securityError {
-                    
-                    let failedResult: Result<Response, MoyaError> = .failure(MoyaError.underlying(LeoProviderError.refreshTokenFailed, nil))
-                    
-                    var attemptsLeft = attempts
-                    if attemptsLeft <= 0 {
-                        finalCompletion(failedResult)
-                        self.tokenManager?.clearTokensAndHandleLogout()
-                    } else {
-                        TokenRefresher.start(refreshToken: refreshToken) {
-                            [weak self] completable in
-                            
-                            if let `self` = self {
-                                switch completable {
-                                case .completed:
-                                    attemptsLeft -= 1
-                                    _ = self.customRequest(target, callbackQueue: callbackQueue, progress: progress, completion: { (result) in
-                                        finalCompletion(result)
-                                    }, attempts: attemptsLeft)
-                                case .error( _):
-                                    finalCompletion(failedResult)
-                                    self.tokenManager?.clearTokensAndHandleLogout()
-                                }
-                            } else {
+                
+                guard
+                    let `self` = self,
+                    let tokenManager = self.tokenManager,
+                    self.checkAuthorization(target: target),
+                    error.securityError else {
+                        completion(result)
+                    return
+                }
+                
+                let failedResult: Result<Response, MoyaError> = .failure(MoyaError.underlying(LeoProviderError.refreshTokenFailed, nil))
+                
+                var attemptsLeft = attempts
+                let getNewTokens = tokenManager.getNewTokens()
+                
+                if (attemptsLeft <= 0) || (getNewTokens == nil) {
+                    finalCompletion(failedResult)
+                    self.tokenManager?.clearTokensAndHandleLogout()
+                } else {
+                    TokenRefresher.start(getNewTokens: getNewTokens!) {
+                        [weak self] completable in
+                        
+                        if let `self` = self {
+                            switch completable {
+                            case .completed:
+                                attemptsLeft -= 1
+                                _ = self.customRequest(target, callbackQueue: callbackQueue, progress: progress, completion: { (result) in
+                                    finalCompletion(result)
+                                }, attempts: attemptsLeft)
+                            case .error( _):
                                 finalCompletion(failedResult)
+                                self.tokenManager?.clearTokensAndHandleLogout()
                             }
+                        } else {
+                            finalCompletion(failedResult)
                         }
                     }
-                } else {
-                    completion(result)
                 }
             }
         })

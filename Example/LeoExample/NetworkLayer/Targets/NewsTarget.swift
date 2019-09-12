@@ -10,7 +10,7 @@ import LEONetworkLayer
 import Moya
 
 enum NewsTarget {
-    case getOneNews(String)
+    case getOneNews(id: String)
     case getNews(cursor: CursorRequestParameters)
 }
 

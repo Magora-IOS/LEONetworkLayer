@@ -48,7 +48,8 @@ class AccountService: IAccountService {
     }
 
     func sendPhone(phone: String) -> Single<AccountStatus> {
-        return requestMap(AccountStatus.self, target: .sendPhone(phone: phone))
+        var parameters = SendPhoneRequestParameters(phone: phone)
+        return requestMap(AccountStatus.self, target: .sendPhone(parameters))
     }
 
     func signIn(phone: String, code: String) -> Single<SignInResponse> {
@@ -57,7 +58,7 @@ class AccountService: IAccountService {
         request.code = code
         request.meta.deviceID = self.accountStorage.deviceID
 
-        return accountProvider.rx.request(.login(login: request)).flatMap({
+        return accountProvider.rx.request(.login(request)).flatMap({
             response in
             if let tokens = try? response.map(LeoToken.self) {
                 self.accountStorage.accessToken = tokens.accessToken
@@ -131,9 +132,11 @@ extension AccountService: ILeoTokenManager {
         return (accountStorage.accessToken ?? "")
     }
 
-    func refreshToken() -> Completable? {
+    func getNewTokens() -> Completable? {         
         if let token = accountStorage.refreshToken {
-            return accountProvider.rx.request(.refreshToken(refreshToken: token))
+            let requestParameters = RefreshTokenRequestParameters(refreshToken: token)
+            
+            return accountProvider.rx.request(.refreshToken(requestParameters))
                 .do(onSuccess: { [weak self] response in
                     if let tokens = try? response.map(LeoToken.self) {
                         self?.accountStorage.accessToken = tokens.accessToken

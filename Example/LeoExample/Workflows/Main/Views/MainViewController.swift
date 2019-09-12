@@ -71,7 +71,7 @@ class MainViewController: UIViewController {
 
     func setupRx() {
         self.setupRxCellConfiguration()
-
+        
         self.exitButton.rx.tap.bind { [unowned self] _ in
                     self.viewModel.exit()
                 }

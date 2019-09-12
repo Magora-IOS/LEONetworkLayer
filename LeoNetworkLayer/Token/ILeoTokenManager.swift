@@ -8,10 +8,11 @@ public protocol ILeoTokenManager {
     func getAccessToken() -> String
 
     /**
-     Updates refresh token
+     Get and update access and refresh tokens.
+     If result is nil, clearTokensAndHandleLogout() is called
      */
-    func refreshToken() -> Completable?
-
+    func getNewTokens() -> Completable?
+    
     /**
      Number of refresh token attemts (min - 0, max - 10)
      After exhausting the number of attempts, clearTokensAndHandleLogout() will be called

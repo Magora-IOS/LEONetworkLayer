@@ -3,9 +3,9 @@ import LEONetworkLayer
 import Moya
 
 enum AuthentificationTarget {
-    case sendPhone(phone: String)
-    case login(login: TokenRequestParameters)
-    case refreshToken(refreshToken: String)
+    case sendPhone(_ phone: SendPhoneRequestParameters)
+    case login(_ login: TokenRequestParameters)
+    case refreshToken(_ refreshToken: RefreshTokenRequestParameters)
     case register(data: UserRegistrationInfoDTO)
 }
 
@@ -35,11 +35,11 @@ extension AuthentificationTarget: ILeoTargetType {
     var task: Task {
         switch self {
         case .sendPhone(let phone):
-            return .requestJSONEncodable(SendPhoneRequestParameters(phone: phone))
+            return .requestJSONEncodable(phone)
         case .login(let loginData):
             return .requestJSONEncodable(loginData)
         case .refreshToken(let refreshToken):
-            return .requestJSONEncodable(RefreshTokenRequestParameters(refreshToken: refreshToken))
+            return .requestJSONEncodable(refreshToken)
         case .register(let data):
             return .requestJSONEncodable(data)
         }
