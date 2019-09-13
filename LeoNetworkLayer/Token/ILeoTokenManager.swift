@@ -9,7 +9,7 @@ public protocol ILeoTokenManager {
 
     /**
      Get and update access and refresh tokens.
-     If result is nil, clearTokensAndHandleLogout() is called
+     If result is nil, refresh token is disabled, in case authorization error occurs clearTokensAndHandleLogout() is called
      */
     func getNewTokens() -> Completable?
     
