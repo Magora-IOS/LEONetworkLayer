@@ -67,10 +67,7 @@ class NewsViewModel {
     
     func refresh() {
        self.currentPage = 1
-       self.loadData(page: self.currentPage)
-        self.loadData(page: 2)
-        self.loadData(page: 3)
-        
+       self.loadData(page: self.currentPage)        
     }
     
     private func loadData(page: Int) {

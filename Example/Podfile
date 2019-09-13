@@ -11,7 +11,8 @@ target 'LeoExample' do
   pod 'RxCocoa', '~> 4.5.0'
 
   # Networking
-  pod 'LEONetworkLayer', :path => '../'
+  pod 'LEONetworkLayer', '~> 1.0.0'
+# pod 'LEONetworkLayer', :path => '../' 
 
   # Helpers
   pod 'KeychainSwift', '~> 16.0'
