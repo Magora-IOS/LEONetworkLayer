@@ -19,7 +19,7 @@ it, simply add the following line to your Podfile:
 pod 'LEONetworkLayer', '~> 1.0.1'
 ```
 
-### Moya version vs Swift version.
+### LeoNetwork version vs RxSwift version.
 
 Below is a table that shows which version of LeoNetwork you should use for
 your RxSwift version.
