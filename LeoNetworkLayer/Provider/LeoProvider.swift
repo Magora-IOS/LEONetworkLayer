@@ -8,7 +8,6 @@
 
 import Foundation
 import Moya
-import enum Result.Result
 import Alamofire
 import RxSwift
 
@@ -22,9 +21,9 @@ open class LeoProviderFactory<T: TargetType> {
         }
         allPlugins += plugins
         
-        let sessionManager = makeSessionManager(customConfiguration: customConfiguration)
-
-        let provider = LeoProvider<T>(stubClosure: { _ in return mockType }, callbackQueue: callbackQueue, manager: sessionManager, plugins: allPlugins)
+        let session = makeSession(customConfiguration: customConfiguration)
+        
+        let provider = LeoProvider<T>(stubClosure: { _ in return mockType }, callbackQueue: callbackQueue, session: session, plugins: allPlugins)
         provider.tokenManager = tokenManager
         return provider
     }
@@ -54,24 +53,21 @@ open class LeoProviderFactory<T: TargetType> {
     private func makeConfiguration(timeoutForRequest: TimeInterval = 20.0, timeoutForResponse: TimeInterval = 40.0) -> URLSessionConfiguration {
         let configuration: URLSessionConfiguration
         configuration = URLSessionConfiguration.default
-        configuration.httpAdditionalHeaders = Manager.defaultHTTPHeaders
+        configuration.headers = HTTPHeaders.default
         configuration.timeoutIntervalForRequest = timeoutForRequest
         configuration.timeoutIntervalForResource = timeoutForResponse
         configuration.requestCachePolicy = .useProtocolCachePolicy
         return configuration
     }
 
-    private func makeSessionManager(customConfiguration: URLSessionConfiguration?) -> SessionManager {
-        var sessionManager: Manager
-
+    private func makeSession(customConfiguration: URLSessionConfiguration?) -> Session {
+        var session: Session
         if let configuration = customConfiguration {
-            sessionManager = Manager(configuration: configuration)
-            sessionManager.startRequestsImmediately = false
+            session = Session(configuration: configuration)
         } else {
-            sessionManager = MoyaProvider<T>.defaultAlamofireManager()
+            session = MoyaProvider<T>.defaultAlamofireSession()
         }
-
-        return sessionManager
+        return session
     }
 
     public init() {

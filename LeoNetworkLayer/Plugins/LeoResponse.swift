@@ -1,5 +1,4 @@
 import Moya
-import enum Result.Result
 import RxSwift
 
 public protocol ILeoResponse {
