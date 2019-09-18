@@ -7,7 +7,6 @@
 //
 
 import Moya
-import enum Result.Result
 
 open class LeoPlugin: PluginType {
     private var tokenManager: ILeoTokenManager?

@@ -8,12 +8,22 @@
 
 import Foundation
 import Moya
+import Alamofire
 
 extension MoyaError {
 
     func leoConverter() -> MoyaError {
         if case MoyaError.underlying(let error, let response) = self {
-            if let error = error as? URLError {
+            
+            var currentError = error
+            
+            if let error = error as? Alamofire.AFError {
+                if let underlyingError = error.underlyingError {
+                    currentError = underlyingError
+                }
+            }
+            
+            if let error = currentError as? URLError {
                 let code = URLError.Code(rawValue: error.errorCode)
                 switch code {
                 case URLError.Code.timedOut:

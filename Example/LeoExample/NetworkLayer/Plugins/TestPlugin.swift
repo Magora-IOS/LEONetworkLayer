@@ -14,7 +14,6 @@
 //
 
 import Moya
-import enum Result.Result
 
 final class TestPlugin: PluginType {
     var request: (RequestType, TargetType)?
