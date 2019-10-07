@@ -1,3 +1,11 @@
+//
+//  Constants.swift
+//  LeoExample
+//
+//  Created by Yuriy Savitskiy on 9/12/19.
+//  Copyright © 2019 Yuriy Savitskiy. All rights reserved.
+//
+
 import Foundation
 
 struct Constants {

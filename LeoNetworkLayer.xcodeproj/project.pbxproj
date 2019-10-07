@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B680F9D02047677B0BB4E29 /* libPods-LeoNetworkLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F3CEEE75507E5594B33D55 /* libPods-LeoNetworkLayer.a */; };
 		8D45464D22E1A370008B7C61 /* LeoNetworkLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D45464B22E1A370008B7C61 /* LeoNetworkLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A0D316622F2C8A3006894E0 /* LeoLocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D316522F2C8A3006894E0 /* LeoLocalizedError.swift */; };
 		9A0D316A22F2CC67006894E0 /* LeoProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D316922F2CC67006894E0 /* LeoProviderError.swift */; };
@@ -34,12 +33,12 @@
 		9AEDD4F822F2E44100F3AF43 /* String+Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDD4F722F2E44100F3AF43 /* String+Edit.swift */; };
 		9AF71DDC231E480A00588795 /* LeoToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF71DDB231E480900588795 /* LeoToken.swift */; };
 		9AF71DFC231F5F1C00588795 /* LeoStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF71DFB231F5F1C00588795 /* LeoStatusCode.swift */; };
+		B0CC591351593EB6F898646B /* libPods-LeoNetworkLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C0C38FF3D0FE8A9B23CB66A /* libPods-LeoNetworkLayer.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		065325786F16A2640399BED0 /* Pods-LeoNetworkLayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeoNetworkLayer.debug.xcconfig"; path = "Target Support Files/Pods-LeoNetworkLayer/Pods-LeoNetworkLayer.debug.xcconfig"; sourceTree = "<group>"; };
-		35F3CEEE75507E5594B33D55 /* libPods-LeoNetworkLayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LeoNetworkLayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		397DBB7716F0652C982F1AC4 /* Pods-LeoNetworkLayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeoNetworkLayer.release.xcconfig"; path = "Target Support Files/Pods-LeoNetworkLayer/Pods-LeoNetworkLayer.release.xcconfig"; sourceTree = "<group>"; };
+		2BEFBECA06680AC12B5B7E09 /* Pods-LeoNetworkLayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeoNetworkLayer.release.xcconfig"; path = "Target Support Files/Pods-LeoNetworkLayer/Pods-LeoNetworkLayer.release.xcconfig"; sourceTree = "<group>"; };
+		6C0C38FF3D0FE8A9B23CB66A /* libPods-LeoNetworkLayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LeoNetworkLayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D45464822E1A370008B7C61 /* LeoNetworkLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LeoNetworkLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D45464B22E1A370008B7C61 /* LeoNetworkLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeoNetworkLayer.h; sourceTree = "<group>"; };
 		8D45464C22E1A370008B7C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,6 +67,7 @@
 		9AEDD4F722F2E44100F3AF43 /* String+Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Edit.swift"; sourceTree = "<group>"; };
 		9AF71DDB231E480900588795 /* LeoToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoToken.swift; sourceTree = "<group>"; };
 		9AF71DFB231F5F1C00588795 /* LeoStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoStatusCode.swift; sourceTree = "<group>"; };
+		C5DEDE0B4EE2B82B4F0ACC4F /* Pods-LeoNetworkLayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeoNetworkLayer.debug.xcconfig"; path = "Target Support Files/Pods-LeoNetworkLayer/Pods-LeoNetworkLayer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,20 +75,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B680F9D02047677B0BB4E29 /* libPods-LeoNetworkLayer.a in Frameworks */,
+				B0CC591351593EB6F898646B /* libPods-LeoNetworkLayer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6109156E144DA18929AB14B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C0C38FF3D0FE8A9B23CB66A /* libPods-LeoNetworkLayer.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8D45463E22E1A370008B7C61 = {
 			isa = PBXGroup;
 			children = (
 				8D45464A22E1A370008B7C61 /* LeoNetworkLayer */,
 				8D45464922E1A370008B7C61 /* Products */,
 				E8C131196A6777CB6AE48CA0 /* Pods */,
-				BB6D4FD90F02A45AABFB9599 /* Frameworks */,
+				6109156E144DA18929AB14B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,19 +214,11 @@
 			path = Extenisions;
 			sourceTree = "<group>";
 		};
-		BB6D4FD90F02A45AABFB9599 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				35F3CEEE75507E5594B33D55 /* libPods-LeoNetworkLayer.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		E8C131196A6777CB6AE48CA0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				065325786F16A2640399BED0 /* Pods-LeoNetworkLayer.debug.xcconfig */,
-				397DBB7716F0652C982F1AC4 /* Pods-LeoNetworkLayer.release.xcconfig */,
+				C5DEDE0B4EE2B82B4F0ACC4F /* Pods-LeoNetworkLayer.debug.xcconfig */,
+				2BEFBECA06680AC12B5B7E09 /* Pods-LeoNetworkLayer.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -241,7 +241,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D45465022E1A370008B7C61 /* Build configuration list for PBXNativeTarget "LeoNetworkLayer" */;
 			buildPhases = (
-				B91D5E55858FAD9263BFAC11 /* [CP] Check Pods Manifest.lock */,
+				24C64C60871C53D4570531C1 /* [CP] Check Pods Manifest.lock */,
 				8D45464322E1A370008B7C61 /* Headers */,
 				8D45464422E1A370008B7C61 /* Sources */,
 				8D45464522E1A370008B7C61 /* Frameworks */,
@@ -299,7 +299,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B91D5E55858FAD9263BFAC11 /* [CP] Check Pods Manifest.lock */ = {
+		24C64C60871C53D4570531C1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -483,7 +483,7 @@
 		};
 		8D45465122E1A370008B7C61 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 065325786F16A2640399BED0 /* Pods-LeoNetworkLayer.debug.xcconfig */;
+			baseConfigurationReference = C5DEDE0B4EE2B82B4F0ACC4F /* Pods-LeoNetworkLayer.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -512,7 +512,7 @@
 		};
 		8D45465222E1A370008B7C61 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 397DBB7716F0652C982F1AC4 /* Pods-LeoNetworkLayer.release.xcconfig */;
+			baseConfigurationReference = 2BEFBECA06680AC12B5B7E09 /* Pods-LeoNetworkLayer.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";

@@ -120,7 +120,7 @@ private class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.Targe
                     let `self` = self,
                     let tokenManager = self.tokenManager,
                     self.checkAuthorization(target: target),
-                    error.securityError else {
+                    error.isAccessTokenSecurityError else {
                         completion(result)
                     return
                 }

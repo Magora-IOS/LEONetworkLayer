@@ -47,10 +47,10 @@ extension AuthentificationTarget: ILeoTargetType {
 
     var authorizationType: AuthorizationType {
         switch self {
-        case .register:
-            return self.defaultLeoAuthorization
-        default:
+        case .sendPhone, .login, .refreshToken:
             return .none
+        default:
+            return self.defaultLeoAuthorization
         }
     }
 

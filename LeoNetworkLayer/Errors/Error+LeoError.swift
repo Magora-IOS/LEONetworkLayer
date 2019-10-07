@@ -43,22 +43,25 @@ public extension Error {
 }
 
 internal extension Error {
-    var securityError: Bool {
-        var result = false
-
+    var isAccessTokenSecurityError: Bool {
         if let providerError = self.leoError as? LeoProviderError {
             if case .securityError = providerError {
-                result = true
+                return true
             }
         }
 
-        if let error = self.baseLeoError {
-            if case .securityError = error.code {
-                result = true
-            }
+        if  let error = self.baseLeoError,
+            case .securityError = error.code,
+            let baseLeoError = error.baseLeoError,
+            let apiErrors = baseLeoError.errors {
+                for apiError in apiErrors {
+                    if apiError.code.isAccessTokenError {
+                        return true
+                    }
+                }
         }
-
-        return result
+        
+        return false
     }
 }
 

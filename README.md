@@ -29,6 +29,9 @@ your RxSwift version.
 | 1.0.1      | 5.X   | 5.X     | >= 14.0.0     | >= 14.0.0       |
 | 1.0.2      | 5.X   | 4.0-4.5 | 13.0.0-13.0.1 | 13.0.0-13.0.1   |
 
+## Author
+Yuriy Savitskiy
+
 ## License
 MIT License. Copyright (c) 2019 Magora Systems
 

@@ -39,4 +39,16 @@ public enum LeoApiCodes: String, Codable {
             self = .unknown
         }
     }
+    
+    public var isAccessTokenError: Bool {
+        if case .accessTokenInvalid = self {
+            return true
+        }
+        
+        if case .accessTokenExpired = self {
+            return true
+        }
+                
+        return false
+    }
 }

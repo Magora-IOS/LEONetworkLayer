@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/Magora-IOS/LEONetworkLayer.git', :tag => s.version.to_s }
   s.ios.deployment_target = '10.0'
 
-  s.dependency 'Moya/RxSwift', '~> 14.0.0-beta.2'
+  s.dependency 'Moya/RxSwift', '~> 14.0.0-beta.3'
 
   s.source_files = 'LeoNetworkLayer/**/*.{swift}'  
   s.swift_version = "5.0"
