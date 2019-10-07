@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'LEONetworkLayer'
-  s.version          = '1.0.1' 
+  s.version          = '1.0.2' 
   s.summary          = "Network layer for iOS apps with Magora\'s Leopold protocol"
   s.homepage         = 'https://github.com/Magora-IOS/LEONetworkLayer'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }

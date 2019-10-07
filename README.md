@@ -24,10 +24,10 @@ pod 'LEONetworkLayer', '~> 1.0.2'
 Below is a table that shows which version of LeoNetwork you should use for
 your RxSwift version.
 
-| LeoNetwork | Swift | RxSwift | Moya          | RxMoya          |
-| ---------- | ----- | ------- | ------------- |---------------- |
-| 1.0.2      | 5.X   | 5.X     | >= 14.0.0     | >= 14.0.0       |
-| 1.0.0      | 5.X   | 4.0-4.5 | 13.0.0-13.0.1 | 13.0.0-13.0.1   |
+| LeoNetwork  | Swift | RxSwift | Moya          | RxMoya          |
+| ----------- | ----- | ------- | ------------- |---------------- |
+| 1.0.1-1.0.2 | 5.X   | 5.X     | >= 14.0.0     | >= 14.0.0       |
+| 1.0.0       | 5.X   | 4.0-4.5 | 13.0.0-13.0.1 | 13.0.0-13.0.1   |
 
 ## Author
 Yuriy Savitskiy
