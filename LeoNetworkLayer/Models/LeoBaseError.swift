@@ -14,6 +14,7 @@ public struct LeoBaseError: ILeoError, Decodable {
     public let rawCode: String
     public let message: String?
     public let errors: [LeoApiError]?
+    public var leoStatusCode: LeoStatusCode?
     public var statusCode: Int?
     public var request: URLRequest?
     public var response: URLResponse?
@@ -52,6 +53,7 @@ public struct LeoBaseError: ILeoError, Decodable {
     
     mutating public func configureWithResponse(_ moyaResponse: Moya.Response) {
         self.statusCode = moyaResponse.statusCode
+        self.leoStatusCode = moyaResponse.leoStatusCode
         self.request = moyaResponse.request
         self.response = moyaResponse.response
     }

@@ -50,10 +50,10 @@ internal extension Error {
             }
         }
 
-        if  let error = self.baseLeoError,
-            case .securityError = error.code,
-            let baseLeoError = error.baseLeoError,
-            let apiErrors = baseLeoError.errors {
+        if  let baseError = self.baseLeoError,
+            case .securityError = baseError.leoStatusCode,
+            case .securityError = baseError.code,
+            let apiErrors = baseError.errors {
                 for apiError in apiErrors {
                     if apiError.code.isAccessTokenError {
                         return true
