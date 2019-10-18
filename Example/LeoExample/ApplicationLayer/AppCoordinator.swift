@@ -79,7 +79,7 @@ class AppCoordinator: BaseCoordinator {
         self.addDependency(coordinator)
 
         coordinator.completionHandler = { [weak self] in
-            self?.removeDependency(self?.authenticationCoordinator)
+            self?.removeDependency(self?.registrationCoordinator)
             self?.registrationCoordinator = nil
             self?.chooseFlow()
         }
