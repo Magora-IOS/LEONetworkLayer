@@ -37,7 +37,6 @@
 		9AA92A9D2313DEF600B64658 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA92A9C2313DEF600B64658 /* Date+Format.swift */; };
 		9AA92A9F2313E45F00B64658 /* String+Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA92A9E2313E45F00B64658 /* String+Edit.swift */; };
 		9AA92AA12313FB5E00B64658 /* LeoApiError+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA92AA02313FB5E00B64658 /* LeoApiError+Localization.swift */; };
-		9AD2377B5038BF018B4C4735 /* Pods_LeoExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F359FAD9042DBE02687E2E6 /* Pods_LeoExample.framework */; };
 		9AE179AB22F1B811006DECBD /* LeoProviderError+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE179AA22F1B811006DECBD /* LeoProviderError+Localization.swift */; };
 		9AEB96E122E9906A0060E6F8 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB96E022E9906A0060E6F8 /* AccountService.swift */; };
 		9AEB96E622E990750060E6F8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB96E322E990750060E6F8 /* AppCoordinator.swift */; };
@@ -61,11 +60,13 @@
 		9AEDD4FE22F3EF7300F3AF43 /* AccountServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDD4FD22F3EF7300F3AF43 /* AccountServiceError.swift */; };
 		9AF71DD4231E2CCD00588795 /* SendPhoneRequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF71DD3231E2CCD00588795 /* SendPhoneRequestParameters.swift */; };
 		9AF71DD6231E2DF200588795 /* RefreshTokenRequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF71DD5231E2DF200588795 /* RefreshTokenRequestParameters.swift */; };
+		A529A5D92328E9B1A4988803 /* Pods_LeoExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C610F4568633C016FC97DD6 /* Pods_LeoExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5F359FAD9042DBE02687E2E6 /* Pods_LeoExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeoExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6822FDB81E9DD19ECF4E00A7 /* Pods-LeoExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeoExample.debug.xcconfig"; path = "Target Support Files/Pods-LeoExample/Pods-LeoExample.debug.xcconfig"; sourceTree = "<group>"; };
+		1AC240E857A24D3E59CB5A42 /* Pods-LeoExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeoExample.debug.xcconfig"; path = "Target Support Files/Pods-LeoExample/Pods-LeoExample.debug.xcconfig"; sourceTree = "<group>"; };
+		1C610F4568633C016FC97DD6 /* Pods_LeoExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeoExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CE46035B3C690D796B71A9F /* Pods-LeoExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeoExample.release.xcconfig"; path = "Target Support Files/Pods-LeoExample/Pods-LeoExample.release.xcconfig"; sourceTree = "<group>"; };
 		8D4546F722E1BE45008B7C61 /* LeoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D4546FA22E1BE45008B7C61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D45470122E1BE46008B7C61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,7 +122,6 @@
 		9AEDD4FD22F3EF7300F3AF43 /* AccountServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServiceError.swift; sourceTree = "<group>"; };
 		9AF71DD3231E2CCD00588795 /* SendPhoneRequestParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPhoneRequestParameters.swift; sourceTree = "<group>"; };
 		9AF71DD5231E2DF200588795 /* RefreshTokenRequestParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenRequestParameters.swift; sourceTree = "<group>"; };
-		A781C66FEFFB248CB7FD20E6 /* Pods-LeoExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeoExample.release.xcconfig"; path = "Target Support Files/Pods-LeoExample/Pods-LeoExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,17 +129,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AD2377B5038BF018B4C4735 /* Pods_LeoExample.framework in Frameworks */,
+				A529A5D92328E9B1A4988803 /* Pods_LeoExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7755DBA92025DE0EA6E94848 /* Frameworks */ = {
+		1E06E5E0E0B71088BD97D227 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5F359FAD9042DBE02687E2E6 /* Pods_LeoExample.framework */,
+				1C610F4568633C016FC97DD6 /* Pods_LeoExample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -150,7 +150,7 @@
 				8D4546F922E1BE45008B7C61 /* LeoExample */,
 				8D4546F822E1BE45008B7C61 /* Products */,
 				BF8D357137A633E22A9BD93E /* Pods */,
-				7755DBA92025DE0EA6E94848 /* Frameworks */,
+				1E06E5E0E0B71088BD97D227 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -458,8 +458,8 @@
 		BF8D357137A633E22A9BD93E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6822FDB81E9DD19ECF4E00A7 /* Pods-LeoExample.debug.xcconfig */,
-				A781C66FEFFB248CB7FD20E6 /* Pods-LeoExample.release.xcconfig */,
+				1AC240E857A24D3E59CB5A42 /* Pods-LeoExample.debug.xcconfig */,
+				3CE46035B3C690D796B71A9F /* Pods-LeoExample.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -471,12 +471,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D45470922E1BE46008B7C61 /* Build configuration list for PBXNativeTarget "LeoExample" */;
 			buildPhases = (
-				80EB88AAA19C841B1F093526 /* [CP] Check Pods Manifest.lock */,
+				45C2DA850A6F724551171B9D /* [CP] Check Pods Manifest.lock */,
 				9A5E827D22EFF1B80089C626 /* SwiftGen */,
 				8D4546F322E1BE45008B7C61 /* Sources */,
 				8D4546F422E1BE45008B7C61 /* Frameworks */,
 				8D4546F522E1BE45008B7C61 /* Resources */,
-				21486C8A6BD788984F4941DD /* [CP] Embed Pods Frameworks */,
+				AD3EA502C307571BD755B02B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -540,24 +540,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		21486C8A6BD788984F4941DD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LeoExample/Pods-LeoExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LeoExample/Pods-LeoExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LeoExample/Pods-LeoExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		80EB88AAA19C841B1F093526 /* [CP] Check Pods Manifest.lock */ = {
+		45C2DA850A6F724551171B9D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -596,6 +579,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "$PROJECT_DIR/$PROJECT_NAME/Configuration/SwiftGen.sh\n";
+		};
+		AD3EA502C307571BD755B02B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LeoExample/Pods-LeoExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LeoExample/Pods-LeoExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LeoExample/Pods-LeoExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -716,7 +716,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -771,7 +771,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -783,11 +783,12 @@
 		};
 		8D45470A22E1BE46008B7C61 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6822FDB81E9DD19ECF4E00A7 /* Pods-LeoExample.debug.xcconfig */;
+			baseConfigurationReference = 1AC240E857A24D3E59CB5A42 /* Pods-LeoExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 65B5B68C2U;
+				DEVELOPMENT_TEAM = JJB939GN4H;
 				INFOPLIST_FILE = LeoExample/Configuration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -796,6 +797,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.magora-team.LeoExample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -803,11 +805,12 @@
 		};
 		8D45470B22E1BE46008B7C61 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A781C66FEFFB248CB7FD20E6 /* Pods-LeoExample.release.xcconfig */;
+			baseConfigurationReference = 3CE46035B3C690D796B71A9F /* Pods-LeoExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 65B5B68C2U;
+				DEVELOPMENT_TEAM = JJB939GN4H;
 				INFOPLIST_FILE = LeoExample/Configuration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -816,6 +819,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.magora-team.LeoExample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

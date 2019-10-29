@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class LeoArray<T>: Codable where T: Codable {
+open class LeoArray<T>: Decodable where T: Decodable {
     public var items: [T] = []
 
     private enum CodingKeys: String, CodingKey {

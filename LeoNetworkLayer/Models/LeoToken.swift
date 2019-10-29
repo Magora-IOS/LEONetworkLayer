@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct LeoToken: Codable {
+public struct LeoToken: Decodable {
     public let accessToken: String
     public let refreshToken: String
     public let accessTokenExpire: Date?
@@ -29,12 +29,5 @@ public struct LeoToken: Codable {
         } else {
             self.accessTokenExpire = nil
         }
-    }
-     
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(self.accessToken, forKey: .accessToken)
-        try container.encode(self.refreshToken, forKey: .refreshToken)
-        try? container.encode(self.accessTokenExpire?.iso8601(withFormat: .dateTimeUtc0ms) ?? "", forKey: .accessTokenExpire)
     }
 }

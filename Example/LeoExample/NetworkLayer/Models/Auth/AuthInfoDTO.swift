@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct AuthInfoDTO: Codable {
+struct AuthInfoDTO: Decodable {
     let displayName: String?
     let userId: String
 }

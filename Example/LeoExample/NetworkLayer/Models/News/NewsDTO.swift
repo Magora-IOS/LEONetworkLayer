@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NewsDTO: Codable {
+class NewsDTO: Decodable {
     let id: String
     var title: String
     var description: String?

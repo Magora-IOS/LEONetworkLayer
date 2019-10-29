@@ -7,12 +7,12 @@ target 'LeoExample' do
   pod 'SwiftGen', '~> 6.1.0'
 
   # General
-  pod 'BaseCoordinator', '~> 1.0'
+  pod 'BaseCoordinator', '~> 1.0.1'
   pod 'RxCocoa', '~> 5.0.0'
 
   # Networking
-  pod 'LEONetworkLayer', '~> 1.0.3'
-  #pod 'LEONetworkLayer', :path => '../' 
+  #pod 'LEONetworkLayer', '~> 1.0.4'
+  pod 'LEONetworkLayer', :path => '../' 
 
   # Helpers
   pod 'KeychainSwift', '~> 16.0'

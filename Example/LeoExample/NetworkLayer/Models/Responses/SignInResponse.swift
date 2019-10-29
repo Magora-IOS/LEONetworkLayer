@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct SignInResponse: Codable {
+struct SignInResponse: Decodable {
     let authInfo: AuthInfoDTO
 }

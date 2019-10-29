@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SendPhoneRequestParameters: Codable {
+struct SendPhoneRequestParameters: Encodable {
     let phone: String
     
     init(phone: String) {

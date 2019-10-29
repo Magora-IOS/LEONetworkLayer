@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class LeoArrayRegular<T>: LeoArray<T> where T: Codable {
+open class LeoArrayRegular<T>: LeoArray<T> where T: Decodable {
     public var page: Int = 0
     public var pageSize: Int = 0
     public var total: Int?
@@ -25,14 +25,6 @@ open class LeoArrayRegular<T>: LeoArray<T> where T: Codable {
         self.pageSize = try container.decode(Int.self, forKey: .pageSize)
         self.total = try? container.decode(Int.self, forKey: .total)
         try super.init(from: decoder)
-    }
-    
-    open override func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(self.page, forKey: .page)
-        try container.encode(self.pageSize, forKey: .pageSize)
-        try? container.encode(self.total, forKey: .total)
-        try super.encode(to: container.superEncoder())
     }
 }
 

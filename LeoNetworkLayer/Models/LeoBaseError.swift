@@ -43,13 +43,6 @@ public struct LeoBaseError: ILeoError, Decodable {
         self.message = try? container.decode(String.self, forKey: .message)
         self.errors = try? container.decode([LeoApiError].self, forKey: .errors)
     }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(self.rawCode, forKey: .code)
-        try? container.encode(self.errors, forKey: .errors)
-        try? container.encode(self.message, forKey: .message)        
-    }
     
     mutating public func configureWithResponse(_ moyaResponse: Moya.Response) {
         self.statusCode = moyaResponse.statusCode

@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct AccountStatus: Codable {
+struct AccountStatus: Decodable {
     let signUp: Bool
 }

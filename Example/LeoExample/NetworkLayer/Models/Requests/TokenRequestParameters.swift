@@ -22,7 +22,7 @@ struct MetaParameters: Codable {
     }
 }
 
-struct TokenRequestParameters: Codable {
+struct TokenRequestParameters: Encodable {
     var code: String?
     var phone: String?
     var meta: MetaParameters

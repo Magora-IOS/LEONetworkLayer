@@ -8,6 +8,6 @@
 
 import Foundation
 
-class NewsResponse: Codable {
+class NewsResponse: Decodable {
     var news: NewsDTO
 }

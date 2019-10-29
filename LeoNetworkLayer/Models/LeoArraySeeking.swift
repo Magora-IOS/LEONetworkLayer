@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class LeoArraySeeking<T>: LeoArray<T> where T: Codable {
+open class LeoArraySeeking<T>: LeoArray<T> where T: Decodable {
     public var nextCursor: String
     public var prevCursor: String
     public var total: Int?
@@ -25,14 +25,6 @@ open class LeoArraySeeking<T>: LeoArray<T> where T: Codable {
         self.prevCursor = try container.decode(String.self, forKey: .prevCursor)
         self.total = try? container.decode(Int.self, forKey: .total)
         try super.init(from: decoder)
-    }
-    
-    open override func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(self.nextCursor, forKey: .nextCursor)
-        try container.encode(self.prevCursor, forKey: .prevCursor)
-        try? container.encode(self.total, forKey: .total)
-        try super.encode(to: container.superEncoder())
     }
 }
 

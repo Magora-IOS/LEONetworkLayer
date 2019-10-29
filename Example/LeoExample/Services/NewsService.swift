@@ -24,7 +24,7 @@ class NewsService: INewsService {
         self.tokenManager = tokenManager
     }
 
-    func requestMap<T: Codable>(_ input: T.Type, target: NewsTarget, mock: Bool = false) -> Single<T> {
+    func requestMap<T: Decodable>(_ input: T.Type, target: NewsTarget, mock: Bool = false) -> Single<T> {
         let provider = mock ? mockNewsProvider : newsProvider
         return provider.rx.request(target).map(T.self).catchError({ error in
             return Single.error(NewsServiceError.commonError(error))

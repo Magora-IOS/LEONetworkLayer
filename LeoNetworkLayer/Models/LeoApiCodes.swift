@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum LeoApiCodes: String, Codable {
+public enum LeoApiCodes: String, Decodable {
 
     case invalidAuthData = "sec.invalid_auth_data"
     case loginShouldBeConfirmed = "sec.login_should_be_confirmed"

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum LeoCode: String, Codable {
+public enum LeoCode: String, Decodable {
     case success = "success"
     case businessConflict = "business_conflict"
     case unprocessableEntity = "unprocessable_entity"

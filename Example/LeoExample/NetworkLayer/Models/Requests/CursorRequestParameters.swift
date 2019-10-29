@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CursorRequestParameters: Codable {
+struct CursorRequestParameters: Encodable {
     var page: Int? = 0
     var pageSize: Int? = 10
 }

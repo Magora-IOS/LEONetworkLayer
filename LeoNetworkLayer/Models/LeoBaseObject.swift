@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct LeoBaseObject: Codable {
+public struct LeoBaseObject: Decodable {
     public var code: LeoCode
 
     public var success: Bool {

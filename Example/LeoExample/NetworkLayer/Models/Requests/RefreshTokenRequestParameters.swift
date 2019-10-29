@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RefreshTokenRequestParameters: Codable {
+struct RefreshTokenRequestParameters: Encodable {
     let refreshToken: String
     
     init(refreshToken: String) {

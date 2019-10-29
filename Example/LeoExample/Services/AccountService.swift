@@ -31,7 +31,7 @@ class AccountService: IAccountService {
     lazy private var accountProvider = LeoProviderFactory<AuthentificationTarget>().makeProvider(tokenManager: self)
     lazy private var mockAccountProvider = LeoProviderFactory<AuthentificationTarget>().makeProvider(mockType: .delayed(seconds: 0.5))
 
-    func requestMap<T: Codable>(_ input: T.Type, target: AuthentificationTarget, mock: Bool = false) -> Single<T> {
+    func requestMap<T: Decodable>(_ input: T.Type, target: AuthentificationTarget, mock: Bool = false) -> Single<T> {
         let provider = mock ? mockAccountProvider : accountProvider
         return provider.rx.request(target).map(T.self).catchError({ error in
             let serviceError = AccountServiceError.convertError(error)
