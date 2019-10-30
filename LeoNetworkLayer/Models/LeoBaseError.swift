@@ -18,6 +18,7 @@ public struct LeoBaseError: ILeoError, Decodable {
     public var statusCode: Int?
     public var request: URLRequest?
     public var response: URLResponse?
+    public var data: Data?
 
     private enum CodingKeys: String, CodingKey {
         case code
@@ -49,6 +50,7 @@ public struct LeoBaseError: ILeoError, Decodable {
         self.leoStatusCode = moyaResponse.leoStatusCode
         self.request = moyaResponse.request
         self.response = moyaResponse.response
+        self.data = moyaResponse.data
     }
     
     public static func from(_ leoStatusCode: LeoStatusCode) -> LeoBaseError? {
