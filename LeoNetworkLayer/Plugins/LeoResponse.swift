@@ -70,8 +70,6 @@ extension Response: ILeoResponse {
                     if let json = try? self.mapJSON(failsOnEmptyData: false) as? [String: AnyObject] {
                         if let jsonData = json[DataKey.data.rawValue] {
                             if jsonData is NSNull {
-                                let dataResponse = Response(statusCode: self.statusCode, data: Data(), request: self.request,  response: self.response)
-                                result = .success(dataResponse)
                             } else {
                                 if let newData = try? JSONSerialization.data(withJSONObject: jsonData, options: .prettyPrinted) {
                                     let dataResponse = Response(statusCode: self.statusCode, data: newData, request: self.request,  response: self.response)
@@ -79,6 +77,11 @@ extension Response: ILeoResponse {
                                 }
                             }
                         }
+                    }
+                    
+                    if result == nil {
+                        let dataResponse = Response(statusCode: self.statusCode, data: Data(), request: self.request,  response: self.response)
+                        result = .success(dataResponse)
                     }
                 }
             }
