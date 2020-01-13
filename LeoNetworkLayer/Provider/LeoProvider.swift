@@ -74,11 +74,11 @@ open class LeoProviderFactory<T: TargetType> {
     }
 }
 
-private class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.TargetType {
+open class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.TargetType {
 
     var tokenManager: ILeoTokenManager?
     
-    override func request(_ target: Target, callbackQueue: DispatchQueue? = .none, progress: ProgressBlock? = .none, completion: @escaping Completion) -> Cancellable {
+    override open func request(_ target: Target, callbackQueue: DispatchQueue? = .none, progress: ProgressBlock? = .none, completion: @escaping Completion) -> Cancellable {
         if let tokenManer = self.tokenManager {
             var attempts = tokenManer.numberRefreshTokenAttempts
             if attempts > 10 {

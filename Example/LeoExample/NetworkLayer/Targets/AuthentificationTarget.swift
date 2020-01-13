@@ -45,10 +45,10 @@ extension AuthentificationTarget: ILeoTargetType {
         }
     }
 
-    var authorizationType: AuthorizationType {
+    var authorizationType: AuthorizationType? {
         switch self {
         case .sendPhone, .login, .refreshToken:
-            return .none
+            return nil
         default:
             return self.defaultLeoAuthorization
         }

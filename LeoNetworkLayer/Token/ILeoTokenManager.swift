@@ -5,7 +5,7 @@ public protocol ILeoTokenManager {
     /**
      Returns the access token
      */
-    func getAccessToken() -> String
+    func getAccessToken(authorizationType: AuthorizationType) -> String
 
     /**
      Get and update access and refresh tokens.

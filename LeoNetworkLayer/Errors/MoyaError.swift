@@ -12,7 +12,7 @@ import Alamofire
 
 extension MoyaError {
 
-    func leoConverter() -> MoyaError {
+    public func leoConverter() -> MoyaError {
         if case MoyaError.underlying(let error, let response) = self {
             
             var currentError = error

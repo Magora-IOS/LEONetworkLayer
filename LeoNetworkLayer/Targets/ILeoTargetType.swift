@@ -23,7 +23,7 @@ public extension ILeoTargetType {
         return .bearer
     }
     
-    var authorizationType: AuthorizationType {
+    var authorizationType: AuthorizationType? {
         return defaultLeoAuthorization
     }
 }

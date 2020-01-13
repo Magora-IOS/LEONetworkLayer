@@ -128,7 +128,7 @@ extension AccountService: ILeoTokenManager {
         return 3
     }
 
-    func getAccessToken() -> String {
+    func getAccessToken(authorizationType: AuthorizationType) -> String {
         return (accountStorage.accessToken ?? "")
     }
 
