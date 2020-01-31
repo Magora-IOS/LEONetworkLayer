@@ -42,6 +42,10 @@ extension AccountServiceError: ILeoLocalizedError {
 
 extension AccountServiceError {
     static func convertError(_ error: Error) -> AccountServiceError {
+        if let serviceError = error as? AccountServiceError {
+            return serviceError
+        }
+        
         if let baseLeoError = error.baseLeoError {
             if let anyAPiError = baseLeoError.errors?.first {
                 switch anyAPiError.rawCode {

@@ -14,8 +14,16 @@ enum NewsTarget {
     case getNews(cursor: CursorRequestParameters)
 }
 
-extension NewsTarget: ILeoTargetType {
-
+extension NewsTarget: ILeoTargetType, ILeoCachePolicy {
+    var cachePolicy: URLRequest.CachePolicy {
+        switch self {
+        case .getOneNews:
+            return .returnCacheDataElseLoad
+        default:
+            return .useProtocolCachePolicy
+        }
+    }
+    
     var path: String {
         switch self {
         case .getOneNews(let id): return "news/\(id)"
@@ -54,4 +62,5 @@ extension NewsTarget: ILeoTargetType {
         }
     }
 }
+
 

@@ -27,7 +27,6 @@ class NewsCell: UITableViewCell {
 
     func configureWithNews(_ news: News?) {
         self.titleLabel.text = news?.title
-        self.dateLabel.text = news?.createDate?.dateTimeNewsFormat
-        self.descriptionLabel.attributedText = news?.description?.htmlCentered()
+        self.dateLabel.text = news?.createDate?.dateTimeNewsFormat        
     }
 }

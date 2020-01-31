@@ -48,7 +48,7 @@ class AccountService: IAccountService {
     }
 
     func sendPhone(phone: String) -> Single<AccountStatus> {
-        var parameters = SendPhoneRequestParameters(phone: phone)
+        let parameters = SendPhoneRequestParameters(phone: phone)
         return requestMap(AccountStatus.self, target: .sendPhone(parameters))
     }
 

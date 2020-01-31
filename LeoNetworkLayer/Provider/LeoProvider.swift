@@ -47,7 +47,7 @@ open class LeoProviderFactory<T: TargetType> {
 
     private func makeLeoPlugins(tokenManager: ILeoTokenManager?) -> [PluginType] {
         let leoPlugin = LeoPlugin(tokenManager: tokenManager)
-        return [leoPlugin]
+        return [LeoCachePlugin(), leoPlugin]
     }
 
     private func makeConfiguration(timeoutForRequest: TimeInterval = 20.0, timeoutForResponse: TimeInterval = 40.0) -> URLSessionConfiguration {
