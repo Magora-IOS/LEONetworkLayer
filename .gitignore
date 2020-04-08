@@ -1,5 +1,12 @@
-# Xcode
+## OS X files
+.DS_Store
+.DS_Store?
+.Trashes
+.Spotlight-V100
+*.swp
 
+
+# Xcode
 ## Build generated
 build/
 DerivedData/
@@ -16,10 +23,12 @@ DerivedData/
 xcuserdata/
 
 ## Other
-*.moved-aside
 *.xccheckout
+*.moved-aside
+*.xcuserstate
 *.xcscmblueprint
 .idea/
+firebase-debug.log
 
 ## Obj-C/Swift specific
 *.hmap
@@ -33,3 +42,8 @@ xcuserdata/
 # CocoaPods
 Pods/
 Podfile.lock
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+squad/Gemfile.lock
