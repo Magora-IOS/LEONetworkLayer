@@ -33,7 +33,7 @@ open class LeoProviderFactory<T: TargetType> {
 
         let configuration = makeConfiguration(timeoutForRequest: timeoutForRequest, timeoutForResponse: timeoutForResponse)
 
-        return makeProvider(tokenManager: tokenManager, mockType: mockType, consoleLogging: consoleLogging, callbackQueue: callbackQueue, customConfiguration: configuration)
+        return makeProvider(tokenManager: tokenManager, mockType: mockType, consoleLogging: consoleLogging, callbackQueue: callbackQueue, plugins: plugins, customConfiguration: configuration)
     }
 
     private func makeTokenPlugins(tokenManager: ILeoTokenManager?) -> [PluginType] {
