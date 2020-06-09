@@ -76,7 +76,7 @@ open class LeoProviderFactory<T: TargetType> {
 
 open class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.TargetType {
 
-    var tokenManager: ILeoTokenManager?
+    public var tokenManager: ILeoTokenManager?
     
     override open func request(_ target: Target, callbackQueue: DispatchQueue? = .none, progress: ProgressBlock? = .none, completion: @escaping Completion) -> Cancellable {
         if let tokenManer = self.tokenManager {

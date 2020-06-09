@@ -34,6 +34,7 @@
 		9AF71DDC231E480A00588795 /* LeoToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF71DDB231E480900588795 /* LeoToken.swift */; };
 		9AF71DFC231F5F1C00588795 /* LeoStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF71DFB231F5F1C00588795 /* LeoStatusCode.swift */; };
 		B0CC591351593EB6F898646B /* libPods-LeoNetworkLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C0C38FF3D0FE8A9B23CB66A /* libPods-LeoNetworkLayer.a */; };
+		F9FF92F7248FB8E400775DA0 /* LeoCachePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FF92F6248FB8E400775DA0 /* LeoCachePlugin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		9AF71DDB231E480900588795 /* LeoToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoToken.swift; sourceTree = "<group>"; };
 		9AF71DFB231F5F1C00588795 /* LeoStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoStatusCode.swift; sourceTree = "<group>"; };
 		C5DEDE0B4EE2B82B4F0ACC4F /* Pods-LeoNetworkLayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeoNetworkLayer.debug.xcconfig"; path = "Target Support Files/Pods-LeoNetworkLayer/Pods-LeoNetworkLayer.debug.xcconfig"; sourceTree = "<group>"; };
+		F9FF92F6248FB8E400775DA0 /* LeoCachePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeoCachePlugin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		9AEB973F22EEA6E20060E6F8 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				F9FF92F6248FB8E400775DA0 /* LeoCachePlugin.swift */,
 				9AEB976522EEFE2B0060E6F8 /* LeoResponse.swift */,
 				9AEB976322EEFDC60060E6F8 /* LeoPlugin.swift */,
 				9AF71DFB231F5F1C00588795 /* LeoStatusCode.swift */,
@@ -328,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9FF92F7248FB8E400775DA0 /* LeoCachePlugin.swift in Sources */,
 				9A2E5C1522F4487D0073B551 /* LeoApiError.swift in Sources */,
 				9AEB975A22EEEB860060E6F8 /* Error+LeoError.swift in Sources */,
 				9AF71DDC231E480A00588795 /* LeoToken.swift in Sources */,
