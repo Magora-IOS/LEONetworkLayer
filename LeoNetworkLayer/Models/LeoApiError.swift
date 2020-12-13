@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct LeoApiError: Decodable {
+public struct LeoApiError: Decodable, Error {
     public let code: LeoApiCodes
     public let rawCode: String
     public let message: String?

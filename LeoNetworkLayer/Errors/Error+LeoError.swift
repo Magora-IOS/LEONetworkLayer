@@ -17,11 +17,11 @@ public extension Error {
         return nil
     }
 
-    var leoError: ILeoError? {
+    var leoError: IBaseError? {
         return self.toLeoError()
     }
     
-    private func toLeoError() -> ILeoError? {
+    private func toLeoError() -> IBaseError? {
         return LeoError.leoErrorFrom(self)
     }
     
@@ -33,9 +33,9 @@ public extension Error {
     }
 
     var baseLeoError: LeoBaseError? {
-        if let baseError = self.toLeoError() as? LeoProviderError {
-            if case .leoBaseError(let leoBaseError) = baseError {
-                return leoBaseError
+        if let providerError = self.toLeoError() as? LeoProviderError {
+            if providerError.errorCode.hasState(.leoBaseError) {
+                return providerError.underlyingError as? LeoBaseError
             }
         }
         return nil
@@ -45,7 +45,7 @@ public extension Error {
 internal extension Error {
     var isAccessTokenSecurityError: Bool {
         if let providerError = self.leoError as? LeoProviderError {
-            if case .securityError = providerError {
+            if providerError.errorCode.hasState(.securityError) {
                 return true
             }
         }

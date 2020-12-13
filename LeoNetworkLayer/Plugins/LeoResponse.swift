@@ -24,10 +24,13 @@ extension Response: ILeoResponse {
         return LeoStatusCode.valueFrom(self.statusCode)
     }
     
+    
+    
     public func checkServerError() -> Result<Response, MoyaError>? {
         var result: Result<Response, MoyaError>? = nil
-        if case .internalError = self.leoStatusCode {
-            result = .failure(MoyaError.underlying(LeoProviderError.serverError, self))
+        if self.leoStatusCode.hasState(.internalError) {
+            let serverError = LeoProviderError(code: .serverError)
+            result = .failure(MoyaError.underlying(serverError, self))
         }
         return result
     }
@@ -41,21 +44,25 @@ extension Response: ILeoResponse {
                 result = nil
             default:
                 if var baseError = try? self.map(LeoBaseError.self) {
-                    baseError.configureWithResponse(self)
-                    result = .failure(MoyaError.underlying(LeoProviderError.leoBaseError(baseError), self))
+                    baseError.configureWithResponse(self)                                    
+                    let leoBaseError = LeoProviderError(code: .leoBaseError, underlyingError: baseError)
+                    result = .failure(MoyaError.underlying(leoBaseError, self))
                 } else {
-                    result = .failure(MoyaError.underlying(LeoProviderError.badLeoResponse, self))
+                    let badLeoResponseError = LeoProviderError(code: .badLeoResponse)
+                    result = .failure(MoyaError.underlying(badLeoResponseError, self))
                 }
             }
         }
 
         if result == nil {
-            if case .securityError = leoStatusCode {
-                result = .failure(MoyaError.underlying(LeoProviderError.securityError, self))
+            if leoStatusCode.hasState(.securityError) {
+                let securityError = LeoProviderError(code: .securityError)
+                result = .failure(MoyaError.underlying(securityError, self))
             } else {
                 if var leoBaseError = LeoBaseError.from(leoStatusCode) {
                     leoBaseError.configureWithResponse(self)
-                    result = .failure(MoyaError.underlying(LeoProviderError.leoBaseError(leoBaseError), self))
+                    let error = LeoProviderError(code: .leoBaseError, underlyingError: leoBaseError)
+                    result = .failure(MoyaError.underlying(error, self))
                 }
             }
         }
@@ -87,7 +94,8 @@ extension Response: ILeoResponse {
             }
 
             if result == nil {
-                result = .failure(MoyaError.underlying(LeoProviderError.badLeoResponse, self))
+                let badResultError = LeoProviderError(code: .badLeoResponse)
+                result = .failure(MoyaError.underlying(badResultError, self))
             }
         }
         return result

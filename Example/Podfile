@@ -11,11 +11,11 @@ target 'LeoExample' do
   pod 'RxCocoa', '~> 5.0.0'
 
   # Networking
-  pod 'LEONetworkLayer', '~> 1.0.9'
-  #pod 'LEONetworkLayer', :path => '../' 
+  #pod 'LEONetworkLayer', '~> 1.0.9'
+  pod 'LEONetworkLayer', :path => '../' 
 
   # Helpers
-  pod 'KeychainSwift', '~> 16.0'
+  pod 'KeychainSwift', '~> 19.0'
 
   # UI
   pod 'UIScrollView-InfiniteScroll', '~> 1.1.0'

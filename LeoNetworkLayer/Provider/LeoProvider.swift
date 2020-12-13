@@ -117,7 +117,7 @@ open class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.TargetTy
             case .failure(let error):
                 
                 guard
-                    let `self` = self,
+                    let `self` = self,                    
                     let tokenManager = self.tokenManager,
                     self.checkAuthorization(target: target),
                     error.isAccessTokenSecurityError else {
@@ -125,7 +125,9 @@ open class LeoProvider<Target>: MoyaProvider<Target> where Target: Moya.TargetTy
                     return
                 }
                 
-                let failedResult: Result<Response, MoyaError> = .failure(MoyaError.underlying(LeoProviderError.refreshTokenFailed, nil))
+                let tokenError = LeoProviderError(code: .refreshTokenFailed)
+                
+                let failedResult: Result<Response, MoyaError> = .failure(MoyaError.underlying(tokenError, nil))
                 
                 var attemptsLeft = attempts
                 let getNewTokens = tokenManager.getNewTokens()

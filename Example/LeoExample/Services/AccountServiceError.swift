@@ -9,18 +9,25 @@
 import Foundation
 import LEONetworkLayer
 
-enum AccountServiceError: ILeoError {
-    case noTokenError
-    case noAuthDataError
-    case codeExpired(LeoApiError)
-    case invalidSmsCode(LeoApiError)
-    case apiError(LeoApiError)
-    case commonError(Error)
+enum AccountServiceErrorCode: Int, IBaseErrorCode {
+    case noTokenError = 0
+    case noAuthDataError = 1
+    case codeExpired = 2//(LeoApiError)
+    case invalidSmsCode = 3//(LeoApiError)
+    case apiError = 4 //(LeoApiError)
+    case otherError = 5 //(Error)
 }
+
+class AccountServiceError: BaseError <AccountServiceErrorCode> {
+    public override var domainShortname: String {
+        "ASE"
+    }
+}
+
 
 extension AccountServiceError: ILeoLocalizedError {
     var info: (title: String, description: String?) {
-        switch self {
+        switch self.errorCode {
         case .noTokenError:
             return (title: L10n.Errors.AccountService.commonTitle, description: L10n.Errors.AccountService.TokenFailed.description)
         case .noAuthDataError:
@@ -29,11 +36,11 @@ extension AccountServiceError: ILeoLocalizedError {
             return (title: L10n.Errors.AccountService.commonTitle, description: L10n.Errors.AccountService.CodeExpired.description)
         case .invalidSmsCode:
             return (title: L10n.Errors.AccountService.commonTitle, description: L10n.Errors.AccountService.InvalidSmsCode.description)
-        case .apiError(let apiError):
-            return (title: apiError.message ?? "", description: nil)
-        case .commonError(let error):
-            if let leoError = error.localizedLeoError {
-                return leoError.info
+        case .apiError:
+            return (title: "apiError.message" ?? "", description: nil)
+        case .otherError:
+            if let localizedError = self.underlyingError as? ILeoLocalizedError {
+                return localizedError.info
             }
             return (title: L10n.Errors.Unknown.title, description: L10n.Errors.Unknown.description)
         }
@@ -48,17 +55,21 @@ extension AccountServiceError {
         
         if let baseLeoError = error.baseLeoError {
             if let anyAPiError = baseLeoError.errors?.first {
+                var apiError: AccountServiceErrorCode = .apiError
                 switch anyAPiError.rawCode {
                 case "sec.invalid_code":
-                    return .invalidSmsCode(anyAPiError)
+                    apiError = .invalidSmsCode
                 case "code_expired":
-                    return .codeExpired(anyAPiError)
+                    apiError = .codeExpired
                 default:
-                    return .apiError(anyAPiError)
+                    apiError = .apiError
                 }
+                
+                return AccountServiceError(code: apiError, underlyingError: anyAPiError)
             }
         }
-        return .commonError(error)
+        
+        return AccountServiceError(code: .otherError, underlyingError: error)
     }
 }
 

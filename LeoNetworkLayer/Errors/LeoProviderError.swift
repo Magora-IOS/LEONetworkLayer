@@ -9,15 +9,20 @@
 import Foundation
 import Moya
 
-public enum LeoProviderError: ILeoError {
-    case serverError
-    case securityError
-    case badLeoResponse
-    case leoBaseError(LeoBaseError)
-    case timeoutError(URLError)
-    case connectionFailed(URLError)
-    case refreshTokenFailed
-    case moyaError(MoyaError)
+public enum LeoProviderErrorCode: Int, IBaseErrorCode {
+    case serverError = 0
+    case securityError = 1
+    case badLeoResponse = 2
+    case leoBaseError = 3
+    case timeoutError = 4
+    case connectionFailed = 5
+    case refreshTokenFailed = 6
+    case moyaError = 7
 }
 
+public class LeoProviderError: BaseError <LeoProviderErrorCode> {
+    public override var domainShortname: String {
+        "PRVE"
+    }
+}
 

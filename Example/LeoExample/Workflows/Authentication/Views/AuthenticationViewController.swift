@@ -88,7 +88,7 @@ class AuthenticationViewController: UIViewController {
                 .controlEvent(.editingChanged)
                 .withLatestFrom(self.numberField.rx.text)
                 .map({ [unowned self] text in
-                    let result = text?.left(10) ?? ""
+                    let result = text?.left(Constants.phoneNumbersLimit) ?? ""
                     self.numberField.text = result
                     return result
                 })

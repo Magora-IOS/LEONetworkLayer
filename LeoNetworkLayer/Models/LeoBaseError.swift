@@ -9,7 +9,7 @@
 import Foundation
 import Moya
 
-public struct LeoBaseError: ILeoError, Decodable {
+public struct LeoBaseError: Error, Decodable {
     public let code: LeoCode
     public let rawCode: String
     public let message: String?

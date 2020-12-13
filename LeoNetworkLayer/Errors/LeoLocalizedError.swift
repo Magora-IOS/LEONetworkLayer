@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol ILeoLocalizedError: ILeoError {
+public protocol ILeoLocalizedError {
     var info: (title: String, description: String?) { get }
 }
 
@@ -29,5 +29,4 @@ public extension ILeoLocalizedError {
         }
         return result
     }
-
 }
