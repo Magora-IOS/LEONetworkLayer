@@ -16,7 +16,7 @@ LEONetworkLayer is available through [CocoaPods](http://cocoapods.org). To insta
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'LEONetworkLayer', '~> 1.0.9'
+pod 'LEONetworkLayer', '~> 2.0'
 ```
 
 ### LeoNetwork version vs RxSwift version.
@@ -26,12 +26,12 @@ your RxSwift version.
 
 | LeoNetwork  | Swift | RxSwift | Moya          | RxMoya          |
 | ----------- | ----- | ------- | ------------- |---------------- |
-| 1.0.1-1.0.9 | 5.X   | 5.X     | >= 14.0.0     | >= 14.0.0       |
+| 1.0.1-2.0   | 5.X   | 5.X     | >= 14.0.0     | >= 14.0.0       |
 | 1.0.0       | 5.X   | 4.0-4.5 | 13.0.0-13.0.1 | 13.0.0-13.0.1   |
 
 ## Author
 Yuriy Savitskiy
 
 ## License
-MIT License. Copyright (c) 2019 Magora Systems
+MIT License. Copyright (c) 2020 Magora Systems
 
