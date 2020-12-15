@@ -9,18 +9,21 @@
 import Foundation
 import LEONetworkLayer
 
-enum NewsServiceError: ILeoError {
-    case commonError(Error)
+enum NewsServiceErrorCode: Int, IBaseErrorCode {
+    case otherError = 0
+}
+
+class NewsServiceError: BaseError<NewsServiceErrorCode> {
+    public override var domainShortname: String {
+        "NSE"
+    }
 }
 
 extension NewsServiceError: ILeoLocalizedError {
     var info: (title: String, description: String?) {
-        switch self {
-        case .commonError(let error):
-            if let leoError = error.localizedLeoError {
-                return leoError.info
-            }
-            return (title: L10n.Errors.Unknown.title, description: L10n.Errors.Unknown.description)
+        switch self.errorCode {
+        case .otherError:
+            return self.underlyingLocalizedInfo()
         }
     }
 }

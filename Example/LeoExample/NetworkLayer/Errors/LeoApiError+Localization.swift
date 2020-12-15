@@ -2,15 +2,14 @@
 //  LeoApiError+Localization.swift
 //  LeoExample
 //
-//  Created by Yuriy Savitskiy on 8/1/19.
-//  Copyright © 2019 Yuriy Savitskiy. All rights reserved.
+//  Created by Yuriy Savitskiy on 12/16/20.
+//  Copyright © 2020 Yuriy Savitskiy. All rights reserved.
 //
 
-import Foundation
 import LEONetworkLayer
 
-extension LeoBaseError: ILeoLocalizedError {
+extension LeoApiError: ILeoLocalizedError {
     public var info: (title: String, description: String?) {
-        return (title: self.rawCode, description: self.message)
+        return (title: self.message ?? L10n.Errors.Unknown.title, description: nil)
     }
 }

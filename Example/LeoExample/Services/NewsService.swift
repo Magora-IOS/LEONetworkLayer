@@ -27,7 +27,8 @@ class NewsService: INewsService {
     func requestMap<T: Decodable>(_ input: T.Type, target: NewsTarget, mock: Bool = false) -> Single<T> {
         let provider = mock ? mockNewsProvider : newsProvider
         return provider.rx.request(target).map(T.self).catchError({ error in
-            return Single.error(NewsServiceError.commonError(error))
+            let newsServiceError = NewsServiceError(code: .otherError, underlyingError: error)
+            return Single.error(newsServiceError)
         })
     }
 

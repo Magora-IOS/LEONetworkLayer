@@ -20,6 +20,8 @@ extension MoyaError: ILeoLocalizedError {
         case .jsonMapping(_):
             result.title = L10n.Errors.Moya.Parsing.title
             result.description = L10n.Errors.Moya.Parsing.description
+        case .underlying(let underlyingError, _):
+            return underlyingError.localizedInfo()
         default:
             return (title: String(describing: self), description: self.localizedDescription)
         }

@@ -9,7 +9,8 @@
 import Foundation
 
 public protocol ILeoLocalizedError {
-    var info: (title: String, description: String?) { get }
+    typealias LocalizedResult = (title: String, description: String?)
+    var info: LocalizedResult { get }
 }
 
 public extension ILeoLocalizedError {

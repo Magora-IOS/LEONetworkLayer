@@ -64,14 +64,14 @@ class AccountService: IAccountService {
                 self.accountStorage.accessToken = tokens.accessToken
                 self.accountStorage.refreshToken = tokens.refreshToken
             } else {
-                throw AccountServiceError.noTokenError
+                throw AccountServiceError(code: .noTokenError)
             }
 
             if let signInResponse = try? response.map(SignInResponse.self) {
                 self.accountStorage.userID = signInResponse.authInfo.userId
                 return .just(signInResponse)
             } else {
-                throw AccountServiceError.noAuthDataError
+                throw AccountServiceError(code: .noAuthDataError)
             }
         }).catchError({ error in
             let serviceError = AccountServiceError.convertError(error)
@@ -142,7 +142,7 @@ extension AccountService: ILeoTokenManager {
                         self?.accountStorage.accessToken = tokens.accessToken
                         self?.accountStorage.refreshToken = tokens.refreshToken
                     } else {
-                        throw AccountServiceError.noTokenError
+                        throw AccountServiceError(code: .noTokenError)
                     }
                 }).asCompletable()
         } else {

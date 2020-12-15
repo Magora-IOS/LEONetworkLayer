@@ -12,10 +12,10 @@ import LEONetworkLayer
 enum AccountServiceErrorCode: Int, IBaseErrorCode {
     case noTokenError = 0
     case noAuthDataError = 1
-    case codeExpired = 2//(LeoApiError)
-    case invalidSmsCode = 3//(LeoApiError)
-    case apiError = 4 //(LeoApiError)
-    case otherError = 5 //(Error)
+    case codeExpired = 2
+    case invalidSmsCode = 3
+    case apiError = 4
+    case otherError = 5
 }
 
 class AccountServiceError: BaseError <AccountServiceErrorCode> {
@@ -23,7 +23,6 @@ class AccountServiceError: BaseError <AccountServiceErrorCode> {
         "ASE"
     }
 }
-
 
 extension AccountServiceError: ILeoLocalizedError {
     var info: (title: String, description: String?) {
@@ -37,7 +36,7 @@ extension AccountServiceError: ILeoLocalizedError {
         case .invalidSmsCode:
             return (title: L10n.Errors.AccountService.commonTitle, description: L10n.Errors.AccountService.InvalidSmsCode.description)
         case .apiError:
-            return (title: "apiError.message" ?? "", description: nil)
+            return self.underlyingLocalizedInfo()
         case .otherError:
             if let localizedError = self.underlyingError as? ILeoLocalizedError {
                 return localizedError.info
