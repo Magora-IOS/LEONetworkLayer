@@ -8,7 +8,7 @@ target 'LeoExample' do
 
   # General
   pod 'BaseCoordinator', '~> 1.0.1'
-  pod 'RxCocoa', '~> 5.0.0'
+  pod 'RxCocoa', '~> 5.1'
 
   # Networking
   pod 'LEONetworkLayer', '~> 2.0'
