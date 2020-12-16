@@ -38,10 +38,7 @@ extension AccountServiceError: ILeoLocalizedError {
         case .apiError:
             return self.underlyingLocalizedInfo()
         case .otherError:
-            if let localizedError = self.underlyingError as? ILeoLocalizedError {
-                return localizedError.info
-            }
-            return (title: L10n.Errors.Unknown.title, description: L10n.Errors.Unknown.description)
+            return self.underlyingLocalizedInfo()
         }
     }
 }
